@@ -1,6 +1,14 @@
 @import 'variables';
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-  }
+  box-sizing: border-box;
+  margin: 0;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  border-radius: 6px;
+}
