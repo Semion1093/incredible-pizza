@@ -1,0 +1,51 @@
+@import '../../../../variables';
+
+.filter {
+  width: 520px;
+  height: auto;
+  margin-left: auto;
+
+  .filter-group {
+    padding-left: 20px;
+    max-width: 470px;
+    padding-bottom: 24px;
+
+    h4 {
+      font-family: SFProTextRegular;
+      color: #a5a5a5;
+      font-size: 16px;
+      line-height: 22px;
+      padding-bottom: 12px;
+    }
+
+    .filter-items {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+  }
+
+  .result-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 12px 20px 12px 20px;
+
+    .result-button {
+      width: 230px;
+      padding: 13px 40px 13px 40px;
+      justify-content: center;
+      background-color: $background-color-white;
+      border: 1px solid $primary-color;
+      font-family: SFProTextRegular;
+      color: $primary-color;
+      font-size: 16px;
+      line-height: 22px;
+
+      &.fill {
+        background-color: $primary-color;
+        color: $background-color-white;
+      }
+    }
+  }
+}
