@@ -1,7 +1,17 @@
+$first-font: 'SFProTextRegular', sans-serif;
+$first-font-semibold: 'SFProTextSemibold', sans-serif;
+$second-font: 'InterRegular', sans-serif;
+$second-font-semibold: 'InterSemibold', sans-serif;
+
 $primary-color: #ff7010;
 $primary-color-light: #ffeee2;
-$background-color-grey: #f9f9f9;
-$background-color-white: #fff;
+
+$font-color-black: #191919;
+$font-color-white: #ffffff;
+
+$background-color-gray: #f9f9f9;
+$background-color-white: #ffffff;
+$border-color-gray: #f0f0f0;
 
 @font-face {
   font-family: 'InterRegular';
