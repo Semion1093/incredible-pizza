@@ -4,7 +4,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
-    
+    margin: 0 auto;
+    max-width: 1290px;
     
     figure{
         display: flex;
@@ -12,7 +13,6 @@
         justify-content: flex-end;
         height: 343px;
         width: 300px;
-        margin: 10px 10px;
         position: relative;
         
         img {
@@ -24,6 +24,11 @@
             margin-left: 20px;
             margin-right: 40px;
             margin-bottom: 40px;
+
+            color: $primary-color-white;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 28px;
         }
     }
 }

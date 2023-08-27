@@ -1,7 +1,24 @@
 $primary-color: #ff7010;
 $primary-color-light: #ffeee2;
 $background-color-grey: #f9f9f9;
-$background-color-white: #fff;
+$primary-color-white: #fff;
+$font-color-black: #191919;
+$font-color-grey :#A5A5A5;
+$border-color-line-gray: #F0F0F0;
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/Inter-Regular.otf'), url('./fonts/Inter-SemiBold.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('./fonts/SFProText-Regular.ttf'), url('./fonts/SFProText-Semibold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
   font-family: 'InterRegular';
