@@ -1,0 +1,36 @@
+@import '../../../variables';
+
+.description {
+  max-width: 850px;
+  margin: 0 auto;
+
+  h2 {
+    font-family: InterSemibold;
+    color: #191919;
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  p {
+    padding: 16px 0 16px 0;
+    font-family: SFProTextRegular;
+    color: #191919;
+    font-size: 16px;
+    line-height: 22px;
+    background: linear-gradient(to top, transparent 5%, #191919);
+    background-clip: text;
+    color: transparent;
+  }
+
+  button {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: $primary-color;
+    font-family: InterRegular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+  }
+}
