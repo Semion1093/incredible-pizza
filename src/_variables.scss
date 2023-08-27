@@ -17,26 +17,26 @@ $border-color-gray: #f0f0f0;
   font-family: 'InterRegular';
   src:
     local('Inter-Regular'),
-    url(./fonts/Inter-Regular.otf) format('otf');
+    url(./fonts/Inter-Regular.otf) format('truetype');
 };
 
 @font-face {
   font-family: 'InterSemibold';
   src:
     local('Inter-SemiBold'),
-    url(./fonts/Inter-SemiBold.otf) format('otf');
+    url(./fonts/Inter-SemiBold.otf) format('truetype');
 };
 
 @font-face {
   font-family: 'SFProTextRegular';
   src:
     local('SFProText-Regular'),
-    url(./fonts/SFProText-Regular.ttf) format('ttf');
+    url(./fonts/SFProText-Regular.ttf) format('truetype');
 };
 
 @font-face {
   font-family: 'SFProTextSemibold';
   src:
     local('SFProText-Semibold'),
-    url(./fonts/SFProText-Semibold.ttf) format('ttf');
+    url(./fonts/SFProText-Semibold.ttf) format('truetype');
 };
