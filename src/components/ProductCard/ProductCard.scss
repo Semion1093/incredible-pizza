@@ -1,6 +1,7 @@
 @import '../../variables';
 
 .product-card {
+  position: relative;
   display: grid;
   padding-bottom: 0px;
   align-items: flex-start;
