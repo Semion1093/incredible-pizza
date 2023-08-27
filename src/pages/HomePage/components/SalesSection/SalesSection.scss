@@ -1,34 +1,33 @@
 @import '../../../../variables';
 
 .SalesSection {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    justify-items: center;
-    margin: 0 auto;
-    max-width: 1290px;
-    
-    figure{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        height: 343px;
-        width: 300px;
-        position: relative;
-        
-        img {
-            position: absolute;
-        }
-        
-        figcaption {
-            position: relative;
-            margin-left: 20px;
-            margin-right: 40px;
-            margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+  margin: 0 auto;
+  max-width: 1290px;
+  margin-top: 30px;
 
-            color: $primary-color-white;
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 28px;
-        }
+  figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 343px;
+
+    img {
+      position: absolute;
     }
+
+    figcaption {
+      position: relative;
+      padding-left: 20px;
+      padding-right: 40px;
+      padding-bottom: 40px;
+
+      color: $primary-color-white;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 28px;
+    }
+  }
 }
