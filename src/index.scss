@@ -1,19 +1,6 @@
 @import 'variables';
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-button {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  gap: 8px;
-  border-radius: 6px;
-}
-
-.radio-group {
-  display: flex;
-  gap: 24px;
-}
+    box-sizing: border-box;
+    margin: 0;
+  }
