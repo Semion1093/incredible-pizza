@@ -53,12 +53,19 @@
     display: inline-flex;
     color: $font-color-white;
     font-family: $first-font-semibold;
-    padding: 13px 32px;
+    padding: 11px 30px;
     justify-content: center;
     align-items: center;
     gap: 10px;
     border-radius: 6px;
     background: $primary-color;
+    border: $primary-color 2px solid;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-color;
+      background: $font-color-white;
+    }
   }
 
   & .price {
