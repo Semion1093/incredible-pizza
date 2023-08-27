@@ -1,0 +1,33 @@
+@import '../../variables';
+
+input {
+  border-radius: 6px;
+  border: 1px solid #f0f0f0;
+  background: #fff;
+}
+
+input[type=text] {
+  padding: 12px 20px;
+  font-family: InterRegular;
+  color: #a5a5a5;
+  font-size: 14px;
+  line-height: 18px;
+  width: 100%;
+}
+
+input::placeholder {
+  font-family: InterRegular;
+  color: #a5a5a5;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+input:hover{
+  border: 1px solid $primary-color;
+}
+
+input:focus {
+  outline-style: none;
+  box-shadow: none;
+  border: 1px solid $primary-color;
+}

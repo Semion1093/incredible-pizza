@@ -1,11 +1,11 @@
 import './App.scss';
-import { HomePage } from './pages/HomePage/HomePage';
+import { OrderPage } from './pages/OrderPage/OrderPage';
 import React from 'react';
 
 export const App = () => {
   return (
     <>
-      <HomePage />
+      <OrderPage />
     </>
   );
 };
