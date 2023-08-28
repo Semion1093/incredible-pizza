@@ -109,6 +109,11 @@
       line-height: 22px;
     }
 
+    .arrow {
+      grid-area: arrow;
+      border: none;
+    }
+
     .address {
       grid-area: address;
       font-family: SFProTextRegular;

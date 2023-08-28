@@ -1,5 +1,6 @@
 import './AccountOrder.scss';
 import { AccountOrderItem } from '../AccountOrderItem/AccountOrderItem';
+import arrow from '../../../../assets/Arrow.svg';
 
 export function AccountOrder() {
   return (
@@ -18,6 +19,10 @@ export function AccountOrder() {
         <div className="price">399 ₽</div>
         <div className="status">Обрабатывается</div>
         <div className="paid">Картой</div>
+
+        <button className="arrow">
+          <img src={arrow} alt="arr" />
+        </button>
 
         <div className="delimiter"></div>
         <div className="address">ул. Львовская 48/2, офис 301, 2 этаж, домофон 4801#</div>
