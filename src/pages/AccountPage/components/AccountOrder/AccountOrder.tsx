@@ -1,28 +1,35 @@
 import './AccountOrder.scss';
+import { AccountOrderItem } from '../AccountOrderItem/AccountOrderItem';
 
 export function AccountOrder() {
   return (
-    <div className="box">
+    <div className="account-order">
       <div className="description">
+        <div className="indicator"></div>
+        <div className="order-header">Заказ</div>
+        <div className="price-header">Сумма заказа</div>
+        <div className="status-header">Статус</div>
+        <div className="paid-header">Оплачено</div>
+
         <div className="number-and-date">
-          <div className="header">Заказ</div>
           <div className="number">№130312</div>
           <div className="date">22.06.21</div>
         </div>
-        <div className="price">
-          <div className="header">Сумма заказа</div>
-          <div className="price_">399 ₽</div>
-        </div>
-        <div className="status">
-          <div className="header">Статус</div>
-          <div className="status_">Обрабатывается</div>
-        </div>
-        <div className="paid-by">
-          <div className="header">Оплачено</div>
-          <div className="paid-by_">Картой</div>
-        </div>
-        <div className="triangle"></div>
+        <div className="price">399 ₽</div>
+        <div className="status">Обрабатывается</div>
+        <div className="paid">Картой</div>
+
+        <div className="delimiter"></div>
+        <div className="address">ул. Львовская 48/2, офис 301, 2 этаж, домофон 4801#</div>
       </div>
+      <div className="delimiter"></div>
+      <div className="order-items">
+        <AccountOrderItem />
+        <AccountOrderItem />
+        <AccountOrderItem />
+      </div>
+      <div className="delimiter"></div>
+      <div className="repeat-order">Повторить заказ</div>
     </div>
   );
 }
