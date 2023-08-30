@@ -2,14 +2,14 @@
 
 input {
   border-radius: 6px;
-  border: 1px solid #f0f0f0;
-  background: #fff;
+  border: 1px solid $border-color-grey;
+  background: $background-color-white;
 }
 
 input[type=text] {
   padding: 12px 20px;
   font-family: InterRegular;
-  color: #a5a5a5;
+  color: $font-color-black;
   font-size: 14px;
   line-height: 18px;
   width: 100%;
@@ -17,7 +17,7 @@ input[type=text] {
 
 input::placeholder {
   font-family: InterRegular;
-  color: #a5a5a5;
+  color: $font-color-grey;
   font-size: 14px;
   line-height: 18px;
 }

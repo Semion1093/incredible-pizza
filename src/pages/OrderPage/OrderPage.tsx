@@ -12,7 +12,9 @@ export const OrderPage = () => {
       <Header />
       <Delimiter />
       <NavigationLinks show={false} />
-      <OrderDetails />
+      <div className="page-container">
+        <OrderDetails />
+      </div>
       <Footer />
     </>
   );

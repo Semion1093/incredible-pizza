@@ -3,7 +3,39 @@
 * {
   box-sizing: border-box;
   margin: 0;
+};
+
+.page-container {
+  background-color: $background-color-grey;
 }
+
+@font-face {
+  font-family: 'InterRegular';
+  src:
+    local('Inter-Regular'),
+    url(./fonts/Inter-Regular.otf) format('truetype');
+};
+
+@font-face {
+  font-family: 'InterSemibold';
+  src:
+    local('Inter-SemiBold'),
+    url(./fonts/Inter-SemiBold.otf) format('truetype');
+};
+
+@font-face {
+  font-family: 'SFProTextRegular';
+  src:
+    local('SFProText-Regular'),
+    url(./fonts/SFProText-Regular.ttf) format('truetype');
+};
+
+@font-face {
+  font-family: 'SFProTextSemibold';
+  src:
+    local('SFProText-Semibold'),
+    url(./fonts/SFProText-Semibold.ttf) format('truetype');
+};
 
 button {
   display: flex;
@@ -13,7 +45,74 @@ button {
   border-radius: 6px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .radio-group {
   display: flex;
   gap: 24px;
+
+  .radio-container {
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: SFProTextRegular;
+    color: #191919;
+    font-size: 16px;
+    line-height: 22px;
+    gap: 24px;
+  }
+
+  .radio-container input {
+    display: flex;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .dot {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    height: 16px;
+    width: 16px;
+    border: 1px solid $font-color-grey;
+    border-radius: 50%;
+  }
+
+  .radio-container:hover input~.dot {
+    display: block;
+  }
+
+  .radio-container input:checked~.dot {
+    background-color: $background-color-white;
+    border: 1px solid $primary-color;
+    transition: 2s;
+  }
+
+  .dot:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+
+  .radio-container input:checked~.dot:after {
+    display: block;
+  }
+
+  .radio-container .dot:after {
+    top: 3.5px;
+    left: 3.5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $primary-color;
+  }
 }
