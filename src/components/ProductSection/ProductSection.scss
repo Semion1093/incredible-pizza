@@ -1,0 +1,22 @@
+@import '../../variables';
+
+.product-section {
+  width: 1290px;
+  margin: 0 auto;
+}
+
+h2 {
+  color: $font-color-black;
+  font-family: $second-font;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  margin-bottom: 32px;
+}
+
+.product-section-content {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  gap: 30px;
+  flex-shrink: 0;
+}

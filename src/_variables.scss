@@ -1,51 +1,18 @@
+$first-font: 'SFProTextRegular', sans-serif;
+$first-font-semibold: 'SFProTextSemibold', sans-serif;
+$second-font: 'InterRegular', sans-serif;
+$second-font-semibold: 'InterSemibold', sans-serif;
+
 $primary-color: #ff7010;
 $primary-color-light: #ffeee2;
-$background-color-grey: #f9f9f9;
-$background-color-white: #fff;
-$font-color-black: #191919;
-$font-color-grey :#A5A5A5;
-$border-color-line-gray: #F0F0F0;
 $object-filter-color-gray: invert(79%) sepia(5%) saturate(16%) hue-rotate(344deg) brightness(84%) contrast(90%);
 $object-filter-color-orange: invert(55%) sepia(66%) saturate(3416%) hue-rotate(350deg) brightness(100%) contrast(106%);
 
-@font-face {
-  font-family: 'Inter';
-  src: url('./fonts/Inter-Regular.otf'), url('./fonts/Inter-SemiBold.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+$font-color-black: #191919;
+$font-color-white: #ffffff;
 
-@font-face {
-  font-family: 'SF Pro Text';
-  src: url('./fonts/SFProText-Regular.ttf'), url('./fonts/SFProText-Semibold.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+$background-color-gray: #f9f9f9;
+$background-color-white: #ffffff;
+$border-color-gray: #f0f0f0;
 
-@font-face {
-  font-family: 'InterRegular';
-  src:
-    local('Inter-Regular'),
-    url(./fonts/Inter-Regular.otf) format('truetype');
-};
-
-@font-face {
-  font-family: 'InterSemibold';
-  src:
-    local('Inter-SemiBold'),
-    url(./fonts/Inter-SemiBold.otf) format('truetype');
-};
-
-@font-face {
-  font-family: 'SFProTextRegular';
-  src:
-    local('SFProText-Regular'),
-    url(./fonts/SFProText-Regular.ttf) format('truetype');
-};
-
-@font-face {
-  font-family: 'SFProTextSemibold';
-  src:
-    local('SFProText-Semibold'),
-    url(./fonts/SFProText-Semibold.ttf) format('truetype');
-};
+$label-color: #E23535;
