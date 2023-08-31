@@ -1,49 +1,53 @@
 @import '../../../../../variables';
 
 .component-wrapper {
-    vertical-align: top;
-    display: inline-block;
-    text-align: center;
-    max-width: 105px;
-    height: 149px;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  max-width: 105px;
+  height: 149px;
+  position: relative;
+
+  .caption {
+    font-family: $second-font;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 18px;
+
+    max-height: 36px;
+    margin-top: 8px;
+  }
+
+  .component-frame {
+    cursor: pointer;
+    width: 105px;
+    height: 105px;
+
+    border-radius: 12px;
+    border: 1px solid $border-color-gray;
+    background: $background-color-white;
+
+    justify-content: center;
     position: relative;
 
-    .caption {
-        font-family: 'Inter';
-        font-size: 14px;
-        font-style: normal;
-        line-height: 18px;
-
-        max-height: 36px;
-        margin-top: 8px;
+    .icon {
+      width: auto;
+      height: 40px;
+      max-width: 40px;
     }
-
+  }
+  
+  &:hover {
     .component-frame {
-        width: 105px;
-        height: 105px;
-    
-        border-radius: 12px;
-        border: 1px solid $border-color-line-gray;
-        background: $background-color-white;
-    
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-
-        svg {
-            width: auto;
-            height: 40px;
-            max-width: 40px;
-        }
-
-        .point {
-            position: absolute;
-            bottom: 81px;
-            left: 81px;
-
-            height: 16px;   
-            width: auto;
-        }
+    //   box-shadow: 3px 3px 4px red;
+    //   border: 2px solid $primary-color;
+    //   background: $background-color-white;
+      .icon {
+        filter: $object-filter-color-gray;
+      }
     }
+    .caption {
+      color: $font-color-gray;
+    }
+  }
 }

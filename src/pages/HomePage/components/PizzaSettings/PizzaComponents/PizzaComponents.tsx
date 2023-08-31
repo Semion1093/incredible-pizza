@@ -1,4 +1,5 @@
 import './PizzaComponents.scss';
+import TomatoSauce from './PizzaComponents/assets/TomatoSauce.svg';
 export interface Topping {
   id?: number;
   name: string;

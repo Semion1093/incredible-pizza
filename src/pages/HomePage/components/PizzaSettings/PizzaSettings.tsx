@@ -23,6 +23,9 @@ export interface PizzaProps {
   picture?: string;
   defaultToppings: Topping[];
 }
+export interface modalProps {
+  state: boolean;
+}
 
 export const toppingMozzarella: Topping = {
   id: 1,
@@ -103,64 +106,67 @@ export const toppingOlives: Topping = {
 
 const additionalToppings: Topping[] = [toppingChampignons, toppingBacon, toppingRedOnion, toppingSweetPepper];
 
-export const PizzaSettings = (props: PizzaProps) => {
+export const PizzaSettings = (props: PizzaProps, statePrpps: modalProps) => {
   return (
-    <article className="PizzaSettings">
-      <div className="left-side">
-        <div className="state-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="82" height="40" viewBox="0 0 82 40" fill="none">
-            <path d="M0 0H76C79.3137 0 82 2.68629 82 6V34C82 37.3137 79.3137 40 76 40H0V0Z" fill="#E23535" />
-          </svg>
-          <p>NEW</p>
-        </div>
-        <div className="content">
-          <img src={props.picture} alt="" className="pizza-img" />
-        </div>
-      </div>
-      <div className="right-side">
-        <div className="title">
+    <div className="modal">
+      {/* <div className="modal" onClick={statePrpps.state(false)}> */}
+      <article className="PizzaSettings">
+        <div className="left-side">
+          <div className="state-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="82" height="40" viewBox="0 0 82 40" fill="none">
+              <path d="M0 0H76C79.3137 0 82 2.68629 82 6V34C82 37.3137 79.3137 40 76 40H0V0Z" fill="#E23535" />
+            </svg>
+            <p>NEW</p>
+          </div>
           <div className="content">
-            <Top />
-            <h4>{props.name}</h4>
-          </div>
-          <details className="button-info">
-            <summary>
-              <Info />
-            </summary>
-            <p>
-              В конструкторе пиццы вы можете исключить ингридиенты, которые идут в базовой конфигурации и добавить за дополнительную плату топпинги
-            </p>
-          </details>
-        </div>
-        <div className="components-section">
-          {props.defaultToppings.map((item) => (
-            <PizzaComponents key={`id-${item.id}`} iconURL={item.iconURL} name={item.name} />
-          ))}
-        </div>
-        <div className="base-section">
-          <div className="dough-wrapper">
-            <div className="dough"></div>
-          </div>
-          <div className="size-wrapper">
-            <div className="size"></div>
+            <img src={props.picture} alt="" className="pizza-img" />
           </div>
         </div>
-        <div className="content">
-          <h4>Добавьте в пиццу</h4>
+        <div className="right-side">
+          <div className="title">
+            <div className="content">
+              <Top />
+              <p>{props.name}</p>
+            </div>
+            <details className="button-info">
+              <summary>
+                <Info />
+              </summary>
+              <span>
+                В конструкторе пиццы вы можете исключить ингридиенты, которые идут в базовой конфигурации и добавить за дополнительную плату топпинги
+              </span>
+            </details>
+          </div>
+          <div className="components-section">
+            {props.defaultToppings.map((item) => (
+              <PizzaComponents key={`id-${item.id}`} iconURL={item.iconURL} name={item.name} />
+            ))}
+          </div>
+          <div className="base-section">
+            <div className="dough-wrapper">
+              <div className="dough"></div>
+            </div>
+            <div className="size-wrapper">
+              <div className="size"></div>
+            </div>
+          </div>
+          <div className="content">
+            <p>Добавьте в пиццу</p>
+          </div>
+          <div className="components-section">
+            {additionalToppings.map((item) => (
+              <PizzaComponents key={`id-${item.id}`} iconURL={item.iconURL} name={item.name} />
+            ))}
+          </div>
+          <div className="results-wrapper">
+            <div className="result">
+              <span className="price">Итого: {props.price} ₽</span>
+              <span className="masse">{props.price} г</span>
+            </div>
+            <button className="finish">Добавить</button>
+          </div>
         </div>
-        <div className="components-section">
-          {additionalToppings.map((item) => (
-            <PizzaComponents key={`id-${item.id}`} iconURL={item.iconURL} name={item.name} />
-          ))}
-        </div>
-        <div className="results">
-          <span>
-            Итого: {props.price}
-            <p>{props.price}</p>
-          </span>
-          <button className="add-to-cart">Выбрать</button>
-        </div>
-      </div>
-    </article>
+      </article>
+    </div>
   );
 };
