@@ -1,8 +1,9 @@
-@import '../../variables';
+@import '../../../../variables';
 
 .product-section {
   width: 1290px;
-  margin: 0 auto;
+  margin: 30px auto 0;
+  padding-bottom: 18px;
 }
 
 h2 {
@@ -11,7 +12,7 @@ h2 {
   font-size: 40px;
   font-weight: 600;
   line-height: 48px;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 
 .product-section-content {

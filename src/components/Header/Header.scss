@@ -1,5 +1,9 @@
 @import '../../variables';
 
+#header {
+  background: $background-color-white;
+}
+
 header {
   max-width: 1290px;
   margin: 0 auto;

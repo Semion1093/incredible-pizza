@@ -1,6 +1,14 @@
 @import '../../variables';
 
 .navigation-links {
+  position: sticky;
+  top: 0;
+  background: $background-color-white;
+  border-bottom: 1px $border-color-gray solid;
+  z-index: 1;
+}
+
+.navigation-links-content {
   max-width: 1290px;
   margin: 0 auto;
   display: flex;
