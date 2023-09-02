@@ -6,7 +6,7 @@ import React from 'react';
 
 export const Header = () => {
   return (
-    <>
+    <div id="header">
       <header>
         <div className="left-part">
           <div className="location">
@@ -31,6 +31,6 @@ export const Header = () => {
           </div>
         </div>
       </header>
-    </>
+    </div>
   );
 };

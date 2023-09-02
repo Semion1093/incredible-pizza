@@ -1,4 +1,10 @@
-.footer-grid {
+@import '../../variables';
+
+#footer {
+  background: $background-color-white;
+}
+
+footer {
   display: grid;
   gap: 20px;
   max-width: 1290px;
@@ -12,13 +18,13 @@
     align-items: center;
     gap: 12px;
     font-family: SFProTextRegular;
-    color: #191919;
+    color: $font-color-black;
     font-size: 16px;
     line-height: 22px;
 
     &.column-header {
       font-family: InterSemibold;
-      color: #191919;
+      color: $font-color-black;
       font-size: 20px;
       line-height: 28px;
     }

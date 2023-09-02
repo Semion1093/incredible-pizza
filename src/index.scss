@@ -32,7 +32,15 @@
   box-sizing: border-box;
   margin: 0;
   color: $font-color-black;
-  transition: all .25s ease-in-out 100ms;
+  transition: all .25s ease-in-out;
+}
+
+#root {
+  background: $background-color-gray;
+}
+
+a {
+  text-decoration: none;
 }
 
 button {
