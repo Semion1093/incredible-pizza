@@ -31,53 +31,28 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  transition: all .25s ease-in-out;
+}
+
+#root {
+  background: $background-color-grey;
   color: $font-color-black;
-  transition: all .25s ease-in-out 100ms;
 }
 
-;
-
-.page-container {
-  background-color: $background-color-grey;
+a {
+  text-decoration: none;
 }
-
-@font-face {
-  font-family: 'InterRegular';
-  src:
-    local('Inter-Regular'),
-    url(./fonts/Inter-Regular.otf) format('truetype');
-}
-
-;
-
-@font-face {
-  font-family: 'InterSemibold';
-  src:
-    local('Inter-SemiBold'),
-    url(./fonts/Inter-SemiBold.otf) format('truetype');
-}
-
-;
-
-@font-face {
-  font-family: 'SFProTextRegular';
-  src:
-    local('SFProText-Regular'),
-    url(./fonts/SFProText-Regular.ttf) format('truetype');
-}
-
-;
-
-@font-face {
-  font-family: 'SFProTextSemibold';
-  src:
-    local('SFProText-Semibold'),
-    url(./fonts/SFProText-Semibold.ttf) format('truetype');
-}
-
-;
 
 h2 {
+  color: $font-color-black;
+  font-family: $second-font;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  margin-bottom: 30px;
+}
+
+h3 {
   padding: 20px 0 16px 0;
   font-family: InterSemibold;
   color: $font-color-black;

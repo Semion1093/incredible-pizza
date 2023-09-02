@@ -6,7 +6,7 @@ export const OrderComment = () => {
   return (
     <>
       <div className="additional-info">
-        <h2>Комментарий</h2>
+        <h3>Комментарий</h3>
         <textarea placeholder="Есть уточнения?"></textarea>
       </div>
       <Delimiter />

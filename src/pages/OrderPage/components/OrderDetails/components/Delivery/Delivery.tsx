@@ -9,7 +9,7 @@ export const Delivery = () => {
   return (
     <div className="delivery">
       <div className="delivery-header">
-        <h2>Доставка</h2>
+        <h3>Доставка</h3>
         <DeliverySwitchSelector />
       </div>
       <PickupAddress />

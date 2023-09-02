@@ -6,7 +6,7 @@ import React from 'react';
 export const Contacts = () => {
   return (
     <>
-      <h2>О Вас</h2>
+      <h3>Личные данные</h3>
       <div className="grid-contacts">
         <div className="grid-item">
           <span>Имя*</span>

@@ -8,10 +8,10 @@ export const Payment = () => {
   return (
     <>
       <div className="payment">
-        <h2>Оплата</h2>
+        <h3>Оплата</h3>
         <OrderPaymentType />
         <Delimiter />
-        <h2>Сдача</h2>
+        <h3>Сдача</h3>
         <Change />
       </div>
       <Delimiter />
