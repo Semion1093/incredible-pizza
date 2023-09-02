@@ -70,11 +70,8 @@ button {
   &:hover {
     color: $primary-color;
     background: $font-color-white;
+    cursor: pointer;
   }
-}
-
-button:hover {
-  cursor: pointer;
 }
 
 .radio-group {

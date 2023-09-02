@@ -37,18 +37,20 @@
       line-height: 22px;
     }
   }
+}
 
-  button {
-    padding: 8px 16px;
-    border-radius: 4px;
-    background: $primary-color;
-    border: 0;
+button {
+  padding: 8px 16px;
+  border-radius: 4px;
 
-    span {
-      font-family: SFProTextRegular;
-      color: #fff;
-      font-size: 16px;
-      line-height: 22px;
-    }
+  span {
+    font-family: SFProTextRegular;
+    color: #fff;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  
+  &:hover svg path {
+    fill: $primary-color;
   }
 }
