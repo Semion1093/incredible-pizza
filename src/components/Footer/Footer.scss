@@ -2,6 +2,7 @@
 
 #footer {
   background: $background-color-white;
+  border-top: 1px $border-color-grey solid;
 }
 
 footer {
@@ -17,10 +18,13 @@ footer {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-family: SFProTextRegular;
-    color: $font-color-black;
-    font-size: 16px;
-    line-height: 22px;
+
+    span {
+      font-family: SFProTextRegular;
+      color: $font-color-black;
+      font-size: 16px;
+      line-height: 22px;
+    }
 
     &.column-header {
       font-family: InterSemibold;

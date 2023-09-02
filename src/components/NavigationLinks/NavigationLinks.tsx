@@ -28,8 +28,7 @@ export const NavigationLinks = (props: NavigationLinksProps) => {
           <a href="#sauce">Соусы</a>
         </nav>
         <button>
-          <NavigationLinksButtonImageSvg />
-          <span> 0 ₽</span>
+          <NavigationLinksButtonImageSvg /> 0 ₽
         </button>
       </div>
     </div>
