@@ -5,6 +5,7 @@ import { Footer } from '../../components/Footer/Footer';
 import { Header } from '../../components/Header/Header';
 import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
 import { OrderDetails } from './components/OrderDetails/OrderDetails';
+import { OrderItem } from '../../components/OrderItem/OrderItem';
 import React from 'react';
 
 export const OrderPage = () => {
@@ -13,6 +14,7 @@ export const OrderPage = () => {
       <Header />
       <Delimiter />
       <NavigationLinks show={false} />
+      <OrderItem />
       <div className="page-container">
         <OrderDetails />
       </div>

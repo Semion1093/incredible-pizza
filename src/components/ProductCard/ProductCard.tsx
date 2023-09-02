@@ -18,7 +18,7 @@ export const ProductCard = (props: ProductCardProps) => {
         <p>Чикен Сладкий Чили</p>
         <span>Курица, Лук, Перец Халапеньо, Сыр Моцарелла, Томатный соус...</span>
         <div className="product-card-action">
-          <div className="add-to-cart">Выбрать</div>
+          <button className="add-to-cart">Выбрать</button>
           <div className="price">от 399 ₽</div>
         </div>
       </div>

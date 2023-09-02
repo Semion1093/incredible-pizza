@@ -1,8 +1,38 @@
 @import 'variables';
 
+@font-face {
+  font-family: 'InterRegular';
+  src:
+    local('Inter-Regular'),
+    url(./fonts/Inter-Regular.otf) format('truetype');
+};
+
+@font-face {
+  font-family: 'InterSemibold';
+  src:
+    local('Inter-SemiBold'),
+    url(./fonts/Inter-SemiBold.otf) format('truetype');
+};
+
+@font-face {
+  font-family: 'SFProTextRegular';
+  src:
+    local('SFProText-Regular'),
+    url(./fonts/SFProText-Regular.ttf) format('truetype');
+};
+
+@font-face {
+  font-family: 'SFProTextSemibold';
+  src:
+    local('SFProText-Semibold'),
+    url(./fonts/SFProText-Semibold.ttf) format('truetype');
+};
+
 * {
   box-sizing: border-box;
   margin: 0;
+  color: $font-color-black;
+  transition: all .25s ease-in-out 100ms;
 }
 
 ;
@@ -61,6 +91,11 @@ button {
   text-align: center;
   gap: 8px;
   border-radius: 6px;
+
+  &:hover {
+    color: $primary-color;
+    background: $font-color-white;
+  }
 }
 
 button:hover {
