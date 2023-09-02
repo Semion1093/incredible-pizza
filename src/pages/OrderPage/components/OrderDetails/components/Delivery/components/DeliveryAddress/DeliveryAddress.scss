@@ -1,0 +1,23 @@
+@import '../../../../../../../../variables';
+
+.delivery-grid {
+	display: grid;
+	gap: 8px;
+	column-gap: 20px;
+	font-family: InterRegular;
+	color: $font-color-grey;
+	font-size: 14px;
+	line-height: 18px;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: 18px, 48px, 18px, 48px;
+	padding: 16px 0 16px 0;
+
+	.street-grid-item {
+		grid-column-start: 1;
+		grid-column-end: 6;
+
+		input {
+			width: 100%;
+		}
+	}
+}

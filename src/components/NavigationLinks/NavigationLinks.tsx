@@ -15,16 +15,18 @@ export const NavigationLinks = (props: NavigationLinksProps) => {
         <NavigationLinksPizzaIconSvg />
         <NavigationLinksTextSvg />
       </div>
-      <nav>
-        <a href="index.html">Акции</a>
-        <a href="index.html">Пицца</a>
-        <a href="index.html">Суши</a>
-        <a href="index.html">Напитки</a>
-        <a href="index.html">Закуски</a>
-        <a href="index.html">Комбо</a>
-        <a href="index.html">Десерты</a>
-        <a href="index.html">Соусы</a>
-      </nav>
+      {props.show && (
+        <nav>
+          <a href="index.html">Акции</a>
+          <a href="index.html">Пицца</a>
+          <a href="index.html">Суши</a>
+          <a href="index.html">Напитки</a>
+          <a href="index.html">Закуски</a>
+          <a href="index.html">Комбо</a>
+          <a href="index.html">Десерты</a>
+          <a href="index.html">Соусы</a>
+        </nav>
+      )}
       <button>
         <NavigationLinksButtonImageSvg />
         <span> 0 ₽</span>

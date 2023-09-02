@@ -3,7 +3,9 @@
 * {
   box-sizing: border-box;
   margin: 0;
-};
+}
+
+;
 
 .page-container {
   background-color: $background-color-grey;
@@ -14,28 +16,44 @@
   src:
     local('Inter-Regular'),
     url(./fonts/Inter-Regular.otf) format('truetype');
-};
+}
+
+;
 
 @font-face {
   font-family: 'InterSemibold';
   src:
     local('Inter-SemiBold'),
     url(./fonts/Inter-SemiBold.otf) format('truetype');
-};
+}
+
+;
 
 @font-face {
   font-family: 'SFProTextRegular';
   src:
     local('SFProText-Regular'),
     url(./fonts/SFProText-Regular.ttf) format('truetype');
-};
+}
+
+;
 
 @font-face {
   font-family: 'SFProTextSemibold';
   src:
     local('SFProText-Semibold'),
     url(./fonts/SFProText-Semibold.ttf) format('truetype');
-};
+}
+
+;
+
+h2 {
+  padding: 20px 0 16px 0;
+  font-family: InterSemibold;
+  color: $font-color-black;
+  font-size: 24px;
+  line-height: 32px;
+}
 
 button {
   display: flex;
@@ -52,6 +70,8 @@ button:hover {
 .radio-group {
   display: flex;
   gap: 24px;
+  padding: 12px 0 20px 0;
+  align-items: flex-end;
 
   .radio-container {
     display: flex;
@@ -87,10 +107,6 @@ button:hover {
     border-radius: 50%;
   }
 
-  .radio-container:hover input~.dot {
-    display: block;
-  }
-
   .radio-container input:checked~.dot {
     background-color: $background-color-white;
     border: 1px solid $primary-color;
@@ -115,4 +131,43 @@ button:hover {
     border-radius: 50%;
     background: $primary-color;
   }
+}
+
+.switch-button {
+  position: relative;
+  display: flex;
+  border-radius: 6px;
+  background-color: $background-color-white;
+  width: 350px;
+  height: 48px;
+}
+
+.switch-button .tab {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.switch-button .tab input {
+  display: none;
+}
+
+.switch-button .tab .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: none;
+  padding: 13px 50px 13px 50px;
+  transition: ease;
+  font-family: SFProTextRegular;
+  color: $font-color-black;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.switch-button .tab input:checked+.name {
+  background-color: $primary-color;
+  color: $font-color-white;
+  height: 48px;
 }

@@ -1,0 +1,14 @@
+@import '../../../../../../variables';
+
+.grid-contacts {
+  display: grid;
+  gap: 8px;
+  column-gap: 20px;
+  font-family: InterRegular;
+  color: $font-color-grey;
+  font-size: 14px;
+  line-height: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 18px, 48px;
+  padding-bottom: 20px;
+}
