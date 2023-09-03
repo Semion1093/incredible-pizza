@@ -1,5 +1,10 @@
 import './CodeEnter.scss';
-import React from 'react';
+import { ChangeEvent } from 'react';
+// import React from 'react';
+
+const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const newValue = e.target.value;
+};
 
 export interface phoneCode {
   phone: string;
@@ -8,16 +13,22 @@ export interface phoneCode {
 
 export const CodeEnter = (props: phoneCode) => {
   return (
-    <div className="content">
-      <h1>Код из смс</h1>
-      <span className="info">На номер: {props.phone}</span>
-      <div className="phone">
-        <label htmlFor="telNo">Номер телефона</label>
-        <input id="telNo" name="telNo" type="tel" placeholder="+7" />
+    <>
+      <div className="content" id="pin">
+        <h1>Код из смс</h1>
+        <span className="info">На номер: {props.phone}</span>
+        <div className="pin-code">
+          <input type="password" maxLength={1} autoComplete="off" pattern="[0-9]*" inputMode="numeric" className="pin-digit" />
+          <input type="password" maxLength={1} autoComplete="off" pattern="[0-9]*" inputMode="numeric" className="pin-digit" />
+          <input type="password" maxLength={1} autoComplete="off" pattern="[0-9]*" inputMode="numeric" className="pin-digit" />
+          <input type="password" maxLength={1} autoComplete="off" pattern="[0-9]*" inputMode="numeric" className="pin-digit" />
+        </div>
+        <button>Войти</button>
       </div>
-      <button>Войти</button>
-      <span>Отправить код ещё раз через:</span>
-      <span className="agreement">Продолжая, вы соглашаетесь со сбором и обработкой персональных данных и пользовательским соглашением</span>
-    </div>
+      <div className="status">
+        <span>Отправить код ещё раз через:</span>
+        <span className="agreement interactive">59 секунд</span>
+      </div>
+    </>
   );
 };

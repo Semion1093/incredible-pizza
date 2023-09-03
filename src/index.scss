@@ -5,34 +5,34 @@
   src:
     local('Inter-Regular'),
     url(./fonts/Inter-Regular.otf) format('truetype');
-};
+}
 
 @font-face {
   font-family: 'InterSemibold';
   src:
     local('Inter-SemiBold'),
     url(./fonts/Inter-SemiBold.otf) format('truetype');
-};
+}
 
 @font-face {
   font-family: 'SFProTextRegular';
   src:
     local('SFProText-Regular'),
     url(./fonts/SFProText-Regular.ttf) format('truetype');
-};
+}
 
 @font-face {
   font-family: 'SFProTextSemibold';
   src:
     local('SFProText-Semibold'),
     url(./fonts/SFProText-Semibold.ttf) format('truetype');
-};
+}
 
 * {
   box-sizing: border-box;
   margin: 0;
   color: $font-color-black;
-  transition: all .25s ease-in-out 100ms;
+  transition: all 0.25s ease-in-out 100ms;
 }
 
 button {
@@ -64,4 +64,37 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  .modal-wrapper {
+    border-radius: 24px;
+    background: $background-color-gray;
+    padding: 60px 265px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .exit {
+    position: relative;
+    left: 30px;
+    bottom: 206px;
+    cursor: pointer;
+    background: 0;
+    border: 0;
+
+    &:hover {
+      background: 0;
+      border: 0;
+
+      svg {
+        filter: $object-filter-color-orange;
+      }
+    }
+
+    &:active {
+      background-color: 0;
+      background: 0;
+    }
+  }
 }
