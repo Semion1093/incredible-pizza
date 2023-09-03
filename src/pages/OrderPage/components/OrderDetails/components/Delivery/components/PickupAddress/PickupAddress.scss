@@ -1,4 +1,4 @@
-@import '../../../../../../variables';
+@import '../../../../../../../../variables';
 
 .restaurant-select {
     display: flex;
@@ -34,5 +34,15 @@
         outline-style: none;
         box-shadow: none;
         border: 1px solid $primary-color;
+    }
+}
+
+@media (max-width: 850px) {
+    .desktop-only {
+      display: none !important;
+    }
+
+    .restaurant-select {
+        margin: 0 20px 0 20px;
     }
 }

@@ -1,6 +1,12 @@
-@import '../../../variables';
+@import '../../variables';
 
 .counter {
+  @media (min-width: 851px) {
+    .mobile-only {
+      display: none !important;
+    }
+  }
+
   border-radius: 6px;
   background: $primary-color-light;
   display: flex;
@@ -26,5 +32,15 @@
     border: 0;
     background: 0;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 850px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .counter {
+    height: 32px;
   }
 }

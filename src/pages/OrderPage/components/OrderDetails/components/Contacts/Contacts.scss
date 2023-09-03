@@ -1,14 +1,49 @@
 @import '../../../../../../variables';
 
-.grid-contacts {
-  display: grid;
-  gap: 8px;
-  column-gap: 20px;
+.order-contacts {
+  @media (min-width: 851px) {
+    .mobile-only {
+      display: none !important;
+    }
+  }
+
+  display: flex;
+  justify-content: space-between;
   font-family: InterRegular;
   color: $font-color-grey;
   font-size: 14px;
   line-height: 18px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 18px, 48px;
   padding-bottom: 20px;
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 }
+
+@media (max-width: 850px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  h3{
+    margin-left: 20px;
+    padding: 0;
+  }
+
+  .order-contacts {
+    margin: 20px 20px 0 20px;
+    flex-direction: column;
+
+    .contact-item {
+      padding-bottom: 16px;
+    }
+
+    .contact-item:last-child {
+      padding-bottom: 0px;
+    }
+  }
+
+}
+
