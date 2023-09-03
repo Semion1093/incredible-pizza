@@ -1,7 +1,6 @@
 import './CodeEnter.scss';
-import { ChangeEvent, useState } from 'react';
 import { sleep } from './SignIn';
-// import React from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 
 const onChange = (e: ChangeEvent<HTMLInputElement>) => {
   const newValue = e.target.value;
@@ -13,13 +12,29 @@ export interface phoneCode {
 }
 
 export const CodeEnter = (props: phoneCode) => {
-  const [val, setVal] = useState('');
-  const [showRefresh, setShowRefresh] = useState<boolean>(true);
+  const [counting, setCount] = useState(60);
+  const [isCounting, setIsCounting] = useState<boolean>(true);
 
-  async function handleMoreClick() {
-    await sleep(1000);
-    setShowRefresh(showRefresh);
-  }
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+
+    if (isCounting && counting > 0) {
+      timer = setInterval(() => {
+        setCount((prevCountdown) => prevCountdown - 1);
+      }, 1000);
+    } else if (counting === 0) {
+      setIsCounting(false);
+    }
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [counting, isCounting]);
+
+  const handleRestart = () => {
+    setCount(60);
+    setIsCounting(true);
+  };
 
   return (
     <>
@@ -36,15 +51,23 @@ export const CodeEnter = (props: phoneCode) => {
       </div>
       <div className="status">
         <span>Отправить код ещё раз</span>
-        {showRefresh ? (
+        {isCounting ? (
           <>
+            &nbsp;
             <span> через:</span>
-            <span className="agreement interactive">59 секунд</span>
+            <span className="agreement interactive">{counting} секунд</span>
           </>
         ) : (
-          <button className="agreement no-background-border">Отправить</button>
+          <>
+            <span>?</span>
+            <button className="agreement no-background-border" onClick={handleRestart}>
+              Отправить
+            </button>
+          </>
         )}
       </div>
     </>
   );
 };
+
+export default CodeEnter;

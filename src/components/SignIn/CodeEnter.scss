@@ -2,13 +2,13 @@
 
 #pin.content {
   max-width: 240px;
-  
-  .pin-code { 
+
+  .pin-code {
     display: flex;
     justify-content: center;
     gap: 16px;
     margin-top: 20px;
-    
+
     .pin-digit {
       display: block;
       text-align: center;

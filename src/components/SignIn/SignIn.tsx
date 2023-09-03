@@ -1,7 +1,12 @@
 import './SignIn.scss';
-import { CodeEnter } from './CodeEnter';
+import { CodeEnter, phoneCode } from './CodeEnter';
 import { ReactComponent as Exit } from '../assets/Exit.svg';
 import { useState } from 'react';
+
+const codeValue: phoneCode = {
+  phone: '+7 (999) 999 99 99',
+  code: 2131,
+};
 
 export const sleep = (ms: number): Promise<void> => {
   return new Promise((r) => setTimeout(r, ms));
@@ -27,7 +32,7 @@ export const SignIn = () => {
         <div className="modal">
           <div className="modal-wrapper">
             {showMore ? (
-              <CodeEnter code={223} phone="999999999" />
+              <CodeEnter code={codeValue.code} phone={codeValue.phone} />
             ) : (
               <>
                 <div className="content">

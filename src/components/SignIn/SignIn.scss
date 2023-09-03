@@ -84,13 +84,22 @@
   display: flex;
   font-size: 14px;
   line-height: 18px;
-  max-width: 340px;
+  width: 340px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
   .agreement {
     color: $font-color-gray;
 
     &.interactive {
       margin-left: 4px;
+    }
+
+    &.no-background-border {
+      font-family: $second-font;
+      font-size: 14px;
+      line-height: 18px;
     }
   }
 }
