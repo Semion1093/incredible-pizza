@@ -3,6 +3,7 @@ import { AdditionalOrderItem } from './components/AdditionalOrderItemCarousel/co
 import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { Footer } from '../../components/Footer/Footer';
 import { Header } from '../../components/Header/Header';
+import { MobileMenu } from '../../components/NavigationLinks/components/MobileMenu/MobileMenu';
 import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
 import { OrderDetails } from './components/OrderDetails/OrderDetails';
 import { OrderItem } from '../../components/OrderItem/OrderItem';
@@ -13,11 +14,10 @@ export const OrderPage = () => {
     <>
       <Header />
       <Delimiter />
-      <NavigationLinks show={false} />
+      <NavigationLinks showSections={true} showMobileButtonBack={true} />
+      <MobileMenu />
       <OrderItem />
-      <div className="page-container">
-        <OrderDetails />
-      </div>
+      <OrderDetails />
       <Footer />
     </>
   );

@@ -10,7 +10,7 @@ export const AccountPage = () => {
     <>
       <Header />
       <Delimiter />
-      <NavigationLinks show={false} />
+      <NavigationLinks showSections={true} showMobileButtonBack={true} />
       <Footer />
     </>
   );

@@ -14,7 +14,7 @@ export const HomePage = () => {
     <>
       <Header />
       <Delimiter />
-      <NavigationLinks show={false} />
+      <NavigationLinks showSections={false} showMobileButtonBack={false} />
       <NavigationBar />
       <ProductSection nameId="pizza" name="Пицца" />
       <ProductSection nameId="sushi" name="Суши" />
