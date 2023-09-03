@@ -66,32 +66,14 @@
     background: $primary-color;
     border: $primary-color 2px solid;
     cursor: pointer;
-
-    // span {
     font-family: $first-font;
     font-size: 16px;
     line-height: 22px;
     color: $font-color-white;
-    // }
+
     &:hover {
       color: $primary-color;
       background: $font-color-white;
-      // span {
-      //   color: $primary-color;
-      // }
-    }
-
-    button {
-      display: flex;
-      align-items: center;
-      text-align: center;
-      gap: 8px;
-      border-radius: 6px;
-
-      &:hover {
-        color: $primary-color;
-        background: $font-color-white;
-      }
     }
   }
 }

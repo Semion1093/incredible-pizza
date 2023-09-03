@@ -1,5 +1,6 @@
 import './CodeEnter.scss';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
+import { sleep } from './SignIn';
 // import React from 'react';
 
 const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -12,6 +13,14 @@ export interface phoneCode {
 }
 
 export const CodeEnter = (props: phoneCode) => {
+  const [val, setVal] = useState('');
+  const [showRefresh, setShowRefresh] = useState<boolean>(true);
+
+  async function handleMoreClick() {
+    await sleep(1000);
+    setShowRefresh(showRefresh);
+  }
+
   return (
     <>
       <div className="content" id="pin">
@@ -26,8 +35,15 @@ export const CodeEnter = (props: phoneCode) => {
         <button>Войти</button>
       </div>
       <div className="status">
-        <span>Отправить код ещё раз через:</span>
-        <span className="agreement interactive">59 секунд</span>
+        <span>Отправить код ещё раз</span>
+        {showRefresh ? (
+          <>
+            <span> через:</span>
+            <span className="agreement interactive">59 секунд</span>
+          </>
+        ) : (
+          <button className="agreement no-background-border">Отправить</button>
+        )}
       </div>
     </>
   );

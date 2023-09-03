@@ -3,12 +3,12 @@ import { CodeEnter } from './CodeEnter';
 import { ReactComponent as Exit } from '../assets/Exit.svg';
 import { useState } from 'react';
 
+export const sleep = (ms: number): Promise<void> => {
+  return new Promise((r) => setTimeout(r, ms));
+};
 export const SignIn = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [showMore, setShowMore] = useState<boolean>(false);
-  const sleep = (ms: number): Promise<void> => {
-    return new Promise((r) => setTimeout(r, ms));
-  };
 
   async function handleMoreClick() {
     await sleep(300);
@@ -37,10 +37,7 @@ export const SignIn = () => {
                     <label htmlFor="telNo">Номер телефона</label>
                     <input id="telNo" name="telNo" type="tel" placeholder="+7" />
                   </div>
-                  <button onClick={handleMoreClick}>
-                    Войти
-                    {/* <span>Войти</span> */}
-                  </button>
+                  <button onClick={handleMoreClick}>Войти</button>
                 </div>
                 <div className="status">
                   <span className="agreement">
@@ -50,7 +47,7 @@ export const SignIn = () => {
               </>
             )}
           </div>
-          <button className="exit" onClick={handleExitClick}>
+          <button className="no-background-border icon" onClick={handleExitClick}>
             <Exit />
           </button>
         </div>

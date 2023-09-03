@@ -69,32 +69,28 @@ button {
     border-radius: 24px;
     background: $background-color-gray;
     padding: 60px 265px;
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .exit {
-    position: relative;
-    left: 30px;
-    bottom: 206px;
-    cursor: pointer;
+  .no-background-border {
+    &.icon {
+      position: relative;
+      bottom: 15%;
+      margin-left: 30px;
+    }
+  }
+}
+
+.no-background-border {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+
+  &:hover {
     background: 0;
     border: 0;
-
-    &:hover {
-      background: 0;
-      border: 0;
-
-      svg {
-        filter: $object-filter-color-orange;
-      }
-    }
-
-    &:active {
-      background-color: 0;
-      background: 0;
-    }
+    filter: $object-filter-color-orange;
   }
 }
