@@ -1,11 +1,6 @@
 import './CodeEnter.scss';
 import { sleep } from './SignIn';
 import React, { ChangeEvent, useEffect, useState } from 'react';
-
-const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-  const newValue = e.target.value;
-};
-
 export interface phoneCode {
   phone: string;
   code: number;
@@ -14,6 +9,14 @@ export interface phoneCode {
 export const CodeEnter = (props: phoneCode) => {
   const [counting, setCount] = useState(60);
   const [isCounting, setIsCounting] = useState<boolean>(true);
+
+  const [password, setPassword] = useState('');
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputPassword = event.target.value;
+    const maskedPassword = inputPassword.replace(/./g, 'X');
+    setPassword(maskedPassword);
+  };
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
@@ -42,10 +45,18 @@ export const CodeEnter = (props: phoneCode) => {
         <h1>Код из смс</h1>
         <span className="info">На номер: {props.phone}</span>
         <div className="pin-code">
-          <input type="password" maxLength={1} autoComplete="off" pattern="[0-9]*" inputMode="numeric" className="pin-digit" />
-          <input type="password" maxLength={1} autoComplete="off" pattern="[0-9]*" inputMode="numeric" className="pin-digit" />
-          <input type="password" maxLength={1} autoComplete="off" pattern="[0-9]*" inputMode="numeric" className="pin-digit" />
-          <input type="password" maxLength={1} autoComplete="off" pattern="[0-9]*" inputMode="numeric" className="pin-digit" />
+          {Array.from({ length: 4 }, (_, index) => (
+            <input
+              type="text"
+              maxLength={1}
+              autoComplete="off"
+              pattern="[0-9]*"
+              inputMode="numeric"
+              className="pin-digit"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          ))}
         </div>
         <button>Войти</button>
       </div>

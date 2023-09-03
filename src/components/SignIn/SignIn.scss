@@ -54,6 +54,9 @@
       &:hover {
         outline: 2px solid $primary-color;
       }
+      &:focus {
+        outline: 2px solid $primary-color;
+      }
     }
   }
 
