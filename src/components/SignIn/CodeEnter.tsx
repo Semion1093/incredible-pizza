@@ -1,7 +1,7 @@
 import './CodeEnter.scss';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 export interface phoneCode {
-  phone: string;
+  phone?: string;
   code: string;
 }
 
@@ -44,8 +44,6 @@ export const CodeEnter = (props: phoneCode) => {
   };
 
   const verificationPin = () => {
-    console.log(isVerified);
-    console.log(isFilled);
     props.code === pin ? setisVerified(isVerified) : setisVerified(!isVerified);
   };
 
@@ -118,7 +116,6 @@ export const CodeEnter = (props: phoneCode) => {
             </button>
           </>
         )}
-        {/* {isFilled ? <></> : <div className="replay">Введите код</div>} */}
         {isVerified ? <></> : <div className="replay">Код введен неверно, попробуйте снова</div>}
       </div>
     </>

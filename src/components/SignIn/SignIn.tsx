@@ -4,8 +4,7 @@ import { ReactComponent as Exit } from '../assets/Exit.svg';
 import React, { useEffect, useRef, useState } from 'react';
 
 const codeValue: phoneCode = {
-  phone: '+7 (999) 999 99 99',
-  code: '2131',
+  code: '1111',
 };
 
 export const sleep = (ms: number): Promise<void> => {
@@ -42,7 +41,6 @@ export const SignIn: React.FC = () => {
     if (cleanedInput.length >= 9) {
       formattedNumber += `-${cleanedInput.substring(9, 11)}`;
     }
-    console.log(formattedNumber.length);
     return formattedNumber;
   };
 
@@ -96,10 +94,10 @@ export const SignIn: React.FC = () => {
                 </div>
               </>
             )}
+            <button className="no-background-border icon" onClick={handleExitClick}>
+              <Exit />
+            </button>
           </div>
-          <button className="no-background-border icon" onClick={handleExitClick}>
-            <Exit />
-          </button>
         </div>
       ) : (
         <></>
