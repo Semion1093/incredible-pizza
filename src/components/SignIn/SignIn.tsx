@@ -1,20 +1,56 @@
 import './SignIn.scss';
 import { CodeEnter, phoneCode } from './CodeEnter';
 import { ReactComponent as Exit } from '../assets/Exit.svg';
-import { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const codeValue: phoneCode = {
   phone: '+7 (999) 999 99 99',
-  code: 2131,
+  code: '2131',
 };
 
 export const sleep = (ms: number): Promise<void> => {
   return new Promise((r) => setTimeout(r, ms));
 };
 
-export const SignIn = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+export const SignIn: React.FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(true);
   const [showMore, setShowMore] = useState<boolean>(false);
+  const [phoneNumber, setPhoneNumber] = useState<string>('');
+  const isPhoneComplete = phoneNumber.length === 18;
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputText = e.target.value;
+    const formattedText = formatPhoneNumber(inputText);
+    setPhoneNumber(formattedText);
+  };
+
+  const formatPhoneNumber = (input: string): string => {
+    const cleanedInput = input.replace(/\D/g, '');
+    let formattedNumber = '+7';
+    if (cleanedInput.length >= 2) {
+      formattedNumber += ` (${cleanedInput.substring(1, 4)}`;
+    }
+
+    if (cleanedInput.length >= 5) {
+      formattedNumber += `) ${cleanedInput.substring(4, 7)}`;
+    }
+
+    if (cleanedInput.length >= 7) {
+      formattedNumber += `-${cleanedInput.substring(7, 9)}`;
+    }
+
+    if (cleanedInput.length >= 9) {
+      formattedNumber += `-${cleanedInput.substring(9, 11)}`;
+    }
+    console.log(formattedNumber.length);
+    return formattedNumber;
+  };
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
 
   async function handleMoreClick() {
     await sleep(300);
@@ -28,12 +64,10 @@ export const SignIn = () => {
   return (
     <>
       {isOpen ? (
-        <></>
-      ) : (
         <div className="modal">
           <div className="modal-wrapper">
             {showMore ? (
-              <CodeEnter code={codeValue.code} phone={codeValue.phone} />
+              <CodeEnter code={codeValue.code} phone={phoneNumber} />
             ) : (
               <>
                 <div className="content">
@@ -41,9 +75,19 @@ export const SignIn = () => {
                   <span className="info">Сможете быстро оформлять заказы, использовать бонусы</span>
                   <div className="phone">
                     <label htmlFor="telNo">Номер телефона</label>
-                    <input id="telNo" name="telNo" type="tel" placeholder="+7" />
+                    <input
+                      id="telNo"
+                      name="telNo"
+                      type="tel"
+                      placeholder="+7 (___) ___-__-__"
+                      value={phoneNumber}
+                      onChange={handleChange}
+                      ref={inputRef}
+                    />
                   </div>
-                  <button onClick={handleMoreClick}>Войти</button>
+                  <button disabled={!isPhoneComplete} onClick={handleMoreClick}>
+                    Войти
+                  </button>
                 </div>
                 <div className="status">
                   <span className="agreement">
@@ -57,6 +101,8 @@ export const SignIn = () => {
             <Exit />
           </button>
         </div>
+      ) : (
+        <></>
       )}
       ;
     </>

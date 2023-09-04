@@ -1,22 +1,65 @@
 import './CodeEnter.scss';
-import { sleep } from './SignIn';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 export interface phoneCode {
   phone: string;
-  code: number;
+  code: string;
 }
 
 export const CodeEnter = (props: phoneCode) => {
   const [counting, setCount] = useState(60);
   const [isCounting, setIsCounting] = useState<boolean>(true);
+  const [pin, setPin] = useState<string>('');
+  const [pinMask, setPinMask] = useState<string>('');
+  const [isVerified, setisVerified] = useState<boolean>(true);
+  const inputRefs = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)];
+  const tupleLength: number = inputRefs.length;
+  const isFilled = pin.length === inputRefs.length;
 
-  const [password, setPassword] = useState('');
-
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const inputPassword = event.target.value;
-    const maskedPassword = inputPassword.replace(/./g, 'X');
-    setPassword(maskedPassword);
+  const handleRestart = () => {
+    setCount(60);
+    setIsCounting(true);
   };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>, index: number) => {
+    const value = event.target.value;
+    if (/^[0-9]$/.test(value)) {
+      setPin((prevPin) => {
+        const newPin = prevPin.split('');
+        newPin[index] = value;
+        return newPin.join('');
+      });
+
+      const maskedValue = value.replace(/./g, 'X');
+      setPinMask((prevMaskedPin) => {
+        const newMaskedPin = prevMaskedPin.split('');
+        newMaskedPin[index] = maskedValue;
+
+        return newMaskedPin.join('');
+      });
+
+      if (index < inputRefs.length - 1 && value !== '') {
+        inputRefs[index + 1].current?.focus();
+      }
+    }
+  };
+
+  const verificationPin = () => {
+    console.log(isVerified);
+    console.log(isFilled);
+    props.code === pin ? setisVerified(isVerified) : setisVerified(!isVerified);
+  };
+
+  useEffect(() => {
+    inputRefs[0].current?.focus();
+  }, []);
+
+  useEffect(() => {
+    if (isFilled) {
+      setPin('');
+      setPinMask('');
+      inputRefs[0].current?.focus();
+    }
+  }, [isVerified]);
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
@@ -34,18 +77,13 @@ export const CodeEnter = (props: phoneCode) => {
     };
   }, [counting, isCounting]);
 
-  const handleRestart = () => {
-    setCount(60);
-    setIsCounting(true);
-  };
-
   return (
     <>
       <div className="content" id="pin">
         <h1>Код из смс</h1>
         <span className="info">На номер: {props.phone}</span>
         <div className="pin-code">
-          {Array.from({ length: 4 }, (_, index) => (
+          {Array.from({ length: tupleLength }, (_, index) => (
             <input
               type="text"
               maxLength={1}
@@ -53,12 +91,16 @@ export const CodeEnter = (props: phoneCode) => {
               pattern="[0-9]*"
               inputMode="numeric"
               className="pin-digit"
-              value={password}
-              onChange={handlePasswordChange}
+              key={index}
+              ref={inputRefs[index]}
+              value={pinMask[index] || ''}
+              onChange={(event) => handleChange(event, index)}
             />
           ))}
         </div>
-        <button>Войти</button>
+        <button disabled={!isFilled} onClick={verificationPin}>
+          Войти
+        </button>
       </div>
       <div className="status">
         <span>Отправить код ещё раз</span>
@@ -76,9 +118,9 @@ export const CodeEnter = (props: phoneCode) => {
             </button>
           </>
         )}
+        {/* {isFilled ? <></> : <div className="replay">Введите код</div>} */}
+        {isVerified ? <></> : <div className="replay">Код введен неверно, попробуйте снова</div>}
       </div>
     </>
   );
 };
-
-export default CodeEnter;
