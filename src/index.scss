@@ -91,6 +91,8 @@ button {
   &:hover {
     background: 0;
     border: 0;
-    filter: $object-filter-color-orange;
+    svg *{
+      fill: #ff7010;
+    }
   }
 }
