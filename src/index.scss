@@ -5,34 +5,34 @@
   src:
     local('Inter-Regular'),
     url(./fonts/Inter-Regular.otf) format('truetype');
-};
+}
 
 @font-face {
   font-family: 'InterSemibold';
   src:
     local('Inter-SemiBold'),
     url(./fonts/Inter-SemiBold.otf) format('truetype');
-};
+}
 
 @font-face {
   font-family: 'SFProTextRegular';
   src:
     local('SFProText-Regular'),
     url(./fonts/SFProText-Regular.ttf) format('truetype');
-};
+}
 
 @font-face {
   font-family: 'SFProTextSemibold';
   src:
     local('SFProText-Semibold'),
     url(./fonts/SFProText-Semibold.ttf) format('truetype');
-};
+}
 
 * {
   box-sizing: border-box;
   margin: 0;
   color: $font-color-black;
-  transition: all .25s ease-in-out 100ms;
+  transition: all 0.25s ease-in-out 100ms;
 }
 
 button {
@@ -51,4 +51,49 @@ button {
 .radio-group {
   display: flex;
   gap: 24px;
+}
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(25, 25, 25, 0.4);
+  backdrop-filter: blur(16px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal-wrapper {
+    border-radius: 24px;
+    background: $background-color-gray;
+    padding: 60px 265px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .no-background-border {
+      &.icon {
+        position: absolute;
+        top: 0px;
+        left: 900px;
+      }
+    }
+  }
+}
+
+.no-background-border {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+
+  &:hover {
+    background: 0;
+    border: 0;
+    svg * {
+      fill: $primary-color;
+    }
+  }
 }
