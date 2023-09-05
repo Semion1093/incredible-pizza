@@ -1,6 +1,7 @@
 @import '../../../../variables';
 
 .SalesSection {
+  font-family: Inter;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 30px;
@@ -13,20 +14,20 @@
     flex-direction: column;
     justify-content: flex-end;
     height: 343px;
+    overflow: hidden;
+    min-width: 280px;
 
     img {
       position: absolute;
+      object-fit: cover;
+      object-position: top;
     }
 
     figcaption {
       position: relative;
-      padding-left: 20px;
-      padding-right: 40px;
-      padding-bottom: 40px;
-
+      padding: 20px;
       color: $primary-color-white;
       font-size: 20px;
-      font-weight: 600;
       line-height: 28px;
     }
   }
