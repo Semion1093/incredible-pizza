@@ -12,6 +12,7 @@ input[type=text] {
   color: $font-color-black;
   font-size: 14px;
   line-height: 18px;
+  width: 100%;
 }
 
 input::placeholder {
