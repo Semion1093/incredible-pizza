@@ -1,48 +1,48 @@
 @import '../../../../../../../../variables';
 
-.restaurant-select {
-    display: flex;
-    flex-direction: column;
-    padding: 24px 0 16px 0;
-    gap: 8px;
+.pickup-address-select {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0 16px 0;
+  gap: 8px;
+  font-family: InterRegular;
+  color: $font-color-grey;
+  font-size: 14px;
+  line-height: 18px;
+
+  select {
     font-family: InterRegular;
     color: $font-color-grey;
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: 1px solid $border-color-grey;
+    background: $background-color-white;
     font-size: 14px;
     line-height: 18px;
 
-    select {
-        font-family: InterRegular;
-        color: $font-color-grey;
-        padding: 12px 20px;
-        border-radius: 6px;
-        border: 1px solid $border-color-grey;
-        background: $background-color-white;
-        font-size: 14px;
-        line-height: 18px;
-
-        option {
-            background-color: $primary-color-light;
-        }
+    option {
+      background-color: $primary-color-light;
     }
+  }
 
-    select:hover {
-        cursor: pointer;
-        border: 1px solid $primary-color;
-    }
+  select:hover {
+    cursor: pointer;
+    border: 1px solid $primary-color;
+  }
 
-    select:focus {
-        outline-style: none;
-        box-shadow: none;
-        border: 1px solid $primary-color;
-    }
+  select:focus {
+    outline-style: none;
+    box-shadow: none;
+    border: 1px solid $primary-color;
+  }
 }
 
 @media (max-width: 850px) {
-    .desktop-only {
-      display: none !important;
-    }
+  .desktop-only {
+    display: none !important;
+  }
 
-    .restaurant-select {
-        margin: 0 20px 0 20px;
-    }
+  .pickup-address-select {
+    margin: 0 20px 0 20px;
+  }
 }
