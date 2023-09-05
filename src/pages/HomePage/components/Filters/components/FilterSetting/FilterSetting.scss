@@ -1,0 +1,16 @@
+@import '../../../../../../variables';
+
+.filter-button {
+  padding: 11px 16px;
+  border: 1px solid $border-color-grey;
+  background: $background-color-white;
+  font-family: InterRegular;
+  color: $font-color-black;
+  font-size: 14px;
+  line-height: 18px;
+
+  &.fill {
+    background-color: $primary-color;
+    color: $background-color-white;
+  }
+}
