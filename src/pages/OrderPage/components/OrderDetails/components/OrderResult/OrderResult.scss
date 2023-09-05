@@ -25,3 +25,14 @@ button {
   font-size: 16px;
   line-height: 22px;
 }
+
+@media (max-width: 850px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .order-result {
+    padding: 13px 20px 12px 20px;
+    background-color: $background-color-white;
+  }
+}
