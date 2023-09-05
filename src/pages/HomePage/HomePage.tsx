@@ -16,8 +16,8 @@ export const HomePage = () => {
       <Header />
       <Delimiter />
       <NavigationLinks show={false} />
-      <SalesSection />
       <NavigationBar />
+      <SalesSection />
       <ProductSection nameId="pizza" name="Пицца" />
       <ProductSection nameId="sushi" name="Суши" />
       <ProductSection nameId="combo" name="Комбо" />

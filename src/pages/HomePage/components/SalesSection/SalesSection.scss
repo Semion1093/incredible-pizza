@@ -26,7 +26,8 @@
     figcaption {
       position: relative;
       padding: 20px;
-      color: $primary-color-white;
+      max-width: 230px;
+      color: $font-color-white;
       font-size: 20px;
       line-height: 28px;
     }
