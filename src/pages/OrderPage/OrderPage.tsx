@@ -11,12 +11,12 @@ import React from 'react';
 export const OrderPage = () => {
   return (
     <>
-      {/* <Header />
+      <Header />
       <Delimiter />
-      <NavigationLinks show={false} /> */}
+      <NavigationLinks show={false} />
       <OrderItem />
       <OrderDetails />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
