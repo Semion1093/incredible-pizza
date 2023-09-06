@@ -1,8 +1,19 @@
 import './AccountOrder.scss';
-import { AccountOrderItem } from '../AccountOrderItem/AccountOrderItem';
+import { AccountOrderItem, OrderItem } from '../AccountOrderItem/AccountOrderItem';
+import { useState } from 'react';
 import arrow from '../../../../assets/Arrow.svg';
 
-export function AccountOrder() {
+export interface Order {
+  number: number;
+  date: string;
+  price: number;
+  status: string;
+  paid: string;
+  address: string;
+  items: OrderItem[];
+}
+
+export const AccountOrder = (props: Order) => {
   return (
     <div className="account-order">
       <div className="description">
@@ -13,28 +24,36 @@ export function AccountOrder() {
         <div className="paid-header">Оплачено</div>
 
         <div className="number-and-date">
-          <div className="number">№130312</div>
-          <div className="date">22.06.21</div>
+          <div className="number">№{props.number}</div>
+          <div className="date">{props.date}</div>
         </div>
-        <div className="price">399 ₽</div>
-        <div className="status">Обрабатывается</div>
-        <div className="paid">Картой</div>
+        <div className="price">{props.price} ₽</div>
+        <div className="status">{props.status}</div>
+        <div className="paid">{props.paid}</div>
 
         <button className="arrow">
           <img src={arrow} alt="arr" />
         </button>
 
         <div className="delimiter"></div>
-        <div className="address">ул. Львовская 48/2, офис 301, 2 этаж, домофон 4801#</div>
+        <div className="address">{props.address}</div>
       </div>
       <div className="delimiter"></div>
       <div className="order-items">
-        <AccountOrderItem />
-        <AccountOrderItem />
-        <AccountOrderItem />
+        {props.items.map((item) => (
+          <AccountOrderItem
+            key={`orderItem-${item.id}`}
+            id={item.id}
+            name={item.name}
+            description={item.description}
+            quantity={item.quantity}
+            cost={item.cost}
+            img={''}
+          />
+        ))}
       </div>
       <div className="delimiter"></div>
       <div className="repeat-order">Повторить заказ</div>
     </div>
   );
-}
+};

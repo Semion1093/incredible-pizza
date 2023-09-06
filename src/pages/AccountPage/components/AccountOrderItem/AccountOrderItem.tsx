@@ -1,15 +1,22 @@
 import './AccountOrderItem.scss';
-import React from 'react';
-import pizza from './assets/Pizza.svg';
 
-export const AccountOrderItem = () => {
+export interface OrderItem {
+  id: number;
+  name: string;
+  description: string;
+  quantity: string;
+  cost: string;
+  img: string;
+}
+
+export const AccountOrderItem = (props: OrderItem) => {
   return (
     <div className="account-order-item">
-      <img src={pizza} alt="IMG" />
-      <div className="name">Пепперони по-деревенски</div>
-      <div className="item-description">Традиционное тесто, 23 см</div>
-      <div className="quantity">1 товар</div>
-      <div className="cost">399 ₽</div>
+      <img src={props.img} alt="IMG" />
+      <div className="name">{props.name}</div>
+      <div className="item-description">{props.description}</div>
+      <div className="quantity">{props.quantity}</div>
+      <div className="cost">{props.cost}</div>
     </div>
   );
 };

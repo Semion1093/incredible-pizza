@@ -62,8 +62,6 @@
       font-family: InterRegular;
       font-size: 14px;
       line-height: 18px;
-
-      img {}
     }
 
     .number-and-date {
@@ -112,6 +110,10 @@
     .arrow {
       grid-area: arrow;
       border: none;
+    }
+
+    .arrow:active {
+      transform: rotate(180deg)
     }
 
     .address {
