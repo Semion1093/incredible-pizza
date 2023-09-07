@@ -1,0 +1,30 @@
+@import '../../../variables';
+
+.counter {
+  border-radius: 6px;
+  background: $primary-color-light;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  width: 92px;
+  justify-content: center;
+
+  input {
+    width: 40px;
+    border: 0;
+    background: 0;
+    text-align: center;
+    color: $primary-color;
+    font-family: InterSemibold;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  button {
+    padding: 0px;
+    border: 0;
+    background: 0;
+    cursor: pointer;
+  }
+}

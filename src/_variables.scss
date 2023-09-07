@@ -1,33 +1,17 @@
+$first-font: 'SFProTextRegular', sans-serif;
+$first-font-semibold: 'SFProTextSemibold', sans-serif;
+$second-font: 'InterRegular', sans-serif;
+$second-font-semibold: 'InterSemibold', sans-serif;
+
 $primary-color: #ff7010;
 $primary-color-light: #ffeee2;
-$primary-color-black: #191919;
+
+$font-color-black: #191919;
+$font-color-white: #ffffff;
+$font-color-grey: #a5a5a5;
+
 $background-color-grey: #f9f9f9;
-$background-color-white: #fff;
+$background-color-white: #ffffff;
+$border-color-grey: #f0f0f0;
 
-@font-face {
-  font-family: 'InterRegular';
-  src:
-    local('Inter-Regular'),
-    url(./fonts/Inter-Regular.otf) format('truetype');
-};
-
-@font-face {
-  font-family: 'InterSemibold';
-  src:
-    local('Inter-SemiBold'),
-    url(./fonts/Inter-SemiBold.otf) format('truetype');
-};
-
-@font-face {
-  font-family: 'SFProTextRegular';
-  src:
-    local('SFProText-Regular'),
-    url(./fonts/SFProText-Regular.ttf) format('truetype');
-};
-
-@font-face {
-  font-family: 'SFProTextSemibold';
-  src:
-    local('SFProText-Semibold'),
-    url(./fonts/SFProText-Semibold.ttf) format('truetype');
-};
+$accent-color: #E23535;

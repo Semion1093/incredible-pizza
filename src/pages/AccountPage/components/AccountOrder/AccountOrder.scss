@@ -7,7 +7,8 @@
   width: 850px;
   height: fit-content;
   border-radius: 12px;
-  border: 1px solid var(--line-gray, #F0F0F0);
+  border: 1px solid $border-color-grey;
+  background: $background-color-white;
 
   .description {
     display: grid;
@@ -29,12 +30,12 @@
       grid-area: indicator;
       width: 4px;
       border-radius: 24px;
-      background: var(--red, #E23535);
+      background: $accent-color;
     }
 
     .order-header {
       grid-area: order-header;
-      color: var(--gray-text, #A5A5A5);
+      color: $font-color-grey;
       font-family: InterRegular;
       font-size: 14px;
       line-height: 18px;
@@ -42,7 +43,7 @@
 
     .price-header {
       grid-area: price-header;
-      color: var(--gray-text, #A5A5A5);
+      color: $font-color-grey;
       font-family: InterRegular;
       font-size: 14px;
       line-height: 18px;
@@ -50,7 +51,7 @@
 
     .status-header {
       grid-area: status-header;
-      color: var(--gray-text, #A5A5A5);
+      color: $font-color-grey;
       font-family: InterRegular;
       font-size: 14px;
       line-height: 18px;
@@ -58,7 +59,7 @@
 
     .paid-header {
       grid-area: paid-header;
-      color: var(--gray-text, #A5A5A5);
+      color: $font-color-grey;
       font-family: InterRegular;
       font-size: 14px;
       line-height: 18px;
@@ -78,7 +79,7 @@
       }
 
       .date {
-        color: var(--gray-text, #A5A5A5);
+        color: $font-color-grey;
         font-family: InterRegular;
         font-size: 14px;
         line-height: 20px;

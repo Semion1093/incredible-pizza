@@ -1,0 +1,55 @@
+@import '../../variables';
+
+.order-item-wrapper {
+  width: 850px;
+  height: 152px;
+  border-radius: 12px;
+  border: 1px solid $border-color-grey;
+  background: $background-color-white;
+
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+
+  .content {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    flex-shrink: 0;
+
+    img {
+      height: 120px;
+      padding-left: 16px;
+    }
+
+    .text {
+      margin-left: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .title {
+        font-size: 20px;
+        line-height: 28px;
+        font-family: InterSemibold;
+      }
+
+      span {
+        margin-top: 8px;
+        font-family: SFProTextRegular;
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  p.prace {
+    color: $primary-color;
+    font-family: InterSemibold;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 24px;
+  }
+}

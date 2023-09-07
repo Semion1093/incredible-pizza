@@ -6,6 +6,7 @@
   flex-direction: row;
   font-family: InterRegular;
   margin-bottom: 12px;
+  background: $background-color-white;
 
   img {
     width: 40px;
@@ -15,7 +16,7 @@
 
   .name {
     margin: auto;
-    color: $primary-color-black;
+    color: $font-color-black;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -24,7 +25,7 @@
 
   .item-description {
     margin: auto;
-    color: $primary-color-black;
+    color: $font-color-black;
     font-family: InterRegular;
     font-size: 14px;
     font-style: normal;

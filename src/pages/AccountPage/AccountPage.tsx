@@ -1,9 +1,9 @@
 import './AccountPage.scss';
 import { AccountOrder, Order } from './components/AccountOrder/AccountOrder';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
+import { Footer } from '../../components/Footer/Footer';
 import { Header } from '../../components/Header/Header';
 import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
-import pizza from './assets/Pizza.svg';
 
 const orders: Order[] = [
   {
@@ -18,25 +18,25 @@ const orders: Order[] = [
         id: 1,
         name: 'Пепперони по-деревенски',
         description: 'Традиционное тесто, 23 см',
-        quantity: '1 товар',
+        quantity: 1,
         cost: '399 ₽',
-        img: pizza,
+        img: 'url',
       },
       {
         id: 2,
         name: 'Пепперони по-деревенски',
         description: 'Традиционное тесто, 23 см',
-        quantity: '1 товар',
+        quantity: 1,
         cost: '399 ₽',
-        img: pizza,
+        img: 'url',
       },
       {
         id: 3,
         name: 'Пепперони по-деревенски',
         description: 'Традиционное тесто, 23 см',
-        quantity: '1 товар',
+        quantity: 1,
         cost: '399 ₽',
-        img: pizza,
+        img: 'url',
       },
     ],
   },
@@ -60,6 +60,7 @@ export const AccountPage = () => {
           items={order.items}
         />
       ))}
+      <Footer />
     </>
   );
 };
