@@ -31,8 +31,33 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  transition: all .25s ease-in-out;
+}
+
+#root {
+  background: $background-color-grey;
   color: $font-color-black;
-  transition: all 0.25s ease-in-out 100ms;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  color: $font-color-black;
+  font-family: $second-font;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  padding: 20px 0 16px 0;
+  font-family: InterSemibold;
+  color: $font-color-black;
+  font-size: 24px;
+  line-height: 32px;
 }
 
 button {
@@ -45,12 +70,113 @@ button {
   &:hover {
     color: $primary-color;
     background: $font-color-white;
+    cursor: pointer;
   }
 }
 
 .radio-group {
   display: flex;
   gap: 24px;
+  padding: 12px 0 20px 0;
+  align-items: flex-end;
+
+  .radio-container {
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: SFProTextRegular;
+    color: #191919;
+    font-size: 16px;
+    line-height: 22px;
+    gap: 24px;
+  }
+
+  .radio-container input {
+    display: flex;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .dot {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    height: 16px;
+    width: 16px;
+    border: 1px solid $font-color-grey;
+    border-radius: 50%;
+  }
+
+  .radio-container input:checked~.dot {
+    background-color: $background-color-white;
+    border: 1px solid $primary-color;
+    transition: 2s;
+  }
+
+  .dot:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+
+  .radio-container input:checked~.dot:after {
+    display: block;
+  }
+
+  .radio-container .dot:after {
+    top: 3.5px;
+    left: 3.5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $primary-color;
+  }
+}
+
+.switch-button {
+  position: relative;
+  display: flex;
+  border-radius: 6px;
+  background-color: $background-color-white;
+  width: 350px;
+  height: 48px;
+}
+
+.switch-button .tab {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.switch-button .tab input {
+  display: none;
+}
+
+.switch-button .tab .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: none;
+  padding: 13px 50px 13px 50px;
+  transition: ease;
+  font-family: SFProTextRegular;
+  color: $font-color-black;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.switch-button .tab input:checked+.name {
+  background-color: $primary-color;
+  color: $font-color-white;
+  height: 48px;
 }
 
 .modal {

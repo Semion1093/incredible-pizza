@@ -1,0 +1,15 @@
+@import '../../../../variables';
+
+.product-label {
+  position: absolute;
+  height: 32px;
+  font-size: 14px;
+  font-family: $first-font;
+  color: $font-color-white;
+  background: $accent-color;
+  flex-shrink: 0;
+  top: 20px;
+  padding: 7px 14px;
+  border-top-right-radius: 9px;
+  border-bottom-right-radius: 9px;
+}

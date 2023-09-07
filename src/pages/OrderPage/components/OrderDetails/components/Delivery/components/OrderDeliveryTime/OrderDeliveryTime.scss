@@ -1,0 +1,23 @@
+@import '../../../../../../../../variables';
+
+span {
+  font-family: InterRegular;
+  color: $font-color-grey;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.delivery-time {
+
+  display: flex;
+  gap: 16px;
+
+  .date-time-pickers {
+    display: flex;
+    gap: 16px;
+  }
+
+  input[type=text] {
+    max-width: 150px;
+  }
+}

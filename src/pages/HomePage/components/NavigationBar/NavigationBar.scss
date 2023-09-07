@@ -1,0 +1,55 @@
+@import '../../../../variables';
+
+.navigation-bar {
+  width: 100%;
+  height: 104px;
+  background: $background-color-grey;
+  margin: 30px auto;
+}
+
+.navigation-bar-content {
+  display: flex;
+  width: 1290px;
+  height: 104px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.navigation-bar-item {
+  display: grid;
+  width: 135px;
+  height: 104px;
+  justify-content: center;
+  align-items: center;
+  background: $background-color-white;
+  padding: 12px 0;
+  border-radius: 12px;
+  border: 1px solid $border-color-grey;
+
+  &:hover {
+    border: 1px solid $primary-color;
+  }
+
+  & .icon {
+    display: flex;
+    height: 32px;
+    align-items: center;
+    padding: 0px 4px;
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+
+  & p {
+    color: $font-color-black;
+    text-align: center;
+    font-family: $first-font;
+    font-size: 18px;
+    line-height: 24px;
+
+    &.accent {
+      color: $accent-color;
+    }
+  }
+}
