@@ -10,7 +10,7 @@ export const CodeEnter = (props: phoneCode) => {
   const [isCounting, setIsCounting] = useState<boolean>(true);
   const [pin, setPin] = useState<string>('');
   const [pinMask, setPinMask] = useState<string>('');
-  const [isVerified, setisVerified] = useState<boolean>(true);
+  const [isVerified, setisVerified] = useState<boolean>(false);
   const inputRefs = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)];
   const tupleLength: number = inputRefs.length;
   const isFilled = pin.length === inputRefs.length;
@@ -44,7 +44,7 @@ export const CodeEnter = (props: phoneCode) => {
   };
 
   const verificationPin = () => {
-    props.code === pin ? setisVerified(isVerified) : setisVerified(!isVerified);
+    props.code === pin ? setisVerified(true) : setisVerified(false);
   };
 
   useEffect(() => {

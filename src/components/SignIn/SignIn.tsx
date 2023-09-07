@@ -34,11 +34,11 @@ export const SignIn: React.FC = () => {
       formattedNumber += `) ${cleanedInput.substring(4, 7)}`;
     }
 
-    if (cleanedInput.length >= 7) {
+    if (cleanedInput.length >= 8) {
       formattedNumber += `-${cleanedInput.substring(7, 9)}`;
     }
 
-    if (cleanedInput.length >= 9) {
+    if (cleanedInput.length >= 10) {
       formattedNumber += `-${cleanedInput.substring(9, 11)}`;
     }
     return formattedNumber;
