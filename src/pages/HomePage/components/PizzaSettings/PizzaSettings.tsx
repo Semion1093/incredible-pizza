@@ -110,17 +110,14 @@ export const PizzaSettings = (props: PizzaProps, statePrpps: modalProps) => {
   return (
     <div className="modal">
       {/* <div className="modal" onClick={statePrpps.state(false)}> */}
-      <article className="PizzaSettings">
+      <article className="modal-wrapper separated">
         <div className="left-side">
           <div className="state-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="82" height="40" viewBox="0 0 82 40" fill="none">
-              <path d="M0 0H76C79.3137 0 82 2.68629 82 6V34C82 37.3137 79.3137 40 76 40H0V0Z" fill="#E23535" />
-            </svg>
             <p>NEW</p>
           </div>
-          <div className="content">
-            <img src={props.picture} alt="" className="pizza-img" />
-          </div>
+          {/* <div className="content"> */}
+          <img src={props.picture} alt="" className="pizza-img" />
+          {/* </div> */}
         </div>
         <div className="right-side">
           <div className="title">
