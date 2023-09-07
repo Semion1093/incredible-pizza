@@ -1,7 +1,7 @@
 import './OrderDeliveryTime.scss';
+import { CustomDatePicker } from './components/CustomDatePicker/CustomDatePicker';
+import { CustomTimePicker } from './components/CustomTimePicker/CustomTimePicker';
 import { Delimiter } from '../../../../../../../../components/Delimiter/Delimiter';
-import { DeliveryDatePicker } from './components/DeliveryDatePicker/DeliveryDatePicker';
-import { DeliveryTimePicker } from './components/DeliveryTimePicker/DeliveryTimePicker';
 import React, { useState } from 'react';
 
 export const OrderDeliveryTime = () => {
@@ -34,8 +34,8 @@ export const OrderDeliveryTime = () => {
         </div>
         {selectedOption === 'by-time' && (
           <div className="date-time-pickers">
-            <DeliveryDatePicker />
-            <DeliveryTimePicker />
+            <CustomDatePicker />
+            <CustomTimePicker />
           </div>
         )}
       </div>

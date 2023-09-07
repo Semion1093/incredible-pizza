@@ -1,8 +1,8 @@
-import './DeliveryTimePicker.scss';
+import './CustomTimePicker.scss';
 import DatePicker from 'react-datepicker';
 import React, { useState } from 'react';
 
-export const DeliveryTimePicker = () => {
+export const CustomTimePicker = () => {
   const [startDate, setStartDate] = useState<Date | null>();
   return (
     <>
