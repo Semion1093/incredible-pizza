@@ -14,6 +14,12 @@ export interface Order {
 }
 
 export const AccountOrder = (props: Order) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const changeIsExpanded = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <div className="account-order">
       <div className="description">
@@ -31,7 +37,7 @@ export const AccountOrder = (props: Order) => {
         <div className="status">{props.status}</div>
         <div className="paid">{props.paid}</div>
 
-        <button className="arrow">
+        <button onClick={changeIsExpanded} className="arrow">
           <img src={arrow} alt="arr" />
         </button>
 
@@ -39,19 +45,21 @@ export const AccountOrder = (props: Order) => {
         <div className="address">{props.address}</div>
       </div>
       <div className="delimiter"></div>
-      <div className="order-items">
-        {props.items.map((item) => (
-          <AccountOrderItem
-            key={`orderItem-${item.id}`}
-            id={item.id}
-            name={item.name}
-            description={item.description}
-            quantity={item.quantity}
-            cost={item.cost}
-            img={''}
-          />
-        ))}
-      </div>
+      {isExpanded && (
+        <div className="order-items">
+          {props.items.map((item) => (
+            <AccountOrderItem
+              key={`orderItem-${item.id}`}
+              id={item.id}
+              name={item.name}
+              description={item.description}
+              quantity={item.quantity}
+              cost={item.cost}
+              img={''}
+            />
+          ))}
+        </div>
+      )}
       <div className="delimiter"></div>
       <div className="repeat-order">Повторить заказ</div>
     </div>
