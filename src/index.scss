@@ -7,16 +7,12 @@
     url(./fonts/Inter-Regular.otf) format('truetype');
 }
 
-;
-
 @font-face {
   font-family: 'InterSemibold';
   src:
     local('Inter-SemiBold'),
     url(./fonts/Inter-SemiBold.otf) format('truetype');
 }
-
-;
 
 @font-face {
   font-family: 'SFProTextRegular';
@@ -25,16 +21,12 @@
     url(./fonts/SFProText-Regular.ttf) format('truetype');
 }
 
-;
-
 @font-face {
   font-family: 'SFProTextSemibold';
   src:
     local('SFProText-Semibold'),
     url(./fonts/SFProText-Semibold.ttf) format('truetype');
 }
-
-;
 
 * {
   box-sizing: border-box;
