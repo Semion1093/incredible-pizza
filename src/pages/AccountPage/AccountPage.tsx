@@ -65,7 +65,7 @@ import SwitchSelector from './assets/Табы.png';
 export const AccountPage = () => {
   const [orders, setAccountOrders] = useState<Order[]>([]);
   useEffect(() => {
-    fetch('https://b9b7088f-832b-475f-8c8b-c404b476a9c2.mock.pstmn.io/account-orders')
+    fetch('https://incredible-pizza.free.beeceptor.com/account-orders')
       .then((response) => response.json())
       .then((json) => setAccountOrders(json));
   }, []);
@@ -90,7 +90,6 @@ export const AccountPage = () => {
               status={order.status}
               paid={order.paid}
               address={order.address}
-              items={order.items}
             />
           ))}
         </div>
