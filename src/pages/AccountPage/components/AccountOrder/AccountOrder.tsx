@@ -8,9 +8,27 @@ export interface Order {
   number: number;
   date: string;
   price: number;
-  status: string;
+  status: OrderStatus;
+  eta: string | undefined; //Estimated time of arrival
   paid: string;
   address: string;
+}
+
+enum OrderStatus {
+  Pending,
+  OnTheWay,
+  Delivered,
+  Canceled,
+}
+
+function getStatusText(status: OrderStatus, eta: string | undefined): string | undefined {
+  const mapping = new Map<OrderStatus, string>([
+    [0, 'Обрабатывается'],
+    [1, `Едет к вам (в ${eta})`],
+    [2, 'Выполнен'],
+    [3, 'Отмена'],
+  ]);
+  return mapping.get(status);
 }
 
 export const AccountOrder = (props: Order) => {
@@ -43,7 +61,7 @@ export const AccountOrder = (props: Order) => {
           <div className="date">{props.date}</div>
         </div>
         <div className="price">{props.price} ₽</div>
-        <div className="status">{props.status}</div>
+        <div className="status">{getStatusText(props.status, props.eta)}</div>
         <div className="paid">{props.paid}</div>
 
         <button onClick={changeIsExpanded} className="arrow">

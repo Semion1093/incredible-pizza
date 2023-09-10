@@ -12,53 +12,19 @@ import SwitchSelector from './assets/Табы.png';
 //     number: 130312,
 //     date: '22.06.21',
 //     price: 1197,
-//     status: 'Обрабатывается',
+//     status: 0,
+//     eta: undefined,
 //     paid: 'Картой',
 //     address: 'ул. Львовская 48/2, офис 301, 2 этаж, домофон 4801#',
-//     items: [
-//       {
-//         id: 1,
-//         name: 'Пепперони по-деревенски',
-//         description: 'Традиционное тесто, 23 см',
-//         quantity: 1,
-//         cost: '399 ₽',
-//         img: 'url',
-//       },
-//       {
-//         id: 2,
-//         name: 'Пепперони по-деревенски',
-//         description: 'Традиционное тесто, 23 см',
-//         quantity: 1,
-//         cost: '399 ₽',
-//         img: 'url',
-//       },
-//       {
-//         id: 3,
-//         name: 'Пепперони по-деревенски',
-//         description: 'Традиционное тесто, 23 см',
-//         quantity: 1,
-//         cost: '399 ₽',
-//         img: 'url',
-//       },
-//     ],
 //   },
 //   {
 //     number: 130313,
 //     date: '22.06.21',
 //     price: 399,
-//     status: 'Обрабатывается',
-//     paid: 'Картой',
+//     status: 1,
+//     eta: '15:13',
+//     paid: 'Наличкой',
 //     address: 'ул. Львовская 48/2, офис 301, 2 этаж, домофон 4801#',
-//     items: [
-//       {
-//         id: 1,
-//         name: 'Пепперони по-деревенски',
-//         description: 'Традиционное тесто, 23 см',
-//         quantity: 1,
-//         cost: '399 ₽',
-//         img: 'url',
-//       },
-//     ],
 //   },
 // ];
 
@@ -69,7 +35,6 @@ export const AccountPage = () => {
       .then((response) => response.json())
       .then((json) => setAccountOrders(json));
   }, []);
-
   return (
     <>
       <Header />
@@ -87,6 +52,7 @@ export const AccountPage = () => {
               number={order.number}
               date={order.date}
               price={order.price}
+              eta={order.eta}
               status={order.status}
               paid={order.paid}
               address={order.address}
