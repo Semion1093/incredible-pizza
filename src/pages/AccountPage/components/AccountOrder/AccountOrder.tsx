@@ -23,12 +23,25 @@ enum OrderStatus {
 
 function getStatusText(status: OrderStatus, eta: string | undefined): string | undefined {
   const mapping = new Map<OrderStatus, string>([
-    [0, 'Обрабатывается'],
-    [1, `Едет к вам (в ${eta})`],
-    [2, 'Выполнен'],
-    [3, 'Отмена'],
+    [OrderStatus.Pending, 'Обрабатывается'],
+    [OrderStatus.OnTheWay, `Едет к вам (в ${eta})`],
+    [OrderStatus.Delivered, 'Выполнен'],
+    [OrderStatus.Canceled, 'Отмена'],
   ]);
   return mapping.get(status);
+}
+
+function getIndicatorColor(status: OrderStatus): string {
+  switch (status) {
+    case OrderStatus.Pending:
+      return '#E23535';
+    case OrderStatus.OnTheWay:
+      return '#FF7010';
+    case OrderStatus.Delivered:
+      return '#24D17E';
+    case OrderStatus.Canceled:
+      return '#A5A5A5';
+  }
 }
 
 export const AccountOrder = (props: Order) => {
@@ -50,7 +63,7 @@ export const AccountOrder = (props: Order) => {
   return (
     <div className="account-order">
       <div className="description">
-        <div className="indicator"></div>
+        <div className="indicator" style={{ background: getIndicatorColor(props.status) }}></div>
         <div className="order-header">Заказ</div>
         <div className="price-header">Сумма заказа</div>
         <div className="status-header">Статус</div>
