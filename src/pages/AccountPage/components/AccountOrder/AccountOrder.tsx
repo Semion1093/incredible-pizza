@@ -21,35 +21,40 @@ enum OrderStatus {
   Canceled,
 }
 
-function getStatusText(status: OrderStatus, eta: string | undefined): string | undefined {
-  const mapping = new Map<OrderStatus, string>([
-    [OrderStatus.Pending, 'Обрабатывается'],
-    [OrderStatus.OnTheWay, `Едет к вам (в ${eta})`],
-    [OrderStatus.Delivered, 'Выполнен'],
-    [OrderStatus.Canceled, 'Отмена'],
-  ]);
-  return mapping.get(status);
-}
-
-function getIndicatorColor(status: OrderStatus): string {
-  switch (status) {
-    case OrderStatus.Pending:
-      return '#E23535';
-    case OrderStatus.OnTheWay:
-      return '#FF7010';
-    case OrderStatus.Delivered:
-      return '#24D17E';
-    case OrderStatus.Canceled:
-      return '#A5A5A5';
-  }
-}
-
 export const AccountOrder = (props: Order) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [orderItems, setAccountOrderItems] = useState<OrderItem[]>([]);
 
   const changeIsExpanded = () => {
     setIsExpanded(!isExpanded);
+  };
+
+  const getIndicatorClass = (status: OrderStatus) => {
+    switch (status) {
+      case OrderStatus.Pending:
+        return 'indicator';
+      case OrderStatus.OnTheWay:
+        return `indicator indicator-orange`;
+      case OrderStatus.Delivered:
+        return 'indicator indicator-green';
+      case OrderStatus.Canceled:
+        return 'indicator indicator-gray';
+    }
+  };
+
+  const getArrowClass = () => (isExpanded ? 'arrow active' : 'arrow');
+
+  const getStatusText = (status: OrderStatus, eta: string | undefined): string => {
+    switch (status) {
+      case OrderStatus.Pending:
+        return 'Обрабатывается';
+      case OrderStatus.OnTheWay:
+        return `Едет к вам (в ${eta})`;
+      case OrderStatus.Delivered:
+        return 'Выполнен';
+      case OrderStatus.Canceled:
+        return 'Отмена';
+    }
   };
 
   useEffect(() => {
@@ -63,7 +68,7 @@ export const AccountOrder = (props: Order) => {
   return (
     <div className="account-order">
       <div className="description">
-        <div className="indicator" style={{ background: getIndicatorColor(props.status) }}></div>
+        <div className={getIndicatorClass(props.status)}></div>
         <div className="order-header">Заказ</div>
         <div className="price-header">Сумма заказа</div>
         <div className="status-header">Статус</div>
@@ -77,7 +82,7 @@ export const AccountOrder = (props: Order) => {
         <div className="status">{getStatusText(props.status, props.eta)}</div>
         <div className="paid">{props.paid}</div>
 
-        <button onClick={changeIsExpanded} className="arrow">
+        <button onClick={changeIsExpanded} className={getArrowClass()}>
           <img src={arrow} alt="arr" />
         </button>
 
