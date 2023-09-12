@@ -1,22 +1,28 @@
 import './PizzaComponents.scss';
-import TomatoSauce from './PizzaComponents/assets/TomatoSauce.svg';
+import { ReactComponent as TomatoSauce } from './assets/TomatoSauce.svg';
+import React, { FunctionComponent, ReactElement, ReactNode, SVGProps } from 'react';
 export interface Topping {
   id?: number;
   name: string;
   price?: number;
-  iconURL: string;
+  children?: string;
+  // children?: ReactNode;
+  // children?: React.FC;
 }
 
 export const PizzaComponents = (props: Topping) => {
   return (
     <>
-      <figure className="component-wrapper">
-        <div className="component-frame">
-          <input type="checkbox" />
-          <img className="icon" src={props.iconURL} alt="" />
-        </div>
-        <figcaption className="caption">{props.name}</figcaption>
-      </figure>
+      <label className="component-checkbox-wrapper">
+        <input type="checkbox" className="component-checkbox-input" />
+        <span className="component-checkbox-tile">
+          <img className="component-checkbox-icon" src={props.children} alt="" />
+        </span>
+        <span className="component-checkbox-label">
+          {props.name}
+          {props.price === undefined ? <></> : <span className="component-checkbox-price">{props.price + ' ₽'}</span>}
+        </span>
+      </label>
     </>
   );
 };
