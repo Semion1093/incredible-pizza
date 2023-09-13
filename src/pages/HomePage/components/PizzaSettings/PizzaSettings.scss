@@ -200,6 +200,7 @@
         &:checked + .component-checkbox-tile {
           border-color: $border-color-dark-gray;
           filter: $object-filter-color-gray;
+          box-shadow: inset 0 3px 3px $border-color-dark-gray;
 
           ~ .component-checkbox-label {
               color: $font-color-gray;
@@ -216,6 +217,7 @@
       &:hover {
         .component-checkbox-tile {
           border-color: $border-color-dark-gray;
+          box-shadow: inset 0 3px 3px $border-color-dark-gray;
         }
 
         .component-checkbox-label {
@@ -234,6 +236,7 @@
       .component-checkbox-input {
         &:checked + .component-checkbox-tile {
           border-color: $primary-color;
+          box-shadow:  0 6px 6px $primary-color;
         }
       }
 
@@ -247,6 +250,7 @@
       &:hover {
         .component-checkbox-tile {
           border-color: $primary-color;
+          box-shadow: 0 3px 3px $primary-color;
         }
       }
     }

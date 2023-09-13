@@ -20,8 +20,8 @@
         height: 48px;
         border-radius: 6px;
         border: 1px solid $border-color-gray;
-        -webkit-box-shadow: inset 0 2px 2px $primary-color;
-        -webkit-transition:
+        box-shadow: inset 0 2px 2px $primary-color;
+        transition:
           border-color ease-in-out 0.15s,
           -webkit-box-shadow ease-in-out 0.15s;
 
