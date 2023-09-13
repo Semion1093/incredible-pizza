@@ -1,3 +1,4 @@
+import React from 'react';
 import './PizzaSettings.scss';
 import { PizzaComponents, Topping } from './PizzaComponents/PizzaComponents';
 import Bacon from './PizzaComponents/assets/Bacon.svg';
@@ -8,10 +9,20 @@ import Jalapeno from './PizzaComponents/assets/Jalapeno.svg';
 import Mozzarella from './PizzaComponents/assets/Mozzarella.svg';
 import Olives from './PizzaComponents/assets/Olives.svg';
 import Pepperoni from './PizzaComponents/assets/Pepperoni.svg';
-import React from 'react';
 import RedOnion from './PizzaComponents/assets/RedOnion.svg';
 import SweetPepper from './PizzaComponents/assets/SweetPepper.svg';
 import TomatoSauce from './PizzaComponents/assets/TomatoSauce.svg';
+// import { ReactComponent as Bacon } from './PizzaComponents/assets/Bacon.svg';
+// import { ReactComponent as Champignons } from './PizzaComponents/assets/Champignons.svg';
+// import { ReactComponent as Cheddar } from './PizzaComponents/assets/Cheddar.svg';
+// import { ReactComponent as Cucumber } from './PizzaComponents/assets/Cucumber.svg';
+// import { ReactComponent as Jalapeno } from './PizzaComponents/assets/Jalapeno.svg';
+// import { ReactComponent as Mozzarella } from './PizzaComponents/assets/Mozzarella.svg';
+// import { ReactComponent as Olives } from './PizzaComponents/assets/Olives.svg';
+// import { ReactComponent as Pepperoni } from './PizzaComponents/assets/Pepperoni.svg';
+// import { ReactComponent as RedOnion } from './PizzaComponents/assets/RedOnion.svg';
+// import { ReactComponent as SweetPepper } from './PizzaComponents/assets/SweetPepper.svg';
+// import { ReactComponent as TomatoSauce } from './PizzaComponents/assets/TomatoSauce.svg';
 
 import { ReactComponent as Info } from './assets/Info.svg';
 import { ReactComponent as Top } from './assets/Top.svg';
@@ -31,77 +42,80 @@ export const toppingMozzarella: Topping = {
   id: 1,
   name: 'Моцарелла',
   price: 11,
-  iconURL: Mozzarella,
+  // iconURL: Mozzarella,
+  children: Mozzarella,
 };
 
 export const toppingCucumber: Topping = {
   id: 2,
   name: 'Огурцы маринованные',
   price: 22,
-  iconURL: Cucumber,
+  // iconURL: Cucumber,
+  children: Cucumber,
 };
 
 export const toppingPepperoni: Topping = {
   id: 3,
   name: 'Пепперони',
   price: 33,
-  iconURL: Pepperoni,
+  // iconURL: Pepperoni,
+  children: Pepperoni,
 };
 
 export const toppingTomatoSauce: Topping = {
   id: 4,
   name: 'Томатный соус',
   price: 44,
-  iconURL: TomatoSauce,
+  children: TomatoSauce,
 };
 
 export const toppingChampignons: Topping = {
   id: 5,
   name: 'Шампиньоны',
   price: 55,
-  iconURL: Champignons,
+  children: Champignons,
 };
 
 export const toppingRedOnion: Topping = {
   id: 6,
   name: 'Красный лук',
   price: 66,
-  iconURL: RedOnion,
+  children: RedOnion,
 };
 
 export const toppingSweetPepper: Topping = {
   id: 7,
   name: 'Сладкий перец',
   price: 77,
-  iconURL: SweetPepper,
+  children: SweetPepper,
 };
 
 export const toppingBacon: Topping = {
   id: 8,
   name: 'Bacon',
   price: 88,
-  iconURL: Bacon,
+  children: Bacon,
 };
 
 export const toppingCheddar: Topping = {
   id: 9,
   name: 'Cheddar',
   price: 99,
-  iconURL: Cheddar,
+  children: Cheddar,
 };
 
 export const toppingJalapeno: Topping = {
   id: 10,
   name: 'Jalapeno',
   price: 100,
-  iconURL: Jalapeno,
+  children: Jalapeno,
 };
 
 export const toppingOlives: Topping = {
   id: 11,
   name: 'Olives',
   price: 110,
-  iconURL: Olives,
+  children: Olives,
 };
 
 const additionalToppings: Topping[] = [toppingChampignons, toppingBacon, toppingRedOnion, toppingSweetPepper];
@@ -109,19 +123,16 @@ const additionalToppings: Topping[] = [toppingChampignons, toppingBacon, topping
 export const PizzaSettings = (props: PizzaProps, statePrpps: modalProps) => {
   return (
     <div className="modal">
-      {/* <div className="modal" onClick={statePrpps.state(false)}> */}
       <article className="modal-wrapper separated">
         <div className="left-side">
           <div className="state-icon">
             <p>NEW</p>
           </div>
-          {/* <div className="content"> */}
           <img src={props.picture} alt="" className="pizza-img" />
-          {/* </div> */}
         </div>
         <div className="right-side">
           <div className="title">
-            <div className="content">
+            <div className="content pizza-settings">
               <Top />
               <p>{props.name}</p>
             </div>
@@ -134,9 +145,15 @@ export const PizzaSettings = (props: PizzaProps, statePrpps: modalProps) => {
               </span>
             </details>
           </div>
-          <div className="components-section">
+          <div className="components-section in-base">
             {props.defaultToppings.map((item) => (
-              <PizzaComponents key={`id-${item.id}`} iconURL={item.iconURL} name={item.name} />
+              <>
+                <PizzaComponents key={`id-${item.id}`} children={item.children} name={item.name} />
+                {/* <PizzaComponents key={`id-${item.id}`} name={item.name}> */}
+                {/* {item.children} */}
+                {/* <TomatoSauce /> */}
+                {/* </PizzaComponents> */}
+              </>
             ))}
           </div>
           <div className="base-section">
@@ -147,12 +164,12 @@ export const PizzaSettings = (props: PizzaProps, statePrpps: modalProps) => {
               <div className="size"></div>
             </div>
           </div>
-          <div className="content">
+          <div className="content pizza-settings in-additional">
             <p>Добавьте в пиццу</p>
           </div>
-          <div className="components-section">
+          <div className="components-section in-additional">
             {additionalToppings.map((item) => (
-              <PizzaComponents key={`id-${item.id}`} iconURL={item.iconURL} name={item.name} />
+              <PizzaComponents key={`id-${item.id}`} children={item.children} name={item.name} price={item.price} />
             ))}
           </div>
           <div className="results-wrapper">

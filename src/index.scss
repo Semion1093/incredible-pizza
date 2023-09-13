@@ -35,7 +35,7 @@
 }
 
 #root {
-  background: $background-color-grey;
+  background: $background-color-gray;
   color: $font-color-black;
 }
 
@@ -110,7 +110,7 @@ button {
     left: 10px;
     height: 16px;
     width: 16px;
-    border: 1px solid $font-color-grey;
+    border: 1px solid $font-color-gray;
     border-radius: 50%;
   }
 
@@ -190,6 +190,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 
   .modal-wrapper {
     border-radius: 24px;

@@ -77,7 +77,7 @@ export const CodeEnter = (props: phoneCode) => {
 
   return (
     <>
-      <div className="content" id="pin">
+      <div className="content authentication" id="pin">
         <h1>Код из смс</h1>
         <span className="info">На номер: {props.phone}</span>
         <div className="pin-code">

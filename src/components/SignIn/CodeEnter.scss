@@ -1,32 +1,38 @@
 @import '../../variables';
 
 #pin.content {
-  max-width: 240px;
+  &.authentication {
+    max-width: 240px;
 
-  .pin-code {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 20px;
-    .pin-digit {
-      display: block;
-      text-align: center;
-      font-size: 25px;
-      color: $font-color-gray;
-      width: 48px;
-      height: 48px;
-      border-radius: 6px;
-      border: 1px solid $border-color-gray;
-      -webkit-box-shadow: inset 0 2px 2px $primary-color;
-      -webkit-transition:
-        border-color ease-in-out 0.15s,
-        -webkit-box-shadow ease-in-out 0.15s;
-      &:hover {
-        -webkit-box-shadow: none;
-      }
-      &:focus {
-        -webkit-box-shadow: none;
-        outline: 3px solid $primary-color;
+    .pin-code {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+
+      .pin-digit {
+        padding: 0;
+        display: block;
+        text-align: center;
+        font-size: 25px;
+        color: $font-color-gray;
+        width: 48px;
+        height: 48px;
+        border-radius: 6px;
+        border: 1px solid $border-color-gray;
+        -webkit-box-shadow: inset 0 2px 2px $primary-color;
+        -webkit-transition:
+          border-color ease-in-out 0.15s,
+          -webkit-box-shadow ease-in-out 0.15s;
+
+        &:hover {
+          -webkit-box-shadow: none;
+        }
+
+        &:focus {
+          -webkit-box-shadow: none;
+          outline: 3px solid $primary-color;
+        }
       }
     }
   }

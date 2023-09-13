@@ -68,7 +68,7 @@ export const SignIn: React.FC = () => {
               <CodeEnter code={codeValue.code} phone={phoneNumber} />
             ) : (
               <>
-                <div className="content">
+                <div className="content authentication">
                   <h1>Вход в аккаунт</h1>
                   <span className="info">Сможете быстро оформлять заказы, использовать бонусы</span>
                   <div className="phone">

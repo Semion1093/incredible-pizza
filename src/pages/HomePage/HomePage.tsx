@@ -6,7 +6,6 @@ import { Footer } from '../../components/Footer/Footer';
 import { Header } from '../../components/Header/Header';
 import { NavigationBar } from './components/NavigationBar/NavigationBar';
 import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
-import { ProductSection } from '../../components/ProductSection/ProductSection';
 import {
   PizzaProps,
   PizzaSettings,
@@ -17,9 +16,9 @@ import {
   toppingPepperoni,
   toppingTomatoSauce,
 } from './components/PizzaSettings/PizzaSettings';
+import { ProductSection } from './components/ProductSection/ProductSection';
 import PictureEasyPeasychicken from './components/PizzaSettings/assets/EasyPeasychicken.png';
 import PictureSweetChiliChicken from './components/PizzaSettings/assets/SweetChiliChicken.png';
-import { ProductSection } from './components/ProductSection/ProductSection';
 import React from 'react';
 
 const SweetChiliChicken: PizzaProps = {
