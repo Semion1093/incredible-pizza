@@ -1,4 +1,3 @@
-import React from 'react';
 import './PizzaSettings.scss';
 import { PizzaComponents, Topping } from './PizzaComponents/PizzaComponents';
 import Bacon from './PizzaComponents/assets/Bacon.svg';
@@ -9,6 +8,7 @@ import Jalapeno from './PizzaComponents/assets/Jalapeno.svg';
 import Mozzarella from './PizzaComponents/assets/Mozzarella.svg';
 import Olives from './PizzaComponents/assets/Olives.svg';
 import Pepperoni from './PizzaComponents/assets/Pepperoni.svg';
+import React from 'react';
 import RedOnion from './PizzaComponents/assets/RedOnion.svg';
 import SweetPepper from './PizzaComponents/assets/SweetPepper.svg';
 import TomatoSauce from './PizzaComponents/assets/TomatoSauce.svg';
@@ -158,10 +158,32 @@ export const PizzaSettings = (props: PizzaProps, statePrpps: modalProps) => {
           </div>
           <div className="base-section">
             <div className="dough-wrapper">
-              <div className="dough"></div>
+              <div className="switch-button pizza-dough">
+                <label className="tab">
+                  <input type="radio" />
+                  <span className="name">Традиционное</span>
+                </label>
+                <label className="tab">
+                  <input type="radio" />
+                  <span className="name">Тонкое</span>
+                </label>
+              </div>
             </div>
             <div className="size-wrapper">
-              <div className="size"></div>
+              <div className="switch-button pizza-size">
+                <label className="tab">
+                  <input type="radio" />
+                  <span className="name">20 см</span>
+                </label>
+                <label className="tab">
+                  <input type="radio" />
+                  <span className="name">28 см</span>
+                </label>
+                <label className="tab">
+                  <input type="radio" />
+                  <span className="name">33 см</span>
+                </label>
+              </div>
             </div>
           </div>
           <div className="content pizza-settings in-additional">
