@@ -5,28 +5,28 @@
   src:
     local('Inter-Regular'),
     url(./fonts/Inter-Regular.otf) format('truetype');
-};
+}
 
 @font-face {
   font-family: 'InterSemibold';
   src:
     local('Inter-SemiBold'),
     url(./fonts/Inter-SemiBold.otf) format('truetype');
-};
+}
 
 @font-face {
   font-family: 'SFProTextRegular';
   src:
     local('SFProText-Regular'),
     url(./fonts/SFProText-Regular.ttf) format('truetype');
-};
+}
 
 @font-face {
   font-family: 'SFProTextSemibold';
   src:
     local('SFProText-Semibold'),
     url(./fonts/SFProText-Semibold.ttf) format('truetype');
-};
+}
 
 * {
   box-sizing: border-box;
@@ -70,6 +70,12 @@ button {
   gap: 8px;
   border-radius: 6px;
 
+  &.arrow {
+    grid-area: arrow;
+    border: none;
+    background: $font-color-white;
+  }
+
   &:hover {
     color: $primary-color;
     background: $font-color-white;
@@ -94,7 +100,7 @@ button {
     -ms-user-select: none;
     user-select: none;
     font-family: SFProTextRegular;
-    color: #191919;
+    color: $font-color-black;
     font-size: 16px;
     line-height: 22px;
     gap: 24px;
@@ -180,4 +186,21 @@ button {
   background-color: $primary-color;
   color: $font-color-white;
   height: 48px;
+}
+
+@media (max-width: 850px) {
+	.desktop-only {
+		display: none !important;
+	}
+
+  .radio-group {
+    padding: 12px 0 0 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  
+  h3 {
+    padding: 20px 0 0 20px;
+  }
 }
