@@ -37,10 +37,7 @@ export const AccountPage = () => {
   }, []);
   return (
     <>
-      <Header />
       <Delimiter />
-      <NavigationLinks showSections={true} showMobileButtonBack={true} />
-      <Footer />
     </>
   );
 };

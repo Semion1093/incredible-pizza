@@ -11,14 +11,11 @@ import React from 'react';
 export const OrderPage = () => {
   return (
     <>
-      <Header />
       <Delimiter />
-      <NavigationLinks showSections={true} showMobileButtonBack={true} />
       <MobileMenu />
       <OrderItem />
       <OrderDetails />
       <OrderDetails />
-      <Footer />
     </>
   );
 };
