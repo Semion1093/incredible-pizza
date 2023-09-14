@@ -1,7 +1,7 @@
 @import '../../../../variables';
 
-.SalesSection {
-  font-family: Inter;
+.sales-section {
+  font-family: $second-font-semibold;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 30px;

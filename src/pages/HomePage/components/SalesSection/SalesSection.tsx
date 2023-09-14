@@ -6,7 +6,7 @@ import promotion from './assets/three-pizzas-promotion.png';
 export const SalesSection = () => {
   return (
     <>
-      <div className="SalesSection">
+      <div className="sales-section">
         <a href="...">
           <figure className="component-wrapper">
             <img src={promotion} alt="" />
