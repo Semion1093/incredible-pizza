@@ -37,8 +37,6 @@ export const AccountPage = () => {
   }, []);
   return (
     <>
-      <Header />
-      <Delimiter />
       <NavigationLinks show={false} />
       <div className="account-page">
         <div className="header">
