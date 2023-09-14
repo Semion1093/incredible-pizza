@@ -5,28 +5,28 @@
   src:
     local('Inter-Regular'),
     url(./fonts/Inter-Regular.otf) format('truetype');
-};
+}
 
 @font-face {
   font-family: 'InterSemibold';
   src:
     local('Inter-SemiBold'),
     url(./fonts/Inter-SemiBold.otf) format('truetype');
-};
+}
 
 @font-face {
   font-family: 'SFProTextRegular';
   src:
     local('SFProText-Regular'),
     url(./fonts/SFProText-Regular.ttf) format('truetype');
-};
+}
 
 @font-face {
   font-family: 'SFProTextSemibold';
   src:
     local('SFProText-Semibold'),
     url(./fonts/SFProText-Semibold.ttf) format('truetype');
-};
+}
 
 * {
   box-sizing: border-box;
@@ -66,6 +66,12 @@ button {
   text-align: center;
   gap: 8px;
   border-radius: 6px;
+
+  &.arrow {
+    grid-area: arrow;
+    border: none;
+    background: $font-color-white;
+  }
 
   &:hover {
     color: $primary-color;
