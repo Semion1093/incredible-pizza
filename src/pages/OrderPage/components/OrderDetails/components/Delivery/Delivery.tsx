@@ -1,16 +1,21 @@
 import './Delivery.scss';
 import { DeliveryAddress } from './components/DeliveryAddress/DeliveryAddress';
-import { DeliverySwitchSelector } from './components/DeliverySwitchSelector/DeliverySwitchSelector';
+import { SwitchSelector, Options } from '../../../../../../components/OrderItem/SwitchSelector/SwitchSelector';
 import { OrderDeliveryTime } from './components/OrderDeliveryTime/OrderDeliveryTime';
 import { PickupAddress } from '../PickupAddress/PickupAddress';
 import React from 'react';
+
+const options: Options[] = [
+  { value: 'delivery', label: 'Доставка' },
+  { value: 'pickup', label: 'Самовывоз' },
+];
 
 export const Delivery = () => {
   return (
     <div className="delivery">
       <div className="delivery-header">
         <h3>Доставка</h3>
-        <DeliverySwitchSelector />
+        <SwitchSelector {...options} />
       </div>
       <PickupAddress />
       <DeliveryAddress />

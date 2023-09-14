@@ -24,9 +24,10 @@ import TomatoSauce from './PizzaComponents/assets/TomatoSauce.svg';
 // import { ReactComponent as SweetPepper } from './PizzaComponents/assets/SweetPepper.svg';
 // import { ReactComponent as TomatoSauce } from './PizzaComponents/assets/TomatoSauce.svg';
 
+import { Options, SwitchSelector } from '../../../../components/OrderItem/SwitchSelector/SwitchSelector';
+
 import { ReactComponent as Info } from './assets/Info.svg';
 import { ReactComponent as Top } from './assets/Top.svg';
-
 export interface PizzaProps {
   id?: number;
   name?: string;
@@ -42,7 +43,6 @@ export const toppingMozzarella: Topping = {
   id: 1,
   name: 'Моцарелла',
   price: 11,
-  // iconURL: Mozzarella,
   children: Mozzarella,
 };
 
@@ -50,7 +50,6 @@ export const toppingCucumber: Topping = {
   id: 2,
   name: 'Огурцы маринованные',
   price: 22,
-  // iconURL: Cucumber,
   children: Cucumber,
 };
 
@@ -58,7 +57,6 @@ export const toppingPepperoni: Topping = {
   id: 3,
   name: 'Пепперони',
   price: 33,
-  // iconURL: Pepperoni,
   children: Pepperoni,
 };
 
@@ -120,7 +118,18 @@ export const toppingOlives: Topping = {
 
 const additionalToppings: Topping[] = [toppingChampignons, toppingBacon, toppingRedOnion, toppingSweetPepper];
 
-export const PizzaSettings = (props: PizzaProps, statePrpps: modalProps) => {
+const dough: Options[] = [
+  { value: 'traditional', label: 'Традиционное' },
+  { value: 'thin', label: 'Тонкое' },
+];
+
+const size: Options[] = [
+  { value: '20', label: '20 см' },
+  { value: '28', label: '28 см' },
+  { value: '33', label: '33 см' },
+];
+
+export const PizzaSettings = (props: PizzaProps) => {
   return (
     <div className="modal">
       <article className="modal-wrapper separated">
@@ -159,19 +168,21 @@ export const PizzaSettings = (props: PizzaProps, statePrpps: modalProps) => {
           <div className="base-section">
             <div className="dough-wrapper">
               <div className="switch-button pizza-dough">
-                <label className="tab">
+                <SwitchSelector {...dough} />
+                {/* <label className="tab">
                   <input type="radio" />
                   <span className="name">Традиционное</span>
                 </label>
                 <label className="tab">
                   <input type="radio" />
                   <span className="name">Тонкое</span>
-                </label>
+                </label> */}
               </div>
             </div>
             <div className="size-wrapper">
               <div className="switch-button pizza-size">
-                <label className="tab">
+                <SwitchSelector {...size} />
+                {/* <label className="tab">
                   <input type="radio" />
                   <span className="name">20 см</span>
                 </label>
@@ -182,7 +193,7 @@ export const PizzaSettings = (props: PizzaProps, statePrpps: modalProps) => {
                 <label className="tab">
                   <input type="radio" />
                   <span className="name">33 см</span>
-                </label>
+                </label> */}
               </div>
             </div>
           </div>
