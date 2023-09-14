@@ -1,0 +1,160 @@
+@import '../../../../variables';
+
+.account-order {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 20px;
+  width: 850px;
+  height: fit-content;
+  border-radius: 12px;
+  border: 1px solid $border-color-grey;
+  background: $background-color-white;
+  margin-bottom: 20px;
+
+  .description {
+    display: grid;
+    grid-template-columns: 0.5fr 4.5fr 3.5fr 4.5fr 3.5fr 0.5fr;
+    grid-template-rows: 18px 4px 22px 16px 2px 64px 2px;
+    grid-template-areas:
+      "indicator order-header price-header status-header paid-header arrow"
+      "indicator . . . . arrow"
+      "indicator number-and-date price status paid arrow"
+      ". . . . . ."
+      "delimiter delimiter delimiter delimiter delimiter delimiter"
+      "address address address address images images";
+    grid-auto-flow: row;
+
+    font-style: normal;
+    font-weight: 400;
+
+    .indicator {
+      grid-area: indicator;
+      width: 4px;
+      border-radius: 24px;
+      background: $indicator-red;
+    }
+
+    .indicator.indicator-orange {
+      background: $indicator-orange;
+    }
+
+    .indicator.indicator-green {
+      background: $indicator-green;
+    }
+
+    .indicator.indicator-gray {
+      background: $indicator-gray;
+    }
+
+    .order-header {
+      grid-area: order-header;
+      color: $font-color-grey;
+      font-family: InterRegular;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .price-header {
+      grid-area: price-header;
+      color: $font-color-grey;
+      font-family: InterRegular;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .status-header {
+      grid-area: status-header;
+      color: $font-color-grey;
+      font-family: InterRegular;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .paid-header {
+      grid-area: paid-header;
+      color: $font-color-grey;
+      font-family: InterRegular;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .number-and-date {
+      grid-area: number-and-date;
+      display: flex;
+      gap: 8px;
+      font-style: normal;
+      font-weight: 400;
+
+      .number {
+        font-family: SFProTextRegular;
+        font-size: 16px;
+        line-height: 22px;
+      }
+
+      .date {
+        color: $font-color-grey;
+        font-family: InterRegular;
+        font-size: 14px;
+        line-height: 20px;
+        padding-top: 1.4px;
+      }
+    }
+
+    .price {
+      grid-area: price;
+      font-family: SFProTextRegular;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .status {
+      grid-area: status;
+      font-family: SFProTextRegular;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .paid {
+      grid-area: paid;
+      font-family: SFProTextRegular;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .arrow {
+      grid-area: arrow;
+      border: none;
+    }
+
+    .arrow.active {
+      transform: rotate(180deg)
+    }
+
+    .address {
+      grid-area: address;
+      font-family: SFProTextRegular;
+      font-size: 16px;
+      line-height: 22px;
+      margin-top: 22px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .delimiter {
+    grid-area: delimiter;
+    max-width: 100%;
+    height: 1px;
+    background: #F0F0F0;
+  }
+
+  .repeat-order {
+    color: $primary-color;
+    text-align: center;
+    font-family: SFProTextRegular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    margin-top: 16px;
+  }
+}
