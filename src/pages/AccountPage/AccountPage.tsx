@@ -37,28 +37,7 @@ export const AccountPage = () => {
   }, []);
   return (
     <>
-      <NavigationLinks show={false} />
-      <div className="account-page">
-        <div className="header">
-          <h1>Мой аккаунт</h1>
-          <img src={SwitchSelector} alt="tabs" />
-        </div>
-        <div className="orders">
-          {orders.map((order) => (
-            <AccountOrder
-              key={`orderItem-${order.number}`}
-              number={order.number}
-              date={order.date}
-              price={order.price}
-              eta={order.eta}
-              status={order.status}
-              paid={order.paid}
-              address={order.address}
-            />
-          ))}
-        </div>
-      </div>
-      <Footer />
+      <Delimiter />
     </>
   );
 };

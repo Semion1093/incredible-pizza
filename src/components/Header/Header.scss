@@ -1,51 +1,76 @@
 @import '../../variables';
 
+#header {
+  background: $background-color-white;
+}
+
 header {
-
-  .header-container {
-    background: $background-color-white;
-
-
-    max-width: 1290px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-    button {
-      padding: 0;
-      border: 0;
-      background-color: transparent;
+  @media (min-width: 851px) {
+    .mobile-only {
+      display: none !important;
     }
+  }
+
+  max-width: 1290px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  button {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
 
     span {
-      font-family: InterRegular;
+      font-family: SFProTextRegular;
       color: $font-color-black;
-      font-size: 14px;
-      line-height: 18px;
+      font-size: 16px;
+      line-height: 22px;
     }
+  }
 
+  span {
+    font-family: InterRegular;
+    color: $font-color-black;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .left-part {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    .location {
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  .right-part {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 850px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  header {
     .left-part {
-      display: flex;
-      align-items: center;
-      gap: 40px;
+      padding: 9px 20px 10px 20px;
+      justify-content: space-between;
+      width: 850px;
+      gap: 0;
 
-      .location {
-        display: flex;
-        gap: 8px;
-      }
-    }
-
-    .right-part {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-
-      .authorize {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+      span {
+        font-size: 12px;
+        line-height: 16px;
       }
     }
   }
