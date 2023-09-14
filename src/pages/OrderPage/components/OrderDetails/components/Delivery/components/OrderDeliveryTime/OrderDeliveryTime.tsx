@@ -14,7 +14,7 @@ export const OrderDeliveryTime = () => {
 
   return (
     <>
-      <span>Когда выполнить заказ?</span>
+      <span className="question-delivery-time">Когда выполнить заказ?</span>
       <div className="delivery-time">
         <div className="radio-group">
           {options.map((option) => (

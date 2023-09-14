@@ -7,23 +7,17 @@ export const Contacts = () => {
   return (
     <>
       <h3>Личные данные</h3>
-      <div className="grid-contacts">
-        <div className="grid-item">
+      <div className="order-contacts">
+        <div className="contact-item">
           <span>Имя*</span>
-        </div>
-        <div className="grid-item">
-          <span>Номер телефона*</span>
-        </div>
-        <div className="grid-item">
-          <span>Почта</span>
-        </div>
-        <div className="grid-item">
           <InputTextForm placeholder={'Алексей'} />
         </div>
-        <div className="grid-item">
+        <div className="contact-item">
+          <span>Номер телефона*</span>
           <InputTextForm placeholder={'+7'} />
         </div>
-        <div className="grid-item">
+        <div className="contact-item">
+          <span>Почта</span>
           <InputTextForm placeholder={'mail@gmail.com'} />
         </div>
       </div>
