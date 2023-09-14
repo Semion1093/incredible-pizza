@@ -1,9 +1,6 @@
 import './AccountPage.scss';
 import { AccountOrder, Order } from './components/AccountOrder/AccountOrder';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
-import { Footer } from '../../components/Footer/Footer';
-import { Header } from '../../components/Header/Header';
-import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
 import { useEffect, useState } from 'react';
 import SwitchSelector from './assets/Табы.png';
 
@@ -38,6 +35,26 @@ export const AccountPage = () => {
   return (
     <>
       <Delimiter />
+      <div className="account-page">
+        <div className="header">
+          <h1>Мой аккаунт</h1>
+          <img src={SwitchSelector} alt="tabs" />
+        </div>
+        <div className="orders">
+          {orders.map((order) => (
+            <AccountOrder
+              key={`orderItem-${order.number}`}
+              number={order.number}
+              date={order.date}
+              price={order.price}
+              eta={order.eta}
+              status={order.status}
+              paid={order.paid}
+              address={order.address}
+            />
+          ))}
+        </div>
+      </div>
     </>
   );
 };
