@@ -32,6 +32,9 @@
   box-sizing: border-box;
   margin: 0;
   transition: all .25s ease-in-out;
+  text-decoration: none;
+  color: $font-color-black;
+  font-family: $second-font;
 }
 
 #root {

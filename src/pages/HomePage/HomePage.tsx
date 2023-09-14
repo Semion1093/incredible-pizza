@@ -3,6 +3,7 @@ import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { Description } from './components/Description/Description';
 import { NavigationBar } from './components/NavigationBar/NavigationBar';
 import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
+import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
 import { ProductSection } from './components/ProductSection/ProductSection';
 import React from 'react';
 
@@ -12,6 +13,7 @@ export const HomePage = () => {
       <Delimiter />
       <NavigationLinks showSections={true} showMobileButtonBack={false} />
       <NavigationBar />
+      <SalesSection />
       <ProductSection nameId="pizza" name="Пицца" />
       <ProductSection nameId="sushi" name="Суши" />
       <ProductSection nameId="combo" name="Комбо" />
