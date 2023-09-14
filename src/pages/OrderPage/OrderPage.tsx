@@ -12,7 +12,6 @@ export const OrderPage = () => {
       <MobileMenu />
       <OrderItem />
       <OrderDetails />
-      <OrderDetails />
     </>
   );
 };
