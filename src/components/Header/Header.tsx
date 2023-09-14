@@ -1,3 +1,4 @@
+import { Delimiter } from '../Delimiter/Delimiter';
 import './Header.scss';
 import { HeaderAccountIconSvg } from './assets/HeaderAccountIconSvg';
 import { HeaderArrowDownSvg } from './assets/HeaderArrowDownSvg';
@@ -6,8 +7,8 @@ import React from 'react';
 
 export const Header = () => {
   return (
-    <div id="header">
-      <header>
+    <header>
+      <div className="header-container">
         <div className="left-part">
           <div className="location">
             <HeaderLocationIconSvg />
@@ -30,7 +31,8 @@ export const Header = () => {
             </button>
           </div>
         </div>
-      </header>
-    </div>
+      </div>
+      <Delimiter />
+    </header>
   );
 };
