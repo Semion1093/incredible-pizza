@@ -1,7 +1,6 @@
 import './HomePage.scss';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { Description } from './components/Description/Description';
-import { Header } from '../../components/Header/Header';
 import { NavigationBar } from './components/NavigationBar/NavigationBar';
 import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
 import { ProductSection } from './components/ProductSection/ProductSection';
