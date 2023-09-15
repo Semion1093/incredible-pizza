@@ -1,5 +1,5 @@
 import './OrderPage.scss';
-import { AdditionalOrderItem } from './components/AdditionalOrderItemCarousel/components/AdditionalOrderItem/AdditionalOrderItem';
+import { AdditionalOrderItem } from './components/AdditionalOrderItem/AdditionalOrderItem';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { Footer } from '../../components/Footer/Footer';
 import { Header } from '../../components/Header/Header';

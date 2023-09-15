@@ -1,14 +1,19 @@
 import './InputTextForm.scss';
-import React from 'react';
+import { OrderFormData } from '../../pages/OrderPage/components/OrderDetails/OrderDetails';
+import { UseFormRegister } from 'react-hook-form';
+import React, { InputHTMLAttributes } from 'react';
 
-export interface InputTextFormProps {
-  placeholder: string;
+export interface InputTextFormProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: any;
+  label: string;
+  register: UseFormRegister<OrderFormData>;
 }
 
 export const InputTextForm = (props: InputTextFormProps) => {
   return (
-    <form>
-      <input type="text" placeholder={props.placeholder} />
-    </form>
+    <label>
+      {props.label}
+      <input type="text" {...props} {...props.register(props.name)} />
+    </label>
   );
 };

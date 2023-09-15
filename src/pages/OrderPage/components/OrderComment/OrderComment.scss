@@ -1,0 +1,47 @@
+@import '../../../../variables';
+
+.additional-info {
+  padding-bottom: 20px;
+
+  textarea {
+    padding: 12px 20px;
+    width: 100%;
+    height: 200px;
+    border-radius: 6px;
+    border: 1px solid $border-color-grey;
+    background: $background-color-white;
+    resize: none;
+    font-family: InterRegular;
+    color: $font-color-black;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  textarea::placeholder {
+    font-family: InterRegular;
+    color: $font-color-grey;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  textarea:focus {
+    outline-style: none;
+    box-shadow: none;
+    border: 1px solid $primary-color;
+  }
+}
+
+@media (max-width: 850px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .additional-info {
+
+    textarea {
+      width: 90vw;
+      height: 140px;
+      margin: 16px 20px 20px 20px;
+    }
+  }
+}
