@@ -42,7 +42,7 @@
     margin: 0;
     transition: 0.15s ease;
 
-    .component-checkbox-icon {
+    svg {
       object-position: top;
       width: 41px;
       height: 41px;
@@ -64,7 +64,6 @@
 
   &:hover {
     .component-checkbox-tile {
-
       &:before {
         transform: scale(1);
         opacity: 1;

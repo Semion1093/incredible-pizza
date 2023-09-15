@@ -14,7 +14,8 @@ import {
   toppingCucumber,
   toppingMozzarella,
   toppingPepperoni,
-  toppingTomatoSauce,
+  toppingRedOnion,
+  toppingSweetPepper,
 } from './components/PizzaSettings/PizzaSettings';
 import { ProductSection } from './components/ProductSection/ProductSection';
 import PictureEasyPeasychicken from './components/PizzaSettings/assets/EasyPeasychicken.png';
@@ -26,7 +27,7 @@ const SweetChiliChicken: PizzaProps = {
   name: 'SweetChiliChicken',
   price: 400,
   picture: PictureSweetChiliChicken,
-  defaultToppings: [toppingMozzarella, toppingCucumber, toppingPepperoni, toppingTomatoSauce],
+  defaultToppings: [toppingMozzarella, toppingPepperoni, toppingChampignons, toppingRedOnion],
 };
 
 const EasyPeasychicken: PizzaProps = {
@@ -34,7 +35,7 @@ const EasyPeasychicken: PizzaProps = {
   name: 'EasyPeasychicken',
   price: 500,
   picture: PictureEasyPeasychicken,
-  defaultToppings: [toppingBacon, toppingCucumber, toppingChampignons, toppingTomatoSauce],
+  defaultToppings: [toppingBacon, toppingCucumber, toppingPepperoni, toppingSweetPepper],
 };
 
 export const HomePage = () => {

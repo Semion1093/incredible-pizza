@@ -1,122 +1,100 @@
 import './PizzaSettings.scss';
-import { PizzaComponents, Topping } from './PizzaComponents/PizzaComponents';
-import Bacon from './PizzaComponents/assets/Bacon.svg';
-import Champignons from './PizzaComponents/assets/Champignons.svg';
-import Cheddar from './PizzaComponents/assets/Cheddar.svg';
-import Cucumber from './PizzaComponents/assets/Cucumber.svg';
-import Jalapeno from './PizzaComponents/assets/Jalapeno.svg';
-import Mozzarella from './PizzaComponents/assets/Mozzarella.svg';
-import Olives from './PizzaComponents/assets/Olives.svg';
-import Pepperoni from './PizzaComponents/assets/Pepperoni.svg';
-import React from 'react';
-import RedOnion from './PizzaComponents/assets/RedOnion.svg';
-import SweetPepper from './PizzaComponents/assets/SweetPepper.svg';
-import TomatoSauce from './PizzaComponents/assets/TomatoSauce.svg';
-// import { ReactComponent as Bacon } from './PizzaComponents/assets/Bacon.svg';
-// import { ReactComponent as Champignons } from './PizzaComponents/assets/Champignons.svg';
-// import { ReactComponent as Cheddar } from './PizzaComponents/assets/Cheddar.svg';
-// import { ReactComponent as Cucumber } from './PizzaComponents/assets/Cucumber.svg';
-// import { ReactComponent as Jalapeno } from './PizzaComponents/assets/Jalapeno.svg';
-// import { ReactComponent as Mozzarella } from './PizzaComponents/assets/Mozzarella.svg';
-// import { ReactComponent as Olives } from './PizzaComponents/assets/Olives.svg';
-// import { ReactComponent as Pepperoni } from './PizzaComponents/assets/Pepperoni.svg';
-// import { ReactComponent as RedOnion } from './PizzaComponents/assets/RedOnion.svg';
-// import { ReactComponent as SweetPepper } from './PizzaComponents/assets/SweetPepper.svg';
-// import { ReactComponent as TomatoSauce } from './PizzaComponents/assets/TomatoSauce.svg';
-
-import { Options, SwitchSelector } from '../../../../components/OrderItem/SwitchSelector/SwitchSelector';
-
 import { ReactComponent as Info } from './assets/Info.svg';
+import { Options, SwitchSelector } from '../../../../components/OrderItem/SwitchSelector/SwitchSelector';
+import { PizzaComponents, ToppingProps } from './PizzaComponents/PizzaComponents';
 import { ReactComponent as Top } from './assets/Top.svg';
+import { Topping } from './ToppingIcon';
+import React from 'react';
 export interface PizzaProps {
   id?: number;
   name?: string;
   price?: number;
   picture?: string;
-  defaultToppings: Topping[];
+  defaultToppings: ToppingProps[];
 }
 export interface modalProps {
   state: boolean;
 }
 
-export const toppingMozzarella: Topping = {
+export const toppingMozzarella: ToppingProps = {
   id: 1,
   name: 'Моцарелла',
   price: 11,
-  children: Mozzarella,
+  iconType: Topping.Mozzarella,
 };
 
-export const toppingCucumber: Topping = {
+export const toppingCucumber: ToppingProps = {
   id: 2,
   name: 'Огурцы маринованные',
   price: 22,
-  children: Cucumber,
+  iconType: Topping.Cucumber,
 };
 
-export const toppingPepperoni: Topping = {
+export const toppingPepperoni: ToppingProps = {
   id: 3,
   name: 'Пепперони',
   price: 33,
-  children: Pepperoni,
+  iconType: Topping.Pepperoni,
 };
 
-export const toppingTomatoSauce: Topping = {
-  id: 4,
-  name: 'Томатный соус',
-  price: 44,
-  children: TomatoSauce,
-};
-
-export const toppingChampignons: Topping = {
+export const toppingChampignons: ToppingProps = {
   id: 5,
   name: 'Шампиньоны',
   price: 55,
-  children: Champignons,
+  iconType: Topping.Champignons,
 };
 
-export const toppingRedOnion: Topping = {
+export const toppingRedOnion: ToppingProps = {
   id: 6,
   name: 'Красный лук',
   price: 66,
-  children: RedOnion,
+  iconType: Topping.RedOnion,
 };
 
-export const toppingSweetPepper: Topping = {
+export const toppingSweetPepper: ToppingProps = {
   id: 7,
   name: 'Сладкий перец',
   price: 77,
-  children: SweetPepper,
+  iconType: Topping.SweetPepper,
 };
 
-export const toppingBacon: Topping = {
+export const toppingBacon: ToppingProps = {
   id: 8,
-  name: 'Bacon',
+  name: 'Бекон',
   price: 88,
-  children: Bacon,
+  iconType: Topping.Bacon,
 };
 
-export const toppingCheddar: Topping = {
+const toppingCheddar: ToppingProps = {
   id: 9,
-  name: 'Cheddar',
+  name: 'Чеддер',
   price: 99,
-  children: Cheddar,
+  iconType: Topping.Cheddar,
 };
 
-export const toppingJalapeno: Topping = {
+const toppingTomatoSauce: ToppingProps = {
+  id: 4,
+  name: 'Томатный соус',
+  price: 44,
+
+  iconType: Topping.TomatoSauce,
+};
+
+const toppingJalapeno: ToppingProps = {
   id: 10,
-  name: 'Jalapeno',
+  name: 'Халапеньо',
   price: 100,
-  children: Jalapeno,
+  iconType: Topping.Jalapeno,
 };
 
-export const toppingOlives: Topping = {
+const toppingOlives: ToppingProps = {
   id: 11,
-  name: 'Olives',
+  name: 'Оливки',
   price: 110,
-  children: Olives,
+  iconType: Topping.Olives,
 };
 
-const additionalToppings: Topping[] = [toppingChampignons, toppingBacon, toppingRedOnion, toppingSweetPepper];
+const additionalToppings: ToppingProps[] = [toppingTomatoSauce, toppingCheddar, toppingJalapeno, toppingOlives];
 
 const dough: Options[] = [
   { value: 'traditional', label: 'Традиционное' },
@@ -157,44 +135,16 @@ export const PizzaSettings = (props: PizzaProps) => {
           <div className="components-section in-base">
             {props.defaultToppings.map((item) => (
               <>
-                <PizzaComponents key={`id-${item.id}`} children={item.children} name={item.name} />
-                {/* <PizzaComponents key={`id-${item.id}`} name={item.name}> */}
-                {/* {item.children} */}
-                {/* <TomatoSauce /> */}
-                {/* </PizzaComponents> */}
+                <PizzaComponents key={`id-${item.id}`} name={item.name} iconType={item.iconType} />
               </>
             ))}
           </div>
           <div className="base-section">
             <div className="dough-wrapper">
-              <div className="switch-button pizza-dough">
-                <SwitchSelector {...dough} />
-                {/* <label className="tab">
-                  <input type="radio" />
-                  <span className="name">Традиционное</span>
-                </label>
-                <label className="tab">
-                  <input type="radio" />
-                  <span className="name">Тонкое</span>
-                </label> */}
-              </div>
+              <SwitchSelector {...dough} />
             </div>
             <div className="size-wrapper">
-              <div className="switch-button pizza-size">
-                <SwitchSelector {...size} />
-                {/* <label className="tab">
-                  <input type="radio" />
-                  <span className="name">20 см</span>
-                </label>
-                <label className="tab">
-                  <input type="radio" />
-                  <span className="name">28 см</span>
-                </label>
-                <label className="tab">
-                  <input type="radio" />
-                  <span className="name">33 см</span>
-                </label> */}
-              </div>
+              <SwitchSelector {...size} />
             </div>
           </div>
           <div className="content pizza-settings in-additional">
@@ -202,7 +152,9 @@ export const PizzaSettings = (props: PizzaProps) => {
           </div>
           <div className="components-section in-additional">
             {additionalToppings.map((item) => (
-              <PizzaComponents key={`id-${item.id}`} children={item.children} name={item.name} price={item.price} />
+              <>
+                <PizzaComponents key={`id-${item.id}`} name={item.name} price={item.price} iconType={item.iconType} />
+              </>
             ))}
           </div>
           <div className="results-wrapper">

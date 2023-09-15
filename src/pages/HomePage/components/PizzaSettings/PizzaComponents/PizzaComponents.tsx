@@ -1,22 +1,19 @@
+import { Topping, ToppingIcon } from '../ToppingIcon';
 import './PizzaComponents.scss';
-import { ReactComponent as TomatoSauce } from './assets/TomatoSauce.svg';
-import React, { FunctionComponent, ReactElement, ReactNode, SVGProps } from 'react';
-export interface Topping {
+export interface ToppingProps {
   id?: number;
   name: string;
   price?: number;
-  children?: string;
-  // children?: ReactNode;
-  // children?: React.FC;
+  iconType: Topping;
 }
 
-export const PizzaComponents = (props: Topping) => {
+export const PizzaComponents = (props: ToppingProps) => {
   return (
     <>
       <label className="component-checkbox-wrapper">
         <input type="checkbox" className="component-checkbox-input" />
         <span className="component-checkbox-tile">
-          <img className="component-checkbox-icon" src={props.children} alt="" />
+          <ToppingIcon icon={props.iconType} />
         </span>
         <span className="component-checkbox-label">
           {props.name}
