@@ -3,7 +3,7 @@ import React from 'react';
 
 export const Description = () => {
   return (
-    <div className="description">
+    <div className="description-info">
       <h2>Доставка пиццы в Москве</h2>
       <p>
         Захотелось чего-то вкусного и сытного? Желание простое и понятное, только в холодильнике все не то, и до магазина идти лень. Все пропало? Нет.

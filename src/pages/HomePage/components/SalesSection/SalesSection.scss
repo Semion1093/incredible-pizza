@@ -1,0 +1,35 @@
+@import '../../../../variables';
+
+.sales-section {
+  font-family: $second-font-semibold;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+  margin: 0 auto;
+  max-width: 1290px;
+  padding-top: 80px;
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 343px;
+    overflow: hidden;
+    min-width: 280px;
+
+    img {
+      position: absolute;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    figcaption {
+      position: relative;
+      padding: 20px;
+      max-width: 230px;
+      color: $font-color-white;
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+}
