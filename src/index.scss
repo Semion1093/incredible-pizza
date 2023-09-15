@@ -31,10 +31,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  transition: all .25s ease-in-out;
-  text-decoration: none;
-  color: $font-color-black;
-  font-family: $second-font;
+  transition: all 0.25s ease-in-out;
 }
 
 #root {
@@ -70,12 +67,6 @@ button {
   gap: 8px;
   border-radius: 6px;
 
-  &.arrow {
-    grid-area: arrow;
-    border: none;
-    background: $font-color-white;
-  }
-
   &:hover {
     color: $primary-color;
     background: $font-color-white;
@@ -100,7 +91,7 @@ button {
     -ms-user-select: none;
     user-select: none;
     font-family: SFProTextRegular;
-    color: $font-color-black;
+    color: #191919;
     font-size: 16px;
     line-height: 22px;
     gap: 24px;
@@ -232,22 +223,5 @@ button {
     svg * {
       fill: $primary-color;
     }
-  }
-}
-
-@media (max-width: 850px) {
-	.desktop-only {
-		display: none !important;
-	}
-
-  .radio-group {
-    padding: 12px 0 0 20px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
-  
-  h3 {
-    padding: 20px 0 0 20px;
   }
 }

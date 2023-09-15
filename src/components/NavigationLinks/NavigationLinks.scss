@@ -9,12 +9,6 @@
 }
 
 .navigation-links-content {
-  @media (min-width: 851px) {
-    .mobile-only {
-      display: none !important;
-    }
-  }
-
   max-width: 1290px;
   margin: 0 auto;
   display: flex;
@@ -38,7 +32,7 @@
     a {
       text-decoration: none;
       font-family: SFProTextRegular;
-      color: $font-color-black;
+      color: #191919;
       font-size: 16px;
       line-height: 22px;
     }
@@ -51,35 +45,12 @@ button {
 
   span {
     font-family: SFProTextRegular;
-    color: $font-color-white;
+    color: #fff;
     font-size: 16px;
     line-height: 22px;
   }
-
+  
   &:hover svg path {
     fill: $primary-color;
-  }
-}
-
-@media (max-width: 850px) {
-  .desktop-only {
-    display: none !important;
-  }
-
-  .navigation-links {
-    padding: 15px 20px 15px 20px;
-
-    .navigation-links-content {
-      .left-part {
-        display: flex;
-        gap: 12px;
-      }
-    }
-  }
-
-  .mobile-menu {
-    padding: 0;
-    border: 0;
-    background-color: transparent;
   }
 }

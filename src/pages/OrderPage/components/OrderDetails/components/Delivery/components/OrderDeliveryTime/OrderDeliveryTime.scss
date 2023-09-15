@@ -1,6 +1,6 @@
 @import '../../../../../../../../variables';
 
-.question-delivery-time {
+span {
   font-family: InterRegular;
   color: $font-color-grey;
   font-size: 14px;
@@ -19,32 +19,5 @@
 
   input[type=text] {
     max-width: 150px;
-  }
-}
-
-@media (max-width: 850px) {
-	.desktop-only {
-		display: none !important;
-	}
-
-  .question-delivery-time {
-    margin-left: 20px;
-    font-family: InterRegular;
-    color: $font-color-grey;
-    font-size: 14px;
-    line-height: 18px;
-  }
-
-  .delivery-time {
-    flex-direction: column;
-    gap: 0;
-
-    .date-time-pickers {
-      padding: 0 0 20px 20px;
-    }
-
-    input[type=text] {
-      max-width: 167px;
-    }
   }
 }

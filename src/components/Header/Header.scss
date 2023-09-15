@@ -5,12 +5,6 @@
 }
 
 header {
-  @media (min-width: 851px) {
-    .mobile-only {
-      display: none !important;
-    }
-  }
-
   max-width: 1290px;
   margin: 0 auto;
   display: flex;
@@ -22,15 +16,8 @@ header {
     padding: 0;
     border: 0;
     background-color: transparent;
-
-    span {
-      font-family: SFProTextRegular;
-      color: $font-color-black;
-      font-size: 16px;
-      line-height: 22px;
-    }
   }
-
+  
   span {
     font-family: InterRegular;
     color: $font-color-black;
@@ -53,25 +40,11 @@ header {
     display: flex;
     align-items: center;
     gap: 40px;
-  }
-}
 
-@media (max-width: 850px) {
-  .desktop-only {
-    display: none !important;
-  }
-
-  header {
-    .left-part {
-      padding: 9px 20px 10px 20px;
-      justify-content: space-between;
-      width: 850px;
-      gap: 0;
-
-      span {
-        font-size: 12px;
-        line-height: 16px;
-      }
+    .authorize {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
   }
 }
