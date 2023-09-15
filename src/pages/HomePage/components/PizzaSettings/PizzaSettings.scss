@@ -56,7 +56,7 @@
           .masse {
             padding-left: 12px;
             font-family: $first-font;
-            color: $font-color-gray;
+            color: $font-color-grey;
             font-size: 14px;
             line-height: 13px;
           }
@@ -121,7 +121,7 @@
             position: absolute;
             z-index: 1;
             font-family: $first-font;
-            background: $background-color-gray;
+            background: $background-color-grey;
             box-shadow: 3px 3px 4px black;
             padding: 15px 15px;
             width: 20%;
@@ -149,7 +149,7 @@
           width: 100%;
           height: 50px;
           border-radius: 6px;
-          border: 1px solid $border-color-gray;
+          border: 1px solid $border-color-grey;
           background: $background-color-white;
 
           .switch-button {
@@ -175,7 +175,7 @@
           width: 100%;
           height: 44px;
           border-radius: 6px;
-          border: 1px solid $border-color-gray;
+          border: 1px solid $border-color-grey;
           background: $background-color-white;
 
           .switch-button {
@@ -214,14 +214,14 @@
     .component-checkbox-wrapper {
       .component-checkbox-input {
         &:checked + .component-checkbox-tile {
-          border-color: $border-color-dark-gray;
+          border-color: $border-color-dark-grey;
           svg * {
-            fill: $border-color-dark-gray;
+            fill: $border-color-dark-grey;
           }
-          box-shadow: inset 0 3px 3px $border-color-dark-gray;
+          box-shadow: inset 0 3px 3px $border-color-dark-grey;
 
           ~ .component-checkbox-label {
-            color: $font-color-gray;
+            color: $font-color-grey;
           }
         }
       }
@@ -234,16 +234,16 @@
 
       &:hover {
         .component-checkbox-tile {
-          border-color: $border-color-dark-gray;
-          box-shadow: inset 0 3px 3px $border-color-dark-gray;
+          border-color: $border-color-dark-grey;
+          box-shadow: inset 0 3px 3px $border-color-dark-grey;
         }
 
         .component-checkbox-label {
-          color: $border-color-dark-gray;
+          color: $border-color-dark-grey;
         }
 
         svg * {
-          fill: $border-color-dark-gray;
+          fill: $border-color-dark-grey;
         }
       }
     }

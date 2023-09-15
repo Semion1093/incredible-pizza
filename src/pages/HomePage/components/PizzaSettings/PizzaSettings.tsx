@@ -1,10 +1,13 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import './PizzaSettings.scss';
 import { ReactComponent as Info } from './assets/Info.svg';
 import { Options, SwitchSelector } from '../../../../components/OrderItem/SwitchSelector/SwitchSelector';
 import { PizzaComponents, ToppingProps } from './PizzaComponents/PizzaComponents';
 import { ReactComponent as Top } from './assets/Top.svg';
 import { Topping } from './ToppingIcon';
-import React from 'react';
+import React, { useState } from 'react';
 export interface PizzaProps {
   id?: number;
   name?: string;
@@ -108,64 +111,72 @@ const size: Options[] = [
 ];
 
 export const PizzaSettings = (props: PizzaProps) => {
+  const [isActive, setIsActive] = useState<boolean>(true);
   return (
-    <div className="modal">
-      <article className="modal-wrapper separated">
-        <div className="left-side">
-          <div className="state-icon">
-            <p>NEW</p>
-          </div>
-          <img src={props.picture} alt="" className="pizza-img" />
+    <>
+      {isActive ? (
+        <div className="modal" onClick={() => setIsActive(false)}>
+          <article className="modal-wrapper separated" onClick={(e) => e.stopPropagation()}>
+            <div className="left-side">
+              <div className="state-icon">
+                <p>NEW</p>
+              </div>
+              <img src={props.picture} alt="" className="pizza-img" />
+            </div>
+            <div className="right-side">
+              <div className="title">
+                <div className="content pizza-settings">
+                  <Top />
+                  <p>{props.name}</p>
+                </div>
+                <details className="button-info">
+                  <summary>
+                    <Info />
+                  </summary>
+                  <span>
+                    В конструкторе пиццы вы можете исключить ингридиенты, которые идут в базовой конфигурации и добавить за дополнительную плату
+                    топпинги
+                  </span>
+                </details>
+              </div>
+              <div className="components-section in-base">
+                {props.defaultToppings.map((item) => (
+                  <>
+                    <PizzaComponents key={`id-${item.id}`} name={item.name} iconType={item.iconType} />
+                  </>
+                ))}
+              </div>
+              <div className="base-section">
+                <div className="dough-wrapper">
+                  <SwitchSelector {...dough} />
+                </div>
+                <div className="size-wrapper">
+                  <SwitchSelector {...size} />
+                </div>
+              </div>
+              <div className="content pizza-settings in-additional">
+                <p>Добавьте в пиццу</p>
+              </div>
+              <div className="components-section in-additional">
+                {additionalToppings.map((item) => (
+                  <>
+                    <PizzaComponents key={`id-${item.id}`} name={item.name} price={item.price} iconType={item.iconType} />
+                  </>
+                ))}
+              </div>
+              <div className="results-wrapper">
+                <div className="result">
+                  <span className="price">Итого: {props.price} ₽</span>
+                  <span className="masse">{props.price} г</span>
+                </div>
+                <button className="finish">Добавить</button>
+              </div>
+            </div>
+          </article>
         </div>
-        <div className="right-side">
-          <div className="title">
-            <div className="content pizza-settings">
-              <Top />
-              <p>{props.name}</p>
-            </div>
-            <details className="button-info">
-              <summary>
-                <Info />
-              </summary>
-              <span>
-                В конструкторе пиццы вы можете исключить ингридиенты, которые идут в базовой конфигурации и добавить за дополнительную плату топпинги
-              </span>
-            </details>
-          </div>
-          <div className="components-section in-base">
-            {props.defaultToppings.map((item) => (
-              <>
-                <PizzaComponents key={`id-${item.id}`} name={item.name} iconType={item.iconType} />
-              </>
-            ))}
-          </div>
-          <div className="base-section">
-            <div className="dough-wrapper">
-              <SwitchSelector {...dough} />
-            </div>
-            <div className="size-wrapper">
-              <SwitchSelector {...size} />
-            </div>
-          </div>
-          <div className="content pizza-settings in-additional">
-            <p>Добавьте в пиццу</p>
-          </div>
-          <div className="components-section in-additional">
-            {additionalToppings.map((item) => (
-              <>
-                <PizzaComponents key={`id-${item.id}`} name={item.name} price={item.price} iconType={item.iconType} />
-              </>
-            ))}
-          </div>
-          <div className="results-wrapper">
-            <div className="result">
-              <span className="price">Итого: {props.price} ₽</span>
-              <span className="masse">{props.price} г</span>
-            </div>
-            <button className="finish">Добавить</button>
-          </div>
-        </div>
-      </article>
-    </div>
+      ) : (
+        <></>
+      )}
+    </>
   );
 };
