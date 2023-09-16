@@ -1,0 +1,60 @@
+@import '../../../../variables';
+
+.account-order-item {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-family: InterRegular;
+  margin-bottom: 12px;
+  background: $background-color-white;
+
+  img {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .name {
+    margin: auto;
+    color: $font-color-black;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+  }
+
+  .item-description {
+    margin: auto;
+    color: $font-color-black;
+    font-family: InterRegular;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .quantity {
+    display: inline-flex;
+    padding: 10px 20px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 6px;
+    background: $primary-color-light;
+    color: $primary-color;
+    text-align: center;
+  }
+
+  .cost {
+    margin: auto;
+    color: $primary-color;
+    font-family: InterRegular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+  }
+}
+
+.account-order-item:first-child {
+  margin-top: 12px;
+}
