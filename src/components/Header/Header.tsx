@@ -1,5 +1,5 @@
 import './Header.scss';
-import { HeaderAccountIconSvg } from './assets/HeaderAccountIconSvg';
+import { Authorize } from '../Authorize/Authorize';
 import { HeaderArrowDownSvg } from './assets/HeaderArrowDownSvg';
 import { HeaderLocationIconSvg } from './assets/HeaderLocationIconSvg';
 import React from 'react';
@@ -16,19 +16,14 @@ export const Header = () => {
               <HeaderArrowDownSvg />
             </button>
           </div>
-          <span>Проверить адрес</span>
+          <span className="desktop-only">Проверить адрес</span>
           <span>
             Среднее время доставки*: <b>00:24:19</b>
           </span>
         </div>
-        <div className="right-part">
+        <div className="right-part desktop-only">
           <span>Время работы: с 11:00 до 23:00</span>
-          <div className="authorize">
-            <HeaderAccountIconSvg />
-            <button>
-              <span>Войти в аккаунт</span>
-            </button>
-          </div>
+          <Authorize />
         </div>
       </header>
     </div>

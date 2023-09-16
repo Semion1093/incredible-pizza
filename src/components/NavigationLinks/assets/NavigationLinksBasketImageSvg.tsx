@@ -1,4 +1,4 @@
-export const NavigationLinksButtonImageSvg = () => {
+export const NavigationLinksBasketImageSvg = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
       <path

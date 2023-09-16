@@ -1,8 +1,27 @@
 .change {
-    display: flex;
-    gap: 16px;
+  display: flex;
+  gap: 16px;
+
+  .cash-input {
+    max-width: 160px;
+
+    input[type=text] {
+      width: 160px;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .change {
+    flex-direction: column;
+    gap: 0;
 
     .cash-input {
-        max-width: 160px;
+      padding: 0 0 20px 20px;
     }
+  }
 }
