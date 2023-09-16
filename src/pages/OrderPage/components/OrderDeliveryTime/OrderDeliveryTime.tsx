@@ -1,10 +1,12 @@
 import './OrderDeliveryTime.scss';
+import 'react-datepicker/dist/react-datepicker.css';
+import { Controller, UseFormRegister } from 'react-hook-form';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
-import { DeliveryDatePicker } from '../DeliveryDatePicker/DeliveryDatePicker';
-import { DeliveryTimePicker } from '../DeliveryTimePicker/DeliveryTimePicker';
 import { OrderFormData } from '../OrderDetails/OrderDetails';
-import { UseFormRegister } from 'react-hook-form';
+import DatePicker, { registerLocale } from 'react-datepicker';
 import React, { useState } from 'react';
+import ru from 'date-fns/locale/ru';
+registerLocale('ru', ru);
 
 export interface OrderDeliveryTimeProps {
   register: UseFormRegister<OrderFormData>;
@@ -42,8 +44,30 @@ export const OrderDeliveryTime = (props: OrderDeliveryTimeProps) => {
         </div>
         {selectedOption === 'by-time' && (
           <div className="date-time-pickers">
-            {/* <DeliveryDatePicker control={props.control} />
-            <DeliveryTimePicker control={props.control} /> */}
+            <Controller
+              control={props.control}
+              name="date"
+              render={({ field: { onChange, value } }) => (
+                <DatePicker locale={ru} placeholderText="Дата" dateFormat="dd.MM.yyyy" onChange={onChange} selected={value} />
+              )}
+            />
+            <Controller
+              control={props.control}
+              name="time"
+              render={({ field: { onChange, value } }) => (
+                <DatePicker
+                  locale={ru}
+                  placeholderText="Время"
+                  dateFormat="HH:mm"
+                  showTimeSelect
+                  showTimeSelectOnly
+                  timeIntervals={15}
+                  timeCaption="Time"
+                  onChange={onChange}
+                  selected={value}
+                />
+              )}
+            />
           </div>
         )}
       </div>

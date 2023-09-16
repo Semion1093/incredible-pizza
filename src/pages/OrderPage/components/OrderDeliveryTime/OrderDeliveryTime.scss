@@ -23,6 +23,34 @@
   }
 }
 
+.react-datepicker__day--today {
+    background-color: $primary-color-light !important;
+}
+
+.react-datepicker__day--selected {
+    background-color: $primary-color !important;
+}
+
+.react-datepicker__day:hover {
+    background-color: $primary-color-light !important;
+}
+
+.react-datepicker__day--selected:hover {
+    background-color: $primary-color !important;
+}
+
+.react-datepicker__time-list-item--selected {
+  background-color: $primary-color !important;
+}
+
+.react-datepicker__time-list-item:hover {
+  background-color: $primary-color-light !important;
+}
+
+.react-datepicker__time-list-item--selected:hover {
+  background-color: $primary-color !important;
+}
+
 @media (max-width: 850px) {
 	.desktop-only {
 		display: none !important;
