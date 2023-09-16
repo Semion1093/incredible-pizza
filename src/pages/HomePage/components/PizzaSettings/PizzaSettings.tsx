@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import './PizzaSettings.scss';
 import { ReactComponent as Info } from './assets/Info.svg';
-import { Options, SwitchSelector } from '../../../../components/OrderItem/SwitchSelector/SwitchSelector';
+import { Options, SwitchSelector } from '../../../../components/SwitchSelector/SwitchSelector';
 import { PizzaComponents, ToppingProps } from './PizzaComponents/PizzaComponents';
 import { ReactComponent as Top } from './assets/Top.svg';
 import { Topping } from './ToppingIcon';

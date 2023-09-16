@@ -1,6 +1,6 @@
 import './Delivery.scss';
 import { DeliveryAddress } from './components/DeliveryAddress/DeliveryAddress';
-import { SwitchSelector, Options } from '../../../../../../components/OrderItem/SwitchSelector/SwitchSelector';
+import { SwitchSelector, Options } from '../../../../../../components/SwitchSelector/SwitchSelector';
 import { OrderDeliveryTime } from './components/OrderDeliveryTime/OrderDeliveryTime';
 import { PickupAddress } from '../PickupAddress/PickupAddress';
 import React from 'react';
