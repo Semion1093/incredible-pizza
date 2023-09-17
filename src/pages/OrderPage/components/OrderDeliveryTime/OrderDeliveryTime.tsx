@@ -29,7 +29,7 @@ export const OrderDeliveryTime = (props: OrderDeliveryTimeProps) => {
           {options.map((option) => (
             <label className="radio-container" key={option.value}>
               <input
-                {...props.register('deliveryRadio')}
+                {...props.register('deliveryType')}
                 type="radio"
                 value={option.value}
                 checked={selectedOption === option.value}

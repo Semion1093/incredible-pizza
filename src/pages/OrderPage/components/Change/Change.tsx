@@ -23,7 +23,7 @@ export const Change = (props: ChangeProps) => {
         {options.map((option) => (
           <label className="radio-container" key={option.value}>
             <input
-              {...props.register('changeRadio')}
+              {...props.register('changeType')}
               type="radio"
               value={option.value}
               checked={selectedOption === option.value}

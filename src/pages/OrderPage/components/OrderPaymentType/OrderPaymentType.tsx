@@ -21,7 +21,7 @@ export const OrderPaymentType = (props: OrderPaymentTypeProps) => {
       {options.map((option) => (
         <label className="radio-container" key={option.value}>
           <input
-            {...props.register('paymentRadio')}
+            {...props.register('paymentType')}
             type="radio"
             value={option.value}
             checked={selectedOption === option.value}
