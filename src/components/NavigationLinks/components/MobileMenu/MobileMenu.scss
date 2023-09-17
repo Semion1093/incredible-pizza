@@ -5,7 +5,7 @@
   
   span {
     color: $font-color-black;
-    font-family: InterRegular;
+    font-family: $second-font;
     font-size: 16px;
     line-height: 20px;
   }
@@ -44,7 +44,7 @@
       justify-content: center;
       
       span {
-        font-family: InterRegular;
+        font-family: $second-font;
         color: $font-color-grey;
         text-align: center;
         font-size: 14px;

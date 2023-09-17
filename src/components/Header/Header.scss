@@ -24,7 +24,7 @@ header {
     background-color: transparent;
 
     span {
-      font-family: SFProTextRegular;
+      font-family: $first-font;
       color: $font-color-black;
       font-size: 16px;
       line-height: 22px;
@@ -32,7 +32,7 @@ header {
   }
 
   span {
-    font-family: InterRegular;
+    font-family: $second-font;
     color: $font-color-black;
     font-size: 14px;
     line-height: 18px;

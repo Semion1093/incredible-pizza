@@ -8,7 +8,7 @@ input {
 
 input[type=text] {
   padding: 12px 20px;
-  font-family: InterRegular;
+  font-family: $second-font;
   color: $font-color-black;
   font-size: 14px;
   line-height: 18px;
@@ -16,7 +16,7 @@ input[type=text] {
 }
 
 input::placeholder {
-  font-family: InterRegular;
+  font-family: $second-font;
   color: $font-color-grey;
   font-size: 14px;
   line-height: 18px;

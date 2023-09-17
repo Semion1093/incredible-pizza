@@ -2,95 +2,126 @@
 
 
 .order {
-  @media (min-width: 851px) {
-    .mobile-only {
-      display: none !important;
-    }
-  }
-
-  max-width: 850px;
-  margin: 0 auto;
-  padding-top: 40px;
-
+  
   .order-item-wrapper {
-    max-height: 152px;
     border-radius: 12px;
     border: 1px solid $border-color-grey;
     background: $background-color-white;
+    padding: 16px;
 
-    display: flex;
+    display: grid;
+    grid-template-columns: 120px 1fr 220px;
+    gap: 16px;
     margin: 0 auto;
     align-items: center;
     justify-content: space-between;
 
+    img {
+      justify-self: center;
+    }
+
     .content {
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-
-      img {
-        height: 120px;
-        padding-left: 16px;
-      }
-
       .text {
-        margin-left: 16px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
         .title {
-          font-family: InterSemibold;
-          font-size: 20px;
-          line-height: 28px;
+          font-family: $second-font-semibold;
         }
 
         span {
           padding-top: 8px;
-          font-family: SFProTextRegular;
-          font-size: 16px;
-          line-height: 22px;
+          font-family: $first-font;
           color: $font-color-black;
         }
       }
-    }
 
-    p.price {
-      color: $primary-color;
-      font-family: InterSemibold;
-      display: flex;
-      justify-content: flex-end;
-      padding-right: 24px;
-    }
+      .price {
+        color: $primary-color;
+        font-family: $second-font-semibold;
+        display: flex;
+        justify-content: flex-end;
+      }
 
-    .result {
-      display: flex;
+      .result {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+      }
+    }
+  }
+
+  @media (min-width: 851px) {
+  
+    max-width: 850px;
+    margin: 0 auto;
+    padding-top: 40px;
+
+    .order-item-wrapper {
+      max-height: 152px;
+      border-radius: 12px;
+      border: 1px solid $border-color-grey;
+      background: $background-color-white;
+
+      display: grid;
+      grid-template-columns: 120px 1fr 220px;
+      gap: 16px;
+      margin: 0 auto;
       align-items: center;
-      gap: 40px;
+      justify-content: space-between;
+
+      img {
+        justify-self: center;
+        height: 120px;
+      }
+
+      .content {
+
+        display: contents;
+
+        .text {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .title {
+            font-family: $second-font-semibold;
+            font-size: 20px;
+            line-height: 28px;
+          }
+
+          span {
+            font-size: 16px;
+            line-height: 22px;
+          }
+        }
+
+        .price {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
     }
   }
-}
 
-
-@media (max-width: 850px) {
-  .desktop-only {
-    display: none !important;
-  }
-
-  .order {
+  @media (max-width: 850px) {
     margin: 20px;
 
     .order-item-wrapper {
+      display: grid;
+      grid-template-columns: 94px 232px;
+      gap: 16px;
       justify-content: flex-start;
       margin-bottom: 20px;
 
       img {
-        height: 84px;
-        padding: 12px 0 12px 12px;
+        justify-self: center;
+        height: 94px;
       }
 
       .content {
-        padding: 12px;
         flex-shrink: 0;
         flex-direction: column;
         align-items: flex-start;
@@ -101,28 +132,21 @@
           flex-direction: column;
 
           .title {
-            font-family: InterSemibold;
+            font-family: $second-font-semibold;
             font-size: 14px;
             line-height: 18px;
           }
 
           span {
-            font-family: SFProTextRegular;
-            color: $font-color-black;
             font-size: 12px;
             line-height: 16px;
           }
         }
 
         .result {
-          display: flex;
-          gap: 96px;
-          align-items: center;
           padding-top: 10px;
 
           .price {
-            font-family: InterSemibold;
-            color: $primary-color;
             font-size: 14px;
             line-height: 18px;
           }
