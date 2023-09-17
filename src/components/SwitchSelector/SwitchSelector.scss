@@ -1,3 +1,44 @@
+@import '../../variables';
+
+.switch-button {
+  position: relative;
+  display: flex;
+  border-radius: 6px;
+  background-color: $background-color-white;
+  width: 350px;
+  height: 48px;
+}
+
+.switch-button .tab {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.switch-button .tab input {
+  display: none;
+}
+
+.switch-button .tab .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: none;
+  padding: 13px 0;
+  transition: ease;
+  font-family: SFProTextRegular;
+  color: $font-color-black;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.switch-button .tab input:checked+.name {
+  background-color: $primary-color;
+  color: $font-color-white;
+  height: 48px;
+}
+
 @media (max-width: 850px) {
   .switch-button {
     margin-left: 20px;
