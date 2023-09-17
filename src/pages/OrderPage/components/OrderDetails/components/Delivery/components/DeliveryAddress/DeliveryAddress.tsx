@@ -1,5 +1,5 @@
 import './DeliveryAddress.scss';
-import { InputTextForm } from '../../../../../../../../components/InputTextForm/InputTextForm';
+import { CustomTextInput } from '../../../../../../../../components/CustomTextInput/CustomTextInput';
 import React from 'react';
 
 export interface DeliveryAddressProps {
@@ -13,27 +13,27 @@ export const DeliveryAddress = (props: DeliveryAddressProps) => {
         <div className="delivery-grid">
           <div className="grid-item street">
             <span>Улица*</span>
-            <InputTextForm placeholder={'Пушкина'} />
+            <CustomTextInput placeholder={'Пушкина'} />
           </div>
           <div className="grid-item">
             <span>Дом</span>
-            <InputTextForm placeholder={'1а'} />
+            <CustomTextInput placeholder={'1а'} />
           </div>
           <div className="grid-item mobile">
             <span>Подъезд</span>
-            <InputTextForm placeholder={'1'} />
+            <CustomTextInput placeholder={'1'} />
           </div>
           <div className="grid-item mobile">
             <span>Этаж</span>
-            <InputTextForm placeholder={'2'} />
+            <CustomTextInput placeholder={'2'} />
           </div>
           <div className="grid-item mobile">
             <span>Квартира</span>
-            <InputTextForm placeholder={'3'} />
+            <CustomTextInput placeholder={'3'} />
           </div>
           <div className="grid-item mobile">
             <span>Домофон</span>
-            <InputTextForm placeholder={'0000'} />
+            <CustomTextInput placeholder={'0000'} />
           </div>
         </div>
       )}

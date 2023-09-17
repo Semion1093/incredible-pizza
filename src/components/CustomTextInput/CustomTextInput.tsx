@@ -1,11 +1,11 @@
-import './InputTextForm.scss';
+import './CustomTextInput.scss';
 import React from 'react';
 
-export interface InputTextFormProps {
+export interface CustomTextInputProps {
   placeholder: string;
 }
 
-export const InputTextForm = (props: InputTextFormProps) => {
+export const CustomTextInput = (props: CustomTextInputProps) => {
   return (
     <form>
       <input type="text" placeholder={props.placeholder} />

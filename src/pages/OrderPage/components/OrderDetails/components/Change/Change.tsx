@@ -1,5 +1,5 @@
 import './Change.scss';
-import { InputTextForm } from '../../../../../../components/InputTextForm/InputTextForm';
+import { CustomTextInput } from '../../../../../../components/CustomTextInput/CustomTextInput';
 import React, { useState } from 'react';
 
 export const Change = () => {
@@ -30,7 +30,7 @@ export const Change = () => {
       </div>
       {selectedOption === 'with-cash' && (
         <div className="cash-input">
-          <InputTextForm placeholder={'0                         ₽'} />
+          <CustomTextInput placeholder={'0                         ₽'} />
         </div>
       )}
     </div>
