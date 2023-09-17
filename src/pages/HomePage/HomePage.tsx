@@ -3,8 +3,6 @@ import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { Description } from './components/Description/Description';
 import { NavigationBar } from './components/NavigationBar/NavigationBar';
 import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
-import { ProductSection } from './components/ProductSection/ProductSection';
-import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
 import {
   PizzaProps,
   PizzaSettings,
@@ -17,6 +15,7 @@ import {
   toppingSweetPepper,
 } from './components/PizzaSettings/PizzaSettings';
 import { ProductSection } from './components/ProductSection/ProductSection';
+import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
 import PictureEasyPeasychicken from './components/PizzaSettings/assets/EasyPeasychicken.png';
 import PictureSweetChiliChicken from './components/PizzaSettings/assets/SweetChiliChicken.png';
 import React from 'react';
