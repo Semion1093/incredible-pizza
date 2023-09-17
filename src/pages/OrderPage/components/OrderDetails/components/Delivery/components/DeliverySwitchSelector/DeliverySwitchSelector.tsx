@@ -14,24 +14,21 @@ export const DeliverySwitchSelector = (props: DeliverySwitchSelectorProps) => {
   ];
 
   return (
-    <div className="delivery">
-      <h3>Доставка</h3>
-      <div className="switch-button">
-        {options.map((option) => (
-          <label className="tab" key={option.value}>
-            <input
-              type="radio"
-              value={option.value}
-              checked={selectedOption === option.value}
-              onClick={() => props.clickHandler(option.value)}
-              onChange={(e) => {
-                setSelectedOption(e.target.value);
-              }}
-            />
-            <span className="name">{option.label}</span>
-          </label>
-        ))}
-      </div>
+    <div className="switch-button">
+      {options.map((option) => (
+        <label className="tab" key={option.value}>
+          <input
+            type="radio"
+            value={option.value}
+            checked={selectedOption === option.value}
+            onClick={() => props.clickHandler(option.value)}
+            onChange={(e) => {
+              setSelectedOption(e.target.value);
+            }}
+          />
+          <span className="name">{option.label}</span>
+        </label>
+      ))}
     </div>
   );
 };

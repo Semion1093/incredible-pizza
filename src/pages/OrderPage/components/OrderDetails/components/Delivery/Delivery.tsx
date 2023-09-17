@@ -9,7 +9,10 @@ export const Delivery = () => {
   const [deliveryTab, setDeliveryTab] = useState('delivery');
   return (
     <>
-      <DeliverySwitchSelector clickHandler={setDeliveryTab} />
+      <div className="delivery">
+        <h3>Доставка</h3>
+        <DeliverySwitchSelector clickHandler={setDeliveryTab} />
+      </div>
       <PickupAddress tab={deliveryTab} />
       <DeliveryAddress tab={deliveryTab} />
       <OrderDeliveryTime />
