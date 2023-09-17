@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import './AccountOrder.scss';
-import { AccountOrderItem, OrderItem } from '../AccountOrderItem/AccountOrderItem';
+import { AccountOrderItem, OrderItem } from './components/AccountOrderItem/AccountOrderItem';
 import { useEffect, useState } from 'react';
 import arrow from '../../../../assets/Arrow.svg';
 
