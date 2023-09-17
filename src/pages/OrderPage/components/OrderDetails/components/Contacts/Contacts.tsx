@@ -1,6 +1,6 @@
 import './Contacts.scss';
 import { Delimiter } from '../../../../../../components/Delimiter/Delimiter';
-import { CustomTextInput } from '../../../../../../components/CustomTextInput/CustomTextInput';
+import { InputTextForm } from '../../../../../../components/InputTextForm/InputTextForm';
 import React from 'react';
 
 export const Contacts = () => {
@@ -10,15 +10,15 @@ export const Contacts = () => {
       <div className="order-contacts">
         <div className="contact-item">
           <span>Имя*</span>
-          <CustomTextInput placeholder={'Алексей'} />
+          <InputTextForm placeholder={'Алексей'} />
         </div>
         <div className="contact-item">
           <span>Номер телефона*</span>
-          <CustomTextInput placeholder={'+7'} />
+          <InputTextForm placeholder={'+7'} />
         </div>
         <div className="contact-item">
           <span>Почта</span>
-          <CustomTextInput placeholder={'mail@gmail.com'} />
+          <InputTextForm placeholder={'mail@gmail.com'} />
         </div>
       </div>
       <Delimiter />
