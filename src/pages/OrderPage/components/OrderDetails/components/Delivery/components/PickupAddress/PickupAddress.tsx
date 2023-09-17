@@ -7,7 +7,7 @@ export interface PickupAddressProps {
 export const PickupAddress = (props: PickupAddressProps) => {
   return (
     <>
-      {props.tab === 'pickup' && (
+      {props.tab === 'rightOption' && (
         <label className="pickup-address-select">
           Ресторан*
           <select defaultValue="rest1">

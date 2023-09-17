@@ -1,16 +1,18 @@
-import './DeliverySwitchSelector.scss';
+import './SwitchSelector.scss';
 import React, { useState } from 'react';
 
-export interface DeliverySwitchSelectorProps {
+export interface SwitchSelectorProps {
   clickHandler: (tab: string) => void;
+  leftOptionText: string;
+  rightOptionText: string;
 }
 
-export const DeliverySwitchSelector = (props: DeliverySwitchSelectorProps) => {
-  const [selectedOption, setSelectedOption] = useState('delivery');
+export const SwitchSelector = (props: SwitchSelectorProps) => {
+  const [selectedOption, setSelectedOption] = useState('leftOption');
 
   const options = [
-    { value: 'delivery', label: 'Доставка' },
-    { value: 'pickup', label: 'Самовывоз' },
+    { value: 'leftOption', label: props.leftOptionText },
+    { value: 'rightOption', label: props.rightOptionText },
   ];
 
   return (

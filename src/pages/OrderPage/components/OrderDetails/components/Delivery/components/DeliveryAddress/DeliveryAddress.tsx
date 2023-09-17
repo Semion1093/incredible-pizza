@@ -9,7 +9,7 @@ export interface DeliveryAddressProps {
 export const DeliveryAddress = (props: DeliveryAddressProps) => {
   return (
     <>
-      {props.tab === 'delivery' && (
+      {props.tab === 'leftOption' && (
         <div className="delivery-grid">
           <div className="grid-item street">
             <span>Улица*</span>
