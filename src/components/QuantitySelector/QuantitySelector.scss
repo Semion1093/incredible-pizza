@@ -13,7 +13,7 @@
   align-items: center;
   gap: 10px;
   height: 36px;
-  width: 92px;
+  width: 96px;
   justify-content: center;
 
   input {
@@ -22,9 +22,10 @@
     background: 0;
     text-align: center;
     color: $primary-color;
-    font-family: InterSemibold;
+    font-family: $second-font-semibold;
     font-size: 16px;
     line-height: 20px;
+    padding: 0;
   }
 
   button {

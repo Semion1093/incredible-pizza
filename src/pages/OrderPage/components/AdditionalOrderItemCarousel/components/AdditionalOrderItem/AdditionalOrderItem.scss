@@ -19,7 +19,7 @@
 
     .name {
       padding: 16px 30px 8px 30px;
-      font-family: SFProTextSemibold;
+      font-family: $first-font-semibold;
       color: $font-color-black;
       text-align: center;
       font-size: 18px;
@@ -27,7 +27,7 @@
     }
 
     .info {
-      font-family: InterRegular;
+      font-family: $second-font;
       color: $font-color-black;
       text-align: center;
       font-size: 14px;
@@ -47,7 +47,7 @@
 
       span {
         color: $font-color-white;
-        font-family: InterSemibold;
+        font-family: $second-font-semibold;
         font-size: 16px;
         line-height: 20px;
       }

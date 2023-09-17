@@ -21,7 +21,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
           </div>
           <p className="accent">Акции</p>
         </a>
-        <a href="#pizza" className="navigation-bar-item">
+        <a href="#pizza" className="navigation-bar-item icon">
           <div className="icon">
             <PizzaIcon />
           </div>

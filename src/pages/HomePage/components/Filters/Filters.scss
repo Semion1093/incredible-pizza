@@ -11,7 +11,7 @@
     padding-bottom: 24px;
 
     h4 {
-      font-family: SFProTextRegular;
+      font-family: $first-font;
       color: $font-color-grey;
       font-size: 16px;
       line-height: 22px;
@@ -37,7 +37,7 @@
       justify-content: center;
       background-color: $background-color-white;
       border: 1px solid $primary-color;
-      font-family: SFProTextRegular;
+      font-family: $first-font;
       color: $primary-color;
       font-size: 16px;
       line-height: 22px;

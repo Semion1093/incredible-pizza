@@ -9,20 +9,7 @@ export const OrderItem = () => {
     <>
       <div className="order">
         <h2>Ваш заказ</h2>
-        <div className="order-item-wrapper desktop-only">
-          <div className="content">
-            <img src={pepperoni} alt="" />
-            <div className="text">
-              <p className="title">Пепперони по-деревенски</p>
-              <span>Традиционное тесто, 23 см</span>
-            </div>
-          </div>
-          <div className="result">
-            <QuantitySelector />
-            <p className="price">1399 ₽</p>
-          </div>
-        </div>
-        <div className="order-item-wrapper mobile-only">
+        <div className="order-item-wrapper">
           <img src={pepperoni} alt="" />
           <div className="content">
             <div className="text">
