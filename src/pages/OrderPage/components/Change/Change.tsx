@@ -1,6 +1,6 @@
 import './Change.scss';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
-import { InputTextForm } from '../../../../components/InputTextForm/InputTextForm';
+import { CustomTextInput } from '../../../../components/CustomTextInput/CustomTextInput';
 import { OrderFormData } from '../OrderDetails/OrderDetails';
 import React, { useState } from 'react';
 
@@ -38,7 +38,7 @@ export const Change = (props: ChangeProps) => {
       </div>
       {selectedOption === 'with-cash' && (
         <div className="cash-input">
-          <InputTextForm name={'change'} placeholder={'0                         ₽'} label={''} register={props.register} />
+          <CustomTextInput name={'change'} placeholder={'0                         ₽'} label={''} register={props.register} />
           {props.errors.change && <span className="error-text">{props.errors.change.message?.toString()}</span>}
         </div>
       )}
