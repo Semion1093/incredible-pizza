@@ -1,0 +1,23 @@
+.delivery {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+@media (max-width: 850px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .delivery {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .switch-button {
+    margin-left: 20px;
+  }
+}
