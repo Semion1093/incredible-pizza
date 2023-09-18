@@ -1,4 +1,5 @@
 import './HomePage.scss';
+import { Cart } from './components/Cart/Cart';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { Description } from './components/Description/Description';
 import { NavigationBar } from './components/NavigationBar/NavigationBar';
@@ -16,7 +17,7 @@ import {
 } from './components/PizzaSettings/PizzaSettings';
 import { ProductSection } from './components/ProductSection/ProductSection';
 import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
-import PictureEasyPeasychicken from './components/PizzaSettings/assets/EasyPeasychicken.png';
+import PictureEasyPeasyChicken from './components/PizzaSettings/assets/EasyPeasyChicken.png';
 import PictureSweetChiliChicken from './components/PizzaSettings/assets/SweetChiliChicken.png';
 import React from 'react';
 
@@ -28,11 +29,11 @@ const SweetChiliChicken: PizzaProps = {
   defaultToppings: [toppingMozzarella, toppingPepperoni, toppingChampignons, toppingRedOnion],
 };
 
-const EasyPeasychicken: PizzaProps = {
+const EasyPeasyChicken: PizzaProps = {
   id: 2,
   name: 'EasyPeasychicken',
   price: 500,
-  picture: PictureEasyPeasychicken,
+  picture: PictureEasyPeasyChicken,
   defaultToppings: [toppingBacon, toppingCucumber, toppingPepperoni, toppingSweetPepper],
 };
 
@@ -51,7 +52,8 @@ export const HomePage = () => {
       <ProductSection nameId="dessert" name="Десерты" />
       <ProductSection nameId="sauce" name="Соусы" />
       <Description />
-      <PizzaSettings {...EasyPeasychicken} />
+      <Cart />
+      <PizzaSettings {...EasyPeasyChicken} />
       <script src="./pages/HomePage/components/NavigationBar/assets/NavigationSwitch.js"></script>
     </>
   );
