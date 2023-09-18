@@ -1,12 +1,9 @@
 import './AccountPage.scss';
 import { AccountOrder, Order } from './components/AccountOrder/AccountOrder';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
-import { Footer } from '../../components/Footer/Footer';
-import { Header } from '../../components/Header/Header';
-import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
-import { SignIn } from '../../components/SignIn/SignIn';
 import { useEffect, useState } from 'react';
 import SwitchSelector from './assets/Табы.png';
+import { SignInUsingMail } from '../../components/SignInExpanded/Registration';
 
 // const orders: Order[] = [
 //   {
@@ -39,7 +36,7 @@ export const AccountPage = () => {
   return (
     <>
       <Delimiter />
-      <SignIn />
+      <SignInUsingMail />
       <div className="account-page">
         <div className="header">
           <h1>Мой аккаунт</h1>
