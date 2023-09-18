@@ -1,7 +1,7 @@
 import './Contacts.scss';
+import { CustomTextInput } from '../../../../components/CustomTextInput/CustomTextInput';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
-import { CustomTextInput } from '../../../../components/CustomTextInput/CustomTextInput';
 import { OrderFormData } from '../OrderDetails/OrderDetails';
 import React from 'react';
 

@@ -1,6 +1,6 @@
 import './Change.scss';
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import { CustomTextInput } from '../../../../components/CustomTextInput/CustomTextInput';
+import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import { OrderFormData } from '../OrderDetails/OrderDetails';
 import React, { useState } from 'react';
 
