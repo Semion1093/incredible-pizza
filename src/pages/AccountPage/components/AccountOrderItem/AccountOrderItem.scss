@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  font-family: InterRegular;
+  font-family: $second-font;
   margin-bottom: 12px;
   background: $background-color-white;
 
@@ -26,7 +26,7 @@
   .item-description {
     margin: auto;
     color: $font-color-black;
-    font-family: InterRegular;
+    font-family: $second-font;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -47,7 +47,7 @@
   .cost {
     margin: auto;
     color: $primary-color;
-    font-family: InterRegular;
+    font-family: $second-font;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;

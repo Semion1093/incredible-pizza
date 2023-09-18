@@ -57,7 +57,7 @@ h2 {
 
 h3 {
   padding: 20px 0 16px 0;
-  font-family: InterSemibold;
+  font-family: $second-font-semibold;
   color: $font-color-black;
   font-size: 24px;
   line-height: 32px;
@@ -99,7 +99,7 @@ button {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    font-family: SFProTextRegular;
+    font-family: $first-font;
     color: $font-color-black;
     font-size: 16px;
     line-height: 22px;
@@ -123,7 +123,7 @@ button {
     border-radius: 50%;
   }
 
-  .radio-container input:checked~.dot {
+  .radio-container input:checked ~ .dot {
     background-color: $background-color-white;
     border: 1px solid $primary-color;
     transition: 2s;
@@ -135,7 +135,7 @@ button {
     display: none;
   }
 
-  .radio-container input:checked~.dot:after {
+  .radio-container input:checked ~ .dot:after {
     display: block;
   }
 
@@ -176,16 +176,83 @@ button {
   border: none;
   padding: 13px 50px 13px 50px;
   transition: ease;
-  font-family: SFProTextRegular;
+  font-family: $first-font;
   color: $font-color-black;
   font-size: 16px;
   line-height: 22px;
 }
 
-.switch-button .tab input:checked+.name {
+.switch-button .tab input:checked + .name {
   background-color: $primary-color;
   color: $font-color-white;
   height: 48px;
+}
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(25, 25, 25, 0.4);
+  backdrop-filter: blur(16px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: 0.5s;
+
+  .modal-panel {
+    position: fixed;
+    right: 0;
+    width: 420px;
+    height: 100%;
+    background: $background-color-white;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .no-background-border {
+      &.icon {
+        position: absolute;
+        top: 0px;
+        left: 900px;
+      }
+    }
+  }
+
+  .modal-wrapper {
+    border-radius: 24px;
+    background: $background-color-grey;
+    padding: 60px 265px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .no-background-border {
+      &.icon {
+        position: absolute;
+        top: 0px;
+        left: 900px;
+      }
+    }
+  }
+}
+
+.no-background-border {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+
+  &:hover {
+    background: 0;
+    border: 0;
+    svg * {
+      fill: $primary-color;
+    }
+  }
 }
 
 @media (max-width: 850px) {

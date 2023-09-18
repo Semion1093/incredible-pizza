@@ -1,5 +1,9 @@
 @import '../../variables';
 
+label {
+  
+}
+
 input {
   border-radius: 6px;
   border: 1px solid $border-color-grey;
@@ -9,15 +13,14 @@ input {
 
 input[type=text] {
   padding: 12px 20px;
-  font-family: InterRegular;
-  color: $font-color-black;
+  font-family: $second-font;
   font-size: 14px;
   line-height: 18px;
   width: 100%;
 }
 
 input::placeholder {
-  font-family: InterRegular;
+  font-family: $second-font;
   color: $font-color-grey;
   font-size: 14px;
   line-height: 18px;

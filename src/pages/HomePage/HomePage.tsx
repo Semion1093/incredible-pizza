@@ -1,17 +1,47 @@
 import './HomePage.scss';
+import { Cart } from './components/Cart/Cart';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { Description } from './components/Description/Description';
 import { NavigationBar } from './components/NavigationBar/NavigationBar';
 import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
-import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
+import {
+  PizzaProps,
+  PizzaSettings,
+  toppingBacon,
+  toppingChampignons,
+  toppingCucumber,
+  toppingMozzarella,
+  toppingPepperoni,
+  toppingRedOnion,
+  toppingSweetPepper,
+} from './components/PizzaSettings/PizzaSettings';
 import { ProductSection } from './components/ProductSection/ProductSection';
+import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
+import PictureEasyPeasyChicken from './components/PizzaSettings/assets/EasyPeasyChicken.png';
+import PictureSweetChiliChicken from './components/PizzaSettings/assets/SweetChiliChicken.png';
 import React from 'react';
+
+const SweetChiliChicken: PizzaProps = {
+  id: 1,
+  name: 'SweetChiliChicken',
+  price: 400,
+  picture: PictureSweetChiliChicken,
+  defaultToppings: [toppingMozzarella, toppingPepperoni, toppingChampignons, toppingRedOnion],
+};
+
+const EasyPeasyChicken: PizzaProps = {
+  id: 2,
+  name: 'EasyPeasychicken',
+  price: 500,
+  picture: PictureEasyPeasyChicken,
+  defaultToppings: [toppingBacon, toppingCucumber, toppingPepperoni, toppingSweetPepper],
+};
 
 export const HomePage = () => {
   return (
     <>
       <Delimiter />
-      <NavigationLinks showSections={true} showMobileButtonBack={false} />
+      <NavigationLinks showMobileButtonBack={false} />
       <NavigationBar />
       <SalesSection />
       <ProductSection nameId="pizza" name="Пицца" />
@@ -22,6 +52,8 @@ export const HomePage = () => {
       <ProductSection nameId="dessert" name="Десерты" />
       <ProductSection nameId="sauce" name="Соусы" />
       <Description />
+      <Cart />
+      <PizzaSettings {...EasyPeasyChicken} />
       <script src="./pages/HomePage/components/NavigationBar/assets/NavigationSwitch.js"></script>
     </>
   );

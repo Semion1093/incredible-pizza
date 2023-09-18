@@ -1,7 +1,7 @@
 @import '../../../../variables';
 
 .question-delivery-time {
-  font-family: InterRegular;
+  font-family: $second-font;
   color: $font-color-grey;
   font-size: 14px;
   line-height: 18px;
@@ -58,7 +58,7 @@
 
   .question-delivery-time {
     margin-left: 20px;
-    font-family: InterRegular;
+    font-family: $second-font;
     color: $font-color-grey;
     font-size: 14px;
     line-height: 18px;
