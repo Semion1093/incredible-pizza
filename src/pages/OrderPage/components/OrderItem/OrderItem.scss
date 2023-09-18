@@ -4,17 +4,14 @@
 .order {
   
   .order-item-wrapper {
-    border-radius: 12px;
-    border: 1px solid $border-color-grey;
-    background: $background-color-white;
-    padding: 16px;
-
     display: grid;
-    grid-template-columns: 120px 1fr 220px;
     gap: 16px;
-    margin: 0 auto;
     align-items: center;
-    justify-content: space-between;
+    background: $background-color-white;
+    border: 1px solid $border-color-grey;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 0 auto;
 
     img {
       justify-self: center;
@@ -25,6 +22,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        margin: 0;
 
         .title {
           font-family: $second-font-semibold;
@@ -61,19 +59,10 @@
 
     .order-item-wrapper {
       max-height: 152px;
-      border-radius: 12px;
-      border: 1px solid $border-color-grey;
-      background: $background-color-white;
-
-      display: grid;
-      grid-template-columns: 120px 1fr 220px;
-      gap: 16px;
-      margin: 0 auto;
-      align-items: center;
       justify-content: space-between;
+      grid-template-columns: 120px 1fr 220px;
 
       img {
-        justify-self: center;
         height: 120px;
       }
 
@@ -82,12 +71,7 @@
         display: contents;
 
         .text {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-
           .title {
-            font-family: $second-font-semibold;
             font-size: 20px;
             line-height: 28px;
           }
@@ -110,14 +94,11 @@
     margin: 20px;
 
     .order-item-wrapper {
-      display: grid;
       grid-template-columns: 94px 232px;
-      gap: 16px;
       justify-content: flex-start;
       margin-bottom: 20px;
 
       img {
-        justify-self: center;
         height: 94px;
       }
 
@@ -127,12 +108,7 @@
         align-items: flex-start;
 
         .text {
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-
           .title {
-            font-family: $second-font-semibold;
             font-size: 14px;
             line-height: 18px;
           }
