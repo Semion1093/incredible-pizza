@@ -13,18 +13,18 @@
   align-items: center;
   gap: 10px;
   height: 36px;
-  width: 92px;
+  width: 96px;
   justify-content: center;
+  padding: 0 10px;
 
   input {
     width: 40px;
     border: 0;
     background: 0;
     text-align: center;
-    color: $primary-color;
-    font-family: InterSemibold;
-    font-size: 16px;
-    line-height: 20px;
+    color: $primary-color !important;
+    font-family: $second-font-semibold !important;
+    padding: 0 !important;
   }
 
   button {
