@@ -4,27 +4,27 @@
 import './Cart.scss';
 import { CartItem } from './components/CartItem/CartItem';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
-import React, { useState } from 'react';
+import { selectCartItems } from './cartSlice';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import pepperoni from './assets/pepperoni-rustic.png';
 
-export const Cart = () => {
-  const [isActive, setIsActive] = useState<boolean>(true);
+interface CartProps {
+  isCartActive: boolean;
+  setIsActive: (isCartActive: boolean) => void;
+}
+export const Cart = (props: CartProps) => {
+  const items = useSelector(selectCartItems);
   return (
     <>
-      {isActive ? (
-        <div className="modal" onClick={() => setIsActive(false)}>
+      {props.isCartActive ? (
+        <div className="modal" onClick={() => props.setIsActive(false)}>
           <article className="modal-panel" onClick={(e) => e.stopPropagation()}>
             <div className="cart">
               <h2>Ваш заказ</h2>
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
+              {items.map((item) => (
+                <CartItem key={new Date().toISOString()} title={item.title} description={item.description} img={''} cost={item.price.toString()} />
+              ))}
             </div>
             <div className="cart-result">
               <Delimiter />
