@@ -1,20 +1,41 @@
 import './Registration.scss';
+import * as yup from 'yup';
 import { CodeEnter, phoneCode } from './SignInUsingMail';
+import { Control, SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import { ReactComponent as Exit } from '../assets/Exit.svg';
-import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
-import React, { useEffect, useRef, useState } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 const codeValue: phoneCode = {
   code: '1111',
 };
 
-interface MyForm {
-  firstName: string;
-  lastName: string;
-  mail: string;
-  Password: string;
-  phoneNumber: number;
-}
+const schema = yup
+  .object({
+    email: yup.string().required('введите email').max(100, 'email не должен быть длиннее 100 символов'),
+    firstName: yup.string().required('введите имя').min(2, 'имя должно быть длиннее 1 символa').max(30, 'имя не должно быть длиннее 30 символов'),
+    lastName: yup
+      .string()
+      .required('введите фамилию')
+      .min(2, 'фамилия должна быть длиннее 1 символa')
+      .max(30, 'фамилия не должна быть длиннее 30 символов'),
+    phoneNumber: yup
+      .string()
+      .required('введите номер телефона')
+      .min(10, 'номер телефона должен быть длиннее 9 символов')
+      .max(14, 'номер телефона не должен быть длиннее 14 символов'),
+    password: yup
+      .string()
+      .required('введите пароль')
+      .min(5, 'пароль должен быть длиннее 4 символов')
+      .max(50, 'пароль не должен быть длиннее 50 символов'),
+    repeatPassword: yup
+      .string()
+      .required('повторите пароль')
+      .oneOf([yup.ref('password'), ''], 'пароли должны совпадать'),
+  })
+  .required();
+type FormData = yup.InferType<typeof schema>;
 
 export const sleep = (ms: number): Promise<void> => {
   return new Promise((r) => setTimeout(r, ms));
@@ -23,46 +44,39 @@ export const sleep = (ms: number): Promise<void> => {
 export const SignInUsingMail: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [showMore, setShowMore] = useState<boolean>(false);
-
-  // const [firstName, setfirstName] = useState<string>('');
-  // const [lastName, setlastName] = useState<string>('');
-  // const [mail, setMail] = useState<string>('');
+  const [emailv, seteMail] = useState<string>('');
   const [phoneNumber, setPhoneNumber] = useState<string>('');
-  // const [password, setPassword] = useState<string>('');
+  const isPhoneComplete = phoneNumber.length === 18;
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    fetch('', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' },
+    }).then((response) => response.json());
+  };
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const {
     register,
     handleSubmit,
     clearErrors,
     reset,
-    watch,
+    control,
     formState: { errors },
-  } = useForm<MyForm>({
+  } = useForm<FormData>({
     defaultValues: {},
+    resolver: yupResolver(schema),
   });
 
-  const submit: SubmitHandler<MyForm> = (data) => {
-    console.log(data);
-  };
-  const error: SubmitErrorHandler<MyForm> = (data) => {
-    console.log(data);
-  };
-
-  const isName = (_: any) => {
-    return true;
-  };
-
-  // const isFirstNameComplete = firstName.length >= 3;
-  // const isLastNameComplete = lastName.length >= 3;
-  // const isMailComplete = mail.length >= 8;
-  // const isPasswordComplete = password.length >= 9;
-  const isPhoneComplete = phoneNumber.length === 18;
-
-  const inputRef = useRef<HTMLInputElement | null>(null);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputText = e.target.value;
     const formattedText = formatPhoneNumber(inputText);
     setPhoneNumber(formattedText);
+  };
+  const handleChangeMail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputText = e.target.value;
+    seteMail(inputText);
   };
 
   const formatPhoneNumber = (input: string): string => {
@@ -86,12 +100,6 @@ export const SignInUsingMail: React.FC = () => {
     return formattedNumber;
   };
 
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, []);
-
   async function handleMoreClick() {
     await sleep(300);
     setShowMore(!showMore);
@@ -107,63 +115,68 @@ export const SignInUsingMail: React.FC = () => {
         <div className="modal">
           <div className="modal-wrapper">
             {showMore ? (
-              <CodeEnter code={codeValue.code} phone={phoneNumber} />
+              <CodeEnter code={codeValue.code} email={emailv} />
             ) : (
               <>
                 <div className="content authentication">
                   <h1>Регистрация аккаунта</h1>
                   <span className="info">Сможете быстро оформлять заказы, использовать бонусы</span>
-                  <form className="required-name" onSubmit={handleSubmit(submit, error)}>
-                    {/* <div className="firstName"> */}
-                    <label htmlFor="telNo">
-                      Имя
-                      <input type="text" {...register('firstName', { required: true })} aria-invalid={errors.firstName ? true : false} />
-                    </label>
-                    {/* </div> */}
-                    {/* <div className="lastName"> */}
-                    <label htmlFor="telNo">
-                      Фамилия
-                      <input type="text" {...register('lastName', { required: true })} aria-invalid={errors.lastName ? true : false} />
-                    </label>
-                    {/* </div> */}
-                    {/* <div className="phone"> */}
-                    <label htmlFor="telNo">
-                      Номер телефона
-                      <input
-                        id="telNo"
-                        name="telNo"
-                        type="tel"
-                        placeholder="+7 (___) ___-__-__"
-                        value={phoneNumber}
-                        onChange={handleChange}
-                        ref={inputRef}
-                      />
-                    </label>
-                    {/* </div> */}
-                    {/* <div className="mail"> */}
-                    <label htmlFor="telNo">
-                      mail
-                      <input type="text" {...register('mail', { required: true })} />
-                    </label>
-                    {/* </div> */}
-                    {/* <div className="password"> */}
-                    <label htmlFor="telNo">
-                      Пароль
-                      <input type="text" {...register('Password', { required: true })} />
-                    </label>
-                    {/* </div> */}
-                    {/* <div className="password"> */}
-                    <label htmlFor="telNo">
-                      Подтверждение пароля
-                      <input type="text" {...register('Password', { required: true })} />
-                    </label>
-                    {/* </div> */}
+                  <form className="required-name" onSubmit={handleSubmit(onSubmit)}>
+                    <div className="input-content">
+                      <label>
+                        Имя
+                        <input type="text" {...register('firstName')} />
+                      </label>
+                      {errors.firstName && <span>{errors.firstName.message}</span>}
+                    </div>
+                    <div className="input-content">
+                      <label>
+                        Фамилия
+                        <input type="text" {...register('lastName')} />
+                      </label>
+                      {errors.lastName && <span>{errors.lastName.message}</span>}
+                    </div>
+                    <div className="input-content">
+                      <label>
+                        Номер телефона
+                        <input
+                          type="tel"
+                          placeholder="+7 (___) ___-__-__"
+                          inputMode="numeric"
+                          autoComplete="cc-number"
+                          name="telNo"
+                          id="telNo"
+                          onChange={handleChange}
+                          ref={inputRef}
+                          value={phoneNumber}
+                        />
+                        {isPhoneComplete ? <span></span> : <span id="passive">введите номер телефона полностью</span>}
+                      </label>
+                    </div>
+                    <div className="input-content">
+                      <label>
+                        mail
+                        <input type="text" {...register('email')} onChange={handleChangeMail} />
+                      </label>
+                      {errors.email && <span>{errors.email.message}</span>}
+                    </div>
+                    <div className="input-content">
+                      <label>
+                        Пароль
+                        <input type="password" {...register('password')} />
+                      </label>
+                      {errors.password && <span>{errors.password.message}</span>}
+                    </div>
+                    <div className="input-content">
+                      <label>
+                        Повторите пароль:
+                        <input type="password" {...register('repeatPassword')} />
+                      </label>
+                      {errors.repeatPassword && <span>{errors.repeatPassword.message}</span>}
+                    </div>
                     <button>test</button>
-                    <button type="button" onClick={() => clearErrors()}>
-                      clearErrors
-                    </button>
-                    <button type="button" onClick={() => reset()}>
-                      reset
+                    <button disabled={!isPhoneComplete} onClick={handleMoreClick}>
+                      Продолжить
                     </button>
                   </form>
                   <button disabled={!isPhoneComplete} onClick={handleMoreClick}>

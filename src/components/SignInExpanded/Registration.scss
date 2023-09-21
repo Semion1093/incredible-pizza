@@ -11,6 +11,7 @@
       font-family: $second-font-semibold;
       font-size: 32px;
       line-height: 40px;
+      text-align: center;
     }
 
     .enter-code {
@@ -32,11 +33,22 @@
       line-height: 22px;
     }
 
-    .phone {
+    .input-content {
       display: flex;
       flex-direction: column;
       margin-top: 20px;
       width: 100%;
+      position: relative;
+
+      span {
+        position: absolute;
+        bottom: -18px;
+        right: 0px;
+        color: $accent-color;
+        &#passive{
+          color: $font-color-grey;
+        }
+      }
 
       label {
         font-family: $second-font;
@@ -54,6 +66,7 @@
         border-radius: 6px;
         border: 1px solid $border-color-grey;
         color: $primary-color;
+        width: 100%;
 
         &:hover {
           outline: 2px solid $primary-color;
@@ -66,7 +79,7 @@
     }
 
     button {
-      margin-top: 16px;
+      margin-top: 30px;
       padding: 13px 40px;
       width: 100%;
       justify-content: center;

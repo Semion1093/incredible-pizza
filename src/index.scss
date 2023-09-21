@@ -31,7 +31,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  transition: all .25s ease-in-out;
+  transition: all 0.25s ease-in-out;
   text-decoration: none;
   color: $font-color-black;
   font-family: $second-font;
@@ -256,9 +256,9 @@ button {
 }
 
 @media (max-width: 850px) {
-	.desktop-only {
-		display: none !important;
-	}
+  .desktop-only {
+    display: none !important;
+  }
 
   .radio-group {
     padding: 12px 0 0 20px;
@@ -266,7 +266,7 @@ button {
     align-items: flex-start;
     gap: 0;
   }
-  
+
   h3 {
     padding: 20px 0 0 20px;
   }

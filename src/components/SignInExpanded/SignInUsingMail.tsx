@@ -1,7 +1,7 @@
 import './SignInUsingMail.scss';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 export interface phoneCode {
-  phone?: string;
+  email?: string;
   code: string;
 }
 
@@ -78,8 +78,8 @@ export const CodeEnter = (props: phoneCode) => {
   return (
     <>
       <div className="content authentication" id="pin">
-        <h1>Код из смс</h1>
-        <span className="info">На номер: {props.phone}</span>
+        <h1>Код из письма</h1>
+        <span className="info">На email: {props.email}</span>
         <div className="pin-code">
           {Array.from({ length: tupleLength }, (_, index) => (
             <input
