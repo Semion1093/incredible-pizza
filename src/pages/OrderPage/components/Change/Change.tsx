@@ -27,7 +27,7 @@ export const Change = (props: ChangeProps) => {
               {...props.register('changeType')}
               type="radio"
               value={option.value}
-              checked={selectedOption === (option.value as number)}
+              checked={selectedOption === option.value}
               onChange={(e) => {
                 setSelectedOption(parseInt(e.target.value));
               }}

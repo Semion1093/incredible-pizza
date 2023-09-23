@@ -1,4 +1,4 @@
-import './OrderPaymentType.scss';
+import './OrderPayment.scss';
 import { OrderFormData } from '../OrderDetails/OrderDetails';
 import { PaymentType } from '../../../../shared/PaymentType';
 import { UseFormRegister } from 'react-hook-form';
@@ -25,7 +25,7 @@ export const OrderPaymentType = (props: OrderPaymentTypeProps) => {
             {...props.register('paymentType')}
             type="radio"
             value={option.value}
-            checked={selectedOption === (option.value as number)}
+            checked={selectedOption === option.value}
             onChange={(e) => {
               setSelectedOption(parseInt(e.target.value));
             }}

@@ -24,7 +24,7 @@ export const Contacts = (props: ContactsProps) => {
           {props.errors.mobileNumber && <span className="error-text">{props.errors.mobileNumber.message?.toString()}</span>}
         </div>
         <div className="contact-item">
-          <CustomTextInput name="e-mail" placeholder="mail@gmail.com" label="Почта" register={props.register} />
+          <CustomTextInput name="email" placeholder="mail@gmail.com" label="Почта" register={props.register} />
           {props.errors.email && <span className="error-text">{props.errors.email.message?.toString()}</span>}
         </div>
       </div>

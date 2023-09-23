@@ -23,18 +23,18 @@ export const orderSchema = yup
     house: yup
       .string()
       .required('Введите дом')
-      .matches(/^[а-яА-Я0-9_.-]*$/, 'Введите корректный номер дома'),
-    porch: yup.number(),
-    floor: yup.number(),
-    apartment: yup.number(),
-    porchCode: yup.number(),
-    change: yup.number(),
+      .matches(/^[а-яА-Я0-9_.-]*$/),
+    porch: yup.string(),
+    floor: yup.string(),
+    apartment: yup.string(),
+    porchCode: yup.string(),
+    change: yup.string(),
     pickup: yup.string(),
-    paymentType: yup.number(),
-    changeType: yup.number(),
-    deliveryType: yup.number(),
-    comment: yup.string().length(1000),
-    time: yup.date(),
-    date: yup.date(),
+    paymentType: yup.string().matches(/^[0-9]+$/),
+    changeType: yup.string().matches(/^[0-9]+$/),
+    deliveryType: yup.string().matches(/^[0-9]+$/),
+    comment: yup.string().max(1000),
+    time: yup.string(),
+    date: yup.string(),
   })
   .required();

@@ -6,7 +6,7 @@ import { OrderComment } from '../OrderComment/OrderComment';
 import { OrderResult } from '../OrderResult/OrderResult';
 import { Payment } from '../Payment/Payment';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { orderSchema } from './Schema';
+import { orderSchema } from './OrderSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 
@@ -23,9 +23,7 @@ export const OrderDetails = () => {
     resolver: yupResolver(orderSchema),
   });
   const onSubmit: SubmitHandler<OrderFormData> = (data) => {
-    const orderItems = 1;
-
-    fetch('http://localhost:3001/api/test/create', {
+    fetch('http://localhost:4001/api/v1/order/order/create', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },
