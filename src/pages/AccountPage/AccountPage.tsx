@@ -3,7 +3,7 @@ import { AccountOrder, Order } from './components/AccountOrder/AccountOrder';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { useEffect, useState } from 'react';
 import SwitchSelector from './assets/Табы.png';
-import { SignInUsingMail } from '../../components/SignInExpanded/Registration';
+import { SignIn } from '../../components/SignInExpanded/SignIn';
 
 export const AccountPage = () => {
   const [orders, setAccountOrders] = useState<Order[]>([]);
@@ -15,7 +15,7 @@ export const AccountPage = () => {
   return (
     <>
       <Delimiter />
-      <SignInUsingMail />
+      <SignIn />
       <div className="account-page">
         <div className="header">
           <h1>Мой аккаунт</h1>

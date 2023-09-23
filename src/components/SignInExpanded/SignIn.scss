@@ -42,9 +42,12 @@
 
       span {
         position: absolute;
-        bottom: -18px;
+        bottom: 55px;
         right: 0px;
         color: $accent-color;
+        text-align: end;
+        font-size: 10px;
+        line-height: 18px;
         &#passive{
           color: $font-color-grey;
         }
