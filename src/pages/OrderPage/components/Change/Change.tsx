@@ -1,4 +1,5 @@
 import './Change.scss';
+import { ChangeType } from '../../../../shared/ChangeType';
 import { CustomTextInput } from '../../../../components/CustomTextInput/CustomTextInput';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import { OrderFormData } from '../OrderDetails/OrderDetails';
@@ -10,11 +11,11 @@ export interface ChangeProps {
 }
 
 export const Change = (props: ChangeProps) => {
-  const [selectedOption, setSelectedOption] = useState('without-cash');
+  const [selectedOption, setSelectedOption] = useState(ChangeType.WithoutCash as number);
 
   const options = [
-    { value: 'without-cash', label: 'Без сдачи' },
-    { value: 'with-cash', label: 'Сдача с' },
+    { value: ChangeType.WithoutCash, label: 'Без сдачи' },
+    { value: ChangeType.WithCash, label: 'Сдача с' },
   ];
 
   return (
@@ -26,9 +27,9 @@ export const Change = (props: ChangeProps) => {
               {...props.register('changeType')}
               type="radio"
               value={option.value}
-              checked={selectedOption === option.value}
+              checked={selectedOption === (option.value as number)}
               onChange={(e) => {
-                setSelectedOption(e.target.value);
+                setSelectedOption(parseInt(e.target.value));
               }}
             />
             <span className="dot"></span>
@@ -36,7 +37,7 @@ export const Change = (props: ChangeProps) => {
           </label>
         ))}
       </div>
-      {selectedOption === 'with-cash' && (
+      {selectedOption === ChangeType.WithCash && (
         <div className="cash-input">
           <CustomTextInput name={'change'} placeholder={'0                         ₽'} label={''} register={props.register} />
           {props.errors.change && <span className="error-text">{props.errors.change.message?.toString()}</span>}

@@ -1,5 +1,6 @@
 import './OrderPaymentType.scss';
 import { OrderFormData } from '../OrderDetails/OrderDetails';
+import { PaymentType } from '../../../../shared/PaymentType';
 import { UseFormRegister } from 'react-hook-form';
 import React, { useState } from 'react';
 
@@ -8,12 +9,12 @@ export interface OrderPaymentTypeProps {
 }
 
 export const OrderPaymentType = (props: OrderPaymentTypeProps) => {
-  const [selectedOption, setSelectedOption] = useState('card');
+  const [selectedOption, setSelectedOption] = useState(PaymentType.Card as number);
 
   const options = [
-    { value: 'cash', label: 'Наличными' },
-    { value: 'card', label: 'Картой' },
-    { value: 'apple-pay', label: 'Apple Pay' },
+    { value: PaymentType.Cash, label: 'Наличными' },
+    { value: PaymentType.Card, label: 'Картой' },
+    { value: PaymentType.ApplePay, label: 'Apple Pay' },
   ];
 
   return (
@@ -24,9 +25,9 @@ export const OrderPaymentType = (props: OrderPaymentTypeProps) => {
             {...props.register('paymentType')}
             type="radio"
             value={option.value}
-            checked={selectedOption === option.value}
+            checked={selectedOption === (option.value as number)}
             onChange={(e) => {
-              setSelectedOption(e.target.value);
+              setSelectedOption(parseInt(e.target.value));
             }}
           />
           <span className="dot"></span>

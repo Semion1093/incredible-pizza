@@ -1,15 +1,15 @@
 import * as yup from 'yup';
 
-export const schema = yup
+export const orderSchema = yup
   .object({
-    name: yup
+    userName: yup
       .string()
       .required('Введите имя')
       .matches(/[А-Яа-я]/, 'Введите корректное имя'),
-    phone: yup
+    mobileNumber: yup
       .string()
       .required('Введите номер телефона')
-      .matches(/[2-9]{1}\d{2}/, 'Введите корректный номер телефона'),
+      .matches(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/, 'Введите корректный номер телефона'),
     email: yup
       .string()
       .matches(
@@ -24,17 +24,17 @@ export const schema = yup
       .string()
       .required('Введите дом')
       .matches(/^[а-яА-Я0-9_.-]*$/, 'Введите корректный номер дома'),
-    porch: yup.string().matches(/^[0-9]*$/),
-    floor: yup.string().matches(/^[0-9]*$/),
-    apartment: yup.string().matches(/^[0-9]*$/),
-    porchCode: yup.string().matches(/^[0-9]*$/),
-    change: yup.string().matches(/^[0-9]*$/),
+    porch: yup.number(),
+    floor: yup.number(),
+    apartment: yup.number(),
+    porchCode: yup.number(),
+    change: yup.number(),
     pickup: yup.string(),
-    paymentType: yup.string(),
-    changeType: yup.string(),
-    deliveryType: yup.string(),
-    comment: yup.string(),
-    time: yup.string(),
-    date: yup.string(),
+    paymentType: yup.number(),
+    changeType: yup.number(),
+    deliveryType: yup.number(),
+    comment: yup.string().length(1000),
+    time: yup.date(),
+    date: yup.date(),
   })
   .required();

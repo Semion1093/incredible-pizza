@@ -6,11 +6,11 @@ import { OrderComment } from '../OrderComment/OrderComment';
 import { OrderResult } from '../OrderResult/OrderResult';
 import { Payment } from '../Payment/Payment';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { schema } from './Schema';
+import { orderSchema } from './Schema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 
-export type OrderFormData = yup.InferType<typeof schema>;
+export type OrderFormData = yup.InferType<typeof orderSchema>;
 
 export const OrderDetails = () => {
   const [formResult, setFormResult] = useState('');
@@ -20,16 +20,19 @@ export const OrderDetails = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<OrderFormData>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(orderSchema),
   });
-  const onSubmit: SubmitHandler<OrderFormData> = (data) =>
-    fetch('http://194.87.210.5:5000/api/v1/', {
+  const onSubmit: SubmitHandler<OrderFormData> = (data) => {
+    const orderItems = 1;
+
+    fetch('http://localhost:3001/api/test/create', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },
     })
       .then((response) => response.json())
       .then((data) => setFormResult(data));
+  };
   return (
     <div className="order-details">
       <form onSubmit={handleSubmit(onSubmit)}>
