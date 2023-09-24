@@ -9,6 +9,7 @@ import React from 'react';
 
 interface NavigationLinksProps {
   showMobileButtonBack: boolean;
+  setIsActive: (isCartActive: boolean) => void;
 }
 
 export const NavigationLinks = (props: NavigationLinksProps) => {
@@ -32,7 +33,7 @@ export const NavigationLinks = (props: NavigationLinksProps) => {
           <a href="#dessert">Десерты</a>
           <a href="#sauce">Соусы</a>
         </nav>
-        <button className="desktop-only">
+        <button className="desktop-only" onClick={() => props.setIsActive(true)}>
           <NavigationLinksBasketImageSvg /> 0 ₽
         </button>
         <button className="mobile-menu mobile-only">
