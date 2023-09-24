@@ -23,7 +23,7 @@ export const SignIn = () => {
       headers: { 'Content-Type': 'application/json' },
     })
       .then((response) => response.json())
-      .then((dataFromBack) => console.log(dataFromBack.data.accessToken));
+      .then((dataFromBack) => localStorage.setItem('token', dataFromBack.data.accessToken));
   };
 
   const {
