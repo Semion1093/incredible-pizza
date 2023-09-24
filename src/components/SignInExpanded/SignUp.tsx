@@ -41,8 +41,12 @@ const userSchema = yup
   .required();
 type UserFormData = yup.InferType<typeof userSchema>;
 
-export const SignUp = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+interface SignUpProps {
+  isSignUpActive: boolean;
+  setIsSignUpActive: (isSignUpActive: boolean) => void;
+}
+
+export const SignUp = (props: SignUpProps) => {
   const [formResult, setFormResult] = useState('');
   const onSubmit: SubmitHandler<UserFormData> = (data) => {
     fetch('http://localhost:4001/api/v1/public/user/sign-up', {
@@ -65,12 +69,12 @@ export const SignUp = () => {
   });
 
   function handleExitClick() {
-    setIsOpen(!isOpen);
+    props.setIsSignUpActive(false);
   }
 
   return (
     <>
-      {isOpen ? (
+      {props.isSignUpActive && (
         <div className="modal">
           <div className="modal-wrapper">
             <div className="content authentication">
@@ -136,10 +140,7 @@ export const SignUp = () => {
             </button>
           </div>
         </div>
-      ) : (
-        <></>
       )}
-      ;
     </>
   );
 };

@@ -12,13 +12,14 @@ import pepperoni from './assets/pepperoni-rustic.png';
 interface CartProps {
   isCartActive: boolean;
   setIsActive: (isCartActive: boolean) => void;
+  setIsAuthorizationActive: (isAuthorizationActive: boolean) => void;
 }
 export const Cart = (props: CartProps) => {
   const items = useSelector(selectCartItems);
   return (
     <>
       {props.isCartActive ? (
-        <div className="modal" onClick={() => props.setIsActive(false)}>
+        <div className="modal" id="cart" onClick={() => props.setIsActive(false)}>
           <article className="modal-panel" onClick={(e) => e.stopPropagation()}>
             <div className="cart">
               <h2>Ваш заказ</h2>
@@ -30,7 +31,7 @@ export const Cart = (props: CartProps) => {
               <Delimiter />
               <div className="cart-result-content">
                 <span>Итого: 1 399 ₽</span>
-                <button>Оформить заказ</button>
+                <button onClick={() => props.setIsAuthorizationActive(true)}>Оформить заказ</button>
               </div>
             </div>
           </article>

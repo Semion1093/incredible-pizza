@@ -1,4 +1,5 @@
 import './HomePage.scss';
+import { Authorization } from '../../components/SignInExpanded/Authorization';
 import { Cart } from './components/Cart/Cart';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { Description } from './components/Description/Description';
@@ -17,6 +18,8 @@ import {
 } from './components/PizzaSettings/PizzaSettings';
 import { ProductSection } from './components/ProductSection/ProductSection';
 import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
+import { SignIn } from '../../components/SignInExpanded/SignIn';
+import { SignUp } from '../../components/SignInExpanded/SignUp';
 import PictureEasyPeasyChicken from './components/PizzaSettings/assets/EasyPeasyChicken.png';
 import PictureSweetChiliChicken from './components/PizzaSettings/assets/SweetChiliChicken.png';
 import React, { useState } from 'react';
@@ -36,11 +39,21 @@ const EasyPeasyChicken: PizzaProps = {
   picture: PictureEasyPeasyChicken,
   defaultToppings: [toppingBacon, toppingCucumber, toppingPepperoni, toppingSweetPepper],
 };
-
 export const HomePage = () => {
   const [isCartActive, setIsCartActive] = useState<boolean>(false);
+  const [isSignUpActive, setIsSignUpActive] = useState<boolean>(false);
+  const [isSignInActive, setIsSignInActive] = useState<boolean>(false);
+  const [isAuthorizationActive, setIsAuthorizationActive] = useState<boolean>(false);
   return (
     <>
+      <SignUp isSignUpActive={isSignUpActive} setIsSignUpActive={setIsSignUpActive} />
+      <SignIn isSignInActive={isSignInActive} setIsSignInActive={setIsSignInActive} />
+      <Authorization
+        isAuthorizationActive={isAuthorizationActive}
+        setIsAuthorizationActive={setIsAuthorizationActive}
+        setIsSignUpActive={setIsSignUpActive}
+        setIsSignInActive={setIsSignInActive}
+      />
       <Delimiter />
       <NavigationLinks showMobileButtonBack={false} setIsActive={setIsCartActive} />
       <NavigationBar />
@@ -53,8 +66,8 @@ export const HomePage = () => {
       <ProductSection nameId="dessert" name="Десерты" />
       <ProductSection nameId="sauce" name="Соусы" />
       <Description />
-      <Cart isCartActive={isCartActive} setIsActive={setIsCartActive} />
-      <PizzaSettings {...EasyPeasyChicken} />
+      <Cart isCartActive={isCartActive} setIsActive={setIsCartActive} setIsAuthorizationActive={setIsAuthorizationActive} />
+      {/* <PizzaSettings {...EasyPeasyChicken} /> */}
       <script src="./pages/HomePage/components/NavigationBar/assets/NavigationSwitch.js"></script>
     </>
   );
