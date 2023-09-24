@@ -5,8 +5,8 @@ import { Header } from './components/Header/Header';
 import { HomePage } from './pages/HomePage/HomePage';
 import { OrderPage } from './pages/OrderPage/OrderPage';
 import { Route, Routes } from 'react-router-dom';
+import { SuccessfulOrderPage } from './pages/SuccessfulOrderPage/SuccessfulOrderPage';
 import React from 'react';
-import logo from './logo.svg';
 
 export const App = () => {
   return (
@@ -16,6 +16,7 @@ export const App = () => {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/account" element={<AccountPage />}></Route>
         <Route path="/order" element={<OrderPage />}></Route>
+        <Route path="/success" element={<SuccessfulOrderPage />}></Route>
       </Routes>
       <Footer />
     </>

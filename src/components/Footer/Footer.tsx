@@ -1,11 +1,11 @@
 import './Footer.scss';
 import { Delimiter } from '../Delimiter/Delimiter';
 import { FacebookIconSvg } from '../assets/FacebookIconSvg';
+import { GridPizzaIconSvg } from './assets/GridPizzaIconSvg';
+import { GridTextSvg } from './assets/GridTextSvg';
 import { InstagramIconSvg } from '../assets/InstagramIconSvg';
 import { LocationSvg } from '../assets/LocationSvg';
 import { PhoneIconSvg } from '../assets/PhoneIconSvg';
-import { GridPizzaIconSvg } from './assets/GridPizzaIconSvg';
-import { GridTextSvg } from './assets/GridTextSvg';
 import React from 'react';
 
 export const Footer = () => {

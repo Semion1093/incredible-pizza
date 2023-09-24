@@ -7,13 +7,14 @@ import { OrderResult } from '../OrderResult/OrderResult';
 import { Payment } from '../Payment/Payment';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { orderSchema } from './OrderSchema';
+import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 
 export type OrderFormData = yup.InferType<typeof orderSchema>;
 
 export const OrderDetails = () => {
-  const [formResult, setFormResult] = useState('');
+  const navigate = useNavigate();
   const {
     control,
     register,
@@ -29,7 +30,17 @@ export const OrderDetails = () => {
       headers: { 'Content-Type': 'application/json' },
     })
       .then((response) => response.json())
-      .then((data) => setFormResult(data));
+      .then((result) => {
+        if (result.data.orderNumber) {
+          localStorage.setItem('orderNumber', result.data.orderNumber);
+        }
+        if (result.statusCode === 201) {
+          navigate('/success');
+        }
+      })
+      .catch((error) => {
+        throw new Error('Что-то пошло не так. Повторите попытку позднее.');
+      });
   };
   return (
     <div className="order-details">
