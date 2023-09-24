@@ -19,7 +19,7 @@ import { ProductSection } from './components/ProductSection/ProductSection';
 import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
 import PictureEasyPeasyChicken from './components/PizzaSettings/assets/EasyPeasyChicken.png';
 import PictureSweetChiliChicken from './components/PizzaSettings/assets/SweetChiliChicken.png';
-import React from 'react';
+import React, { useState } from 'react';
 
 const SweetChiliChicken: PizzaProps = {
   id: 1,
@@ -38,10 +38,11 @@ const EasyPeasyChicken: PizzaProps = {
 };
 
 export const HomePage = () => {
+  const [isCartActive, setIsCartActive] = useState<boolean>(false);
   return (
     <>
       <Delimiter />
-      <NavigationLinks showMobileButtonBack={false} />
+      <NavigationLinks showMobileButtonBack={false} setIsActive={setIsCartActive} />
       <NavigationBar />
       <SalesSection />
       <ProductSection nameId="pizza" name="Пицца" />
@@ -52,7 +53,7 @@ export const HomePage = () => {
       <ProductSection nameId="dessert" name="Десерты" />
       <ProductSection nameId="sauce" name="Соусы" />
       <Description />
-      <Cart />
+      <Cart isCartActive={isCartActive} setIsActive={setIsCartActive} />
       <PizzaSettings {...EasyPeasyChicken} />
       <script src="./pages/HomePage/components/NavigationBar/assets/NavigationSwitch.js"></script>
     </>
