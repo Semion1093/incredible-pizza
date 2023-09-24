@@ -45,7 +45,7 @@ export const SignIn = () => {
         <div className="modal">
           <div className="modal-wrapper">
             <div className="content authentication">
-              <h1>Регистрация аккаунта</h1>
+              <h1>Вход в аккаунт</h1>
               <form className="required-name" onSubmit={handleSubmit(onSubmit)}>
                 <div className="input-content">
                   <label>
