@@ -9,7 +9,7 @@
 
     h1 {
       font-family: $second-font-semibold;
-      font-size: 32px;
+      font-size: 25px;
       line-height: 40px;
       text-align: center;
     }
@@ -27,26 +27,25 @@
     }
 
     .info {
-      margin-top: 16px;
+      margin-top: 5px;
       font-family: $first-font;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 22px;
     }
 
     .input-content {
       display: flex;
       flex-direction: column;
-      margin-top: 20px;
+      margin-top: 5px;
       width: 100%;
       position: relative;
 
       span {
         position: absolute;
-        bottom: 55px;
-        right: 0px;
+        bottom: 33px;
+        left: 0px;
         color: $accent-color;
-        text-align: end;
-        font-size: 10px;
+        font-size: 9px;
         line-height: 18px;
         &#passive{
           color: $font-color-grey;
@@ -61,8 +60,8 @@
       }
 
       input {
-        padding: 12px 16px;
-        margin-top: 8px;
+        padding: 6px 10px;
+        margin-top: 10px;
         font-family: $first-font;
         font-size: 16px;
         line-height: 22px;
@@ -82,7 +81,7 @@
     }
 
     button {
-      margin-top: 30px;
+      margin-top: 10px;
       padding: 13px 40px;
       width: 100%;
       justify-content: center;
@@ -105,9 +104,9 @@
 
 .status {
   font-family: $second-font;
-  margin-top: 12px;
+  margin-top: 6px;
   display: flex;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 18px;
   width: 340px;
   display: flex;
