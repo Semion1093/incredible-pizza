@@ -45,7 +45,6 @@ export const SignUp = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [formResult, setFormResult] = useState('');
   const onSubmit: SubmitHandler<UserFormData> = (data) => {
-    debugger;
     fetch('http://localhost:4001/api/v1/public/user/sign-up', {
       method: 'POST',
       body: JSON.stringify(data),

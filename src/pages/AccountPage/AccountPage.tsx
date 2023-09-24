@@ -1,6 +1,7 @@
 import './AccountPage.scss';
 import { AccountOrder, Order } from './components/AccountOrder/AccountOrder';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
+import { Authorization } from '../../components/SignInExpanded/Authorization';
 import { SignUp } from '../../components/SignInExpanded/SignUp';
 import { SignIn } from '../../components/SignInExpanded/SignIn';
 import { useEffect, useState } from 'react';
@@ -16,6 +17,7 @@ export const AccountPage = () => {
   return (
     <>
       <Delimiter />
+      <Authorization />
       <SignIn />
       <SignUp />
       <div className="account-page">
