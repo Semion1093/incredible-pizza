@@ -1,5 +1,5 @@
 import './HomePage.scss';
-import { Authorization } from '../../components/SignInExpanded/Authorization';
+import { Authorization } from '../../components/SignIn/Authorization';
 import { Cart } from './components/Cart/Cart';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { Description } from './components/Description/Description';
@@ -18,8 +18,8 @@ import {
 } from './components/PizzaSettings/PizzaSettings';
 import { ProductSection } from './components/ProductSection/ProductSection';
 import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
-import { SignIn } from '../../components/SignInExpanded/SignIn';
-import { SignUp } from '../../components/SignInExpanded/SignUp';
+import { SignIn } from '../../components/SignIn/SignIn';
+import { SignUp } from '../../components/SignIn/SignUp';
 import PictureEasyPeasyChicken from './components/PizzaSettings/assets/EasyPeasyChicken.png';
 import PictureSweetChiliChicken from './components/PizzaSettings/assets/SweetChiliChicken.png';
 import React, { useState } from 'react';

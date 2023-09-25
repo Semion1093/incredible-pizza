@@ -5,12 +5,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 320px;
+    max-width: 335px;
 
     h1 {
       font-family: $second-font-semibold;
-      font-size: 32px;
+      font-size: 25px;
       line-height: 40px;
+      text-align: center;
     }
 
     .enter-code {
@@ -26,17 +27,30 @@
     }
 
     .info {
-      margin-top: 16px;
+      margin-top: 5px;
       font-family: $first-font;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 22px;
     }
 
-    .phone {
+    .input-content {
       display: flex;
       flex-direction: column;
-      margin-top: 20px;
+      margin-top: 5px;
       width: 100%;
+      position: relative;
+
+      span {
+        position: absolute;
+        bottom: 34px;
+        left: 0px;
+        color: $accent-color;
+        font-size: 10px;
+        line-height: 18px;
+        &#passive{
+          color: $font-color-grey;
+        }
+      }
 
       label {
         font-family: $second-font;
@@ -46,14 +60,15 @@
       }
 
       input {
-        padding: 12px 16px;
-        margin-top: 8px;
+        padding: 6px 10px;
+        margin-top: 10px;
         font-family: $first-font;
         font-size: 16px;
         line-height: 22px;
         border-radius: 6px;
         border: 1px solid $border-color-grey;
         color: $primary-color;
+        width: 100%;
 
         &:hover {
           outline: 2px solid $primary-color;
@@ -66,7 +81,7 @@
     }
 
     button {
-      margin-top: 16px;
+      margin-top: 10px;
       padding: 13px 40px;
       width: 100%;
       justify-content: center;
@@ -87,48 +102,46 @@
   }
 }
 
-.modal {
-  .status {
-    font-family: $second-font;
-    margin-top: 12px;
-    display: flex;
-    font-size: 14px;
-    line-height: 18px;
-    width: 340px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
+.status {
+  font-family: $second-font;
+  margin-top: 6px;
+  display: flex;
+  font-size: 12px;
+  line-height: 18px;
+  width: 340px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
 
-    .agreement {
-      color: $font-color-grey;
+  .agreement {
+    color: $font-color-grey;
 
-      &.interactive {
-        margin-left: 4px;
-      }
+    &.interactive {
+      margin-left: 4px;
+    }
 
-      &.no-background-border {
-        font-family: $second-font;
-        font-size: 14px;
-        line-height: 18px;
-        padding: 0;
-        margin-left: 4px;
+    &.no-background-border {
+      font-family: $second-font;
+      font-size: 14px;
+      line-height: 18px;
+      padding: 0;
+      margin-left: 4px;
 
-        &:hover {
-          color: $primary-color;
-        }
+      &:hover {
+        color: $primary-color;
       }
     }
   }
+}
 
-  span {
-    text-align: center;
-  }
+span {
+  text-align: center;
+}
 
-  .replay {
-    position: absolute;
-    top: 25px;
-    color: $primary-color;
-    opacity: 0.5;
-  }
+.replay {
+  position: absolute;
+  top: 25px;
+  color: $primary-color;
+  opacity: 0.5;
 }

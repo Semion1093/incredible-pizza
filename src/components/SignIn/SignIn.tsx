@@ -1,108 +1,87 @@
-import './SignIn.scss';
-import { CodeEnter, phoneCode } from './CodeEnter';
+import './Sign.scss';
+import * as yup from 'yup';
 import { ReactComponent as Exit } from '../assets/Exit.svg';
-import React, { useEffect, useRef, useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-const codeValue: phoneCode = {
-  code: '1111',
-};
+const userSchema = yup
+  .object({
+    email: yup.string().required('введите email'),
+    password: yup.string().required('введите пароль'),
+  })
+  .required();
+type UserFormData = yup.InferType<typeof userSchema>;
 
-export const sleep = (ms: number): Promise<void> => {
-  return new Promise((r) => setTimeout(r, ms));
-};
+interface SignInProps {
+  isSignInActive: boolean;
+  setIsSignInActive: (isSignInActive: boolean) => void;
+}
 
-export const SignIn: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-  const [showMore, setShowMore] = useState<boolean>(false);
-  const [phoneNumber, setPhoneNumber] = useState<string>('');
-  const isPhoneComplete = phoneNumber.length === 18;
-  const inputRef = useRef<HTMLInputElement | null>(null);
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputText = e.target.value;
-    const formattedText = formatPhoneNumber(inputText);
-    setPhoneNumber(formattedText);
+export const SignIn = (props: SignInProps) => {
+  const onSubmit: SubmitHandler<UserFormData> = (data) => {
+    debugger;
+    fetch('http://localhost:4001/api/v1/public/user/login', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((response) => response.json())
+      .then((dataFromBack) => localStorage.setItem('token', dataFromBack.data.accessToken));
   };
 
-  const formatPhoneNumber = (input: string): string => {
-    const cleanedInput = input.replace(/\D/g, '');
-    let formattedNumber = '+7';
-    if (cleanedInput.length >= 2) {
-      formattedNumber += ` (${cleanedInput.substring(1, 4)}`;
-    }
-
-    if (cleanedInput.length >= 5) {
-      formattedNumber += `) ${cleanedInput.substring(4, 7)}`;
-    }
-
-    if (cleanedInput.length >= 8) {
-      formattedNumber += `-${cleanedInput.substring(7, 9)}`;
-    }
-
-    if (cleanedInput.length >= 10) {
-      formattedNumber += `-${cleanedInput.substring(9, 11)}`;
-    }
-    return formattedNumber;
-  };
-
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, []);
-
-  async function handleMoreClick() {
-    await sleep(300);
-    setShowMore(!showMore);
-  }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UserFormData>({
+    defaultValues: {},
+    resolver: yupResolver(userSchema),
+  });
 
   function handleExitClick() {
-    setIsOpen(!isOpen);
+    props.setIsSignInActive(false);
   }
 
   return (
     <>
-      {isOpen ? (
+      {props.isSignInActive && (
         <div className="modal">
           <div className="modal-wrapper">
-            {showMore ? (
-              <CodeEnter code={codeValue.code} phone={phoneNumber} />
-            ) : (
-              <>
-                <div className="content authentication">
-                  <h1>Вход в аккаунт</h1>
-                  <span className="info">Сможете быстро оформлять заказы, использовать бонусы</span>
-                  <div className="phone">
-                    <label htmlFor="telNo">Номер телефона</label>
+            <div className="content authentication">
+              <h1>Вход в аккаунт</h1>
+              <form className="required-name" onSubmit={handleSubmit(onSubmit)}>
+                <div className="input-content">
+                  <label>
+                    Email:
                     <input
-                      id="telNo"
-                      name="telNo"
-                      type="tel"
-                      placeholder="+7 (___) ___-__-__"
-                      value={phoneNumber}
-                      onChange={handleChange}
-                      ref={inputRef}
+                      type="email"
+                      pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                      required
+                      {...register('email')}
                     />
-                  </div>
-                  <button disabled={!isPhoneComplete} onClick={handleMoreClick}>
-                    Войти
-                  </button>
+                  </label>
+                  {errors.email && <span>{errors.email.message}</span>}
                 </div>
-                <div className="status">
-                  <span className="agreement">
-                    Продолжая, вы соглашаетесь со сбором и обработкой персональных данных и пользовательским соглашением
-                  </span>
+                <div className="input-content">
+                  <label>
+                    Пароль:
+                    <input type="password" {...register('password')} />
+                  </label>
+                  {errors.password && <span>{errors.password.message}</span>}
                 </div>
-              </>
-            )}
+                <button type="submit">Войти</button>
+              </form>
+            </div>
+            <div className="status">
+              <span className="agreement">Убедитесь что ввели правильные данные</span>
+            </div>
             <button className="no-background-border icon" onClick={handleExitClick}>
               <Exit />
             </button>
           </div>
         </div>
-      ) : (
-        <></>
       )}
-      ;
     </>
   );
 };
