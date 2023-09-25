@@ -1,0 +1,46 @@
+@import '../../variables';
+
+.counter {
+  @media (min-width: 851px) {
+    .mobile-only {
+      display: none !important;
+    }
+  }
+
+  border-radius: 6px;
+  background: $primary-color-light;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  width: 96px;
+  justify-content: center;
+  padding: 0 10px;
+
+  input {
+    width: 40px;
+    border: 0;
+    background: 0;
+    text-align: center;
+    color: $primary-color !important;
+    font-family: $second-font-semibold !important;
+    padding: 0 !important;
+  }
+
+  button {
+    padding: 0px;
+    border: 0;
+    background: 0;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 850px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .counter {
+    height: 32px;
+  }
+}

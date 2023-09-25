@@ -1,17 +1,44 @@
 import './AccountPage.scss';
+import { AccountOrder, Order } from './components/AccountOrder/AccountOrder';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { Footer } from '../../components/Footer/Footer';
 import { Header } from '../../components/Header/Header';
 import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
-import React from 'react';
+import { SignIn } from '../../components/SignIn/SignIn';
+import { useEffect, useState } from 'react';
+import SwitchSelector from './assets/Табы.png';
 
 export const AccountPage = () => {
+  const [orders, setAccountOrders] = useState<Order[]>([]);
+  useEffect(() => {
+    fetch('https://incredible-pizza.free.beeceptor.com/account-orders')
+      .then((response) => response.json())
+      .then((json) => setAccountOrders(json));
+  }, []);
   return (
     <>
-      <Header />
       <Delimiter />
-      <NavigationLinks show={false} />
-      <Footer />
+      <SignIn />
+      <div className="account-page">
+        <div className="header">
+          <h1>Мой аккаунт</h1>
+          <img src={SwitchSelector} alt="tabs" />
+        </div>
+        <div className="orders">
+          {orders.map((order) => (
+            <AccountOrder
+              key={`orderItem-${order.number}`}
+              number={order.number}
+              date={order.date}
+              price={order.price}
+              eta={order.eta}
+              status={order.status}
+              paid={order.paid}
+              address={order.address}
+            />
+          ))}
+        </div>
+      </div>
     </>
   );
 };

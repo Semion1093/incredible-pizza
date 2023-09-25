@@ -8,37 +8,17 @@ $primary-color-light: #ffeee2;
 
 $font-color-black: #191919;
 $font-color-white: #ffffff;
+$font-color-grey: #a5a5a5;
 
-$background-color-gray: #f9f9f9;
+$background-color-grey: #f9f9f9;
 $background-color-white: #ffffff;
-$border-color-gray: #f0f0f0;
 
-$label-color: #E23535;
+$border-color-grey: #f0f0f0;
+$border-color-dark-grey: #A5A5A5;
 
-@font-face {
-  font-family: 'InterRegular';
-  src:
-    local('Inter-Regular'),
-    url(./fonts/Inter-Regular.otf) format('truetype');
-};
+$accent-color: #E23535;
 
-@font-face {
-  font-family: 'InterSemibold';
-  src:
-    local('Inter-SemiBold'),
-    url(./fonts/Inter-SemiBold.otf) format('truetype');
-};
-
-@font-face {
-  font-family: 'SFProTextRegular';
-  src:
-    local('SFProText-Regular'),
-    url(./fonts/SFProText-Regular.ttf) format('truetype');
-};
-
-@font-face {
-  font-family: 'SFProTextSemibold';
-  src:
-    local('SFProText-Semibold'),
-    url(./fonts/SFProText-Semibold.ttf) format('truetype');
-};
+$indicator-red: #E23535;
+$indicator-orange: #ff7010;
+$indicator-green: #24D17E;
+$indicator-gray: #A5A5A5;

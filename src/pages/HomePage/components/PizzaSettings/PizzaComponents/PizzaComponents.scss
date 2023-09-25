@@ -1,0 +1,73 @@
+@import '../../../../../variables';
+
+.component-checkbox-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+
+  .component-checkbox-input {
+    display: none;
+
+    &:checked + .component-checkbox-tile {
+      &:before {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
+
+  .component-checkbox-label {
+    max-width: 105px;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    color: $font-color-black;
+
+    .component-checkbox-price {
+      margin-top: 4px;
+      color: $primary-color;
+      font-family: $second-font-semibold;
+    }
+  }
+
+  .component-checkbox-tile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 31px;
+    border-radius: 12px;
+    border: 1px solid $border-color-grey;
+    margin: 0;
+    transition: 0.15s ease;
+
+    svg {
+      object-position: top;
+      width: 41px;
+      height: 41px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 16px;
+      height: 16px;
+      top: 8px;
+      right: 8px;
+      opacity: 0;
+      transform: scale(0);
+      transition: 0.25s ease;
+    }
+  }
+
+  &:hover {
+    .component-checkbox-tile {
+      &:before {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
+}

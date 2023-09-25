@@ -1,9 +1,66 @@
 @import 'variables';
 
+@font-face {
+  font-family: 'InterRegular';
+  src:
+    local('Inter-Regular'),
+    url(./fonts/Inter-Regular.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'InterSemibold';
+  src:
+    local('Inter-SemiBold'),
+    url(./fonts/Inter-SemiBold.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SFProTextRegular';
+  src:
+    local('SFProText-Regular'),
+    url(./fonts/SFProText-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SFProTextSemibold';
+  src:
+    local('SFProText-Semibold'),
+    url(./fonts/SFProText-Semibold.ttf) format('truetype');
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
+  transition: all .25s ease-in-out;
+  text-decoration: none;
   color: $font-color-black;
+  font-family: $second-font;
+}
+
+#root {
+  background: $background-color-grey;
+  color: $font-color-black;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  color: $font-color-black;
+  font-family: $second-font;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  padding: 20px 0 16px 0;
+  font-family: $second-font-semibold;
+  color: $font-color-black;
+  font-size: 24px;
+  line-height: 32px;
 }
 
 button {
@@ -12,9 +69,205 @@ button {
   text-align: center;
   gap: 8px;
   border-radius: 6px;
+
+  &.arrow {
+    grid-area: arrow;
+    border: none;
+    background: $font-color-white;
+  }
+
+  &:hover {
+    color: $primary-color;
+    background: $font-color-white;
+    cursor: pointer;
+  }
 }
 
 .radio-group {
   display: flex;
   gap: 24px;
+  padding: 12px 0 20px 0;
+  align-items: flex-end;
+
+  .radio-container {
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: $first-font;
+    color: $font-color-black;
+    font-size: 16px;
+    line-height: 22px;
+    gap: 24px;
+  }
+
+  .radio-container input {
+    display: flex;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .dot {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    height: 16px;
+    width: 16px;
+    border: 1px solid $font-color-grey;
+    border-radius: 50%;
+  }
+
+  .radio-container input:checked ~ .dot {
+    background-color: $background-color-white;
+    border: 1px solid $primary-color;
+    transition: 2s;
+  }
+
+  .dot:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+
+  .radio-container input:checked ~ .dot:after {
+    display: block;
+  }
+
+  .radio-container .dot:after {
+    top: 3.5px;
+    left: 3.5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $primary-color;
+  }
+}
+
+.switch-button {
+  position: relative;
+  display: flex;
+  border-radius: 6px;
+  background-color: $background-color-white;
+  width: 350px;
+  height: 48px;
+}
+
+.switch-button .tab {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.switch-button .tab input {
+  display: none;
+}
+
+.switch-button .tab .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: none;
+  padding: 13px 50px 13px 50px;
+  transition: ease;
+  font-family: $first-font;
+  color: $font-color-black;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.switch-button .tab input:checked + .name {
+  background-color: $primary-color;
+  color: $font-color-white;
+  height: 48px;
+}
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(25, 25, 25, 0.4);
+  backdrop-filter: blur(16px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: 0.5s;
+
+  .modal-panel {
+    position: fixed;
+    right: 0;
+    width: 420px;
+    height: 100%;
+    background: $background-color-white;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .no-background-border {
+      &.icon {
+        position: absolute;
+        top: 0px;
+        left: 900px;
+      }
+    }
+  }
+
+  .modal-wrapper {
+    border-radius: 24px;
+    background: $background-color-grey;
+    padding: 60px 265px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .no-background-border {
+      &.icon {
+        position: absolute;
+        top: 0px;
+        left: 900px;
+      }
+    }
+  }
+}
+
+.no-background-border {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+
+  &:hover {
+    background: 0;
+    border: 0;
+    svg * {
+      fill: $primary-color;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+	.desktop-only {
+		display: none !important;
+	}
+
+  .radio-group {
+    padding: 12px 0 0 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  
+  h3 {
+    padding: 20px 0 0 20px;
+  }
 }

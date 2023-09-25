@@ -1,0 +1,36 @@
+@import '../../../../variables';
+
+.description-info {
+  max-width: 850px;
+  margin: 60px auto;
+
+  h2 {
+    font-family: $second-font-semibold;
+    color: #191919;
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  p {
+    padding: 16px 0 16px 0;
+    font-family: $first-font;
+    color: #191919;
+    font-size: 16px;
+    line-height: 22px;
+    background: linear-gradient(to top, transparent 5%, #191919);
+    background-clip: text;
+    color: transparent;
+  }
+
+  button {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: $primary-color;
+    font-family: $second-font;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+  }
+}

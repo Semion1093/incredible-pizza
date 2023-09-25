@@ -1,36 +1,98 @@
-.footer-grid {
-  display: grid;
-  gap: 20px;
-  max-width: 1290px;
-  margin: 0 auto;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  padding: 32px 0 32px 0;
+@import '../../variables';
 
-  .grid-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-family: SFProTextRegular;
-    color: #191919;
-    font-size: 16px;
-    line-height: 22px;
+#footer {
+  background: $background-color-white;
+  border-top: 1px $border-color-grey solid;
+}
 
-    &.column-header {
-      font-family: InterSemibold;
-      color: #191919;
-      font-size: 20px;
-      line-height: 28px;
-    }
+@media (min-width: 851px) {
+  .mobile-only {
+    display: none !important;
+  }
 
-    &.social-media {
+  footer {
+    display: grid;
+    gap: 20px;
+    max-width: 1290px;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    padding: 32px 0 32px 0;
+
+    .grid-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      span {
+        font-family: $first-font;
+        color: $font-color-black;
+        font-size: 16px;
+        line-height: 22px;
+      }
+
+      &.column-header {
+        span {
+          font-family: $first-font;
+          color: $font-color-black;
+          font-size: 20px;
+          line-height: 28px;
+        }
+      }
+
+      &.social-media {
         display: flex;
         gap: 24px;
 
-        .social-media-item{
-            display: flex;
-            gap: 12px;
+        .social-media-item {
+          display: flex;
+          gap: 12px;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  footer {
+    display: grid;
+    padding: 24px 20px 12px 20px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    .grid-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      span {
+        font-family: $first-font;
+        color: $font-color-black;
+        font-size: 14px;
+        line-height: 18px;
+      }
+
+      &.column-header {
+        span {
+          font-family: $second-font-semibold;
+          color: $font-color-black;
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+
+      &.social-media {
+        display: flex;
+        gap: 24px;
+
+        .social-media-item {
+          display: flex;
+          gap: 12px;
+        }
+      }
     }
   }
 }

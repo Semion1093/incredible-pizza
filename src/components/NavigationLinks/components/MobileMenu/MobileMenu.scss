@@ -1,0 +1,55 @@
+@import '../../../../variables';
+
+.mobile-menu {
+  background-color: $background-color-white;
+  
+  span {
+    color: $font-color-black;
+    font-family: $second-font;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .authorize {
+    display: flex;
+    padding: 20px 20px 20px 20px;
+  }
+
+  .links {
+    display: flex;
+    padding: 20px 20px 20px 20px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .flex-item {
+    display: flex;
+    gap: 12px;
+    padding: 20px 20px 0px 20px;
+
+    &.social-media {
+      padding-bottom: 74px;
+      display: flex;
+      gap: 24px;
+
+      .social-media-item {
+        display: flex;
+        gap: 12px;
+      }
+    }
+
+    &.work-time {
+      padding-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      
+      span {
+        font-family: $second-font;
+        color: $font-color-grey;
+        text-align: center;
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+  }
+}
