@@ -1,11 +1,13 @@
-import { cartPageReducer } from '../pages/HomePage/components/Cart/cartSlice';
+import { cartPageReducer } from './reducers/cartSlice';
 import { configureStore } from '@reduxjs/toolkit';
-import { currentUserReducer } from './currentUserSlice';
+import { currentUserReducer } from './reducers/currentUserSlice';
+import { signInOrSignUpReducer } from './reducers/signInOrSignUpSlice';
 
 export const store = configureStore({
   reducer: {
     currentUser: currentUserReducer,
     cartPage: cartPageReducer,
+    signInOrSignUpModal: signInOrSignUpReducer,
   },
 });
 

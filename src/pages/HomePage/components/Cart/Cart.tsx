@@ -4,15 +4,14 @@
 import './Cart.scss';
 import { CartItem } from './components/CartItem/CartItem';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
-import { selectCartItems } from './cartSlice';
+import { selectCartItems } from '../../../../store/reducers/cartSlice';
+import { signInOrSignUpModalSlice } from '../../../../store/reducers/signInOrSignUpSlice';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import pepperoni from './assets/pepperoni-rustic.png';
 
 interface CartProps {
   isCartActive: boolean;
   setIsActive: (isCartActive: boolean) => void;
-  setIsAuthorizationActive: (isAuthorizationActive: boolean) => void;
 }
 export const Cart = (props: CartProps) => {
   const items = useSelector(selectCartItems);
@@ -31,7 +30,7 @@ export const Cart = (props: CartProps) => {
               <Delimiter />
               <div className="cart-result-content">
                 <span>Итого: 1 399 ₽</span>
-                <button onClick={() => props.setIsAuthorizationActive(true)}>Оформить заказ</button>
+                <button>Оформить заказ</button>
               </div>
             </div>
           </article>

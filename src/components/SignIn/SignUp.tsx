@@ -41,16 +41,10 @@ const userSchema = yup
   .required();
 type UserFormData = yup.InferType<typeof userSchema>;
 
-interface SignUpProps {
-  isSignUpActive: boolean;
-  setIsSignUpActive: (isSignUpActive: boolean) => void;
-}
-
-export const SignUp = (props: SignUpProps) => {
+export const SignUp = () => {
   const [formResult, setFormResult] = useState('');
   const onSubmit: SubmitHandler<UserFormData> = (data) => {
     data.mobileNumber = removeMaskChars(data.mobileNumber);
-    console.log(data);
     fetch('http://localhost:4001/api/v1/public/user/sign-up', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -58,7 +52,6 @@ export const SignUp = (props: SignUpProps) => {
     })
       .then((response) => response.json())
       .then((dataFromBack) => setFormResult(dataFromBack));
-    console.log(formResult);
   };
 
   const {
@@ -72,79 +65,75 @@ export const SignUp = (props: SignUpProps) => {
     resolver: yupResolver(userSchema),
   });
 
-  function handleExitClick() {
-    props.setIsSignUpActive(false);
-  }
   function removeMaskChars(value: string): string {
     return value.replace(/[-()_\s]/g, '');
   }
   return (
     <>
-      {props.isSignUpActive && (
-        <div className="modal">
-          <div className="modal-wrapper">
-            <div className="content authentication">
-              <h1>Регистрация аккаунта</h1>
-              <span className="info">Сможете быстро оформлять заказы, использовать бонусы</span>
-              <form className="required-name" onSubmit={handleSubmit(onSubmit)}>
-                <div className="input-content">
-                  <label>
-                    Имя:
-                    <input type="text" {...register('firstName')} />
-                  </label>
-                  {errors.firstName && <span>{errors.firstName.message}</span>}
-                </div>
-                <div className="input-content">
-                  <label>
-                    Фамилия:
-                    <input type="text" {...register('lastName')} />
-                  </label>
-                  {errors.lastName && <span>{errors.lastName.message}</span>}
-                </div>
-                <div className="input-content">
-                  <label>
-                    Номер телефона:
-                    <Controller
-                      name="mobileNumber"
-                      control={control}
-                      render={({ field }) => <InputMask mask="+7 (999) 999-99-99" maskChar="_" {...field} />}
-                    />
-                    {errors.mobileNumber && <span>{errors.mobileNumber.message}</span>}
-                  </label>
-                </div>
-                <div className="input-content">
-                  <label>
-                    Email:
-                    <input type="email" {...register('email')} />
-                  </label>
-                  {errors.email && <span>{errors.email.message}</span>}
-                </div>
-                <div className="input-content">
-                  <label>
-                    Пароль:
-                    <input type="password" {...register('password')} />
-                  </label>
-                  {errors.password && <span>{errors.password.message}</span>}
-                </div>
-                <div className="input-content">
-                  <label>
-                    Повторите пароль:
-                    <input type="password" {...register('repeatPassword')} />
-                  </label>
-                  {errors.repeatPassword && <span>{errors.repeatPassword.message}</span>}
-                </div>
-                <button type="submit">Продолжить</button>
-              </form>
-            </div>
-            <div className="status">
-              <span className="agreement">Продолжая, вы соглашаетесь со сбором и обработкой персональных данных и пользовательским соглашением</span>
-            </div>
-            <button className="no-background-border icon" onClick={handleExitClick}>
-              <Exit />
-            </button>
+      <div className="modal">
+        <div className="modal-wrapper">
+          <div className="content authentication">
+            <h1>Регистрация аккаунта</h1>
+            <span className="info">Сможете быстро оформлять заказы, использовать бонусы</span>
+            <form className="required-name" onSubmit={handleSubmit(onSubmit)}>
+              <div className="input-content">
+                <label>
+                  Имя:
+                  <input type="text" {...register('firstName')} />
+                </label>
+                {errors.firstName && <span>{errors.firstName.message}</span>}
+              </div>
+              <div className="input-content">
+                <label>
+                  Фамилия:
+                  <input type="text" {...register('lastName')} />
+                </label>
+                {errors.lastName && <span>{errors.lastName.message}</span>}
+              </div>
+              <div className="input-content">
+                <label>
+                  Номер телефона:
+                  <Controller
+                    name="mobileNumber"
+                    control={control}
+                    render={({ field }) => <InputMask mask="+7 (999) 999-99-99" maskChar="_" {...field} />}
+                  />
+                  {errors.mobileNumber && <span>{errors.mobileNumber.message}</span>}
+                </label>
+              </div>
+              <div className="input-content">
+                <label>
+                  Email:
+                  <input type="email" {...register('email')} />
+                </label>
+                {errors.email && <span>{errors.email.message}</span>}
+              </div>
+              <div className="input-content">
+                <label>
+                  Пароль:
+                  <input type="password" {...register('password')} />
+                </label>
+                {errors.password && <span>{errors.password.message}</span>}
+              </div>
+              <div className="input-content">
+                <label>
+                  Повторите пароль:
+                  <input type="password" {...register('repeatPassword')} />
+                </label>
+                {errors.repeatPassword && <span>{errors.repeatPassword.message}</span>}
+              </div>
+              <button type="submit">Продолжить</button>
+            </form>
           </div>
+          <div className="status">
+            <span className="agreement">Продолжая, вы соглашаетесь со сбором и обработкой персональных данных и пользовательским соглашением</span>
+          </div>
+          <button className="no-background-border icon">
+            <Exit />
+          </button>
         </div>
-      )}
+      </div>
+      )
     </>
   );
 };
