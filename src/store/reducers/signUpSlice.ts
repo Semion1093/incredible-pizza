@@ -9,15 +9,15 @@ export const signUpModalSlice = createSlice({
   name: 'signUpModal',
   initialState,
   reducers: {
-    open: (state) => {
+    openSignUp: (state) => {
       state.isOpen = true;
     },
-    close: (state) => {
+    closeSignUp: (state) => {
       state.isOpen = false;
     },
   },
 });
 
-export const { open, close } = signUpModalSlice.actions;
+export const { openSignUp, closeSignUp } = signUpModalSlice.actions;
 export const signUpModalInfo = (state: RootState) => state.signUpModal.isOpen;
 export const signUpReducer = signUpModalSlice.reducer;

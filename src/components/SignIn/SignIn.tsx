@@ -2,7 +2,8 @@ import './Sign.scss';
 import * as yup from 'yup';
 import { ReactComponent as Exit } from '../assets/Exit.svg';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { closeSignIn, signInModalInfo } from '../../store/reducers/signInSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 const userSchema = yup
@@ -33,44 +34,47 @@ export const SignIn = () => {
     resolver: yupResolver(userSchema),
   });
 
+  const dispatch = useDispatch();
+  const signInModalActive = useSelector(signInModalInfo);
   return (
     <>
-      <div className="modal">
-        <div className="modal-wrapper">
-          <div className="content authentication">
-            <h1>Вход в аккаунт</h1>
-            <form className="required-name" onSubmit={handleSubmit(onSubmit)}>
-              <div className="input-content">
-                <label>
-                  Email:
-                  <input
-                    type="email"
-                    pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
-                    required
-                    {...register('email')}
-                  />
-                </label>
-                {errors.email && <span>{errors.email.message}</span>}
-              </div>
-              <div className="input-content">
-                <label>
-                  Пароль:
-                  <input type="password" {...register('password')} />
-                </label>
-                {errors.password && <span>{errors.password.message}</span>}
-              </div>
-              <button type="submit">Войти</button>
-            </form>
+      {signInModalActive && (
+        <div className="modal">
+          <div className="modal-wrapper">
+            <div className="content authentication">
+              <h1>Вход в аккаунт</h1>
+              <form className="required-name" onSubmit={handleSubmit(onSubmit)}>
+                <div className="input-content">
+                  <label>
+                    Email:
+                    <input
+                      type="email"
+                      pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                      required
+                      {...register('email')}
+                    />
+                  </label>
+                  {errors.email && <span>{errors.email.message}</span>}
+                </div>
+                <div className="input-content">
+                  <label>
+                    Пароль:
+                    <input type="password" {...register('password')} />
+                  </label>
+                  {errors.password && <span>{errors.password.message}</span>}
+                </div>
+                <button type="submit">Войти</button>
+              </form>
+            </div>
+            <div className="status">
+              <span className="agreement">Убедитесь что ввели правильные данные</span>
+            </div>
+            <button className="no-background-border icon" onClick={() => dispatch(closeSignIn())}>
+              <Exit />
+            </button>
           </div>
-          <div className="status">
-            <span className="agreement">Убедитесь что ввели правильные данные</span>
-          </div>
-          <button className="no-background-border icon">
-            <Exit />
-          </button>
         </div>
-      </div>
-      )
+      )}
     </>
   );
 };
