@@ -3,7 +3,7 @@ import { AdditionalOrderItem } from './components/AdditionalOrderItem/Additional
 import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { MobileMenu } from '../../components/NavigationLinks/components/MobileMenu/MobileMenu';
 import { OrderDetails } from './components/OrderDetails/OrderDetails';
-import { OrderItem } from './components/OrderItem/OrderItem';
+import { OrderItem } from './components/OrderItems/OrderItems';
 import React from 'react';
 
 export const OrderPage = () => {

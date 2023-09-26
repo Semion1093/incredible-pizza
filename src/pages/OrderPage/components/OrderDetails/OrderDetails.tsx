@@ -27,7 +27,10 @@ export const OrderDetails = () => {
     fetch('http://localhost:4001/api/v1/order/order/create', {
       method: 'POST',
       body: JSON.stringify(data),
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+        'Content-Type': 'application/json',
+      },
     })
       .then((response) => response.json())
       .then((result) => {
