@@ -1,6 +1,6 @@
 import '../../../../components/SignIn/Sign.scss';
 import { ReactComponent as Exit } from '../../../../components/assets/Exit.svg';
-import { closeAuthModal, signInOrSignUpModalInfo } from '../../../../store/reducers/signInOrSignUpSlice';
+import { closeAuthModal, authModalInfo } from '../../../../store/reducers/authModalSlice';
 import { openSignIn } from '../../../../store/reducers/signInSlice';
 import { openSignUp } from '../../../../store/reducers/signUpSlice';
 import { batch, useDispatch, useSelector } from 'react-redux';
@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export const SignInOrSignUpModal = () => {
   const dispatch = useDispatch();
-  const signInOrSignUpModalActive = useSelector(signInOrSignUpModalInfo);
+  const signInOrSignUpModalActive = useSelector(authModalInfo);
   const onSubmitOpenSignUp = () => {
     batch(() => {
       dispatch(openSignUp());

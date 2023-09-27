@@ -1,7 +1,7 @@
 import { cartPageReducer } from './reducers/cartSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import { currentUserReducer } from './reducers/currentUserSlice';
-import { signInOrSignUpReducer } from './reducers/signInOrSignUpSlice';
+import { authModalReducer } from './reducers/authModalSlice';
 import { signInReducer } from './reducers/signInSlice';
 import { signUpReducer } from './reducers/signUpSlice';
 
@@ -9,7 +9,7 @@ export const store = configureStore({
   reducer: {
     currentUser: currentUserReducer,
     cartPage: cartPageReducer,
-    signInOrSignUpModal: signInOrSignUpReducer,
+    authModal: authModalReducer,
     signInModal: signInReducer,
     signUpModal: signUpReducer,
   },

@@ -1,6 +1,6 @@
 import './Authorize.scss';
 import { HeaderAccountIconSvg } from '../Header/assets/HeaderAccountIconSvg';
-import { openAuthModal } from '../../store/reducers/signInOrSignUpSlice';
+import { openAuthModal } from '../../store/reducers/authModalSlice';
 import { useDispatch } from 'react-redux';
 import React from 'react';
 

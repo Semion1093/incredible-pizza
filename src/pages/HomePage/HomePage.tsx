@@ -20,8 +20,6 @@ import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
 import { SignIn } from '../../components/SignIn/SignIn';
 import { SignInOrSignUpModal } from './components/SignInOrSignUpModal/SignInOrSignUpModal';
 import { SignUp } from '../../components/SignIn/SignUp';
-import { signInOrSignUpModalInfo } from '../../store/reducers/signInOrSignUpSlice';
-import { useSelector } from 'react-redux';
 import PictureEasyPeasyChicken from './components/PizzaSettings/assets/EasyPeasyChicken.png';
 import PictureSweetChiliChicken from './components/PizzaSettings/assets/SweetChiliChicken.png';
 import React, { useState } from 'react';
