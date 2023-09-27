@@ -61,8 +61,7 @@ export const HomePage = () => {
       <ProductSection nameId="sauce" name="Соусы" />
       <Description />
       <Cart isCartActive={isCartActive} setIsActive={setIsCartActive} />
-      {/* <PizzaSettings {...EasyPeasyChicken} /> */}
-      <script src="./pages/HomePage/components/NavigationBar/assets/NavigationSwitch.js"></script>
+      <PizzaSettings {...EasyPeasyChicken} />
     </>
   );
 };

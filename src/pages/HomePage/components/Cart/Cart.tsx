@@ -6,7 +6,7 @@ import { CartItem } from './components/CartItem/CartItem';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
 import { selectCartItems } from '../../../../store/reducers/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { open } from '../../../../store/reducers/signInOrSignUpSlice';
+import { openAuthModal } from '../../../../store/reducers/signInOrSignUpSlice';
 import { useState } from 'react';
 
 interface CartProps {
@@ -31,7 +31,7 @@ export const Cart = (props: CartProps) => {
               <Delimiter />
               <div className="cart-result-content">
                 <span>Итого: 1 399 ₽</span>
-                <button onClick={() => dispatch(open())}>Оформить заказ</button>
+                <button onClick={() => dispatch(openAuthModal())}>Оформить заказ</button>
               </div>
             </div>
           </article>
