@@ -1,5 +1,5 @@
-import '../../../../components/SignIn/Sign.scss';
-import { ReactComponent as Exit } from '../../../../components/assets/Exit.svg';
+import './Sign.scss';
+import { ReactComponent as Exit } from '../../../../assets/Exit.svg';
 import { closeAuthModal, authModalInfo } from '../../../../store/reducers/authModalSlice';
 import { openSignIn } from '../../../../store/reducers/signInSlice';
 import { openSignUp } from '../../../../store/reducers/signUpSlice';

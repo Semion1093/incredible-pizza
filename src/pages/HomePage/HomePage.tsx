@@ -17,9 +17,9 @@ import {
 } from './components/PizzaSettings/PizzaSettings';
 import { ProductSection } from './components/ProductSection/ProductSection';
 import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
-import { SignIn } from '../../components/SignIn/SignIn';
-import { SignInOrSignUpModal } from './components/SignInOrSignUpModal/SignInOrSignUpModal';
-import { SignUp } from '../../components/SignIn/SignUp';
+import { SignIn } from './components/AuthModal/SignInSignUp/SignIn';
+import { SignInOrSignUpModal } from './components/AuthModal/AuthModal';
+import { SignUp } from './components/AuthModal/SignInSignUp/SignUp';
 import PictureEasyPeasyChicken from './components/PizzaSettings/assets/EasyPeasyChicken.png';
 import PictureSweetChiliChicken from './components/PizzaSettings/assets/SweetChiliChicken.png';
 import React, { useState } from 'react';

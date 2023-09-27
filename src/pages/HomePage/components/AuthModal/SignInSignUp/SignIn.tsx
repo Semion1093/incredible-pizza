@@ -1,8 +1,8 @@
-import './Sign.scss';
+import '../Sign.scss';
 import * as yup from 'yup';
-import { ReactComponent as Exit } from '../assets/Exit.svg';
+import { ReactComponent as Exit } from '../../../../../assets/Exit.svg';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { closeSignIn, signInModalInfo } from '../../store/reducers/signInSlice';
+import { closeSignIn, signInModalInfo } from '../../../../../store/reducers/signInSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 
