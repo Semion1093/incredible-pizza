@@ -3,7 +3,7 @@
 import './UserAccountModal.scss';
 import { Link } from 'react-router-dom';
 import { Path } from '../Path';
-import { closeUserAccountModal, userAccountModalInfo } from '../../store/reducers/userAccountModalSlice';
+import { closeUserAccountModal, openUserAccountModal, userAccountModalInfo } from '../../store/reducers/userAccountModalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 
@@ -13,7 +13,7 @@ export const UserAccountModal = () => {
   return (
     <>
       {userAccountModalActive && (
-        <div className="user-account-modal">
+        <div className="user-account-modal" onMouseLeave={() => dispatch(closeUserAccountModal())}>
           <span className="content bonuses">100 бонусов</span>
           <div className="line"></div>
           <div className="content link">
