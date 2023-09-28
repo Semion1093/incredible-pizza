@@ -4,6 +4,7 @@ import { currentUserReducer } from './reducers/currentUserSlice';
 import { authModalReducer } from './reducers/authModalSlice';
 import { signInReducer } from './reducers/signInSlice';
 import { signUpReducer } from './reducers/signUpSlice';
+import { userAccountModalReducer } from './reducers/userAccountModalSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     authModal: authModalReducer,
     signInModal: signInReducer,
     signUpModal: signUpReducer,
+    userAccountModal: userAccountModalReducer,
   },
 });
 
