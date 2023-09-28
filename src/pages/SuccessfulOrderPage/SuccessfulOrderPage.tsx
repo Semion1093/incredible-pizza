@@ -8,16 +8,8 @@ export const SuccessfulOrderPage = () => {
     <div className="successful-message">
       <SuccessLogoSvg />
       <div className="content">
-        <p>Спасибо! Заказ № {orderNumber ?? ''} успешно оплачен и передан в работу.</p>
-        <span>
-          Готовим.
-          <br />
-          Статус можно отследить, нажав на кнопку ниже.
-        </span>
+        <p>Заказ № {orderNumber ?? ''} принят</p>
       </div>
-      <a href="..." className="super-puper-button">
-        Отследить заказ
-      </a>
     </div>
   );
 };
