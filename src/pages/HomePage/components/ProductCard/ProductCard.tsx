@@ -1,7 +1,7 @@
 import './ProductCard.scss';
 import { Product } from '../../../../models/Product';
 import { ProductLabel } from '../ProductLabel/ProductLabel';
-import { addToCart } from '../Cart/cartSlice';
+import { addToCart } from '../../../../store/reducers/cartSlice';
 import { useDispatch } from 'react-redux';
 import React from 'react';
 
