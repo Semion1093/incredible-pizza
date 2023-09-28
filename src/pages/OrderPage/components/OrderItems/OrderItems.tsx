@@ -15,7 +15,6 @@ export const OrderItems = () => {
           {products.map((item) => (
             <OrderItem img={item.img} title={item.title} description={item.description} price={item.price} />
           ))}
-          ;
         </div>
         <Delimiter />
       </div>

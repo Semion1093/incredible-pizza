@@ -42,7 +42,7 @@ export const HomePage = () => {
   return (
     <>
       <Delimiter />
-      <NavigationLinks showMobileButtonBack={false} setIsActive={setIsCartActive} />
+      <NavigationLinks setIsActive={setIsCartActive} />
       <NavigationBar />
       <SalesSection />
       <ProductSection nameId="pizza" name="Пицца" />
