@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export const SignInOrSignUpModal = () => {
   const dispatch = useDispatch();
-  const signInOrSignUpModalActive = useSelector(authModalInfo);
+  const authModalActive = useSelector(authModalInfo);
   const onSubmitOpenSignUp = () => {
     batch(() => {
       dispatch(openSignUp());
@@ -24,7 +24,7 @@ export const SignInOrSignUpModal = () => {
 
   return (
     <>
-      {signInOrSignUpModalActive && (
+      {authModalActive && (
         <div className="modal">
           <div className="modal-wrapper">
             <div className="content authentication">

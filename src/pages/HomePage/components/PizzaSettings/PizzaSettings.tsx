@@ -119,7 +119,7 @@ export const PizzaSettings = (props: PizzaProps) => {
   return (
     <>
       {pizzaSettingsModalActive && (
-        <div className="modal" onClick={() => dispatch(closePizzaSettings)}>
+        <div className="modal" onClick={() => dispatch(closePizzaSettings())}>
           <article className="modal-wrapper separated" onClick={(e) => e.stopPropagation()}>
             <div className="left-side">
               <div className="state-icon">
