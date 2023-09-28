@@ -8,6 +8,10 @@ import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import InputMask from 'react-input-mask';
 
+function removeMaskChars(value: string): string {
+  return value.replace(/[-()_\s]/g, '');
+}
+
 const userSchema = yup
   .object({
     email: yup
@@ -28,11 +32,17 @@ const userSchema = yup
       .matches(/^([А-Я][а-я]+)$/, 'введите вашу настоящую фамилию с заглавной буквы, кириллицей')
       .min(2, 'фамилия должна быть длиннее 1 символa')
       .max(30, 'фамилия не должна быть длиннее 30 символов'),
-    mobileNumber: yup.string().required('введите номер телефона'),
+    mobileNumber: yup
+      .string()
+      .required('введите номер телефона')
+      .transform((t) => removeMaskChars(t))
+      .min(12, 'введите номер телефона полностью'),
     password: yup
       .string()
       .required('введите пароль')
       .matches(/^[^\s]+$/, 'в пароле не должно быть пробела')
+      .matches(/.*[#@$%^&*()_+!].*/, 'в пароле должен быть хотя бы один спец. символ')
+      .matches(/.*[A-ZА-Я].*/, 'в пароле должен быть хотя бы одинa заглавная буква')
       .min(5, 'пароль должен быть длиннее 4 символов')
       .max(50, 'пароль не должен быть длиннее 50 символов'),
     repeatPassword: yup
@@ -68,9 +78,6 @@ export const SignUp = () => {
   });
   const dispatch = useDispatch();
   const signInModalActive = useSelector(signUpModalInfo);
-  function removeMaskChars(value: string): string {
-    return value.replace(/[-()_\s]/g, '');
-  }
 
   return (
     <>
