@@ -5,6 +5,7 @@ import { authModalReducer } from './reducers/authModalSlice';
 import { signInReducer } from './reducers/signInSlice';
 import { signUpReducer } from './reducers/signUpSlice';
 import { userAccountModalReducer } from './reducers/userAccountModalSlice';
+import { pizzaSettingsReducer } from './reducers/pizzaSettingsSlice';
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     signInModal: signInReducer,
     signUpModal: signUpReducer,
     userAccountModal: userAccountModalReducer,
+    pizzaSettingsModal: pizzaSettingsReducer,
   },
 });
 
