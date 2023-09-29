@@ -1,4 +1,4 @@
-import '../Sign.scss';
+import './Sign.scss';
 import * as yup from 'yup';
 import { ReactComponent as Exit } from '../../../../../assets/Exit.svg';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -6,6 +6,7 @@ import { UserSignIn } from '../../../../../models/UserSignIn';
 import { closeSignIn, signInModalInfo } from '../../../../../store/reducers/signInSlice';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { loginAuth } from '../../../../../store/reducers/authSlice';
+import { closeSignIn, signInModalInfo } from './signInSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 

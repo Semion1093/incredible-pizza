@@ -4,6 +4,8 @@ import { ProductLabel } from '../ProductLabel/ProductLabel';
 import { addToCart } from '../../../../store/reducers/cartSlice';
 import { batch, useDispatch } from 'react-redux';
 import { openPizzaSettings } from '../../../../store/reducers/pizzaSettingsSlice';
+import { addToCart } from '../Cart/cartSlice';
+import { useDispatch } from 'react-redux';
 import React from 'react';
 
 interface ProductCardProps {
