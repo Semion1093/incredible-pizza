@@ -2,7 +2,10 @@ import '../Sign.scss';
 import * as yup from 'yup';
 import { ReactComponent as Exit } from '../../../../../assets/Exit.svg';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { UserSignIn } from '../../../../../models/UserSignIn';
 import { closeSignIn, signInModalInfo } from '../../../../../store/reducers/signInSlice';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { loginAuth } from '../../../../../store/reducers/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -12,7 +15,7 @@ const userSchema = yup
     password: yup.string().required('введите пароль'),
   })
   .required();
-type UserFormData = yup.InferType<typeof userSchema>;
+export type UserFormData = yup.InferType<typeof userSchema>;
 
 export const SignIn = () => {
   const onSubmit: SubmitHandler<UserFormData> = (data) => {
@@ -44,6 +47,7 @@ export const SignIn = () => {
             <div className="content authentication">
               <h1>Вход в аккаунт</h1>
               <form className="required-name" onSubmit={handleSubmit(onSubmit)}>
+                {/* <form className="required-name" onSubmit={dispatch(loginAuth(data))}> */}
                 <div className="input-content">
                   <label>
                     Email:

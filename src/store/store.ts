@@ -6,10 +6,12 @@ import { signInReducer } from './reducers/signInSlice';
 import { signUpReducer } from './reducers/signUpSlice';
 import { userAccountModalReducer } from './reducers/userAccountModalSlice';
 import { pizzaSettingsReducer } from './reducers/pizzaSettingsSlice';
+import { authReducer } from './reducers/authSlice';
 
 export const store = configureStore({
   reducer: {
     currentUser: currentUserReducer,
+    authUser: authReducer,
     cartPage: cartPageReducer,
     authModal: authModalReducer,
     signInModal: signInReducer,

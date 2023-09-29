@@ -34,7 +34,6 @@ const cartPageSlice = createSlice({
 });
 
 export const { addToCart } = cartPageSlice.actions;
-
 export const selectCartItems = (state: RootState) => state.cartPage.items;
 export const selectCartItemsSum = (state: RootState) =>
   state.cartPage.items.reduce((acc, current) => {
