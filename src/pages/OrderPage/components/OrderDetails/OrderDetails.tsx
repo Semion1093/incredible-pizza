@@ -7,7 +7,9 @@ import { OrderResult } from '../OrderResult/OrderResult';
 import { Payment } from '../Payment/Payment';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { orderSchema } from './OrderSchema';
+import { selectCartItems } from '../../../HomePage/components/Cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 
@@ -23,7 +25,9 @@ export const OrderDetails = () => {
   } = useForm<OrderFormData>({
     resolver: yupResolver(orderSchema),
   });
+  const products = useSelector(selectCartItems);
   const onSubmit: SubmitHandler<OrderFormData> = (data) => {
+    data['products'] = products;
     fetch('http://localhost:4001/api/v1/order/order/create', {
       method: 'POST',
       body: JSON.stringify(data),

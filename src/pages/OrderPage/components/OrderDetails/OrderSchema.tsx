@@ -34,5 +34,6 @@ export const orderSchema = yup
     comment: yup.string().max(1000),
     time: yup.string(),
     date: yup.string(),
+    products: yup.array(),
   })
   .required();
