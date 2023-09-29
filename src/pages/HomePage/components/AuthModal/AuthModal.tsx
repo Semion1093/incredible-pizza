@@ -1,8 +1,8 @@
-import './Sign.scss';
+import './SignInSignUp/Sign.scss';
 import { ReactComponent as Exit } from '../../../../assets/Exit.svg';
-import { closeAuthModal, authModalInfo } from '../../../../store/reducers/authModalSlice';
-import { openSignIn } from '../../../../store/reducers/signInSlice';
-import { openSignUp } from '../../../../store/reducers/signUpSlice';
+import { closeAuthModal, authModalInfo } from './authModalSlice';
+import { openSignIn } from './SignInSignUp/signInSlice';
+import { openSignUp } from './SignInSignUp/signUpSlice';
 import { batch, useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 
