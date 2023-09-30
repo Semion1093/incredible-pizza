@@ -1,0 +1,35 @@
+@import '../../../../variables';
+
+.swiper {
+  .swiper-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+    justify-content: center;
+    margin-top: 40px;
+
+    button {
+      padding: 0;
+      border: 0;
+      background-color: transparent;
+    }
+  }
+}
+
+.swiper-slider {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 850px) {
+  .swiper {
+    .swiper-buttons {
+      gap: 24px;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
