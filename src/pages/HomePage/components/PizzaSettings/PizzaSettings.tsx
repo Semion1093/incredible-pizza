@@ -114,7 +114,7 @@ export const PizzaSettings = (props: PizzaProps) => {
   const [isActive, setIsActive] = useState<boolean>(true);
   return (
     <>
-      {isActive ? (
+      {isActive && (
         <div className="modal" onClick={() => setIsActive(false)}>
           <article className="modal-wrapper separated" onClick={(e) => e.stopPropagation()}>
             <div className="left-side">
@@ -174,8 +174,6 @@ export const PizzaSettings = (props: PizzaProps) => {
             </div>
           </article>
         </div>
-      ) : (
-        <></>
       )}
     </>
   );

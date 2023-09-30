@@ -24,7 +24,5 @@ export const currentUserSlice = createSlice({
 });
 
 export const { loadUser, logOut } = currentUserSlice.actions;
-
 export const selectCurrentUser = (state: RootState) => state.currentUser.userData;
-
 export const currentUserReducer = currentUserSlice.reducer;

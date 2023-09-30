@@ -4,26 +4,12 @@ import { RootState } from '../../../../store/store';
 
 interface CartPage {
   items: Product[];
-  items2: Map<number, Product & { quantity: number }>;
   minPrice: number;
   maxPrice: number;
 }
 
 const initialState: CartPage = {
   items: [],
-  items2: new Map<number, Product & { quantity: number }>([
-    [
-      1,
-      {
-        id: 1,
-        title: '',
-        description: '',
-        price: 80,
-        quantity: 1,
-        img: '',
-      },
-    ],
-  ]),
   minPrice: 0,
   maxPrice: 100000,
 };
