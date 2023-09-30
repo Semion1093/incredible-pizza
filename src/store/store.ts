@@ -1,24 +1,18 @@
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from 'redux-persist';
-import { authModalReducer } from './reducers/authModalSlice';
-import { authReducer } from './reducers/authSlice';
+import { authModalReducer } from '../pages/HomePage/components/AuthModal/authModalSlice';
 import { cartPageReducer } from '../pages/HomePage/components/Cart/cartSlice';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { currentUserReducer } from './currentUserSlice';
-import { pizzaSettingsReducer } from './reducers/pizzaSettingsSlice';
-import { signInReducer } from './reducers/signInSlice';
-import { signUpReducer } from './reducers/signUpSlice';
-import { userAccountModalReducer } from './reducers/userAccountModalSlice';
+import { signInReducer } from '../pages/HomePage/components/AuthModal/SignInSignUp/signInSlice';
+import { signUpReducer } from '../pages/HomePage/components/AuthModal/SignInSignUp/signUpSlice';
 import storage from 'redux-persist/lib/storage';
 
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
-  authUser: authReducer,
   cartPage: cartPageReducer,
   authModal: authModalReducer,
   signInModal: signInReducer,
   signUpModal: signUpReducer,
-  userAccountModal: userAccountModalReducer,
-  pizzaSettingsModal: pizzaSettingsReducer,
 });
 
 const persistConfig = {
