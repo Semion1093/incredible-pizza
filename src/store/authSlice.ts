@@ -3,7 +3,7 @@ import { RootState } from './store';
 import { User } from '../models/User';
 import { UserSignIn } from '../models/UserSignIn';
 import { UserSignUp } from '../models/UserSignUp';
-import { UserFormData } from '../pages/HomePage/components/AuthModal/SignInSignUp/SignIn';
+import { UserSignInFormData } from '../pages/HomePage/components/AuthModal/SignInSignUp/SignIn';
 
 const tokenInStorage = localStorage.getItem('token') !== null ? localStorage.getItem('token') : '';
 
@@ -14,7 +14,7 @@ export const loginAuth = createAsyncThunk(`auth/loginAuth`, async (user: UserSig
     headers: { 'Content-type': 'application/json; charset=UTF-8' },
   });
   if (!response.ok) {
-    return rejectWithValue('Такого пользователя не существует');
+    return rejectWithValue('Данные введены неверно, попробуйте снова');
   }
   const data = await response.json();
   localStorage.setItem('token', data.token);
@@ -68,15 +68,6 @@ export const authSlice = createSlice({
         state.loading = false;
         state.user = action.payload ?? null;
       })
-      // .addCase(currentUserAuth.pending, (state) => {
-      //   state.loading = true;
-      //   state.error = null;
-      // })
-      // .addCase(currentUserAuth.fulfilled, (state, action) => {
-      //   state.isAuth = true;
-      //   state.loading = false;
-      //   state.user = action.payload ?? null;
-      // })
       .addCase(registrationAuth.pending, (state) => {
         state.loading = true;
         state.error = null;
