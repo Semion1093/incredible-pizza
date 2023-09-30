@@ -11,13 +11,13 @@ export const OrderPage = () => {
   const [sauces, setSauces] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:4001/api/v1/product/product/listByType/SNACK')
+    fetch('http://localhost:4001/api/v1/product/product/listByType/snack')
       .then((response) => response.json())
       .then((result) => setSnacks(result.data));
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:4001/api/v1/product/product/listByType/SAUCE')
+    fetch('http://localhost:4001/api/v1/product/product/listByType/sauce')
       .then((response) => response.json())
       .then((result) => setSauces(result.data));
   }, []);
