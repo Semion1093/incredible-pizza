@@ -3,10 +3,9 @@ import * as yup from 'yup';
 import { ReactComponent as Exit } from '../../../../../assets/Exit.svg';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { closeSignIn, signInModalInfo } from './signInSlice';
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { PathFetch } from '../../../../../components/PathFetch';
 
 const userSignInSchema = yup
   .object({
@@ -18,7 +17,7 @@ export type UserSignInFormData = yup.InferType<typeof userSignInSchema>;
 
 export const SignIn = () => {
   const onSubmit: SubmitHandler<UserSignInFormData> = (data) => {
-    fetch('http://localhost:4001/api/v1/public/user/login', {
+    fetch(PathFetch.SignIn, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },
