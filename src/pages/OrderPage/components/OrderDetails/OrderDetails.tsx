@@ -38,10 +38,9 @@ export const OrderDetails = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        if (result.data.orderNumber) {
-          localStorage.setItem('orderNumber', result.data.orderNumber);
-        }
         if (result.statusCode === 201) {
+          localStorage.removeItem('persist:products');
+          localStorage.setItem('orderNumber', result.data.orderNumber);
           navigate('/success');
         }
       })
