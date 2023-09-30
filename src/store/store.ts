@@ -1,12 +1,8 @@
-import { cartPageReducer } from '../pages/HomePage/components/Cart/cartSlice';
+import { cartPageReducer } from '../pages/HomePage/components/ProductCard/productCartSlice';
 import { configureStore } from '@reduxjs/toolkit';
-import { currentUserReducer } from './reducers/currentUserSlice';
-import { authModalReducer } from './reducers/authModalSlice';
-import { signInReducer } from './reducers/signInSlice';
-import { signUpReducer } from './reducers/signUpSlice';
-import { userAccountModalReducer } from './reducers/userAccountModalSlice';
-import { pizzaSettingsReducer } from './reducers/pizzaSettingsSlice';
-import { authReducer } from './reducers/authSlice';
+import { userAccountModalReducer } from '../components/UserAccountModal/userAccountModalSlice';
+import { pizzaSettingsReducer } from '../pages/HomePage/components/PizzaSettings/pizzaSettingsSlice';
+import { authReducer } from './authSlice';
 import { currentUserReducer } from './currentUserSlice';
 import { authModalReducer } from '../pages/HomePage/components/AuthModal/authModalSlice';
 import { signInReducer } from '../pages/HomePage/components/AuthModal/SignInSignUp/signInSlice';

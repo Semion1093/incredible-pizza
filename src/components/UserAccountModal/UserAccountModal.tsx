@@ -3,7 +3,7 @@
 import './UserAccountModal.scss';
 import { Link } from 'react-router-dom';
 import { Path } from '../Path';
-import { closeUserAccountModal, openUserAccountModal, userAccountModalInfo } from '../../store/reducers/userAccountModalSlice';
+import { closeUserAccountModal, openUserAccountModal, userAccountModalInfo } from './userAccountModalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 

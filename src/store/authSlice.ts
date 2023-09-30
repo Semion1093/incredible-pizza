@@ -1,9 +1,9 @@
 import { AnyAction, PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../store';
-import { User } from '../../models/User';
-import { UserSignIn } from '../../models/UserSignIn';
-import { UserSignUp } from '../../models/UserSignUp';
-import { UserFormData } from '../../pages/HomePage/components/AuthModal/SignInSignUp/SignIn';
+import { RootState } from './store';
+import { User } from '../models/User';
+import { UserSignIn } from '../models/UserSignIn';
+import { UserSignUp } from '../models/UserSignUp';
+import { UserFormData } from '../pages/HomePage/components/AuthModal/SignInSignUp/SignIn';
 
 const tokenInStorage = localStorage.getItem('token') !== null ? localStorage.getItem('token') : '';
 

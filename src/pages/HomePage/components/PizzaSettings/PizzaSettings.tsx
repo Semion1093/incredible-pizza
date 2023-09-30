@@ -8,7 +8,7 @@ import { PizzaComponents, ToppingProps } from './PizzaComponents/PizzaComponents
 import { ReactComponent as Top } from './assets/Top.svg';
 import { Topping } from './ToppingIcon';
 import React, { useState } from 'react';
-import { closePizzaSettings, pizzaSettingsModalInfo } from '../../../../store/reducers/pizzaSettingsSlice';
+import { closePizzaSettings, pizzaSettingsModalInfo } from './pizzaSettingsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 export interface PizzaProps {
   id?: number;

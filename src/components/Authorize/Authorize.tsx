@@ -1,8 +1,7 @@
 import './Authorize.scss';
 import { HeaderAccountIconSvg } from '../Header/assets/HeaderAccountIconSvg';
 import { UserAccountModal } from '../UserAccountModal/UserAccountModal';
-import { openUserAccountModal } from '../../store/reducers/userAccountModalSlice';
-import { openAuthModal } from '../../store/reducers/authModalSlice';
+import { openUserAccountModal } from '../UserAccountModal/userAccountModalSlice';
 import { openAuthModal } from '../../pages/HomePage/components/AuthModal/authModalSlice';
 import { useDispatch } from 'react-redux';
 import React from 'react';

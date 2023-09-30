@@ -4,7 +4,7 @@
 import './Cart.scss';
 import { CartItem } from './components/CartItem/CartItem';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
-import { selectCartItems } from './cartSlice';
+import { selectCartItems } from '../ProductCard/productCartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { openAuthModal } from '../AuthModal/authModalSlice';
 import { useState } from 'react';
