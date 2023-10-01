@@ -1,6 +1,5 @@
-@import '../../../../../../variables';
+@import '../../../../variables';
 
-  
 .cart-item {
   display: grid;
   grid-template-columns: 94px 232px;
@@ -61,5 +60,12 @@
       gap: 40px;
       padding-top: 10px;
     }
+  }
+}
+
+@media (max-width: 850px){
+  .cart-item {
+    width: 350px;
+    grid-template-columns: 94px 200px;
   }
 }

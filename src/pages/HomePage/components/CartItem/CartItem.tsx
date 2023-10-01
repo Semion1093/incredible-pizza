@@ -1,5 +1,5 @@
 import './CartItem.scss';
-import { QuantitySelector } from '../../../../../../components/QuantitySelector/QuantitySelector';
+import { QuantitySelector } from '../../../../components/QuantitySelector/QuantitySelector';
 import pepperoni from './assets/pepperoni-rustic.png';
 
 interface ProductCardProps {

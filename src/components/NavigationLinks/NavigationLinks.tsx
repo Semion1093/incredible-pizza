@@ -2,7 +2,6 @@ import './NavigationLinks.scss';
 import { Link } from 'react-router-dom';
 import { MobileArrowBackButton } from './components/MobileArrowBackButton/MobileArrowBackButton';
 import { NavigationLinksBasketImageSvg } from './assets/NavigationLinksBasketImageSvg';
-import { NavigationLinksMenuMobileSvg } from './assets/NavigationLinksMenuMobileSvg';
 import { NavigationLinksPizzaIconSvg } from './assets/NavigationLinksPizzaIconSvg';
 import { NavigationLinksTextSvg } from './assets/NavigationLinksText';
 import React from 'react';
@@ -33,11 +32,8 @@ export const NavigationLinks = (props: NavigationLinksProps) => {
           <a href="#dessert">Десерты</a>
           <a href="#sauce">Соусы</a>
         </nav>
-        <button className="desktop-only" onClick={() => props.setIsActive(true)}>
+        <button className="cart-button" onClick={() => props.setIsActive(true)}>
           <NavigationLinksBasketImageSvg /> 0 ₽
-        </button>
-        <button className="mobile-menu mobile-only">
-          <NavigationLinksMenuMobileSvg />
         </button>
       </div>
     </div>

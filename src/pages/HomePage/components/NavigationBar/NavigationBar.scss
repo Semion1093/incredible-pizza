@@ -53,3 +53,43 @@
     }
   }
 }
+
+@media (max-width: 850px) {
+  .navigation-bar-content {
+    justify-content: left;
+    flex-wrap: wrap;
+    width: 390px;
+    gap: 15px;
+    margin: 20px;
+  }
+
+  .navigation-bar-item {
+    display: flex;
+    width: auto;
+    height: auto;
+    padding: 5px;
+
+    &:hover {
+      border: 1px solid $primary-color;
+    }
+
+    & .icon {
+      display: flex;
+      height: 24px;
+      width: 18px;
+      align-items: center;
+      padding: 0px 4px;
+      margin: 0 auto;
+      flex-shrink: 0;
+    }
+
+    & p {
+      font-size: 14px;
+      line-height: 18px;
+
+      &.accent {
+        color: $accent-color;
+      }
+    }
+  }
+}

@@ -1,7 +1,6 @@
 import './HomePage.scss';
 import { Cart } from './components/Cart/Cart';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
-import { Description } from './components/Description/Description';
 import { NavigationBar } from './components/NavigationBar/NavigationBar';
 import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
 import {
@@ -49,7 +48,7 @@ export const HomePage = () => {
       <Delimiter />
       <NavigationLinks showMobileButtonBack={false} setIsActive={setIsCartActive} />
       <NavigationBar />
-      <SalesSection />
+      {/* <SalesSection /> */}
       <ProductSection nameId="pizza" name="Пицца" />
       <ProductSection nameId="sushi" name="Суши" />
       <ProductSection nameId="combo" name="Комбо" />
@@ -57,9 +56,8 @@ export const HomePage = () => {
       <ProductSection nameId="drink" name="Напитки" />
       <ProductSection nameId="dessert" name="Десерты" />
       <ProductSection nameId="sauce" name="Соусы" />
-      <Description />
       <Cart isCartActive={isCartActive} setIsActive={setIsCartActive} />
-      <PizzaSettings {...EasyPeasyChicken} />
+      {/* <PizzaSettings {...EasyPeasyChicken} /> */}
     </>
   );
 };
