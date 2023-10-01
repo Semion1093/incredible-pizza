@@ -1,7 +1,7 @@
 import './OrderItems.scss';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
 import { OrderItem } from '../OrderItem/OrderItem';
-import { selectCartItems } from '../../../HomePage/components/Cart/cartSlice';
+import { selectCartItems } from '../../../HomePage/components/ProductCard/productCartSlice';
 import { useSelector } from 'react-redux';
 import React from 'react';
 
