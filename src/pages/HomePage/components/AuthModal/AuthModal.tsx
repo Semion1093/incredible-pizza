@@ -1,9 +1,9 @@
-import './SignInSignUp/Sign.scss';
+import './AuthModal.scss';
 import { ReactComponent as Exit } from '../../../../assets/Exit.svg';
-import { closeAuthModal, authModalInfo } from './authModalSlice';
+import { authModalInfo, closeAuthModal } from './authModalSlice';
+import { batch, useDispatch, useSelector } from 'react-redux';
 import { openSignIn } from './SignInSignUp/signInSlice';
 import { openSignUp } from './SignInSignUp/signUpSlice';
-import { batch, useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 
 export const SignInOrSignUpModal = () => {
@@ -27,7 +27,8 @@ export const SignInOrSignUpModal = () => {
       {authModalActive && (
         <div className="modal">
           <div className="modal-wrapper">
-            <div className="content authentication">
+            <p>Для продолжения, пожалуйста зарегестрируйтесь</p>
+            <div className="content authentication-modal">
               <button onClick={() => onSubmitOpenSignUp()}>Зарегистрироваться</button>
               <button onClick={() => onSubmitopenSignIn()}>Войти</button>
             </div>
