@@ -2,6 +2,7 @@ import './Sign.scss';
 import * as yup from 'yup';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { ReactComponent as Exit } from '../../../../../assets/Exit.svg';
+import { PathFetch } from '../../../../../components/PathFetch';
 import { closeSignUp, signUpModalInfo } from './signUpSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -12,7 +13,7 @@ function removeMaskChars(value: string): string {
   return value.replace(/[-()_\s]/g, '');
 }
 
-const userSchema = yup
+const userSignUpSchema = yup
   .object({
     email: yup
       .string()
@@ -43,7 +44,7 @@ const userSchema = yup
       .matches(/^[^\s]+$/, 'в пароле не должно быть пробела')
       .matches(/.*[#@$%^&*()_+!].*/, 'в пароле должен быть хотя бы один спец. символ')
       .matches(/.*[A-ZА-Я].*/, 'в пароле должен быть хотя бы одинa заглавная буква')
-      .min(5, 'пароль должен быть длиннее 4 символов')
+      .min(8, 'пароль должен быть длиннее 7 символов')
       .max(50, 'пароль не должен быть длиннее 50 символов'),
     repeatPassword: yup
       .string()
@@ -51,19 +52,22 @@ const userSchema = yup
       .oneOf([yup.ref('password'), ''], 'пароли должны совпадать'),
   })
   .required();
-type UserFormData = yup.InferType<typeof userSchema>;
+type UserSignUpFormData = yup.InferType<typeof userSignUpSchema>;
 
 export const SignUp = () => {
   const [formResult, setFormResult] = useState('');
-  const onSubmit: SubmitHandler<UserFormData> = (data) => {
-    data.mobileNumber = removeMaskChars(data.mobileNumber);
-    fetch('http://localhost:4001/api/v1/public/user/sign-up', {
+  const onSubmit: SubmitHandler<UserSignUpFormData> = (data) => {
+    console.log(data);
+    fetch(PathFetch.SignUp, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },
     })
       .then((response) => response.json())
-      .then((dataFromBack) => setFormResult(dataFromBack));
+      .then((dataFromBack) => {
+        setFormResult(dataFromBack);
+        dispatch(closeSignUp());
+      });
   };
 
   const {
@@ -71,10 +75,10 @@ export const SignUp = () => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<UserFormData>({
+  } = useForm<UserSignUpFormData>({
     mode: 'onBlur',
     defaultValues: {},
-    resolver: yupResolver(userSchema),
+    resolver: yupResolver(userSignUpSchema),
   });
   const dispatch = useDispatch();
   const signInModalActive = useSelector(signUpModalInfo);
