@@ -27,12 +27,17 @@ export const SignInOrSignUpModal = () => {
       {authModalActive && (
         <div className="modal">
           <div className="modal-wrapper">
-            <p>Для продолжения, пожалуйста зарегестрируйтесь</p>
-            <div className="content authentication-modal">
-              <button onClick={() => onSubmitOpenSignUp()}>Зарегистрироваться</button>
-              <button onClick={() => onSubmitopenSignIn()}>Войти</button>
+            <div className="content authentication">
+              <h1>Для продолжения, пожалуйста зарегистрируйтесь или войдите в аккаунт</h1>
+              <button className="no-background-border icon mobile-only" onClick={() => dispatch(closeAuthModal())}>
+                <Exit />
+              </button>
+              <div className="content authentication-modal">
+                <button onClick={() => onSubmitOpenSignUp()}>Зарегистрироваться</button>
+                <button onClick={() => onSubmitopenSignIn()}>Войти</button>
+              </div>
             </div>
-            <button className="no-background-border icon" onClick={() => dispatch(closeAuthModal())}>
+            <button className="no-background-border icon desktop-only" onClick={() => dispatch(closeAuthModal())}>
               <Exit />
             </button>
           </div>

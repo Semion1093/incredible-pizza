@@ -233,6 +233,7 @@ button {
     flex-direction: column;
     align-items: center;
     position: relative;
+    width: 700px;
 
     .no-background-border {
       &.icon {
@@ -245,15 +246,19 @@ button {
 }
 
 .no-background-border {
-  cursor: pointer;
-  background: 0;
-  border: 0;
+  &.icon {
 
-  &:hover {
+    cursor: pointer;
     background: 0;
     border: 0;
-    svg * {
-      fill: $primary-color;
+    fill: $border-color-grey;
+    
+    &:hover {
+      background: 0;
+      border: 0;
+      svg * {
+        fill: $primary-color;
+      }
     }
   }
 }
@@ -277,6 +282,10 @@ button {
   .modal {
     .modal-panel {
       width: 390px;
+    }
+    .modal-wrapper {
+      width: 360px;
+      padding: 10px 20px;
     }
   }
 }

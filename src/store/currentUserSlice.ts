@@ -15,7 +15,8 @@ export const currentUserSlice = createSlice({
   initialState,
   reducers: {
     loadUser: (state, action: PayloadAction<User>) => {
-      state.userData = { id: action.payload.id, email: action.payload.email, fullName: action.payload.fullName };
+      // state.userData = { id: action.payload.id, email: action.payload.email, fullName: action.payload.fullName };
+      state.userData = { accessToken: action.payload.accessToken };
     },
     logOut: (state) => {
       state.userData = undefined;

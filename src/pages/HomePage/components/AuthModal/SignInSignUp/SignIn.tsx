@@ -78,7 +78,7 @@ export const SignIn = () => {
             <div className="status">
               <span className="agreement">Убедитесь что ввели правильные данные</span>
             </div>
-            <button className="no-background-border icon" onClick={() => dispatch(closeSignIn())}>
+            <button className="no-background-border icon desktop-only" onClick={() => dispatch(closeSignIn())}>
               <Exit />
             </button>
           </div>

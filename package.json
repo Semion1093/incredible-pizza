@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "react-scripts start && eslint src/**/*.ts{,x}",
-    "build": "react-scripts build",
+    "build": "nest build && yarn run copy && yarn run node_modules:prod",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:fix": "eslint src/**/*.ts{,x} --fix"

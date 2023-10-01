@@ -144,7 +144,7 @@ export const SignUp = () => {
             <div className="status">
               <span className="agreement">Продолжая, вы соглашаетесь со сбором и обработкой персональных данных и пользовательским соглашением</span>
             </div>
-            <button className="no-background-border icon" onClick={() => dispatch(closeSignUp())}>
+            <button className="no-background-border icon desktop-only" onClick={() => dispatch(closeSignUp())}>
               <Exit />
             </button>
           </div>
