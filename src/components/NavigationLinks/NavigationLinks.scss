@@ -45,7 +45,7 @@
   }
 }
 
-button {
+.cart-button {
   padding: 8px 16px;
   border-radius: 4px;
 
@@ -67,9 +67,16 @@ button {
   }
 
   .navigation-links {
-    padding: 15px 20px 15px 20px;
+    padding: 10px 20px 10px 20px;
 
     .navigation-links-content {
+      .pizza-icon {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 0;
+      }
+
       .left-part {
         display: flex;
         gap: 12px;
@@ -77,9 +84,7 @@ button {
     }
   }
 
-  .mobile-menu {
-    padding: 0;
-    border: 0;
-    background-color: transparent;
+  .cart-button {
+    padding: 10px;
   }
 }

@@ -48,7 +48,7 @@ export const HomePage = () => {
       <Delimiter />
       <NavigationLinks showMobileButtonBack={false} setIsActive={setIsCartActive} />
       <NavigationBar />
-      <SalesSection />
+      {/* <SalesSection /> */}
       <ProductSection nameId="pizza" name="Пицца" />
       <ProductSection nameId="sushi" name="Суши" />
       <ProductSection nameId="combo" name="Комбо" />
@@ -57,7 +57,7 @@ export const HomePage = () => {
       <ProductSection nameId="dessert" name="Десерты" />
       <ProductSection nameId="sauce" name="Соусы" />
       <Cart isCartActive={isCartActive} setIsActive={setIsCartActive} />
-      <PizzaSettings {...EasyPeasyChicken} />
+      {/* <PizzaSettings {...EasyPeasyChicken} /> */}
     </>
   );
 };

@@ -11,7 +11,6 @@ h2 {
   color: $font-color-black;
   font-family: $second-font;
   font-size: 40px;
-  font-weight: 600;
   line-height: 48px;
   margin-bottom: 30px;
 }
@@ -21,4 +20,24 @@ h2 {
   grid-template-columns: repeat(4, 300px);
   gap: 30px;
   flex-shrink: 0;
+}
+
+@media (max-width: 850px) {
+  .product-section {
+    width: 390px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 8px;
+  }
+  h2 {
+    font-size: 28px;
+    line-height: 32px;
+    margin-left: 20px;
+  }
+
+  .product-section-content {
+    margin: 20px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
