@@ -5,7 +5,7 @@ import { UserSignIn } from '../models/UserSignIn';
 import { UserSignUp } from '../models/UserSignUp';
 import { UserSignInFormData } from '../pages/HomePage/components/AuthModal/SignInSignUp/SignIn';
 
-const tokenInStorage = localStorage.getItem('token') !== null ? localStorage.getItem('token') : '';
+const tokenInStorage = localStorage.getItem('token') ? localStorage.getItem('token') : '';
 
 export const loginAuth = createAsyncThunk(`auth/loginAuth`, async (user: UserSignIn, { rejectWithValue }) => {
   const response = await fetch('http://localhost:4001/api/v1/public/user/login', {
