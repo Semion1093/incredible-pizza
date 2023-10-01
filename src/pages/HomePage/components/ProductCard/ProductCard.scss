@@ -10,10 +10,10 @@
   border: 1px solid $border-color-grey;
   background: $background-color-white;
   overflow: hidden;
+  align-content: space-between;
 
   & img {
     width: 300px;
-    height: 300px;
     flex-shrink: 0;
     padding: 10px;
   }

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -30,13 +31,15 @@ export const Cart = (props: CartProps) => {
                 </button>
               </div>
               {items.map((item, index) => (
-                <CartItem key={index} title={item.title} description={item.description} img={''} cost={item.price.toString()} />
+                <CartItem key={index} title={item.title} description={item.description} img={item.img} cost={item.price.toString()} />
               ))}
             </div>
             <div className="cart-result">
               <Delimiter />
               <div className="cart-result-content">
-                <span>Итого: 1 399 ₽</span>
+                <span>
+                  Итого: {items.reduce((sum, item) => {return sum + item.price;}, 0)}{' '}₽
+                </span>
                 <button onClick={() => dispatch(openAuthModal())}>Оформить заказ</button>
               </div>
             </div>

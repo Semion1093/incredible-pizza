@@ -27,7 +27,7 @@ const cartPageSlice = createSlice({
     clearCart: (state) => {
       state.items = [];
     },
-    changeCount: (state, action: PayloadAction<{ id: number; isMore: boolean }>) => {
+    changeCount: (state, action: PayloadAction<{ id: string; isMore: boolean }>) => {
       const item = state.items.find((item) => item.id === action.payload.id);
     },
   },
