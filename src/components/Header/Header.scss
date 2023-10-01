@@ -2,6 +2,7 @@
 
 header {
   background-color: $background-color-white;
+
   @media (min-width: 851px) {
     .mobile-only {
       display: none !important;
@@ -61,15 +62,18 @@ header {
   }
 
   header {
-    .left-part {
+    .header-container {
+      padding: 0px;
       padding: 9px 20px 10px 20px;
-      justify-content: space-between;
-      width: 850px;
-      gap: 0;
 
-      span {
-        font-size: 12px;
-        line-height: 16px;
+      .left-part {
+        justify-content: space-between;
+        gap: 0;
+
+        span {
+          font-size: 12px;
+          line-height: 16px;
+        }
       }
     }
   }

@@ -56,11 +56,9 @@
 
 @media (max-width: 850px) {
   .navigation-bar-content {
-    justify-content: left;
     flex-wrap: wrap;
     width: 390px;
     gap: 15px;
-    margin: 20px;
   }
 
   .navigation-bar-item {

@@ -154,7 +154,7 @@ button {
   display: flex;
   border-radius: 6px;
   background-color: $background-color-white;
-  width: 350px;
+  max-width: 350px;
   height: 48px;
 }
 
@@ -186,6 +186,7 @@ button {
   background-color: $primary-color;
   color: $font-color-white;
   height: 48px;
+  max-width: 175px;
 }
 
 .modal {

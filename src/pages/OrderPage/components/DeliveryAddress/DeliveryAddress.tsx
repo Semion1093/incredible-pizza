@@ -36,7 +36,7 @@ export const DeliveryAddress = (props: DeliveryAddressProps) => {
             {props.errors.apartment && <span className="error-text">{props.errors.apartment.message?.toString()}</span>}
           </div>
           <div className={classNames('grid-item', 'mobile')}>
-            <CustomTextInput placeholder={'0000'} name={'porch-Code'} label={'Домофон'} register={props.register} />
+            <CustomTextInput placeholder={'0000'} name={'porchCode'} label={'Домофон'} register={props.register} />
             {props.errors.porchCode && <span className="error-text">{props.errors.porchCode.message?.toString()}</span>}
           </div>
         </div>

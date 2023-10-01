@@ -5,4 +5,5 @@ export interface Product {
   price: number;
   img: string;
   labelText?: string;
+  type?: string;
 }

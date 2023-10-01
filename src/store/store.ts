@@ -1,5 +1,7 @@
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from 'redux-persist';
 import { authModalReducer } from '../pages/HomePage/components/AuthModal/authModalSlice';
+import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from 'redux-persist';
+import { authModalReducer } from '../pages/HomePage/components/AuthModal/authModalSlice';
 import { authReducer } from './authSlice';
 import { cartPageReducer } from '../pages/HomePage/components/ProductCard/productCartSlice';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
