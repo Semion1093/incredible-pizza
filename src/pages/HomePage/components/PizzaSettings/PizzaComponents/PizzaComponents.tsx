@@ -1,5 +1,5 @@
-import { Topping, ToppingIcon } from '../ToppingIcon';
 import './PizzaComponents.scss';
+import { Topping, ToppingIcon } from '../ToppingIcon';
 export interface ToppingProps {
   id?: number;
   name: string;

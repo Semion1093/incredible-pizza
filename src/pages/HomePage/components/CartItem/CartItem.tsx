@@ -1,6 +1,5 @@
 import './CartItem.scss';
 import { QuantitySelector } from '../../../../components/QuantitySelector/QuantitySelector';
-import pepperoni from './assets/pepperoni-rustic.png';
 
 interface ProductCardProps {
   title: string;
@@ -13,7 +12,7 @@ export const CartItem = (props: ProductCardProps) => {
   return (
     <>
       <div className="cart-item">
-        <img src={pepperoni} alt="" />
+        <img src={props.img} alt="" />
         <div className="content">
           <div className="text">
             <span className="title">{props.title}</span>
