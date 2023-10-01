@@ -1,23 +1,23 @@
 import './AdditionalOrderProduct.scss';
+import { Product } from '../../../../models/Product';
+import { addToCart } from '../../../HomePage/components/Cart/cartSlice';
+import { useDispatch } from 'react-redux';
 import React from 'react';
 
 export interface AdditionalOrderProductProps {
-  img: string;
-  title: string;
-  description: string;
-  price: number;
-  showInfo: boolean;
+  product: Product;
 }
 
 export const AdditionalOrderProduct = (props: AdditionalOrderProductProps) => {
+  const dispatch = useDispatch();
+
   return (
     <div className="additional-container">
       <div className="additional-order-item">
-        <img src={props.img} alt="" />
-        <span className="name">{props.title}</span>
-        {props.showInfo && <span className="info">{props.description}</span>}
-        <button>
-          <span>{props.price} ₽</span>
+        <img src={props.product.img} alt="" />
+        <span className="name">{props.product.title}</span>
+        <button onClick={() => dispatch(addToCart(props.product))}>
+          <span>{props.product.price} ₽</span>
         </button>
       </div>
     </div>

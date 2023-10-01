@@ -26,8 +26,8 @@ export const OrderPage = () => {
     <>
       <Delimiter />
       <OrderItems />
-      <AdditionalOrderProductCarousel products={snacks} header={'Добавить к заказу?'} />
-      <AdditionalOrderProductCarousel products={sauces} header={'Соусы'} />
+      <AdditionalOrderProductCarousel products={snacks} header={'Добавить к заказу?'} swiperButtonName="snack" />
+      <AdditionalOrderProductCarousel products={sauces} header={'Соусы'} swiperButtonName="sauce" />
       <OrderDetails />
     </>
   );

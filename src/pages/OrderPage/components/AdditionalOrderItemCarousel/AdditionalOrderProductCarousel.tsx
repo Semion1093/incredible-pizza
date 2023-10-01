@@ -9,6 +9,7 @@ import React from 'react';
 interface AdditionalOrderProductCarouselProps {
   products: Product[];
   header: string;
+  swiperButtonName: string;
 }
 
 export const AdditionalOrderProductCarousel = (props: AdditionalOrderProductCarouselProps) => {
@@ -16,16 +17,9 @@ export const AdditionalOrderProductCarousel = (props: AdditionalOrderProductCaro
     <div className="products-carousel">
       <h3>{props.header}</h3>
       <div className="section">
-        <Carousel slidesCount={4} spaceBetweenCard={30}>
+        <Carousel swiperButtonName={props.swiperButtonName}>
           {props.products.map((item, index) => (
-            <AdditionalOrderProduct
-              key={index}
-              img={item.img}
-              title={item.title}
-              description={item.description}
-              price={item.price}
-              showInfo={false}
-            />
+            <AdditionalOrderProduct key={index} product={item} />
           ))}
         </Carousel>
       </div>

@@ -1,40 +1,51 @@
 import './Carousel.scss';
-import 'swiper/scss';
-import 'swiper/scss/navigation';
-import { Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
-import ButtonLeft from './assets/swiper-button-left.png';
-import ButtonRight from './assets/swiper-button-right.png';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Keyboard, Mousewheel, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { useMediaQuery } from 'react-responsive';
 import React, { ReactNode } from 'react';
+import leftArrow from './assets/swiper-button-left.png';
+import rightArrow from './assets/swiper-button-right.png';
 
-interface CarouselProps {
-  slidesCount: number;
-  spaceBetweenCard: number;
-  children?: ReactNode | ReactNode[];
+interface ReactSwiperProps {
+  swiperButtonName: string;
+  desktopNavigationOnly?: boolean;
+  children: ReactNode | ReactNode[];
 }
 
-const SwiperButtons = () => {
-  const swiper = useSwiper();
-
+export const Carousel = ({ swiperButtonName, children }: ReactSwiperProps) => {
+  const isDesktop = useMediaQuery({ minWidth: 850 });
   return (
-    <div className="swiper-buttons">
-      <button onClick={() => swiper.slidePrev()}>
-        <img src={ButtonLeft} alt="" />
-      </button>
-      <button onClick={() => swiper.slideNext()}>
-        <img src={ButtonRight} alt="" />
-      </button>
+    <div className="swiper-container">
+      <div className="nav-content-container">
+        {isDesktop && (
+          <div className={'image-swiper-button-prev ' + swiperButtonName}>
+            <img src={leftArrow} alt="leftArrow" className="img-arrow" />
+          </div>
+        )}
+        <Swiper
+          slidesPerView={isDesktop ? 3 : 1}
+          spaceBetween={30}
+          modules={[Navigation, Mousewheel, Keyboard]}
+          loop={true}
+          navigation={{
+            prevEl: '.image-swiper-button-prev ' + swiperButtonName,
+            nextEl: '.image-swiper-button-next ' + swiperButtonName,
+          }}
+          mousewheel={true}
+          keyboard={true}
+        >
+          {React.Children.map(children, (child, index) => (
+            <SwiperSlide key={index}>{child}</SwiperSlide>
+          ))}
+        </Swiper>
+        {isDesktop && (
+          <div className={'image-swiper-button-next ' + swiperButtonName}>
+            <img src={rightArrow} alt="rightArrow" className="img-arrow" />
+          </div>
+        )}
+      </div>
     </div>
-  );
-};
-
-export const Carousel = ({ children, slidesCount, spaceBetweenCard }: CarouselProps) => {
-  return (
-    <Swiper slidesPerView={slidesCount} spaceBetween={spaceBetweenCard} modules={[Navigation]} className="additional-order-item-swiper">
-      {React.Children.map(children, (item, index) => (
-        <SwiperSlide key={index}>{item}</SwiperSlide>
-      ))}
-      <SwiperButtons />
-    </Swiper>
   );
 };

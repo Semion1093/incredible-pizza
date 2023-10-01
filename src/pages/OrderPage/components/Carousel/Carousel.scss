@@ -1,35 +1,41 @@
-@import '../../../../variables';
+.swiper-container {
+  display: flex;
+  flex-direction: column;
 
-.swiper {
-  .swiper-buttons {
+  .nav-content-container {
     display: flex;
     flex-direction: row;
-    gap: 48px;
-    justify-content: center;
-    margin-top: 40px;
 
-    button {
-      padding: 0;
-      border: 0;
-      background-color: transparent;
+    .image-swiper-button-prev {
+      display: flex;
+      align-self: center;
+      cursor: pointer;
+    }
+
+    .image-swiper-button-next {
+      display: flex;
+      align-self: center;
+      cursor: pointer;
+    }
+
+    .swiper {
+      .swiper-wrapper {
+        display: flex;
+        align-self: center;
+
+        .swiper-slide {
+          display: flex;
+          text-align: center;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
     }
   }
 }
 
-.swiper-slider {
-  display: flex;
-  justify-content: center;
-}
-
 @media (max-width: 850px) {
-  .swiper {
-    .swiper-buttons {
-      gap: 24px;
-
-      img {
-        width: 24px;
-        height: 24px;
-      }
-    }
+  .swiper-container {
+    margin-top: 20px;
   }
 }
