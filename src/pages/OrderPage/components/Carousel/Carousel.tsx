@@ -20,7 +20,7 @@ export const Carousel = ({ swiperButtonName, children }: ReactSwiperProps) => {
     <div className="swiper-container">
       <div className="nav-content-container">
         {isDesktop && (
-          <div className={'image-swiper-button-prev ' + swiperButtonName}>
+          <div className="image-swiper-button-prev">
             <img src={leftArrow} alt="leftArrow" className="img-arrow" />
           </div>
         )}
@@ -30,8 +30,8 @@ export const Carousel = ({ swiperButtonName, children }: ReactSwiperProps) => {
           modules={[Navigation, Mousewheel, Keyboard]}
           loop={true}
           navigation={{
-            prevEl: '.image-swiper-button-prev ' + swiperButtonName,
-            nextEl: '.image-swiper-button-next ' + swiperButtonName,
+            prevEl: '.image-swiper-button-prev',
+            nextEl: '.image-swiper-button-next',
           }}
           mousewheel={true}
           keyboard={true}
@@ -41,7 +41,7 @@ export const Carousel = ({ swiperButtonName, children }: ReactSwiperProps) => {
           ))}
         </Swiper>
         {isDesktop && (
-          <div className={'image-swiper-button-next ' + swiperButtonName}>
+          <div className="image-swiper-button-next">
             <img src={rightArrow} alt="rightArrow" className="img-arrow" />
           </div>
         )}
