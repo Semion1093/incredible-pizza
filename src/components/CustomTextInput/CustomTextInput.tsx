@@ -11,7 +11,7 @@ export interface CustomTextInputProps extends InputHTMLAttributes<HTMLInputEleme
 
 export const CustomTextInput = (props: CustomTextInputProps) => {
   return (
-    <label>
+    <label className="input-name">
       {props.label}
       <input type="text" {...props} {...props.register(props.name)} />
     </label>
