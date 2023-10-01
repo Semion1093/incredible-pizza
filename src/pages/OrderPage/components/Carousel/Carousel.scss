@@ -1,0 +1,41 @@
+.swiper-container {
+  display: flex;
+  flex-direction: column;
+
+  .nav-content-container {
+    display: flex;
+    flex-direction: row;
+
+    .image-swiper-button-prev {
+      display: flex;
+      align-self: center;
+      cursor: pointer;
+    }
+
+    .image-swiper-button-next {
+      display: flex;
+      align-self: center;
+      cursor: pointer;
+    }
+
+    .swiper {
+      .swiper-wrapper {
+        display: flex;
+        align-self: center;
+
+        .swiper-slide {
+          display: flex;
+          text-align: center;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .swiper-container {
+    margin-top: 20px;
+  }
+}

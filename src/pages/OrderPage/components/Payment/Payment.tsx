@@ -3,7 +3,7 @@ import { Change } from '../Change/Change';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import { OrderFormData } from '../OrderDetails/OrderDetails';
-import { OrderPaymentType } from '../OrderPaymentType/OrderPaymentType';
+import { OrderPaymentType } from '../OrderPayment/OrderPayment';
 import React from 'react';
 
 export interface PaymentProps {

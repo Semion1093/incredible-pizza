@@ -1,13 +1,11 @@
 import './NavigationLinks.scss';
 import { Link } from 'react-router-dom';
-import { MobileArrowBackButton } from './components/MobileArrowBackButton/MobileArrowBackButton';
 import { NavigationLinksBasketImageSvg } from './assets/NavigationLinksBasketImageSvg';
 import { NavigationLinksPizzaIconSvg } from './assets/NavigationLinksPizzaIconSvg';
 import { NavigationLinksTextSvg } from './assets/NavigationLinksText';
 import React from 'react';
 
 interface NavigationLinksProps {
-  showMobileButtonBack: boolean;
   setIsActive: (isCartActive: boolean) => void;
 }
 
@@ -16,7 +14,6 @@ export const NavigationLinks = (props: NavigationLinksProps) => {
     <div className="navigation-links">
       <div className="navigation-links-content">
         <div className="left-part">
-          <MobileArrowBackButton show={props.showMobileButtonBack} />
           <Link to="" className="pizza-icon">
             <NavigationLinksPizzaIconSvg />
             <NavigationLinksTextSvg />

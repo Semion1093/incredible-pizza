@@ -46,7 +46,7 @@ export const HomePage = () => {
       <SignIn />
       <SignInOrSignUpModal />
       <Delimiter />
-      <NavigationLinks showMobileButtonBack={false} setIsActive={setIsCartActive} />
+      <NavigationLinks setIsActive={setIsCartActive} />
       <NavigationBar />
       {/* <SalesSection /> */}
       <ProductSection nameId="pizza" name="Пицца" />

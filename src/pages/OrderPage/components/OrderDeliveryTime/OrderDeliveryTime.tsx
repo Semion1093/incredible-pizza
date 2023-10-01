@@ -2,6 +2,7 @@ import './OrderDeliveryTime.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Controller, UseFormRegister } from 'react-hook-form';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
+import { DeliveryType } from '../../../../shared/DeliveryType';
 import { OrderFormData } from '../OrderDetails/OrderDetails';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import React, { useState } from 'react';
@@ -14,11 +15,11 @@ export interface OrderDeliveryTimeProps {
 }
 
 export const OrderDeliveryTime = (props: OrderDeliveryTimeProps) => {
-  const [selectedOption, setSelectedOption] = useState('sooner');
+  const [selectedOption, setSelectedOption] = useState<DeliveryType>(DeliveryType.Sooner);
 
   const options = [
-    { value: 'sooner', label: 'Как можно скорее' },
-    { value: 'by-time', label: 'По времени' },
+    { value: DeliveryType.Sooner, label: 'Как можно скорее' },
+    { value: DeliveryType.ByTime, label: 'По времени' },
   ];
 
   return (
@@ -34,7 +35,7 @@ export const OrderDeliveryTime = (props: OrderDeliveryTimeProps) => {
                 value={option.value}
                 checked={selectedOption === option.value}
                 onChange={(e) => {
-                  setSelectedOption(e.target.value);
+                  setSelectedOption(parseInt(e.target.value));
                 }}
               />
               <span className="dot"></span>
@@ -42,7 +43,7 @@ export const OrderDeliveryTime = (props: OrderDeliveryTimeProps) => {
             </label>
           ))}
         </div>
-        {selectedOption === 'by-time' && (
+        {selectedOption === DeliveryType.ByTime && (
           <div className="date-time-pickers">
             <Controller
               control={props.control}

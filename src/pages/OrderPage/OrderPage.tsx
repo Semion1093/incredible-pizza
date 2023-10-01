@@ -1,26 +1,25 @@
 import './OrderPage.scss';
-import { AdditionalOrderItem } from './components/AdditionalOrderItem/AdditionalOrderItem';
+import { AdditionalOrderProductCarousel } from './components/AdditionalOrderItemCarousel/AdditionalOrderProductCarousel';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
-import { MobileMenu } from '../../components/NavigationLinks/components/MobileMenu/MobileMenu';
 import { OrderDetails } from './components/OrderDetails/OrderDetails';
-import { OrderItem } from './components/OrderItem/OrderItem';
-import { Order, SuccessfullOrder } from './components/SuccessfullOrder/SuccessfullOrder';
-import React from 'react';
-
-const NewOrder: Order = {
-  id: 123321,
-  state: 'is being prepared',
-  paymentIsPassed: true,
-};
+import { OrderItems } from './components/OrderItems/OrderItems';
+import { Product } from '../../models/Product';
+import React, { useEffect, useState } from 'react';
 
 export const OrderPage = () => {
+  const [snacks, setSnacks] = useState<Product[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:4001/api/v1/product/product/listByType/snack')
+      .then((response) => response.json())
+      .then((result) => setSnacks(result.data));
+  }, []);
   return (
     <>
       <Delimiter />
-      <MobileMenu />
-      <OrderItem />
+      <OrderItems />
+      <AdditionalOrderProductCarousel products={snacks} header={'Добавить к заказу?'} swiperButtonName="snack" />
       <OrderDetails />
-      {/* <SuccessfullOrder {...NewOrder} /> */}
     </>
   );
 };
