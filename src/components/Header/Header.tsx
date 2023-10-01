@@ -6,8 +6,8 @@ import React from 'react';
 
 export const Header = () => {
   return (
-    <div id="header">
-      <header>
+    <header>
+      <div className="header-container">
         <div className="left-part">
           <div className="location">
             <HeaderLocationIconSvg />
@@ -25,7 +25,7 @@ export const Header = () => {
           <span>Время работы: с 11:00 до 23:00</span>
           <Authorize />
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 };
