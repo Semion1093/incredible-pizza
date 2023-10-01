@@ -17,12 +17,12 @@ export const Header = () => {
             </button>
           </div>
           <span className="desktop-only">Проверить адрес</span>
-          <span>
+          <span className="desktop-only">
             Среднее время доставки*: <b>00:24:19</b>
           </span>
         </div>
-        <div className="right-part desktop-only">
-          <span>Время работы: с 11:00 до 23:00</span>
+        <div className="right-part">
+          <span className="desktop-only">Время работы: с 11:00 до 23:00</span>
           <Authorize />
         </div>
       </div>
