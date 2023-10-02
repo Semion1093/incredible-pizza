@@ -8,12 +8,14 @@ interface CartPage {
   items: ProductInCart[];
   minPrice: number;
   maxPrice: number;
+  initialCount: number;
 }
 
 const initialState: CartPage = {
   items: [],
   minPrice: 0,
   maxPrice: 100000,
+  initialCount: 1,
 };
 
 const saveAllProductsInStorage = (item: ProductInCart[]) => {
@@ -30,23 +32,25 @@ const cartPageSlice = createSlice({
     removeFromCart: (state, action: PayloadAction<Product>) => {
       state.items = state.items.filter((item) => item._id !== action.payload._id);
     },
-    clearCart: (state) => {
-      state.items = [];
-    },
-    changeCount: (state, action: PayloadAction<{ id: string; isMore: boolean }>) => {
-      const item = state.items.find((item) => item._id === action.payload.id);
-    },
     changeCountProductInCart: (state, action: PayloadAction<{ id: string; addOrDelete: boolean }>) => {
-      const prod = state.items.find((item) => item._id === action.payload.id);
+      const item = state.items.find((item) => item._id === action.payload.id);
 
-      if (prod) {
-        prod.count = action.payload.addOrDelete ? prod.count + 1 : prod.count > 1 ? prod.count - 1 : prod.count;
+      if (item) {
+        item.count = item.count ?? initialState.initialCount;
+        item.count = action.payload.addOrDelete ? item.count + 1 : item.count > 1 ? item.count - 1 : item.count;
+      }
+    },
+    changeProductPrice: (state, action: PayloadAction<{ id: string }>) => {
+      const item = state.items.find((item) => item._id === action.payload.id);
+
+      if (item) {
+        item.price += item.price;
       }
     },
   },
 });
 
-export const { addToCart, changeCountProductInCart } = cartPageSlice.actions;
+export const { addToCart, changeCountProductInCart, changeProductPrice } = cartPageSlice.actions;
 
 export const selectCartItems = (state: RootState) => state.cartPage.items;
 export const selectCartItemsSum = (state: RootState) =>

@@ -2,7 +2,7 @@
 import './QuantitySelector.scss';
 import { Minus } from './components/Minus';
 import { Plus } from './components/Plus';
-import { changeCountProductInCart } from '../../pages/HomePage/components/Cart/cartSlice';
+import { changeCountProductInCart, changeProductPrice } from '../../pages/HomePage/components/Cart/cartSlice';
 import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 
@@ -26,6 +26,7 @@ export const QuantitySelector = ({ id }: { id: string }) => {
         onClick={() => {
           decrease();
           dispatch(changeCountProductInCart({ id: id, addOrDelete: false }));
+          dispatch(changeProductPrice({ id: id }));
         }}
       >
         <Minus />
@@ -36,6 +37,7 @@ export const QuantitySelector = ({ id }: { id: string }) => {
         onClick={() => {
           increase();
           dispatch(changeCountProductInCart({ id: id, addOrDelete: true }));
+          dispatch(changeProductPrice({ id: id }));
         }}
       >
         <Plus />
