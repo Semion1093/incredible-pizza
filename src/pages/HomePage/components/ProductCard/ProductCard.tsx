@@ -25,7 +25,7 @@ export const ProductCard = (props: ProductCardProps) => {
           <button className="add-to-cart" onClick={() => dispatch(addToCart(props.product))}>
             Выбрать
           </button>
-          <div className="price">{props.product.price} ₽</div>
+          <div className="price">{props.product.price.toLocaleString('fr-FR')} ₽</div>
         </div>
       </div>
     </div>

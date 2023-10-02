@@ -33,7 +33,7 @@ export const NavigationLinks = (props: NavigationLinksProps) => {
           <a href="#sauce">Соусы</a>
         </nav>
         <button className="cart-button" onClick={() => props.setIsActive(true)}>
-          <NavigationLinksBasketImageSvg /> {totalSum} ₽
+          <NavigationLinksBasketImageSvg /> {totalSum.toLocaleString('fr-FR')} ₽
         </button>
       </div>
     </div>

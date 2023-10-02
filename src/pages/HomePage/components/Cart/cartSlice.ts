@@ -19,7 +19,7 @@ const initialState: CartPage = {
 };
 
 const saveAllProductsInStorage = (item: ProductInCart[]) => {
-  localStorage.setItem('products', JSON.stringify(item));
+  localStorage.setItem('persist:products', JSON.stringify(item));
 };
 
 const cartPageSlice = createSlice({
@@ -38,6 +38,7 @@ const cartPageSlice = createSlice({
       if (item) {
         item.count = item.count ?? initialState.initialCount;
         item.count = action.payload.addOrDelete ? item.count + 1 : item.count > 1 ? item.count - 1 : item.count;
+        saveAllProductsInStorage(state.items);
       }
     },
     changeProductPrice: (state, action: PayloadAction<{ id: string }>) => {

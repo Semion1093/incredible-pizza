@@ -34,14 +34,14 @@ export const Cart = (props: CartProps) => {
                 </button>
               </div>
               {items.map((item, index) => (
-                <CartItem id={item._id} key={index} title={item.title} description={item.description} img={item.img} cost={item.price.toString()} />
+                <CartItem id={item._id} key={index} title={item.title} description={item.description} img={item.img} price={item.price} />
               ))}
             </div>
             <div className="cart-result">
               <Delimiter />
               <div className="cart-result-content">
                 <span>
-                  Итого: {totalSum}{' '}₽
+                  Итого: {totalSum.toLocaleString('fr-FR')}{' '}₽
                 </span>
                 <button onClick={() => dispatch(openAuthModal())}>Оформить заказ</button>
               </div>

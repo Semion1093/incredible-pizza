@@ -5,7 +5,7 @@ interface ProductCardProps {
   id: string;
   title: string;
   description: string;
-  cost: string;
+  price: number;
   img: string;
 }
 
@@ -20,7 +20,7 @@ export const CartItem = (props: ProductCardProps) => {
         </div>
         <div className="result">
           <QuantitySelector id={props.id} />
-          <span className="price">{props.cost} ₽</span>
+          <span className="price">{props.price.toLocaleString('fr-FR')} ₽</span>
         </div>
       </div>
     </div>

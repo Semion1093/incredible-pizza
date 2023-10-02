@@ -20,7 +20,7 @@ export const OrderItem = (props: OrderItemProps) => {
         </div>
         <div className="result">
           <QuantitySelector id={props.id} />
-          <span className="price">{props.price} ₽</span>
+          <span className="price">{props.price.toLocaleString('fr-FR')} ₽</span>
         </div>
       </div>
     </div>

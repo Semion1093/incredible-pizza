@@ -1,7 +1,13 @@
 @import '../../../../variables';
 
 .cart {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
   overflow-y: scroll;
+  padding-bottom: 72px;
 
   .cart-header {
     display: flex;
