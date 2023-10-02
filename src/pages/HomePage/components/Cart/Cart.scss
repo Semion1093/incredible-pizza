@@ -1,6 +1,8 @@
 @import '../../../../variables';
 
 .cart {
+  overflow-y: scroll;
+
   .cart-header {
     display: flex;
     justify-content: space-between;
@@ -65,7 +67,7 @@
   .modal-panel {
     .cart-result-content {
       width: 390px;
-      
+
       span {
         font-size: 18px;
         line-height: 20px;
