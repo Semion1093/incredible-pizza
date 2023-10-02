@@ -28,7 +28,7 @@
         }
 
         span {
-          padding-top: 8px;
+          padding: 10px;
           font-family: $first-font;
           color: $font-color-black;
         }
@@ -55,7 +55,7 @@
     padding-top: 40px;
 
     .order-item-wrapper {
-      max-height: 152px;
+      min-height: 152px;
       justify-content: space-between;
       grid-template-columns: 120px 1fr 220px;
 

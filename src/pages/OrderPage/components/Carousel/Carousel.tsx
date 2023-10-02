@@ -9,12 +9,10 @@ import leftArrow from './assets/swiper-button-left.png';
 import rightArrow from './assets/swiper-button-right.png';
 
 interface ReactSwiperProps {
-  swiperButtonName: string;
-  desktopNavigationOnly?: boolean;
   children: ReactNode | ReactNode[];
 }
 
-export const Carousel = ({ swiperButtonName, children }: ReactSwiperProps) => {
+export const Carousel = ({ children }: ReactSwiperProps) => {
   const isDesktop = useMediaQuery({ minWidth: 850 });
   return (
     <div className="swiper-container">
