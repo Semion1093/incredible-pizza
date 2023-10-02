@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import './ProductSection.scss';
-import { Product } from '../../../../models/Product';
 import { ProductCard } from './../ProductCard/ProductCard';
+import { ProductInCart } from '../Cart/cartSlice';
 import { useEffect, useState } from 'react';
 
 interface ProductSectionProps {
@@ -10,13 +10,13 @@ interface ProductSectionProps {
 }
 
 export const ProductSection = (props: ProductSectionProps) => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<ProductInCart[]>([]);
   
   useEffect(() => {
     fetch(`http://localhost:4001/api/v1/product/list/${props.type}`)
     .then((response) => response.json())
     .then((json) => {
-      const data: Product[] = json.data;
+      const data: ProductInCart[] = json.data;
       setProducts(data);
     });
   }, [props.type]);

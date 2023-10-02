@@ -4,10 +4,11 @@ import 'swiper/scss/navigation';
 import { AdditionalOrderProduct } from '../AdditionalOrderProduct/AdditionalOrderProduct';
 import { Carousel } from '../Carousel/Carousel';
 import { Product } from '../../../../models/Product';
+import { ProductInCart } from '../../../HomePage/components/Cart/cartSlice';
 import React, { useEffect, useState } from 'react';
 
 export const AdditionalOrderProductCarousel = () => {
-  const [snacks, setSnacks] = useState<Product[]>([]);
+  const [snacks, setSnacks] = useState<ProductInCart[]>([]);
 
   useEffect(() => {
     fetch('http://localhost:4001/api/v1/product/list/snack')

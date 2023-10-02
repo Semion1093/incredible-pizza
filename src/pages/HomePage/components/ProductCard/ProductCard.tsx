@@ -1,12 +1,12 @@
 import './ProductCard.scss';
 import { Product } from '../../../../models/Product';
+import { ProductInCart, addToCart } from '../Cart/cartSlice';
 import { ProductLabel } from '../ProductLabel/ProductLabel';
-import { addToCart } from '../Cart/cartSlice';
 import { useDispatch } from 'react-redux';
 import React from 'react';
 
 interface ProductCardProps {
-  product: Product;
+  product: ProductInCart;
 }
 
 export const ProductCard = (props: ProductCardProps) => {

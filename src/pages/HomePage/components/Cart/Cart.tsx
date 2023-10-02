@@ -7,7 +7,7 @@ import { CartItem } from '../CartItem/CartItem';
 import { CrossSvg } from '../../../../components/Cross/CrossSvg';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
 import { openAuthModal } from '../AuthModal/authModalSlice';
-import { selectCartItems } from './cartSlice';
+import { selectCartItems, selectCartItemsSum } from './cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 
@@ -18,6 +18,9 @@ interface CartProps {
 export const Cart = (props: CartProps) => {
   const items = useSelector(selectCartItems);
   const dispatch = useDispatch();
+  
+  const totalSum = useSelector(selectCartItemsSum);
+    
   return (
     <>
       {props.isCartActive ? (
@@ -31,14 +34,14 @@ export const Cart = (props: CartProps) => {
                 </button>
               </div>
               {items.map((item, index) => (
-                <CartItem key={index} title={item.title} description={item.description} img={item.img} cost={item.price.toString()} />
+                <CartItem id={item._id} key={index} title={item.title} description={item.description} img={item.img} cost={item.price.toString()} />
               ))}
             </div>
             <div className="cart-result">
               <Delimiter />
               <div className="cart-result-content">
                 <span>
-                  Итого: {items.reduce((sum, item) => {return sum + item.price;}, 0)}{' '}₽
+                  Итого: {totalSum}{' '}₽
                 </span>
                 <button onClick={() => dispatch(openAuthModal())}>Оформить заказ</button>
               </div>

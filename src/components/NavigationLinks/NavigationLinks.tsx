@@ -1,7 +1,9 @@
 import './NavigationLinks.scss';
 import { NavigationLinksBasketImageSvg } from './assets/NavigationLinksBasketImageSvg';
 import { PhoneIconSvg } from '../assets/PhoneIconSvg';
+import { selectCartItemsSum } from '../../pages/HomePage/components/Cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import React from 'react';
 
 interface NavigationLinksProps {
@@ -10,6 +12,7 @@ interface NavigationLinksProps {
 
 export const NavigationLinks = (props: NavigationLinksProps) => {
   const navigate = useNavigate();
+  const totalSum = useSelector(selectCartItemsSum);
   return (
     <div className="navigation-links">
       <div className="navigation-links-content">
@@ -30,7 +33,7 @@ export const NavigationLinks = (props: NavigationLinksProps) => {
           <a href="#sauce">Соусы</a>
         </nav>
         <button className="cart-button" onClick={() => props.setIsActive(true)}>
-          <NavigationLinksBasketImageSvg /> 0 ₽
+          <NavigationLinksBasketImageSvg /> {totalSum} ₽
         </button>
       </div>
     </div>
