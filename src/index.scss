@@ -267,9 +267,17 @@ button {
   .desktop-only {
     display: none !important;
   }
-
   .modal {
     .modal-wrapper {
+      .content{
+        &.authentication {
+          .input-content {
+            span {
+              font-size: 9px;
+            }
+          }
+        }
+      }
       .no-background-border {
         &.icon {
           top: 10px;
