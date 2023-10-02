@@ -202,7 +202,7 @@ button {
   justify-content: center;
   z-index: 3;
   transition: 0.5s;
-  &#cart{
+  &#cart {
     z-index: 2;
   }
 
@@ -240,7 +240,7 @@ button {
       &.icon {
         position: absolute;
         top: 0px;
-        left: 700px;
+        right: -75px;
       }
     }
   }
@@ -248,12 +248,11 @@ button {
 
 .no-background-border {
   &.icon {
-
     cursor: pointer;
     background: 0;
     border: 0;
     fill: $border-color-grey;
-    
+
     &:hover {
       background: 0;
       border: 0;
@@ -267,6 +266,26 @@ button {
 @media (max-width: 850px) {
   .desktop-only {
     display: none !important;
+  }
+
+  .modal {
+    .modal-wrapper {
+      .no-background-border {
+        &.icon {
+          top: 10px;
+          right: 10px;
+          background: 0;
+          border: 0;
+          padding: 0;
+          margin: 0;
+          width: 20px;
+          height: 20px;
+          svg * {
+            fill: $border-color-dark-grey;
+          }
+        }
+      }
+    }
   }
 
   .radio-group {

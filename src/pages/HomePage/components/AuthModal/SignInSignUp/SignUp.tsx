@@ -90,6 +90,9 @@ export const SignUp = () => {
           <div className="modal-wrapper">
             <div className="content authentication">
               <h1>Регистрация аккаунта</h1>
+              <button className="no-background-border icon mobile-only" onClick={() => dispatch(closeSignUp())}>
+                <Exit />
+              </button>
               <span className="info">Сможете быстро оформлять заказы, использовать бонусы</span>
               <form className="required-name" onSubmit={handleSubmit(onSubmit)}>
                 <div className="input-content">

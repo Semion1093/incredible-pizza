@@ -52,6 +52,9 @@ export const SignIn = () => {
           <div className="modal-wrapper">
             <div className="content authentication">
               <h1>Вход в аккаунт</h1>
+              <button className="no-background-border icon mobile-only" onClick={() => dispatch(closeSignIn())}>
+                <Exit />
+              </button>
               <form className="required-name" onSubmit={handleSubmit(onSubmit)}>
                 <div className="input-content">
                   <label>
