@@ -110,12 +110,12 @@ export const SignUp = () => {
                   {errors.lastName && <span>{errors.lastName.message}</span>}
                 </div>
                 <div className="input-content">
-                  <label>
+                  <label htmlFor="telNo">
                     Номер телефона:
                     <Controller
                       name="mobileNumber"
                       control={control}
-                      render={({ field }) => <InputMask mask="+7 (999) 999-99-99" maskChar="_" {...field} />}
+                      render={({ field }) => <InputMask mask="+7 (999) 999-99-99" maskChar="_" {...field} id="telNo" type="tel" />}
                     />
                     {errors.mobileNumber && <span>{errors.mobileNumber.message}</span>}
                   </label>
