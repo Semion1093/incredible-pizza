@@ -18,6 +18,36 @@ const initialState: CartPage = {
   initialCount: 1,
 };
 
+function increaseQuantity(cartItems: ProductInCart[], itemId: string) {
+  const updatedCart = cartItems.map((item) => {
+    if (item._id === itemId) {
+      // Увеличиваем количество товара
+      item.count += 1;
+    }
+    return item;
+  });
+  return updatedCart;
+}
+
+function decreaseQuantity(cartItems: ProductInCart[], itemId: string) {
+  const updatedCart: ProductInCart[] = cartItems.map((item) => {
+    if (item._id === itemId) {
+      // Уменьшаем количество товара
+      item.count -= 1;
+      // Если количество стало меньше или равно нулю, устанавливаем флаг для удаления
+      if (item.count <= 0) {
+        item.isDeleted = true;
+      }
+    }
+    return item;
+  });
+
+  // Фильтруем, чтобы удалить товары, для которых флаг shouldRemove установлен в true
+  const filteredCart: ProductInCart[] = updatedCart.filter((item) => !item.isDeleted);
+
+  return filteredCart;
+}
+
 const saveAllProductsInStorage = (item: ProductInCart[]) => {
   localStorage.setItem('persist:products', JSON.stringify(item));
 };
@@ -34,11 +64,17 @@ const cartPageSlice = createSlice({
     },
     changeCountProductInCart: (state, action: PayloadAction<{ id: string; addOrDelete: boolean }>) => {
       const item = state.items.find((item) => item._id === action.payload.id);
+      let updatedCart;
 
       if (item) {
         item.count = item.count ?? initialState.initialCount;
+        updatedCart = action.payload.addOrDelete
+          ? increaseQuantity(state.items, action.payload.id)
+          : decreaseQuantity(state.items, action.payload.id);
         item.count = action.payload.addOrDelete ? item.count + 1 : item.count > 1 ? item.count - 1 : item.count;
-        saveAllProductsInStorage(state.items);
+        if (updatedCart !== null) {
+          saveAllProductsInStorage(updatedCart);
+        }
       }
     },
     changeProductPrice: (state, action: PayloadAction<{ id: string }>) => {

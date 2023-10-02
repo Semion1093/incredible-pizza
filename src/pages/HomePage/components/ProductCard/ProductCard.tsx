@@ -21,12 +21,12 @@ export const ProductCard = (props: ProductCardProps) => {
       <div className="product-card-content">
         <p>{props.product.title}</p>
         <span>{props.product.description}</span>
-        <div className="product-card-action">
-          <button className="add-to-cart" onClick={() => dispatch(addToCart(props.product))}>
-            Выбрать
-          </button>
-          <div className="price">{props.product.price.toLocaleString('fr-FR')} ₽</div>
-        </div>
+      </div>
+      <div className="product-card-action">
+        <div className="price">{props.product.price.toLocaleString('fr-FR')} ₽</div>
+        <button className="add-to-cart" onClick={() => dispatch(addToCart(props.product))}>
+          Выбрать
+        </button>
       </div>
     </div>
   );
