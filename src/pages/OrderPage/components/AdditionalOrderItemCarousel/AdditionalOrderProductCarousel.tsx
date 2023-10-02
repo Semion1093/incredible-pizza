@@ -18,9 +18,7 @@ export const AdditionalOrderProductCarousel = (props: AdditionalOrderProductCaro
       <h3>{props.header}</h3>
       <div className="section">
         <Carousel swiperButtonName={props.swiperButtonName}>
-          {props.products.map((item, index) => (
-            <AdditionalOrderProduct key={index} product={item} />
-          ))}
+          {props.products?.map((item, index) => <AdditionalOrderProduct key={index} product={item} />)}
         </Carousel>
       </div>
     </div>

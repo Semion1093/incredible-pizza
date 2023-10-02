@@ -6,6 +6,7 @@
   background: $background-color-white;
   border-bottom: 1px $border-color-grey solid;
   z-index: 1;
+  padding: 10px;
 }
 
 .navigation-links-content {
@@ -15,19 +16,22 @@
     }
   }
 
+  .left-part {
+    display: flex;
+    gap: 12px;
+
+    .phone {
+      display: flex;
+      gap: 8px;
+      
+    }
+  }
+
   max-width: 1290px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  .pizza-icon {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-  }
 
   nav {
     display: flex;
@@ -68,23 +72,5 @@
 
   .navigation-links {
     padding: 10px 20px 10px 20px;
-
-    .navigation-links-content {
-      .pizza-icon {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 0;
-      }
-
-      .left-part {
-        display: flex;
-        gap: 12px;
-      }
-    }
-  }
-
-  .cart-button {
-    padding: 10px;
   }
 }

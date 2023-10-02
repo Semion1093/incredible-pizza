@@ -1,8 +1,7 @@
 import './NavigationLinks.scss';
-import { Link } from 'react-router-dom';
 import { NavigationLinksBasketImageSvg } from './assets/NavigationLinksBasketImageSvg';
-import { NavigationLinksPizzaIconSvg } from './assets/NavigationLinksPizzaIconSvg';
-import { NavigationLinksTextSvg } from './assets/NavigationLinksText';
+import { PhoneIconSvg } from '../assets/PhoneIconSvg';
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 
 interface NavigationLinksProps {
@@ -10,14 +9,15 @@ interface NavigationLinksProps {
 }
 
 export const NavigationLinks = (props: NavigationLinksProps) => {
+  const navigate = useNavigate();
   return (
     <div className="navigation-links">
       <div className="navigation-links-content">
         <div className="left-part">
-          <Link to="" className="pizza-icon">
-            <NavigationLinksPizzaIconSvg />
-            <NavigationLinksTextSvg />
-          </Link>
+          <div className="phone">
+            <PhoneIconSvg />
+            <span>+7 (926) 223-10-11</span>
+          </div>
         </div>
         <nav className="desktop-only">
           <a href="#promo">Акции</a>
