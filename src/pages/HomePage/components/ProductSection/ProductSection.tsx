@@ -13,7 +13,7 @@ export const ProductSection = (props: ProductSectionProps) => {
   const [products, setProducts] = useState<Product[]>([]);
   
   useEffect(() => {
-    fetch(`http://localhost:3001/api/v1/product/list/${props.type}`)
+    fetch(`http://localhost:4001/api/v1/product/list/${props.type}`)
     .then((response) => response.json())
     .then((json) => {
       const data: Product[] = json.data;

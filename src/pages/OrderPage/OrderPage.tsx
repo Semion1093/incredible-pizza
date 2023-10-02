@@ -10,7 +10,7 @@ export const OrderPage = () => {
   const [snacks, setSnacks] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:4001/api/v1/product/product/listByType/snack')
+    fetch('http://localhost:4001/api/v1/product/list/snack')
       .then((response) => response.json())
       .then((result) => setSnacks(result.data));
   }, []);
