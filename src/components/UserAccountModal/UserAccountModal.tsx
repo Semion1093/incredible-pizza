@@ -3,13 +3,20 @@
 import './UserAccountModal.scss';
 import { Link } from 'react-router-dom';
 import { Path } from '../Path';
-import { closeUserAccountModal, openUserAccountModal, userAccountModalInfo } from './userAccountModalSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { closeUserAccountModal, userAccountModalInfo } from './userAccountModalSlice';
+import { batch, useDispatch, useSelector } from 'react-redux';
 import React from 'react';
+import { logOut } from '../../store/currentUserSlice';
 
 export const UserAccountModal = () => {
   const dispatch = useDispatch();
   const userAccountModalActive = useSelector(userAccountModalInfo);
+  const onSubmitopenSignOutUser = () => {
+    batch(() => {
+      dispatch(closeUserAccountModal());
+      dispatch(logOut());
+    });
+  };
   return (
     <>
       {userAccountModalActive && (
@@ -27,7 +34,9 @@ export const UserAccountModal = () => {
             </Link>
           </div>
           <div className="line"></div>
-          <span className="content log-Out">Выход из аккаунта</span>
+          <button onClick={() => onSubmitopenSignOutUser()}>
+            <span className="content log-Out">Выход из аккаунта</span>
+          </button>
         </div>
       )}
     </>
