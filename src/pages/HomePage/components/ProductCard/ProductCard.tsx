@@ -1,11 +1,9 @@
 import './ProductCard.scss';
 import { Product } from '../../../../models/Product';
-import { ProductInCart, addToCart } from '../Cart/cartSlice';
 import { ProductLabel } from '../ProductLabel/ProductLabel';
-import { addToCart } from './productCartSlice';
+import { ProductInCart, addToCart } from './productCartSlice';
 import { batch, useDispatch } from 'react-redux';
 import { openPizzaSettings } from '../PizzaSettings/pizzaSettingsSlice';
-import { useDispatch } from 'react-redux';
 import React from 'react';
 
 interface ProductCardProps {

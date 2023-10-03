@@ -6,7 +6,6 @@ import './Cart.scss';
 import { CartItem } from '../CartItem/CartItem';
 import { CrossSvg } from '../../../../components/Cross/CrossSvg';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
-import { selectCartItems } from '../ProductCard/productCartSlice';
 import { openAuthModal } from '../AuthModal/authModalSlice';
 import { selectCartItems, selectCartItemsSum } from './cartSlice';
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,7 +1,5 @@
 import './AdditionalOrderProduct.scss';
-import { Product } from '../../../../models/Product';
-import { addToCart } from '../../../HomePage/components/ProductCard/productCartSlice';
-import { ProductInCart, addToCart } from '../../../HomePage/components/Cart/cartSlice';
+import { ProductInCart, addToCart } from '../../../HomePage/components/ProductCard/productCartSlice';
 import { useDispatch } from 'react-redux';
 import React from 'react';
 
