@@ -16,8 +16,9 @@
 
 @media (max-width: 850px) {
   .product-label {
-    top: 20px;
-    width: 60px;
+    top: 12px;
+    min-width: 54px;
+    max-width: 80px;
     height: 26px;
     font-size: 11px;
   }
