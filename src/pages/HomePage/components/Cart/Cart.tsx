@@ -9,6 +9,7 @@ import { Delimiter } from '../../../../components/Delimiter/Delimiter';
 import { openAuthModal } from '../AuthModal/authModalSlice';
 import { selectCartItems, selectCartItemsSum } from './cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { useState } from 'react';
 
 interface CartProps {
@@ -18,9 +19,16 @@ interface CartProps {
 export const Cart = (props: CartProps) => {
   const items = useSelector(selectCartItems);
   const dispatch = useDispatch();
-  
+  const navigate = useNavigate();
   const totalSum = useSelector(selectCartItemsSum);
-    
+  const handleClick = () => {
+    if (localStorage.getItem('token')) {
+      navigate('/order');
+    } else {
+      dispatch(openAuthModal());
+    }
+  };
+
   return (
     <>
       {props.isCartActive ? (
@@ -43,7 +51,7 @@ export const Cart = (props: CartProps) => {
                 <span>
                   Итого: {totalSum}{' '}₽
                 </span>
-                <button onClick={() => dispatch(openAuthModal())}>Оформить заказ</button>
+                <button onClick={handleClick}>Оформить заказ</button>
               </div>
             </div>
           </article>
