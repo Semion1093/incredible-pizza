@@ -41,7 +41,6 @@ export const SignIn = () => {
         return response.json();
       })
       .then((dataFromBack) => {
-        debugger;
         localStorage.setItem('token', dataFromBack.data.accessToken);
         const jwt = localStorage.getItem('token') ? localStorage.getItem('token') : '';
         if (jwt) {

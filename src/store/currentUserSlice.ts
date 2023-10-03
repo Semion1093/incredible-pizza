@@ -24,6 +24,7 @@ export const currentUserSlice = createSlice({
     },
     logOut: (state) => {
       state.userData = undefined;
+      localStorage.setItem('token', '');
     },
   },
 });
