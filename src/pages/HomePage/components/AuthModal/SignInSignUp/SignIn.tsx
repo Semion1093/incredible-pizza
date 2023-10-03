@@ -1,11 +1,14 @@
 import './Sign.scss';
 import * as yup from 'yup';
 import { ReactComponent as Exit } from '../../../../../assets/Exit.svg';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { closeSignIn, signInModalInfo } from './signInSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { PathFetch } from '../../../../../components/PathFetch';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { User } from '../../../../../models/User';
+import { closeSignIn, signInModalInfo } from './signInSlice';
+import { loadUser, selectCurrentUser } from '../../../../../../src/store/currentUserSlice';
+import { batch, useDispatch, useSelector } from 'react-redux';
+import { yupResolver } from '@hookform/resolvers/yup';
+import jwt_decode from 'jwt-decode';
 
 const userSignInSchema = yup
   .object({
@@ -14,6 +17,15 @@ const userSignInSchema = yup
   })
   .required();
 export type UserSignInFormData = yup.InferType<typeof userSignInSchema>;
+
+interface DecodedTokenUser {
+  firstName: string;
+  lastName: string;
+  email: string;
+}
+interface DecodedTokenData {
+  data: DecodedTokenUser;
+}
 
 export const SignIn = () => {
   const onSubmit: SubmitHandler<UserSignInFormData> = (data) => {
@@ -29,8 +41,22 @@ export const SignIn = () => {
         return response.json();
       })
       .then((dataFromBack) => {
+        debugger;
         localStorage.setItem('token', dataFromBack.data.accessToken);
-        dispatch(closeSignIn());
+        const jwt = localStorage.getItem('token') ? localStorage.getItem('token') : '';
+        if (jwt) {
+          const decoded: DecodedTokenData = jwt_decode(jwt);
+          const userDataFromBack: User = {
+            firstName: decoded.data.firstName,
+            lastName: decoded.data.lastName,
+            email: decoded.data.email,
+            accessToken: jwt,
+          };
+          batch(() => {
+            dispatch(loadUser(userDataFromBack));
+            dispatch(closeSignIn());
+          });
+        }
       });
   };
 
