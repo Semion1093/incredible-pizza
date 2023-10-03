@@ -203,7 +203,7 @@ button {
   justify-content: center;
   z-index: 3;
   transition: 0.5s;
-  &#cart{
+  &#cart {
     z-index: 2;
   }
 
@@ -235,27 +235,31 @@ button {
     flex-direction: column;
     align-items: center;
     position: relative;
+    width: 700px;
 
     .no-background-border {
       &.icon {
         position: absolute;
         top: 0px;
-        left: 700px;
+        right: -75px;
       }
     }
   }
 }
 
 .no-background-border {
-  cursor: pointer;
-  background: 0;
-  border: 0;
-
-  &:hover {
+  &.icon {
+    cursor: pointer;
     background: 0;
     border: 0;
-    svg * {
-      fill: $primary-color;
+    fill: $border-color-grey;
+
+    &:hover {
+      background: 0;
+      border: 0;
+      svg * {
+        fill: $primary-color;
+      }
     }
   }
 }
@@ -263,6 +267,34 @@ button {
 @media (max-width: 850px) {
   .desktop-only {
     display: none !important;
+  }
+  .modal {
+    .modal-wrapper {
+      .content{
+        &.authentication {
+          .input-content {
+            span {
+              font-size: 9px;
+            }
+          }
+        }
+      }
+      .no-background-border {
+        &.icon {
+          top: 10px;
+          right: 10px;
+          background: 0;
+          border: 0;
+          padding: 0;
+          margin: 0;
+          width: 20px;
+          height: 20px;
+          svg * {
+            fill: $border-color-dark-grey;
+          }
+        }
+      }
+    }
   }
 
   .radio-group {
@@ -279,6 +311,10 @@ button {
   .modal {
     .modal-panel {
       width: 390px;
+    }
+    .modal-wrapper {
+      width: 360px;
+      padding: 10px 20px;
     }
   }
 }

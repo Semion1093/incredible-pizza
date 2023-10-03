@@ -16,6 +16,7 @@
     "date-fns": "^2.30.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
+    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
     "react-datepicker": "^4.16.0",
     "react-dom": "^18.2.0",
@@ -34,7 +35,7 @@
   },
   "scripts": {
     "start": "react-scripts start && eslint src/**/*.ts{,x}",
-    "build": "react-scripts build",
+    "build": "nest build && yarn run copy && yarn run node_modules:prod",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:fix": "eslint src/**/*.ts{,x} --fix"

@@ -2,13 +2,18 @@ import './Sign.scss';
 import * as yup from 'yup';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { ReactComponent as Exit } from '../../../../../assets/Exit.svg';
+import { PathFetch } from '../../../../../components/PathFetch';
 import { closeSignUp, signUpModalInfo } from './signUpSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import InputMask from 'react-input-mask';
 
-const userSchema = yup
+function removeMaskChars(value: string): string {
+  return value.replace(/[-()_\s]/g, '');
+}
+
+const userSignUpSchema = yup
   .object({
     email: yup
       .string()
@@ -28,12 +33,18 @@ const userSchema = yup
       .matches(/^([А-Я][а-я]+)$/, 'введите вашу настоящую фамилию с заглавной буквы, кириллицей')
       .min(2, 'фамилия должна быть длиннее 1 символa')
       .max(30, 'фамилия не должна быть длиннее 30 символов'),
-    mobileNumber: yup.string().required('введите номер телефона'),
+    mobileNumber: yup
+      .string()
+      .required('введите номер телефона')
+      .transform((t) => removeMaskChars(t))
+      .min(12, 'введите номер телефона полностью'),
     password: yup
       .string()
       .required('введите пароль')
       .matches(/^[^\s]+$/, 'в пароле не должно быть пробела')
-      .min(5, 'пароль должен быть длиннее 4 символов')
+      .matches(/.*[#@$%^&*()_+!].*/, 'в пароле должен быть хотя бы один спец. символ')
+      .matches(/.*[A-ZА-Я].*/, 'в пароле должен быть хотя бы одинa заглавная буква')
+      .min(8, 'пароль должен быть длиннее 7 символов')
       .max(50, 'пароль не должен быть длиннее 50 символов'),
     repeatPassword: yup
       .string()
@@ -41,19 +52,22 @@ const userSchema = yup
       .oneOf([yup.ref('password'), ''], 'пароли должны совпадать'),
   })
   .required();
-type UserFormData = yup.InferType<typeof userSchema>;
+type UserSignUpFormData = yup.InferType<typeof userSignUpSchema>;
 
 export const SignUp = () => {
   const [formResult, setFormResult] = useState('');
-  const onSubmit: SubmitHandler<UserFormData> = (data) => {
-    data.mobileNumber = removeMaskChars(data.mobileNumber);
-    fetch('http://localhost:4001/api/v1/public/user/sign-up', {
+  const onSubmit: SubmitHandler<UserSignUpFormData> = (data) => {
+    console.log(data);
+    fetch(PathFetch.SignUp, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },
     })
       .then((response) => response.json())
-      .then((dataFromBack) => setFormResult(dataFromBack));
+      .then((dataFromBack) => {
+        setFormResult(dataFromBack);
+        dispatch(closeSignUp());
+      });
   };
 
   const {
@@ -61,16 +75,13 @@ export const SignUp = () => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<UserFormData>({
+  } = useForm<UserSignUpFormData>({
     mode: 'onBlur',
     defaultValues: {},
-    resolver: yupResolver(userSchema),
+    resolver: yupResolver(userSignUpSchema),
   });
   const dispatch = useDispatch();
   const signInModalActive = useSelector(signUpModalInfo);
-  function removeMaskChars(value: string): string {
-    return value.replace(/[-()_\s]/g, '');
-  }
 
   return (
     <>
@@ -79,6 +90,9 @@ export const SignUp = () => {
           <div className="modal-wrapper">
             <div className="content authentication">
               <h1>Регистрация аккаунта</h1>
+              <button className="no-background-border icon mobile-only" onClick={() => dispatch(closeSignUp())}>
+                <Exit />
+              </button>
               <span className="info">Сможете быстро оформлять заказы, использовать бонусы</span>
               <form className="required-name" onSubmit={handleSubmit(onSubmit)}>
                 <div className="input-content">
@@ -96,12 +110,12 @@ export const SignUp = () => {
                   {errors.lastName && <span>{errors.lastName.message}</span>}
                 </div>
                 <div className="input-content">
-                  <label>
+                  <label htmlFor="telNo">
                     Номер телефона:
                     <Controller
                       name="mobileNumber"
                       control={control}
-                      render={({ field }) => <InputMask mask="+7 (999) 999-99-99" maskChar="_" {...field} />}
+                      render={({ field }) => <InputMask mask="+7 (999) 999-99-99" maskChar="_" {...field} id="telNo" type="tel" />}
                     />
                     {errors.mobileNumber && <span>{errors.mobileNumber.message}</span>}
                   </label>
@@ -133,7 +147,7 @@ export const SignUp = () => {
             <div className="status">
               <span className="agreement">Продолжая, вы соглашаетесь со сбором и обработкой персональных данных и пользовательским соглашением</span>
             </div>
-            <button className="no-background-border icon" onClick={() => dispatch(closeSignUp())}>
+            <button className="no-background-border icon desktop-only" onClick={() => dispatch(closeSignUp())}>
               <Exit />
             </button>
           </div>
