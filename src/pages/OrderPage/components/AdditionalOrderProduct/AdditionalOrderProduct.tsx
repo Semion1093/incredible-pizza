@@ -1,11 +1,12 @@
 import './AdditionalOrderProduct.scss';
 import { Product } from '../../../../models/Product';
 import { addToCart } from '../../../HomePage/components/ProductCard/productCartSlice';
+import { ProductInCart, addToCart } from '../../../HomePage/components/Cart/cartSlice';
 import { useDispatch } from 'react-redux';
 import React from 'react';
 
 export interface AdditionalOrderProductProps {
-  product: Product;
+  product: ProductInCart;
 }
 
 export const AdditionalOrderProduct = (props: AdditionalOrderProductProps) => {

@@ -13,7 +13,7 @@ export const OrderItems = () => {
         <h2>Ваш заказ</h2>
         <div className="order-products">
           {products.map((item) => (
-            <OrderItem img={item.img} title={item.title} description={item.description} price={item.price} />
+            <OrderItem id={item._id} img={item.img} title={item.title} description={item.description} price={item.price} />
           ))}
         </div>
         <Delimiter />

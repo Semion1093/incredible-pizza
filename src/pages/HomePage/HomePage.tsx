@@ -20,20 +20,11 @@ import { SignIn } from './components/AuthModal/SignInSignUp/SignIn';
 import { SignInOrSignUpModal } from './components/AuthModal/AuthModal';
 import { SignUp } from './components/AuthModal/SignInSignUp/SignUp';
 import PictureEasyPeasyChicken from './components/PizzaSettings/assets/EasyPeasyChicken.png';
-import PictureSweetChiliChicken from './components/PizzaSettings/assets/SweetChiliChicken.png';
 import React, { useState } from 'react';
-
-const SweetChiliChicken: PizzaProps = {
-  id: 1,
-  name: 'SweetChiliChicken',
-  price: 400,
-  picture: PictureSweetChiliChicken,
-  defaultToppings: [toppingMozzarella, toppingPepperoni, toppingChampignons, toppingRedOnion],
-};
 
 const EasyPeasyChicken: PizzaProps = {
   id: 2,
-  name: 'EasyPeasychicken',
+  name: 'EasyPeasyChicken',
   price: 500,
   picture: PictureEasyPeasyChicken,
   defaultToppings: [toppingBacon, toppingCucumber, toppingPepperoni, toppingSweetPepper],
@@ -49,13 +40,13 @@ export const HomePage = () => {
       <NavigationLinks setIsActive={setIsCartActive} />
       <NavigationBar />
       <SalesSection />
-      <ProductSection nameId="pizza" name="Пицца" />
-      <ProductSection nameId="sushi" name="Суши" />
-      <ProductSection nameId="combo" name="Комбо" />
-      <ProductSection nameId="snack" name="Закуски" />
-      <ProductSection nameId="drink" name="Напитки" />
-      <ProductSection nameId="dessert" name="Десерты" />
-      <ProductSection nameId="sauce" name="Соусы" />
+      <ProductSection type="pizza" typeName="Пицца" />
+      <ProductSection type="sushi" typeName="Суши" />
+      <ProductSection type="combo" typeName="Комбо" />
+      <ProductSection type="snack" typeName="Закуски" />
+      <ProductSection type="drink" typeName="Напитки" />
+      <ProductSection type="dessert" typeName="Десерты" />
+      <ProductSection type="sauce" typeName="Соусы" />
       <Cart isCartActive={isCartActive} setIsActive={setIsCartActive} />
       {/* <PizzaSettings {...EasyPeasyChicken} /> */}
     </>

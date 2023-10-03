@@ -1,8 +1,8 @@
 import './OrderItem.scss';
 import { QuantitySelector } from '../../../../components/QuantitySelector/QuantitySelector';
-import React from 'react';
 
 export interface OrderItemProps {
+  id: string;
   img: string;
   title: string;
   description: string;
@@ -19,7 +19,7 @@ export const OrderItem = (props: OrderItemProps) => {
           <span>{props.description}</span>
         </div>
         <div className="result">
-          <QuantitySelector />
+          <QuantitySelector id={props.id} />
           <span className="price">{props.price} ₽</span>
         </div>
       </div>

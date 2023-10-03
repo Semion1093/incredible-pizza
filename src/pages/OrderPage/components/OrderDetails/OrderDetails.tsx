@@ -28,7 +28,7 @@ export const OrderDetails = () => {
   const products = useSelector(selectCartItems);
   const onSubmit: SubmitHandler<OrderFormData> = (data) => {
     data['products'] = products;
-    fetch('http://localhost:4001/api/v1/order/order/create', {
+    fetch('http://localhost:4001/api/v1/order/create', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

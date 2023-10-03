@@ -1,10 +1,12 @@
 @import '../../../../variables';
 
 .cart {
+  overflow-y: scroll;
+
   .cart-header {
     display: flex;
     justify-content: space-between;
-    width: 400px;
+    width: 380px;
     align-items: center;
     padding: 32px 20px 20px 20px;
 
@@ -65,7 +67,7 @@
   .modal-panel {
     .cart-result-content {
       width: 390px;
-      
+
       span {
         font-size: 18px;
         line-height: 20px;

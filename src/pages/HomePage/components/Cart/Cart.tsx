@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -7,7 +8,9 @@ import { CrossSvg } from '../../../../components/Cross/CrossSvg';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
 import { selectCartItems } from '../ProductCard/productCartSlice';
 import { openAuthModal } from '../AuthModal/authModalSlice';
+import { selectCartItems, selectCartItemsSum } from './cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { useState } from 'react';
 
 interface CartProps {
@@ -17,6 +20,16 @@ interface CartProps {
 export const Cart = (props: CartProps) => {
   const items = useSelector(selectCartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const totalSum = useSelector(selectCartItemsSum);
+  const handleClick = () => {
+    if (localStorage.getItem('token')) {
+      navigate('/order');
+    } else {
+      dispatch(openAuthModal());
+    }
+  };
+
   return (
     <>
       {props.isCartActive ? (
@@ -30,14 +43,16 @@ export const Cart = (props: CartProps) => {
                 </button>
               </div>
               {items.map((item, index) => (
-                <CartItem key={index} title={item.title} description={item.description} img={''} cost={item.price.toString()} />
+                <CartItem id={item._id} key={index} title={item.title} description={item.description} img={item.img} cost={item.price.toString()} />
               ))}
             </div>
             <div className="cart-result">
               <Delimiter />
               <div className="cart-result-content">
-                <span>Итого: 1 399 ₽</span>
-                <button onClick={() => dispatch(openAuthModal())}>Оформить заказ</button>
+                <span>
+                  Итого: {totalSum}{' '}₽
+                </span>
+                <button onClick={handleClick}>Оформить заказ</button>
               </div>
             </div>
           </article>

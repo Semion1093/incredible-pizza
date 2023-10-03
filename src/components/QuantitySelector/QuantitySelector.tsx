@@ -2,9 +2,11 @@
 import './QuantitySelector.scss';
 import { Minus } from './components/Minus';
 import { Plus } from './components/Plus';
+import { changeCountProductInCart, changeProductPrice } from '../../pages/HomePage/components/Cart/cartSlice';
+import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 
-export const QuantitySelector = () => {
+export const QuantitySelector = ({ id }: { id: string }) => {
   const [index, setIndex] = useState(1);
   const decrease = () => {
     if (index > 0) {
@@ -15,13 +17,29 @@ export const QuantitySelector = () => {
     setIndex(index + 1);
   };
 
+  const dispatch = useDispatch();
+
   return (
     <div className="counter">
-      <button className="decrease" onClick={decrease}>
+      <button
+        className="decrease"
+        onClick={() => {
+          decrease();
+          dispatch(changeCountProductInCart({ id: id, addOrDelete: false }));
+          dispatch(changeProductPrice({ id: id }));
+        }}
+      >
         <Minus />
       </button>
       <input type="text" value={index} />
-      <button className="increase" onClick={increase}>
+      <button
+        className="increase"
+        onClick={() => {
+          increase();
+          dispatch(changeCountProductInCart({ id: id, addOrDelete: true }));
+          dispatch(changeProductPrice({ id: id }));
+        }}
+      >
         <Plus />
       </button>
     </div>
