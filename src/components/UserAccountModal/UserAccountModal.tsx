@@ -6,11 +6,12 @@ import { Path } from '../Path';
 import { closeUserAccountModal, userAccountModalInfo } from './userAccountModalSlice';
 import { batch, useDispatch, useSelector } from 'react-redux';
 import React from 'react';
-import { logOut } from '../../store/currentUserSlice';
+import { logOut, selectCurrentUser } from '../../store/currentUserSlice';
 
 export const UserAccountModal = () => {
   const dispatch = useDispatch();
   const userAccountModalActive = useSelector(userAccountModalInfo);
+  const userData = useSelector(selectCurrentUser);
   const onSubmitopenSignOutUser = () => {
     batch(() => {
       dispatch(closeUserAccountModal());
@@ -21,7 +22,7 @@ export const UserAccountModal = () => {
     <>
       {userAccountModalActive && (
         <div className="user-account-modal" onMouseLeave={() => dispatch(closeUserAccountModal())}>
-          <span className="content bonuses">100 бонусов</span>
+          <span className="content bonuses">{userData?.firstName}</span>
           <div className="line"></div>
           <div className="content link">
             <Link to={Path.AccountPage} onClick={() => dispatch(closeUserAccountModal())}>
