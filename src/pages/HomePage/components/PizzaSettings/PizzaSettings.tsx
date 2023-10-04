@@ -3,14 +3,15 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import './PizzaSettings.scss';
 import { CustomPizza, closePizzaSettings, pizzaCustomSettings, pizzaSettingsModalInfo } from './pizzaSettingsSlice';
+import { ReactComponent as Exit } from '../../../../assets/Exit.svg';
 import { ReactComponent as Info } from './assets/Info.svg';
 import { Options, SwitchSelector } from '../../../../components/SwitchSelector/SwitchSelector';
 import { PizzaComponents, ToppingProps } from './PizzaComponents/PizzaComponents';
+import { ProductInCart, addToCart } from '../Cart/cartSlice';
 import { ReactComponent as Top } from './assets/Top.svg';
 import { Topping } from './ToppingIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState } from 'react';
-import { ProductInCart, addToCart } from '../Cart/cartSlice';
 
 export interface modalProps {
   state: boolean;
@@ -108,7 +109,7 @@ export const PizzaSettings = () => {
               <div className="state-icon">
                 <p>{pizzaSettings.customPizza.labelText}</p>
               </div>
-              <img src={pizzaSettings.customPizza.img} alt="" className="pizza-img" />
+              <img src={pizzaSettings.customPizza.img} alt="" className="pizza-img desktop-only" />
             </div>
             <div className="right-side">
               <div className="title">
@@ -116,12 +117,15 @@ export const PizzaSettings = () => {
                   <Top />
                   <p>{pizzaSettings.customPizza.title}</p>
                 </div>
-                <details className="button-info">
+                <details className="button-info desktop-only">
                   <summary>
                     <Info />
                   </summary>
                   <span>Вы можете выбрать любимые ингридиенты и добавить их за дополнительную плату</span>
                 </details>
+                <button className="no-background-border icon mobile-only">
+                  <Exit />
+                </button>
               </div>
               <div className="content pizza-settings in-additional">
                 <p>{pizzaSettings.customPizza.description}</p>
