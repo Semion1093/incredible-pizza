@@ -14,6 +14,7 @@ export const ProductCard = (props: ProductCardProps) => {
   const dispatch = useDispatch();
   const onSubmitopenPizzaSettings = () => {
     batch(() => {
+      debugger;
       dispatch(openPizzaSettings());
       dispatch(addToCart(props.product));
     });

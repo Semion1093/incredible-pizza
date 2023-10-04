@@ -22,11 +22,10 @@ export const UserAccountModal = () => {
   return (
     <>
       {userAccountModalActive && (
-        // <div className="user-account-modal" onMouseLeave={() => dispatch(closeUserAccountModal())}>
-        <div className="user-account-modal">
+        <div className="user-account-modal" onMouseLeave={() => dispatch(closeUserAccountModal())}>
           <div className="content bonuses-in-title">
             <span className="content bonuses">{userData?.firstName}</span>
-            <span className="content link">{userData?.email}</span>
+            <span className="content bonuses">{userData?.email}</span>
           </div>
           <div className="line"></div>
           <div className="content link">

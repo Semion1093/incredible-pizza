@@ -48,7 +48,7 @@ export const HomePage = () => {
       <ProductSection type="dessert" typeName="Десерты" />
       <ProductSection type="sauce" typeName="Соусы" />
       <Cart isCartActive={isCartActive} setIsActive={setIsCartActive} />
-      {/* <PizzaSettings {...EasyPeasyChicken} /> */}
+      <PizzaSettings {...EasyPeasyChicken} />
     </>
   );
 };
