@@ -10,25 +10,33 @@ export const SalesSection = () => {
         <a href="...">
           <figure className="component-wrapper">
             <img src={promotion} alt="" />
-            <figcaption className="caption">3 средние пиццы от 999 рублей</figcaption>
+            <figcaption className="caption">
+              <b>3 средние пиццы</b> <br /> от 1 099 рублей
+            </figcaption>
           </figure>
         </a>
         <a href="...">
           <figure className="component-wrapper">
             <img src={cashback} alt="" />
-            <figcaption className="caption">Кэшбек 10% на самовывоз</figcaption>
+            <figcaption className="caption">
+              <b>Кэшбек 10%</b> <br /> на самовывоз
+            </figcaption>
           </figure>
         </a>
         <a href="...">
           <figure className="component-wrapper">
             <img src={promotion} alt="" />
-            <figcaption className="caption">3 средние пиццы от 999 рублей</figcaption>
+            <figcaption className="caption">
+              <b>Комбо-бокс</b> <br /> за 599 рублей
+            </figcaption>
           </figure>
         </a>
         <a href="...">
           <figure className="component-wrapper">
             <img src={cashback} alt="" />
-            <figcaption className="caption">Кэшбек 10% на самовывоз</figcaption>
+            <figcaption className="caption">
+              <b>Бесплатная доставка</b> <br /> до конца октября
+            </figcaption>
           </figure>
         </a>
       </div>

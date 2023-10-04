@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import './AccountOrder.scss';
-import { AccountOrderItem, OrderItem } from '../AccountOrderItem/AccountOrderItem';
+import { AccountOrderItem } from '../AccountOrderItem/AccountOrderItem';
 import { useEffect, useState } from 'react';
 import arrow from '../../../../assets/Arrow.svg';
+import { ProductInCart } from '../../../HomePage/components/Cart/cartSlice';
 
 export interface Order {
   number: number;
@@ -23,7 +24,7 @@ enum OrderStatus {
 
 export const AccountOrder = (props: Order) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [orderItems, setAccountOrderItems] = useState<OrderItem[]>([]);
+  const [orderItems, setAccountOrderItems] = useState<ProductInCart[]>([]);
 
   const changeIsExpanded = () => {
     setIsExpanded(!isExpanded);
@@ -93,15 +94,7 @@ export const AccountOrder = (props: Order) => {
       {isExpanded && (
         <div className="order-items">
           {orderItems.map((item) => (
-            <AccountOrderItem
-              key={`orderItem-${item.id}`}
-              id={item.id}
-              name={item.name}
-              description={item.description}
-              quantity={item.quantity}
-              cost={item.cost}
-              img={''}
-            />
+            <AccountOrderItem item={item} />
           ))}
         </div>
       )}
