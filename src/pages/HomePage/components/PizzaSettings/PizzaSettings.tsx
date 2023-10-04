@@ -11,6 +11,7 @@ import { Topping } from './ToppingIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import { ProductInCart, addToCart } from '../Cart/cartSlice';
+import { ProductLabel } from '../ProductLabel/ProductLabel';
 
 export interface modalProps {
   state: boolean;
@@ -105,9 +106,7 @@ export const PizzaSettings = () => {
         <div className="modal" onClick={() => dispatch(closePizzaSettings())}>
           <article className="modal-wrapper separated" onClick={(e) => e.stopPropagation()}>
             <div className="left-side">
-              <div className="state-icon">
-                <p>{pizzaSettings.customPizza.labelText}</p>
-              </div>
+              <ProductLabel labelText={pizzaSettings.customPizza.labelText} />
               <img src={pizzaSettings.customPizza.img} alt="" className="pizza-img" />
             </div>
             <div className="right-side">
@@ -120,7 +119,7 @@ export const PizzaSettings = () => {
                   <summary>
                     <Info />
                   </summary>
-                  <span>Вы можете выбрать любимые ингридиенты и добавить их за дополнительную плату</span>
+                  <span>Вы можете выбрать тесто для пиццы, её размер и добавить любимые ингридиенты за дополнительную плату</span>
                 </details>
               </div>
               <div className="content pizza-settings in-additional">
@@ -157,7 +156,11 @@ export const PizzaSettings = () => {
                   </span>
                   <span className="masse">720 г</span>
                 </div>
-                <button className="finish" onClick={() => dispatch(addToCart(pizzaSettings.customPizza as ProductInCart))}>
+                <button
+                  className="finish"
+                  onClick={() => dispatch(closePizzaSettings())}
+                  onMouseUp={() => dispatch(addToCart(pizzaSettings.customPizza as ProductInCart))}
+                >
                   Добавить
                 </button>
               </div>

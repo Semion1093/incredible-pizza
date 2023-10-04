@@ -1,14 +1,10 @@
 import { Options } from '../../../../components/SwitchSelector/SwitchSelector';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Product } from '../../../../models/Product';
+import { ProductInCart } from '../Cart/cartSlice';
 import { RootState } from '../../../../store/store';
 import { Topping } from './ToppingIcon';
 
-interface PizzaState {
-  customPizza: CustomPizza;
-}
-
-export type CustomPizza = Product & ChoosingOptions;
+export type CustomPizza = ProductInCart & ChoosingOptions;
 
 export interface PizzaOptions {
   isOpen: boolean;
@@ -48,9 +44,11 @@ export const pizzaSettingsSlice = createSlice({
   name: 'pizzaSettingsModal',
   initialState,
   reducers: {
-    openPizzaSettings: (state, action: PayloadAction<Product>) => {
+    openPizzaSettings: (state, action: PayloadAction<CustomPizza>) => {
       //debugger;
       state.customPizza = action.payload;
+      state.customPizza.count = 1;
+      state.customPizza.isDeleted = false;
       state.isActive = true;
     },
     closePizzaSettings: (state) => {

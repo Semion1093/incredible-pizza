@@ -27,9 +27,7 @@ export const ProductCard = (props: ProductCardProps) => {
         <div className="price">{props.product.price.toLocaleString('fr-FR')} ₽</div>
         <button
           className="add-to-cart"
-          onClick={
-            props.product.type === 'PIZZA' ? () => dispatch(openPizzaSettings(props.product as Product)) : () => dispatch(addToCart(props.product))
-          }
+          onClick={props.product.type === 'PIZZA' ? () => dispatch(openPizzaSettings(props.product)) : () => dispatch(addToCart(props.product))}
         >
           Выбрать
         </button>

@@ -1,4 +1,5 @@
 import './SwitchSelector.scss';
+import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 
 export interface Options {
