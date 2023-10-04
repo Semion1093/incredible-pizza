@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import './UserAccountModal.scss';
+import { HeaderAccountIconSvg } from '../Header/assets/HeaderAccountIconSvg';
 import { Link } from 'react-router-dom';
 import { Path } from '../Path';
-import { closeUserAccountModal, userAccountModalInfo } from './userAccountModalSlice';
 import { batch, useDispatch, useSelector } from 'react-redux';
-import React from 'react';
+import { closeUserAccountModal, userAccountModalInfo } from './userAccountModalSlice';
 import { logOut, selectCurrentUser } from '../../store/currentUserSlice';
+import React from 'react';
 
 export const UserAccountModal = () => {
   const dispatch = useDispatch();
@@ -21,8 +22,12 @@ export const UserAccountModal = () => {
   return (
     <>
       {userAccountModalActive && (
-        <div className="user-account-modal" onMouseLeave={() => dispatch(closeUserAccountModal())}>
-          <span className="content bonuses">{userData?.firstName}</span>
+        // <div className="user-account-modal" onMouseLeave={() => dispatch(closeUserAccountModal())}>
+        <div className="user-account-modal">
+          <div className="content bonuses-in-title">
+            <span className="content bonuses">{userData?.firstName}</span>
+            <span className="content link">{userData?.email}</span>
+          </div>
           <div className="line"></div>
           <div className="content link">
             <Link to={Path.AccountPage} onClick={() => dispatch(closeUserAccountModal())}>

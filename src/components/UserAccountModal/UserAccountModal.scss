@@ -11,9 +11,10 @@
   align-items: flex-start;
   padding: 16px 0;
   box-shadow: 0px 0px 50px 0px $border-color-dark-grey;
-  top: 30px;
-  right: 10px;
+  top: -10px;
+  right: -20px;
   background-color: $background-color-white;
+
   .line {
     min-height: 1px;
     width: 100%;
@@ -23,6 +24,10 @@
     margin: 0 20px;
     font-size: 16px;
     line-height: 22px;
+    &.bonuses-in-title {
+      display: flex;
+      margin: 0;
+    }
     &.bonuses {
       font-size: 16px;
       line-height: 20px;
@@ -32,9 +37,8 @@
     &.log-Out {
       color: $font-color-grey;
     }
-    &:hover{
+    &:hover {
       color: $primary-color;
     }
   }
 }
-  
