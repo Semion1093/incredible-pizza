@@ -8,12 +8,11 @@ import { ReactComponent as Info } from './assets/Info.svg';
 import { Options, SwitchSelector } from '../../../../components/SwitchSelector/SwitchSelector';
 import { PizzaComponents, ToppingProps } from './PizzaComponents/PizzaComponents';
 import { ProductInCart, addToCart } from '../Cart/cartSlice';
+import { ProductLabel } from '../ProductLabel/ProductLabel';
 import { ReactComponent as Top } from './assets/Top.svg';
 import { Topping } from './ToppingIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState } from 'react';
-import { ProductInCart, addToCart } from '../Cart/cartSlice';
-import { ProductLabel } from '../ProductLabel/ProductLabel';
 
 export interface modalProps {
   state: boolean;
