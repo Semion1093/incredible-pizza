@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 export interface Options {
   value: string;
   label: string;
+  rate: number;
 }
 
 export const SwitchSelector = (props: Options[]) => {

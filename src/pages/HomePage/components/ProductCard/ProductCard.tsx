@@ -12,12 +12,6 @@ interface ProductCardProps {
 
 export const ProductCard = (props: ProductCardProps) => {
   const dispatch = useDispatch();
-  const onSubmitOpenPizzaSettings = () => {
-    batch(() => {
-      dispatch(openPizzaSettings());
-      dispatch(addToCart(props.product));
-    });
-  };
   const imgSrc = props.product.img
     ? props.product.img
     : 'https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/30367198-f3bd-44ed-9314-6f717960da07.jpg';
@@ -31,7 +25,12 @@ export const ProductCard = (props: ProductCardProps) => {
       </div>
       <div className="product-card-action">
         <div className="price">{props.product.price.toLocaleString('fr-FR')} ₽</div>
-        <button className="add-to-cart" onClick={() => onSubmitOpenPizzaSettings()}>
+        <button
+          className="add-to-cart"
+          onClick={
+            props.product.type === 'PIZZA' ? () => dispatch(openPizzaSettings(props.product as Product)) : () => dispatch(addToCart(props.product))
+          }
+        >
           Выбрать
         </button>
       </div>

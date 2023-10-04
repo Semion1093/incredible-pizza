@@ -4,7 +4,13 @@ export interface ToppingProps {
   id?: number;
   name: string;
   price?: number;
-  iconType: Topping;
+}
+
+function parseTopping(input: string): Topping {
+  if (Object.values(Topping).includes(input as Topping)) {
+    return input as Topping;
+  }
+  return Topping.Cheddar;
 }
 
 export const PizzaComponents = (props: ToppingProps) => {
@@ -13,7 +19,7 @@ export const PizzaComponents = (props: ToppingProps) => {
       <label className="component-checkbox-wrapper">
         <input type="checkbox" className="component-checkbox-input" />
         <span className="component-checkbox-tile">
-          <ToppingIcon icon={props.iconType} />
+          <ToppingIcon icon={parseTopping(props.name)} />
         </span>
         <span className="component-checkbox-label">
           {props.name}
