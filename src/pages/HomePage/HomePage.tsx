@@ -21,6 +21,7 @@ import { SignInOrSignUpModal } from './components/AuthModal/AuthModal';
 import { SignUp } from './components/AuthModal/SignInSignUp/SignUp';
 import PictureEasyPeasyChicken from './components/PizzaSettings/assets/EasyPeasyChicken.png';
 import React, { useState } from 'react';
+import { CodeEnter } from './components/AuthModal/SignInSignUp/CodeEnter';
 
 const EasyPeasyChicken: PizzaProps = {
   id: 2,
@@ -35,6 +36,7 @@ export const HomePage = () => {
     <>
       <SignUp />
       <SignIn />
+      <CodeEnter />
       <SignInOrSignUpModal />
       <Delimiter />
       <NavigationLinks setIsActive={setIsCartActive} />

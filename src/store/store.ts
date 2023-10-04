@@ -9,12 +9,16 @@ import { signInReducer } from '../pages/HomePage/components/AuthModal/SignInSign
 import { signUpReducer } from '../pages/HomePage/components/AuthModal/SignInSignUp/signUpSlice';
 import { userAccountModalReducer } from '../components/UserAccountModal/userAccountModalSlice';
 import storage from 'redux-persist/lib/storage';
+import { codeEnterReducer } from '../pages/HomePage/components/AuthModal/SignInSignUp/codeEnterSlice';
+import { tryOfUserReducer } from './tryUserSlice';
 
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
   cartPage: cartPageReducer,
   authModal: authModalReducer,
   signInModal: signInReducer,
+  tryUser: tryOfUserReducer,
+  codeEnter: codeEnterReducer,
   signUpModal: signUpReducer,
   userAccountModal: userAccountModalReducer,
   pizzaSettingsModal: pizzaSettingsReducer,
