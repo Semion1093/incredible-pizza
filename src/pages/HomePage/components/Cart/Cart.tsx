@@ -41,8 +41,8 @@ export const Cart = (props: CartProps) => {
                   <CrossSvg />
                 </button>
               </div>
-              {items.map((item, index) => (
-                <CartItem id={item._id} key={index} title={item.title} description={item.description} img={item.img} price={item.price} />
+              {items.map((item) => (
+                <CartItem item={item} />
               ))}
             </div>
             <div className="cart-result">
