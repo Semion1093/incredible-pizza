@@ -305,6 +305,12 @@ button {
           svg * {
             fill: $border-color-dark-grey;
           }
+          &.comeback{
+            width: 40px;
+            height: 40px;
+            right:350px;
+            top: 0px;
+          }
         }
       }
     }

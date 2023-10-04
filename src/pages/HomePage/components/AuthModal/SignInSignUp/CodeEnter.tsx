@@ -98,6 +98,12 @@ export const CodeEnter = () => {
           <div className="modal-wrapper fixed-width">
             <div className="content authentication" id="pin">
               <h1>Код из письма</h1>
+              <button className="no-background-border icon mobile-only" onClick={() => dispatch(closeCodeEnter())}>
+                <Exit />
+              </button>
+              <button className="no-background-border icon comeback mobile-only" onClick={() => onSubmitComeback()}>
+                <ArrowSm />
+              </button>
               <span className="info">На email: {isTry?.email}</span>
               <div className="pin-code">
                 {Array.from({ length: tupleLength }, (_, index) => (
