@@ -1,37 +1,71 @@
 import './Sign.scss';
 import * as yup from 'yup';
 import { ReactComponent as Exit } from '../../../../../assets/Exit.svg';
+import { PathFetch } from '../../../../../components/PathFetch';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { User } from '../../../../../models/User';
 import { closeSignIn, signInModalInfo } from './signInSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { loadUser, selectCurrentUser } from '../../../../../../src/store/currentUserSlice';
+import { batch, useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
+import jwt_decode from 'jwt-decode';
 
-const userSchema = yup
+const userSignInSchema = yup
   .object({
     email: yup.string().required('введите email'),
     password: yup.string().required('введите пароль'),
   })
   .required();
-type UserFormData = yup.InferType<typeof userSchema>;
+export type UserSignInFormData = yup.InferType<typeof userSignInSchema>;
+
+interface DecodedTokenUser {
+  firstName: string;
+  lastName: string;
+  email: string;
+}
+interface DecodedTokenData {
+  data: DecodedTokenUser;
+}
 
 export const SignIn = () => {
-  const onSubmit: SubmitHandler<UserFormData> = (data) => {
-    fetch('http://localhost:4001/api/v1/public/user/login', {
+  const onSubmit: SubmitHandler<UserSignInFormData> = (data) => {
+    fetch(PathFetch.SignIn, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },
     })
-      .then((response) => response.json())
-      .then((dataFromBack) => localStorage.setItem('token', dataFromBack.data.accessToken));
+      .then((response) => {
+        if (!response.ok) {
+          return 'Данные введены неверно, попробуйте снова';
+        }
+        return response.json();
+      })
+      .then((dataFromBack) => {
+        localStorage.setItem('token', dataFromBack.data.accessToken);
+        const jwt = localStorage.getItem('token') ? localStorage.getItem('token') : '';
+        if (jwt) {
+          const decoded: DecodedTokenData = jwt_decode(jwt);
+          const userDataFromBack: User = {
+            firstName: decoded.data.firstName,
+            lastName: decoded.data.lastName,
+            email: decoded.data.email,
+            accessToken: jwt,
+          };
+          batch(() => {
+            dispatch(loadUser(userDataFromBack));
+            dispatch(closeSignIn());
+          });
+        }
+      });
   };
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<UserFormData>({
+  } = useForm<UserSignInFormData>({
     defaultValues: {},
-    resolver: yupResolver(userSchema),
+    resolver: yupResolver(userSignInSchema),
   });
 
   const dispatch = useDispatch();
@@ -43,6 +77,9 @@ export const SignIn = () => {
           <div className="modal-wrapper">
             <div className="content authentication">
               <h1>Вход в аккаунт</h1>
+              <button className="no-background-border icon mobile-only" onClick={() => dispatch(closeSignIn())}>
+                <Exit />
+              </button>
               <form className="required-name" onSubmit={handleSubmit(onSubmit)}>
                 <div className="input-content">
                   <label>
@@ -69,7 +106,7 @@ export const SignIn = () => {
             <div className="status">
               <span className="agreement">Убедитесь что ввели правильные данные</span>
             </div>
-            <button className="no-background-border icon" onClick={() => dispatch(closeSignIn())}>
+            <button className="no-background-border icon desktop-only" onClick={() => dispatch(closeSignIn())}>
               <Exit />
             </button>
           </div>

@@ -2,7 +2,8 @@ import './ProductCard.scss';
 import { Product } from '../../../../models/Product';
 import { ProductInCart, addToCart } from '../Cart/cartSlice';
 import { ProductLabel } from '../ProductLabel/ProductLabel';
-import { useDispatch } from 'react-redux';
+import { batch, useDispatch } from 'react-redux';
+import { openPizzaSettings } from '../PizzaSettings/pizzaSettingsSlice';
 import React from 'react';
 
 interface ProductCardProps {
@@ -11,6 +12,12 @@ interface ProductCardProps {
 
 export const ProductCard = (props: ProductCardProps) => {
   const dispatch = useDispatch();
+  const onSubmitOpenPizzaSettings = () => {
+    batch(() => {
+      dispatch(openPizzaSettings());
+      dispatch(addToCart(props.product));
+    });
+  };
   const imgSrc = props.product.img
     ? props.product.img
     : 'https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/30367198-f3bd-44ed-9314-6f717960da07.jpg';
@@ -24,7 +31,7 @@ export const ProductCard = (props: ProductCardProps) => {
       </div>
       <div className="product-card-action">
         <div className="price">{props.product.price.toLocaleString('fr-FR')} ₽</div>
-        <button className="add-to-cart" onClick={() => dispatch(addToCart(props.product))}>
+        <button className="add-to-cart" onClick={() => onSubmitOpenPizzaSettings()}>
           Выбрать
         </button>
       </div>

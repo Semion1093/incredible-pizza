@@ -8,6 +8,8 @@ import { PizzaComponents, ToppingProps } from './PizzaComponents/PizzaComponents
 import { ReactComponent as Top } from './assets/Top.svg';
 import { Topping } from './ToppingIcon';
 import React, { useState } from 'react';
+import { closePizzaSettings, pizzaSettingsModalInfo } from './pizzaSettingsSlice';
+import { useDispatch, useSelector } from 'react-redux';
 export interface PizzaProps {
   id?: number;
   name?: string;
@@ -111,11 +113,13 @@ const size: Options[] = [
 ];
 
 export const PizzaSettings = (props: PizzaProps) => {
-  const [isActive, setIsActive] = useState<boolean>(true);
+  const dispatch = useDispatch();
+  const pizzaSettingsModalActive = useSelector(pizzaSettingsModalInfo);
+
   return (
     <>
-      {isActive && (
-        <div className="modal" onClick={() => setIsActive(false)}>
+      {pizzaSettingsModalActive && (
+        <div className="modal" onClick={() => dispatch(closePizzaSettings())}>
           <article className="modal-wrapper separated" onClick={(e) => e.stopPropagation()}>
             <div className="left-side">
               <div className="state-icon">
