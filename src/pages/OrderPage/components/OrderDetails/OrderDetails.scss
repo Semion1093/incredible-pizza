@@ -3,4 +3,10 @@
 .order-details {
   max-width: 850px;
   margin: 0 auto;
+  .switch-button {
+    max-width: 350px;
+  }
+  .switch-button .tab input:checked + .name {
+    max-width: 175px;
+  }
 }

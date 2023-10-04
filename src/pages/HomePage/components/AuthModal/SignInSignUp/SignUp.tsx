@@ -87,7 +87,7 @@ export const SignUp = () => {
     <>
       {signInModalActive && (
         <div className="modal">
-          <div className="modal-wrapper">
+          <div className="modal-wrapper fixed-width">
             <div className="content authentication">
               <h1>Регистрация аккаунта</h1>
               <button className="no-background-border icon mobile-only" onClick={() => dispatch(closeSignUp())}>

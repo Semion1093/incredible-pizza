@@ -26,7 +26,7 @@ export const SignInOrSignUpModal = () => {
     <>
       {authModalActive && (
         <div className="modal">
-          <div className="modal-wrapper auth-modal">
+          <div className="modal-wrapper auth-modal fixed-width">
             <div className="content authentication auth-modal">
               <h1>Для продолжения, пожалуйста зарегистрируйтесь или войдите в аккаунт</h1>
               <button className="no-background-border icon mobile-only" onClick={() => dispatch(closeAuthModal())}>

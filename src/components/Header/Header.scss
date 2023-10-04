@@ -51,7 +51,10 @@ header {
     .right-part {
       display: flex;
       align-items: center;
-      gap: 40px;
+      // gap: 40px;
+      width: 500px;
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
 }
@@ -74,6 +77,9 @@ header {
           font-size: 12px;
           line-height: 16px;
         }
+      }
+      .right-part {
+        width: auto;
       }
     }
   }
