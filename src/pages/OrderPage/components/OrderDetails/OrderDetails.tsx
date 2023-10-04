@@ -6,30 +6,48 @@ import { OrderComment } from '../OrderComment/OrderComment';
 import { OrderResult } from '../OrderResult/OrderResult';
 import { Payment } from '../Payment/Payment';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { schema } from './Schema';
+import { orderSchema } from './OrderSchema';
+import { selectCartItems } from '../../../HomePage/components/Cart/cartSlice';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 
-export type OrderFormData = yup.InferType<typeof schema>;
+export type OrderFormData = yup.InferType<typeof orderSchema>;
 
 export const OrderDetails = () => {
-  const [formResult, setFormResult] = useState('');
+  const navigate = useNavigate();
   const {
     control,
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<OrderFormData>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(orderSchema),
   });
-  const onSubmit: SubmitHandler<OrderFormData> = (data) =>
-    fetch('http://194.87.210.5:5000/api/v1/', {
+  const products = useSelector(selectCartItems);
+  const onSubmit: SubmitHandler<OrderFormData> = (data) => {
+    data['products'] = products;
+    fetch('http://localhost:4001/api/v1/order/create', {
       method: 'POST',
       body: JSON.stringify(data),
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+        'Content-Type': 'application/json',
+      },
     })
       .then((response) => response.json())
-      .then((data) => setFormResult(data));
+      .then((result) => {
+        if (result.statusCode === 201) {
+          localStorage.removeItem('persist:products');
+          localStorage.setItem('orderNumber', result.data.orderNumber);
+          navigate('/success');
+        }
+      })
+      .catch((error) => {
+        throw new Error('Что-то пошло не так. Повторите попытку позднее.');
+      });
+  };
   return (
     <div className="order-details">
       <form onSubmit={handleSubmit(onSubmit)}>

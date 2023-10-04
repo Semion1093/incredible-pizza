@@ -1,61 +1,38 @@
 import './HomePage.scss';
 import { Cart } from './components/Cart/Cart';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
-import { Description } from './components/Description/Description';
 import { NavigationBar } from './components/NavigationBar/NavigationBar';
 import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
-import {
-  PizzaProps,
-  PizzaSettings,
-  toppingBacon,
-  toppingChampignons,
-  toppingCucumber,
-  toppingMozzarella,
-  toppingPepperoni,
-  toppingRedOnion,
-  toppingSweetPepper,
-} from './components/PizzaSettings/PizzaSettings';
+import { PizzaSettings } from './components/PizzaSettings/PizzaSettings';
 import { ProductSection } from './components/ProductSection/ProductSection';
 import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
-import PictureEasyPeasyChicken from './components/PizzaSettings/assets/EasyPeasyChicken.png';
-import PictureSweetChiliChicken from './components/PizzaSettings/assets/SweetChiliChicken.png';
+import { SignIn } from './components/AuthModal/SignInSignUp/SignIn';
+import { SignInOrSignUpModal } from './components/AuthModal/AuthModal';
+import { SignUp } from './components/AuthModal/SignInSignUp/SignUp';
 import React, { useState } from 'react';
-
-const SweetChiliChicken: PizzaProps = {
-  id: 1,
-  name: 'SweetChiliChicken',
-  price: 400,
-  picture: PictureSweetChiliChicken,
-  defaultToppings: [toppingMozzarella, toppingPepperoni, toppingChampignons, toppingRedOnion],
-};
-
-const EasyPeasyChicken: PizzaProps = {
-  id: 2,
-  name: 'EasyPeasychicken',
-  price: 500,
-  picture: PictureEasyPeasyChicken,
-  defaultToppings: [toppingBacon, toppingCucumber, toppingPepperoni, toppingSweetPepper],
-};
+import { CodeEnter } from './components/AuthModal/SignInSignUp/CodeEnter';
 
 export const HomePage = () => {
   const [isCartActive, setIsCartActive] = useState<boolean>(false);
   return (
     <>
+      <SignUp />
+      <SignIn />
+      <CodeEnter />
+      <SignInOrSignUpModal />
       <Delimiter />
-      <NavigationLinks showMobileButtonBack={false} setIsActive={setIsCartActive} />
+      <NavigationLinks setIsActive={setIsCartActive} />
       <NavigationBar />
       <SalesSection />
-      <ProductSection nameId="pizza" name="Пицца" />
-      <ProductSection nameId="sushi" name="Суши" />
-      <ProductSection nameId="combo" name="Комбо" />
-      <ProductSection nameId="snack" name="Закуски" />
-      <ProductSection nameId="drink" name="Напитки" />
-      <ProductSection nameId="dessert" name="Десерты" />
-      <ProductSection nameId="sauce" name="Соусы" />
-      <Description />
+      <ProductSection type="pizza" typeName="Пицца" />
+      <ProductSection type="sushi" typeName="Суши" />
+      <ProductSection type="combo" typeName="Комбо" />
+      <ProductSection type="snack" typeName="Закуски" />
+      <ProductSection type="drink" typeName="Напитки" />
+      <ProductSection type="dessert" typeName="Десерты" />
+      <ProductSection type="sauce" typeName="Соусы" />
       <Cart isCartActive={isCartActive} setIsActive={setIsCartActive} />
-      <PizzaSettings {...EasyPeasyChicken} />
-      <script src="./pages/HomePage/components/NavigationBar/assets/NavigationSwitch.js"></script>
+      <PizzaSettings />
     </>
   );
 };

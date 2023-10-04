@@ -1,27 +1,26 @@
 import './NavigationLinks.scss';
-import { Link } from 'react-router-dom';
-import { MobileArrowBackButton } from './components/MobileArrowBackButton/MobileArrowBackButton';
 import { NavigationLinksBasketImageSvg } from './assets/NavigationLinksBasketImageSvg';
-import { NavigationLinksMenuMobileSvg } from './assets/NavigationLinksMenuMobileSvg';
-import { NavigationLinksPizzaIconSvg } from './assets/NavigationLinksPizzaIconSvg';
-import { NavigationLinksTextSvg } from './assets/NavigationLinksText';
+import { PhoneIconSvg } from '../assets/PhoneIconSvg';
+import { selectCartItemsSum } from '../../pages/HomePage/components/Cart/cartSlice';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import React from 'react';
 
 interface NavigationLinksProps {
-  showMobileButtonBack: boolean;
   setIsActive: (isCartActive: boolean) => void;
 }
 
 export const NavigationLinks = (props: NavigationLinksProps) => {
+  const navigate = useNavigate();
+  const totalSum = useSelector(selectCartItemsSum);
   return (
     <div className="navigation-links">
       <div className="navigation-links-content">
         <div className="left-part">
-          <MobileArrowBackButton show={props.showMobileButtonBack} />
-          <Link to="" className="pizza-icon">
-            <NavigationLinksPizzaIconSvg />
-            <NavigationLinksTextSvg />
-          </Link>
+          <div className="phone">
+            <PhoneIconSvg />
+            <span>+7 (926) 223-10-11</span>
+          </div>
         </div>
         <nav className="desktop-only">
           <a href="#promo">Акции</a>
@@ -33,11 +32,8 @@ export const NavigationLinks = (props: NavigationLinksProps) => {
           <a href="#dessert">Десерты</a>
           <a href="#sauce">Соусы</a>
         </nav>
-        <button className="desktop-only" onClick={() => props.setIsActive(true)}>
-          <NavigationLinksBasketImageSvg /> 0 ₽
-        </button>
-        <button className="mobile-menu mobile-only">
-          <NavigationLinksMenuMobileSvg />
+        <button className="cart-button" onClick={() => props.setIsActive(true)}>
+          <NavigationLinksBasketImageSvg /> {totalSum.toLocaleString('fr-FR')} ₽
         </button>
       </div>
     </div>

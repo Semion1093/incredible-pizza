@@ -1,12 +1,13 @@
 import './ProductCard.scss';
 import { Product } from '../../../../models/Product';
+import { ProductInCart, addToCart } from '../Cart/cartSlice';
 import { ProductLabel } from '../ProductLabel/ProductLabel';
-import { addToCart } from '../Cart/cartSlice';
-import { useDispatch } from 'react-redux';
+import { batch, useDispatch } from 'react-redux';
+import { openPizzaSettings } from '../PizzaSettings/pizzaSettingsSlice';
 import React from 'react';
 
 interface ProductCardProps {
-  product: Product;
+  product: ProductInCart;
 }
 
 export const ProductCard = (props: ProductCardProps) => {
@@ -21,12 +22,15 @@ export const ProductCard = (props: ProductCardProps) => {
       <div className="product-card-content">
         <p>{props.product.title}</p>
         <span>{props.product.description}</span>
-        <div className="product-card-action">
-          <button className="add-to-cart" onClick={() => dispatch(addToCart(props.product))}>
-            Выбрать
-          </button>
-          <div className="price">{props.product.price} ₽</div>
-        </div>
+      </div>
+      <div className="product-card-action">
+        <div className="price">{props.product.price.toLocaleString('fr-FR')} ₽</div>
+        <button
+          className="add-to-cart"
+          onClick={props.product.type === 'PIZZA' ? () => dispatch(openPizzaSettings(props.product)) : () => dispatch(addToCart(props.product))}
+        >
+          Выбрать
+        </button>
       </div>
     </div>
   );

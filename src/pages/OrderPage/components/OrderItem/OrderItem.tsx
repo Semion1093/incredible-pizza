@@ -1,29 +1,36 @@
 import './OrderItem.scss';
-import { Delimiter } from '../../../../components/Delimiter/Delimiter';
+import { ProductInCart, cleanCartBuffer } from '../../../HomePage/components/Cart/cartSlice';
 import { QuantitySelector } from '../../../../components/QuantitySelector/QuantitySelector';
-import React from 'react';
-import pepperoni from './assets/pepperoni-rustic.png';
+import { useDispatch } from 'react-redux';
 
-export const OrderItem = () => {
+export interface OrderItemProps {
+  item: ProductInCart;
+}
+
+export const OrderItem = (props: OrderItemProps) => {
+  const dispatch = useDispatch();
+
+  let orderItemState = 'order-item-wrapper';
+  if (props.item.isDeleted) {
+    orderItemState = 'order-item-wrapper deleted';
+    setTimeout(() => {
+      dispatch(cleanCartBuffer());
+    }, 1000);
+  }
+
   return (
-    <>
-      <div className="order">
-        <h2>Ваш заказ</h2>
-        <div className="order-item-wrapper">
-          <img src={pepperoni} alt="" />
-          <div className="content">
-            <div className="text">
-              <span className="title">Пепперони по-деревенски</span>
-              <span>Традиционное тесто, 23 см</span>
-            </div>
-            <div className="result">
-              <QuantitySelector />
-              <span className="price">1399 ₽</span>
-            </div>
-          </div>
+    <div className={orderItemState}>
+      <img src={props.item.img} alt="" />
+      <div className="content">
+        <div className="text">
+          <span className="title">{props.item.title}</span>
+          <span>{props.item.description}</span>
         </div>
-        <Delimiter />
+        <div className="result">
+          <QuantitySelector id={props.item._id} count={props.item.count} />
+          <span className="price">{(props.item.price * props.item.count).toLocaleString('fr-FR')} ₽</span>
+        </div>
       </div>
-    </>
+    </div>
   );
 };

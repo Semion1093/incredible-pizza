@@ -1,0 +1,48 @@
+@import '../../variables';
+
+.successful-message {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 200px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    text-align: center;
+
+    p {
+      margin-top: 48px;
+      margin-bottom: 16px;
+      font-family: $second-font-semibold;
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    span {
+      font-family: $first-font;
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  a.super-puper-button {
+    margin-top: 24px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    color: $font-color-white;
+    background: $primary-color;
+    border-radius: 6px;
+    border: 2px solid $primary-color;
+    padding: 13px 32px;
+    
+    &:hover{
+      color: $primary-color;
+      border: 2px solid $primary-color;
+      background: $background-color-white;
+    }
+  }
+}

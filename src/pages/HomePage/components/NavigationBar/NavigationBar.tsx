@@ -15,7 +15,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
   return (
     <div className="navigation-bar">
       <div className="navigation-bar-content">
-        <a href="#promo" className="navigation-bar-item">
+        <a href="#promo" className="navigation-bar-item desktop-only">
           <div className="icon">
             <PromoIcon />
           </div>

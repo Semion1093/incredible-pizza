@@ -23,7 +23,8 @@
 		gap: 8px;
 		
 		.error-text {
-			color: $primary-color;
+			color: $accent-color;
+			text-align: left;
 		}
 		
 		&.street {

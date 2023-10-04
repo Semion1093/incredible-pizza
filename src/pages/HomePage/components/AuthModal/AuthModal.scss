@@ -1,0 +1,72 @@
+@import '../../../../variables';
+.modal-wrapper {
+  &.auth-modal {
+    padding: 30px 80px;
+    .content {
+      &.authentication {
+        &.auth-modal {
+          max-width: 700px;
+          h1 {
+            position: relative;
+            font-family: $second-font-semibold;
+            font-size: 20px;
+            line-height: 20px;
+            text-align: center;
+          }
+          .no-background-border {
+            &.icon {
+              position: absolute;
+              right: 25px;
+            }
+          }
+          button{
+            border: 0;
+          }
+        }
+      }
+      &.authentication-modal {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+
+        .symmetry {
+          margin-top: 10px;
+          width: 250px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .modal-wrapper {
+    &.auth-modal {
+      padding: 20px 30px;
+      .content {
+        &.authentication {
+          &.auth-modal {
+            h1 {
+              width: 350px;
+              font-size: 15px;
+              line-height: 20px;
+            }
+          }
+        }
+        &.authentication-modal {
+          gap: 10px;
+          .symmetry {
+            margin-top: 15px;
+            width: 150px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

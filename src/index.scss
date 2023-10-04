@@ -31,10 +31,11 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  transition: all .25s ease-in-out;
+  transition: all 0.25s ease-in-out;
   text-decoration: none;
   color: $font-color-black;
   font-family: $second-font;
+  scroll-behavior: smooth;
 }
 
 #root {
@@ -154,7 +155,7 @@ button {
   display: flex;
   border-radius: 6px;
   background-color: $background-color-white;
-  width: 350px;
+  // max-width: 350px;
   height: 48px;
 }
 
@@ -186,6 +187,7 @@ button {
   background-color: $primary-color;
   color: $font-color-white;
   height: 48px;
+  // max-width: 175px;
 }
 
 .modal {
@@ -199,8 +201,11 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 3;
   transition: 0.5s;
+  &#cart {
+    z-index: 2;
+  }
 
   .modal-panel {
     position: fixed;
@@ -225,40 +230,91 @@ button {
   .modal-wrapper {
     border-radius: 24px;
     background: $background-color-grey;
-    padding: 60px 265px;
+    padding: 30px 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
 
+    &.fixed-width{
+      width: 700px;
+    }
+
     .no-background-border {
       &.icon {
         position: absolute;
-        top: 0px;
-        left: 900px;
+        top: -40px;
+        right: -80px;
+        &.comeback{
+          position: absolute;
+          right: 700px;
+          &:hover {
+            svg * {
+              width: 80px;
+              height: 80px;
+            }
+          }
+        }
       }
     }
   }
 }
 
 .no-background-border {
-  cursor: pointer;
-  background: 0;
-  border: 0;
-
-  &:hover {
+  &.icon {
+    cursor: pointer;
     background: 0;
     border: 0;
-    svg * {
-      fill: $primary-color;
+    fill: $border-color-grey;
+
+    &:hover {
+      background: 0;
+      border: 0;
+      svg * {
+        fill: $primary-color;
+      }
     }
   }
 }
 
 @media (max-width: 850px) {
-	.desktop-only {
-		display: none !important;
-	}
+  .desktop-only {
+    display: none !important;
+  }
+  .modal {
+    .modal-wrapper {
+      .content{
+        &.authentication {
+          .input-content {
+            span {
+              font-size: 9px;
+            }
+          }
+        }
+      }
+      .no-background-border {
+        &.icon {
+          top: 10px;
+          right: 10px;
+          background: 0;
+          border: 0;
+          padding: 0;
+          margin: 0;
+          width: 20px;
+          height: 20px;
+          svg * {
+            fill: $border-color-dark-grey;
+          }
+          &.comeback{
+            width: 40px;
+            height: 40px;
+            right:350px;
+            top: 0px;
+          }
+        }
+      }
+    }
+  }
 
   .radio-group {
     padding: 12px 0 0 20px;
@@ -266,8 +322,18 @@ button {
     align-items: flex-start;
     gap: 0;
   }
-  
+
   h3 {
     padding: 20px 0 0 20px;
+  }
+
+  .modal {
+    .modal-panel {
+      width: 390px;
+    }
+    .modal-wrapper {
+      width: 360px;
+      padding: 10px 20px;
+    }
   }
 }

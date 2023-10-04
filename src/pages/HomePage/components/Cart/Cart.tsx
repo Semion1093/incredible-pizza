@@ -1,13 +1,16 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import './Cart.scss';
-import { CartItem } from './components/CartItem/CartItem';
+import { CartItem } from '../CartItem/CartItem';
+import { CrossSvg } from '../../../../components/Cross/CrossSvg';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
-import { selectCartItems } from './cartSlice';
-import { useSelector } from 'react-redux';
+import { openAuthModal } from '../AuthModal/authModalSlice';
+import { selectCartItems, selectCartItemsSum } from './cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { useState } from 'react';
-import pepperoni from './assets/pepperoni-rustic.png';
 
 interface CartProps {
   isCartActive: boolean;
@@ -15,22 +18,40 @@ interface CartProps {
 }
 export const Cart = (props: CartProps) => {
   const items = useSelector(selectCartItems);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const totalSum = useSelector(selectCartItemsSum);
+  const handleClick = () => {
+    if (localStorage.getItem('token')) {
+      navigate('/order');
+    } else {
+      dispatch(openAuthModal());
+    }
+  };
+
   return (
     <>
       {props.isCartActive ? (
-        <div className="modal" onClick={() => props.setIsActive(false)}>
+        <div className="modal" id="cart" onClick={() => props.setIsActive(false)}>
           <article className="modal-panel" onClick={(e) => e.stopPropagation()}>
             <div className="cart">
-              <h2>Ваш заказ</h2>
+              <div className="cart-header">
+                <h2>Ваш заказ</h2>
+                <button className="cart-exit" onClick={() => props.setIsActive(false)}>
+                  <CrossSvg />
+                </button>
+              </div>
               {items.map((item) => (
-                <CartItem key={new Date().toISOString()} title={item.title} description={item.description} img={''} cost={item.price.toString()} />
+                <CartItem item={item} />
               ))}
             </div>
             <div className="cart-result">
               <Delimiter />
               <div className="cart-result-content">
-                <span>Итого: 1 399 ₽</span>
-                <button>Оформить заказ</button>
+                <span>
+                  Итого: {totalSum.toLocaleString('fr-FR')}{' '}₽
+                </span>
+                <button onClick={handleClick}>Оформить заказ</button>
               </div>
             </div>
           </article>

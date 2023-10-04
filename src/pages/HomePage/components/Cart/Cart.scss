@@ -1,10 +1,30 @@
 @import '../../../../variables';
 
 .cart {
-  padding: 32px 20px 60px;
-  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+  overflow-y: scroll;
+  padding-bottom: 72px;
+
+  .cart-header {
+    display: flex;
+    justify-content: space-between;
+    width: 380px;
+    align-items: center;
+    padding: 32px 20px 20px 20px;
+
+    .cart-exit {
+      padding: 0;
+      border: 0;
+      background-color: transparent;
+    }
+  }
 
   h2 {
+    margin: 0;
     font-size: 32px;
     line-height: 40px;
   }
@@ -13,6 +33,7 @@
     text-align: left;
   }
 }
+
 .modal-panel {
   .cart-result {
     background: $background-color-white;
@@ -33,8 +54,6 @@
       font-family: $second-font;
       color: $primary-color;
       font-size: 20px;
-      font-style: normal;
-      font-weight: 600;
       line-height: 28px;
     }
   }
@@ -47,5 +66,18 @@
     color: $background-color-white;
     font-size: 16px;
     line-height: 22px;
+  }
+}
+
+@media (max-width: 850px) {
+  .modal-panel {
+    .cart-result-content {
+      width: 390px;
+
+      span {
+        font-size: 18px;
+        line-height: 20px;
+      }
+    }
   }
 }

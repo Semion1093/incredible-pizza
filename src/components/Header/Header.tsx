@@ -1,31 +1,26 @@
 import './Header.scss';
 import { Authorize } from '../Authorize/Authorize';
-import { HeaderArrowDownSvg } from './assets/HeaderArrowDownSvg';
-import { HeaderLocationIconSvg } from './assets/HeaderLocationIconSvg';
+import { NavigationLinksPizzaIconSvg } from '../NavigationLinks/assets/NavigationLinksPizzaIconSvg';
+import { NavigationLinksTextSvg } from '../NavigationLinks/assets/NavigationLinksText';
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 
 export const Header = () => {
+  const navigate = useNavigate();
   return (
-    <div id="header">
-      <header>
+    <header>
+      <div className="header-container">
         <div className="left-part">
-          <div className="location">
-            <HeaderLocationIconSvg />
-            <button>
-              <span>Москва</span>
-              <HeaderArrowDownSvg />
-            </button>
-          </div>
-          <span className="desktop-only">Проверить адрес</span>
-          <span>
-            Среднее время доставки*: <b>00:24:19</b>
-          </span>
+          <button onClick={() => navigate('/')}>
+            <NavigationLinksPizzaIconSvg />
+            <NavigationLinksTextSvg />
+          </button>
         </div>
-        <div className="right-part desktop-only">
-          <span>Время работы: с 11:00 до 23:00</span>
+        <div className="right-part">
+          <span className="desktop-only">Время работы: с 11:00 до 23:00</span>
           <Authorize />
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 };

@@ -1,5 +1,9 @@
 @import '../../variables';
 
+.input-name {
+  color: $font-color-grey;
+}
+
 input {
   border-radius: 6px;
   border: 1px solid $border-color-grey;
@@ -13,6 +17,7 @@ input[type=text] {
   font-size: 14px;
   line-height: 18px;
   width: 100%;
+  margin: 0;
 }
 
 input::placeholder {

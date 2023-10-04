@@ -10,8 +10,6 @@
     font-family: $second-font;
     color: $primary-color;
     font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
     line-height: 28px;
   }
 }
@@ -34,5 +32,14 @@ button {
   .order-result {
     padding: 13px 20px 12px 20px;
     background-color: $background-color-white;
+
+    span {
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    button {
+      padding: 5px 10px;
+    }
   }
 }
