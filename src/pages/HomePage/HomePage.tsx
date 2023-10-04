@@ -3,33 +3,15 @@ import { Cart } from './components/Cart/Cart';
 import { Delimiter } from '../../components/Delimiter/Delimiter';
 import { NavigationBar } from './components/NavigationBar/NavigationBar';
 import { NavigationLinks } from '../../components/NavigationLinks/NavigationLinks';
-import {
-  PizzaProps,
-  PizzaSettings,
-  toppingBacon,
-  toppingChampignons,
-  toppingCucumber,
-  toppingMozzarella,
-  toppingPepperoni,
-  toppingRedOnion,
-  toppingSweetPepper,
-} from './components/PizzaSettings/PizzaSettings';
+import { PizzaSettings } from './components/PizzaSettings/PizzaSettings';
 import { ProductSection } from './components/ProductSection/ProductSection';
 import { SalesSection } from '../HomePage/components/SalesSection/SalesSection';
 import { SignIn } from './components/AuthModal/SignInSignUp/SignIn';
 import { SignInOrSignUpModal } from './components/AuthModal/AuthModal';
 import { SignUp } from './components/AuthModal/SignInSignUp/SignUp';
-import PictureEasyPeasyChicken from './components/PizzaSettings/assets/EasyPeasyChicken.png';
 import React, { useState } from 'react';
 import { CodeEnter } from './components/AuthModal/SignInSignUp/CodeEnter';
 
-const EasyPeasyChicken: PizzaProps = {
-  id: 2,
-  name: 'EasyPeasyChicken',
-  price: 500,
-  picture: PictureEasyPeasyChicken,
-  defaultToppings: [toppingBacon, toppingCucumber, toppingPepperoni, toppingSweetPepper],
-};
 export const HomePage = () => {
   const [isCartActive, setIsCartActive] = useState<boolean>(false);
   return (
@@ -50,7 +32,7 @@ export const HomePage = () => {
       <ProductSection type="dessert" typeName="Десерты" />
       <ProductSection type="sauce" typeName="Соусы" />
       <Cart isCartActive={isCartActive} setIsActive={setIsCartActive} />
-      <PizzaSettings {...EasyPeasyChicken} />
+      <PizzaSettings />
     </>
   );
 };

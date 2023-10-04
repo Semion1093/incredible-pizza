@@ -1,3 +1,4 @@
+import { CustomPizza } from '../PizzaSettings/pizzaSettingsSlice';
 import { PayloadAction, createSlice, current } from '@reduxjs/toolkit';
 import { Product } from '../../../../models/Product';
 import { RootState } from '../../../../store/store';
@@ -40,6 +41,7 @@ const cartPageSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<ProductInCart>) => {
+      //debugger;
       if (isNaN(action.payload.count)) action.payload.count = 1;
       if (state.items.find((item) => item._id === action.payload._id)) increaseQuantity(state.items, action.payload._id);
       else state.items.push(action.payload);

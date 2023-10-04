@@ -12,17 +12,17 @@ import { ReactComponent as TomatoSauce } from './PizzaComponents/assets/TomatoSa
 import React from 'react';
 
 export enum Topping {
-  Mozzarella = 'Mozzarella',
-  Cucumber = 'Cucumber',
-  Pepperoni = 'Pepperoni',
-  TomatoSauce = 'TomatoSauce',
-  Champignons = 'Champignons',
-  RedOnion = 'RedOnion',
-  Bacon = 'Bacon',
-  SweetPepper = 'SweetPepper',
-  Cheddar = 'Cheddar',
-  Jalapeno = 'Jalapeno',
-  Olives = 'Olives',
+  Mozzarella = 'Моцарелла',
+  Cucumber = 'Огурцы маринованные',
+  Pepperoni = 'Пепперони',
+  TomatoSauce = 'Томатный соус',
+  Champignons = 'Шампиньоны',
+  RedOnion = 'Красный лук',
+  Bacon = 'Бекон',
+  SweetPepper = 'Сладкий перец',
+  Cheddar = 'Чеддер',
+  Jalapeno = 'Халапеньо',
+  Olives = 'Оливки',
 }
 
 interface ToppingIconProps {
