@@ -1,5 +1,4 @@
 .delivery {
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,9 +14,5 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-  }
-
-  .switch-button {
-    margin: 0 20px 0 20px;
   }
 }

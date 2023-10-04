@@ -3,9 +3,11 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import './PizzaSettings.scss';
 import { CustomPizza, closePizzaSettings, pizzaCustomSettings, pizzaSettingsModalInfo } from './pizzaSettingsSlice';
+import { ReactComponent as Exit } from '../../../../assets/Exit.svg';
 import { ReactComponent as Info } from './assets/Info.svg';
 import { Options, SwitchSelector } from '../../../../components/SwitchSelector/SwitchSelector';
 import { PizzaComponents, ToppingProps } from './PizzaComponents/PizzaComponents';
+import { ProductInCart, addToCart } from '../Cart/cartSlice';
 import { ReactComponent as Top } from './assets/Top.svg';
 import { Topping } from './ToppingIcon';
 import { useDispatch, useSelector } from 'react-redux';
@@ -107,7 +109,7 @@ export const PizzaSettings = () => {
           <article className="modal-wrapper separated" onClick={(e) => e.stopPropagation()}>
             <div className="left-side">
               <ProductLabel labelText={pizzaSettings.customPizza.labelText} />
-              <img src={pizzaSettings.customPizza.img} alt="" className="pizza-img" />
+              <img src={pizzaSettings.customPizza.img} alt="" className="pizza-img desktop-only" />
             </div>
             <div className="right-side">
               <div className="title">
@@ -115,12 +117,15 @@ export const PizzaSettings = () => {
                   <Top />
                   <p>{pizzaSettings.customPizza.title}</p>
                 </div>
-                <details className="button-info">
+                <details className="button-info desktop-only">
                   <summary>
                     <Info />
                   </summary>
                   <span>Вы можете выбрать тесто для пиццы, её размер и добавить любимые ингридиенты за дополнительную плату</span>
                 </details>
+                <button className="no-background-border icon mobile-only">
+                  <Exit />
+                </button>
               </div>
               <div className="content pizza-settings in-additional">
                 <p>{pizzaSettings.customPizza.description}</p>
