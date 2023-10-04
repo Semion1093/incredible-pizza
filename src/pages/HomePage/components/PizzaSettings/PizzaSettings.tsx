@@ -2,14 +2,15 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import './PizzaSettings.scss';
+import { CustomPizza, closePizzaSettings, pizzaCustomSettings, pizzaSettingsModalInfo } from './pizzaSettingsSlice';
 import { ReactComponent as Info } from './assets/Info.svg';
 import { Options, SwitchSelector } from '../../../../components/SwitchSelector/SwitchSelector';
 import { PizzaComponents, ToppingProps } from './PizzaComponents/PizzaComponents';
 import { ReactComponent as Top } from './assets/Top.svg';
 import { Topping } from './ToppingIcon';
-import { CustomPizza, closePizzaSettings, pizzaCustomSettings, pizzaSettingsModalInfo } from './pizzaSettingsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState } from 'react';
+import { ProductInCart, addToCart } from '../Cart/cartSlice';
 
 export interface modalProps {
   state: boolean;
@@ -81,10 +82,10 @@ const toppingOlives: ToppingProps = {
   price: 110,
 };
 
-const additionalToppings: ToppingProps[] = [toppingTomatoSauce, toppingCheddar, toppingJalapeno, toppingOlives];
+const additionalToppings: ToppingProps[] = [toppingRedOnion, toppingCheddar, toppingJalapeno, toppingOlives];
 
 const dough: Options[] = [
-  { value: 'traditional', label: 'Традиционное', rate: 1.05 },
+  { value: 'traditional', label: 'Традиционное', rate: 1 },
   { value: 'thin', label: 'Тонкое', rate: 1 },
 ];
 
@@ -95,48 +96,42 @@ const size: Options[] = [
 ];
 
 export const PizzaSettings = () => {
-  const customPizza = useSelector(pizzaCustomSettings);
+  const pizzaSettings = useSelector(pizzaCustomSettings);
   const dispatch = useDispatch();
-  const pizzaSettingsModalActive = useSelector(pizzaSettingsModalInfo);
 
   return (
     <>
-      {pizzaSettingsModalActive && (
+      {pizzaSettings.isActive && pizzaSettings.customPizza && (
         <div className="modal" onClick={() => dispatch(closePizzaSettings())}>
           <article className="modal-wrapper separated" onClick={(e) => e.stopPropagation()}>
             <div className="left-side">
               <div className="state-icon">
-                <p>NEW</p>
+                <p>{pizzaSettings.customPizza.labelText}</p>
               </div>
-              <img src={customPizza.img} alt="" className="pizza-img" />
+              <img src={pizzaSettings.customPizza.img} alt="" className="pizza-img" />
             </div>
             <div className="right-side">
               <div className="title">
                 <div className="content pizza-settings">
                   <Top />
-                  <p>{customPizza.title}</p>
+                  <p>{pizzaSettings.customPizza.title}</p>
                 </div>
                 <details className="button-info">
                   <summary>
                     <Info />
                   </summary>
-                  <span>
-                    В конструкторе пиццы вы можете исключить ингридиенты, которые идут в базовой конфигурации и добавить за дополнительную плату
-                    топпинги
-                  </span>
+                  <span>Вы можете выбрать любимые ингридиенты и добавить их за дополнительную плату</span>
                 </details>
               </div>
-              <div className="components-section in-base">
-                {additionalToppings.map((item) => (
-                  <>
-                    <PizzaComponents key={`id-${item.id}`} name={item.name} price={item.price} />
-                  </>
-                ))}
+              <div className="content pizza-settings in-additional">
+                <p>{pizzaSettings.customPizza.description}</p>
               </div>
               <div className="base-section">
+                <p>Выберите тесто:</p>
                 <div className="dough-wrapper">
                   <SwitchSelector {...dough} />
                 </div>
+                <p>Выберите размер:</p>
                 <div className="size-wrapper">
                   <SwitchSelector {...size} />
                 </div>
@@ -153,10 +148,18 @@ export const PizzaSettings = () => {
               </div>
               <div className="results-wrapper">
                 <div className="result">
-                  <span className="price">Итого: {customPizza.price * customPizza.size[0].rate} ₽</span>
+                  <span className="price">
+                    Итого:{' '}
+                    {pizzaSettings.customPizza.size
+                      ? pizzaSettings.customPizza.price * pizzaSettings.customPizza.size.rate
+                      : pizzaSettings.customPizza.price}{' '}
+                    ₽
+                  </span>
                   <span className="masse">720 г</span>
                 </div>
-                <button className="finish">Добавить</button>
+                <button className="finish" onClick={() => dispatch(addToCart(pizzaSettings.customPizza as ProductInCart))}>
+                  Добавить
+                </button>
               </div>
             </div>
           </article>
