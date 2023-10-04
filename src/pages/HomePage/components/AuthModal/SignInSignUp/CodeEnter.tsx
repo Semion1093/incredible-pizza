@@ -1,12 +1,14 @@
 import './CodeEnter.scss';
+import { ReactComponent as ArrowSm } from '../../../../../assets/ArrowSm.svg';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { ReactComponent as Exit } from '../../../../../assets/Exit.svg';
+import { batch, useDispatch, useSelector } from 'react-redux';
 import { closeCodeEnter, codeEnterlInfo } from './codeEnterSlice';
+import { openSignUp } from './signUpSlice';
 import { selectTryOfUser } from '../../../../../store/tryUserSlice';
-import { useDispatch, useSelector } from 'react-redux';
 
 export const CodeEnter = () => {
-  const [counting, setCount] = useState(60);
+  const [counting, setCount] = useState(6);
   const [isCounting, setIsCounting] = useState<boolean>(true);
   const [pin, setPin] = useState<string>('');
   const [pinMask, setPinMask] = useState<string>('');
@@ -16,7 +18,7 @@ export const CodeEnter = () => {
   const isFilled = pin.length === inputRefs.length;
 
   const handleRestart = () => {
-    setCount(60);
+    setCount(6);
     setIsCounting(true);
   };
 
@@ -82,6 +84,13 @@ export const CodeEnter = () => {
       clearInterval(timer);
     };
   }, [counting, isCounting]);
+
+  const onSubmitComeback = () => {
+    batch(() => {
+      dispatch(closeCodeEnter());
+      dispatch(openSignUp());
+    });
+  };
   return (
     <>
       {codeEnterActive && (
@@ -130,6 +139,9 @@ export const CodeEnter = () => {
             </div>
             <button className="no-background-border icon desktop-only" onClick={() => dispatch(closeCodeEnter())}>
               <Exit />
+            </button>
+            <button className="no-background-border icon comeback desktop-only" onClick={() => onSubmitComeback()}>
+              <ArrowSm />
             </button>
           </div>
         </div>

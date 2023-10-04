@@ -15,7 +15,7 @@ export const SignInOrSignUpModal = () => {
       dispatch(closeAuthModal());
     });
   };
-  const onSubmitopenSignIn = () => {
+  const onSubmitOpenSignIn = () => {
     batch(() => {
       dispatch(openSignIn());
       dispatch(closeAuthModal());
@@ -36,7 +36,7 @@ export const SignInOrSignUpModal = () => {
                 <button className="symmetry" onClick={() => onSubmitOpenSignUp()}>
                   Зарегистрироваться
                 </button>
-                <button className="symmetry" onClick={() => onSubmitopenSignIn()}>
+                <button className="symmetry" onClick={() => onSubmitOpenSignIn()}>
                   Войти
                 </button>
               </div>
