@@ -1,11 +1,18 @@
 @import '../../../../variables';
 
+section:nth-last-of-type(1)
+{
+  margin-bottom: 32px;
+}
+
 .product-section {
   width: 1290px;
   margin: 0 auto;
   padding-top: 80px;
   padding-bottom: 18px;
+
 }
+
 
 h2 {
   color: $font-color-black;

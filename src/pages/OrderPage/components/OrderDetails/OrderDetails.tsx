@@ -7,7 +7,7 @@ import { OrderResult } from '../OrderResult/OrderResult';
 import { Payment } from '../Payment/Payment';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { orderSchema } from './OrderSchema';
-import { selectCartItems } from '../../../HomePage/components/ProductCard/productCartSlice';
+import { selectCartItems } from '../../../HomePage/components/Cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';

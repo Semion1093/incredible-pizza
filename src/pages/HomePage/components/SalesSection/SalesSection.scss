@@ -26,10 +26,14 @@
     figcaption {
       position: relative;
       padding: 20px;
-      max-width: 230px;
+      max-width: 300px;
       color: $font-color-white;
       font-size: 20px;
       line-height: 28px;
+
+      b {
+        color: $font-color-white;
+      }
     }
   }
 }

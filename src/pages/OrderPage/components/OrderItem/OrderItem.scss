@@ -11,6 +11,9 @@
     padding: 16px;
     margin: 0 auto;
     width: 100%;
+    max-height: 250px;
+    overflow: hidden;
+    transition: none;
 
     img {
       justify-self: center;
@@ -49,6 +52,16 @@
     }
   }
 
+  .order-item-wrapper.deleted {
+    min-height: 0;
+    max-height: 0;
+    margin: -5px auto;
+    padding: 0;
+    border: 0;
+    opacity: 0;
+    transition: all .9s ease-in-out;
+  }
+
   @media (min-width: 851px) {
     max-width: 850px;
     margin: 0 auto;
@@ -84,6 +97,10 @@
           justify-content: flex-end;
         }
       }
+    }
+
+    .order-item-wrapper.deleted {
+      margin: -8px auto;
     }
   }
 

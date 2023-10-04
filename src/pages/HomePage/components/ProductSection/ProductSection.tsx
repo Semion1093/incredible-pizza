@@ -22,11 +22,11 @@ export const ProductSection = (props: ProductSectionProps) => {
   }, [props.type]);
 
   return (
-    <div className="product-section" id={props.type}>
+    <section className="product-section" id={props.type}>
       <h2>{props.typeName}</h2>
       <div className="product-section-content">
         {products && products.map((product) => <ProductCard product={product} />)}
       </div>
-    </div>
+    </section>
   );
 };

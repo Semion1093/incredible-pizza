@@ -3,6 +3,7 @@
 .cart-item {
   display: grid;
   grid-template-columns: 94px 232px;
+  max-height: 240px;
   justify-content: flex-start;
   gap: 16px;
   align-items: center;
@@ -12,6 +13,8 @@
   padding: 16px;
   margin: 0 auto;
   margin-bottom: 20px;
+  overflow: hidden;
+  transition: none;
 
   img {
     justify-self: center;
@@ -63,6 +66,16 @@
       padding-right: 10px;
     }
   }
+}
+
+.cart-item.deleted {
+  min-height: 0;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  transition: all .9s ease-in-out;
 }
 
 @media (max-width: 850px){

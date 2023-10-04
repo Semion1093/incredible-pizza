@@ -67,7 +67,7 @@ export const Footer = () => {
             </div>
           </div>
           <div className="grid-item">
-            <span>© Copyright 2021 — Куда Пицца</span>
+            <span>© Copyright 2023 — Куда Пицца</span>
           </div>
           <div className="grid-item"></div>
           <div className="grid-item">
@@ -131,7 +131,7 @@ export const Footer = () => {
           </div>
           <Delimiter />
           <div className="grid-item">
-            <span>© Copyright 2021 — Куда Пицца</span>
+            <span>© Copyright 2023 — Куда Пицца</span>
           </div>
         </div>
       </footer>

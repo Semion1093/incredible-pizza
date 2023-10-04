@@ -1,7 +1,7 @@
 import './OrderItems.scss';
 import { Delimiter } from '../../../../components/Delimiter/Delimiter';
 import { OrderItem } from '../OrderItem/OrderItem';
-import { selectCartItems } from '../../../HomePage/components/ProductCard/productCartSlice';
+import { selectCartItems } from '../../../HomePage/components/Cart/cartSlice';
 import { useSelector } from 'react-redux';
 import React from 'react';
 
@@ -13,7 +13,7 @@ export const OrderItems = () => {
         <h2>Ваш заказ</h2>
         <div className="order-products">
           {products.map((item) => (
-            <OrderItem id={item._id} img={item.img} title={item.title} description={item.description} price={item.price} />
+            <OrderItem item={item} />
           ))}
         </div>
         <Delimiter />
